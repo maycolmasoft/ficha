@@ -252,6 +252,27 @@ class EntidadBase{
     	}
     }
     
+    public function eliminarBy($column,$value){
+        
+        $cantidadAfectada = null;
+        
+        try{
+            
+            $query=pg_query($this->con,"DELETE FROM $this->table WHERE $column='$value' ");
+            
+            if( $query === false )
+                throw new Exception( "Error PostgreSQL ".pg_last_error() );
+                
+                $cantidadAfectada = pg_affected_rows($query);
+                
+        }catch (Exception $Ex){
+            
+            $cantidadAfectada=null;
+        }
+        
+        
+        return $cantidadAfectada;
+    }
     
     
     public function getByPDF($columnas, $tabla , $where){
