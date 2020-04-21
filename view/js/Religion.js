@@ -9,7 +9,7 @@ $("#frm_religion").on("submit",function(event){
 	var parametros = {rel_nombre:_rel_nombre,rel_id:_rel_id}
 	
 	if(_rel_nombre == ""){
-		$("#mensaje_rel_nombre").text("Ingrese un Nombre").fadeIn("Slow");
+		$("#mensaje_nombre_religion").text("Ingrese un Nombre").fadeIn("Slow");
 		return false;
 	}
 	

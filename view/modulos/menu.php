@@ -45,6 +45,8 @@ $controladores=$_SESSION['controladores'];
             <li style="<?php echo getcontrolador("PermisosRoles",$controladores) ?>"><a href="index.php?controller=PermisosRoles&action=index"><i class="fa fa-circle-o"></i> Permisos Roles</a></li>
             <li style="<?php echo getcontrolador("Religion",$controladores) ?>"><a href="index.php?controller=Religion&action=index"><i class="fa fa-circle-o"></i> Religion</a></li>
             <li style="<?php echo getcontrolador("OrientacionSexual",$controladores) ?>"><a href="index.php?controller=OrientacionSexual&action=index"><i class="fa fa-circle-o"></i> Orientacion Sexual</a></li>
+            <li style="<?php echo getcontrolador("Sexo",$controladores) ?>"><a href="index.php?controller=Sexo&action=index"><i class="fa fa-circle-o"></i> Sexo</a></li>
+            <li style="<?php echo getcontrolador("Empresa",$controladores) ?>"><a href="index.php?controller=Empresa&action=index"><i class="fa fa-circle-o"></i> Empresa</a></li>
       
          </ul>
        </li>

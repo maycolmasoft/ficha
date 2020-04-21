@@ -1,21 +1,21 @@
 $(document).ready(function(){
-	consultaOrientacionSexual();
+	consultaSexo();
 })
 
-$("#frm_orientacion_sexual").on("submit",function(event){
+$("#frm_sexo").on("submit",function(event){
 	
-	let _ori_nombre = document.getElementById('ori_nombre').value;
-	var _ori_id = document.getElementById('ori_id').value;
-	var parametros = {ori_nombre:_ori_nombre,ori_id:_ori_id}
+	let _sex_nombre = document.getElementById('sex_nombre').value;
+	var _sex_id = document.getElementById('sex_id').value;
+	var parametros = {sex_nombre:_sex_nombre,sex_id:_sex_id}
 	
-	if(_ori_nombre == ""){
-		$("#mensaje_nombre_orientacion_sexual").text("Ingrese un Nombre").fadeIn("Slow");
+	if(_sex_nombre == ""){
+		$("#mensaje_nombre_sexo").text("Ingrese un Nombre").fadeIn("Slow");
 		return false;
 	}
 	
 	$.ajax({
 		beforeSend:function(){},
-		url:"index.php?controller=OrientacionSexual&action=InsertaOrientacionSexual",
+		url:"index.php?controller=Sexo&action=InsertaSexo",
 		type:"POST",
 		dataType:"json",
 		data:parametros
@@ -23,7 +23,7 @@ $("#frm_orientacion_sexual").on("submit",function(event){
 		
 		
 	swal({
-  		  title: "Orientacion Sexual",
+  		  title: "Sexo",
   		  text: datos.mensaje,
   		  icon: "success",
   		  button: "Aceptar",
@@ -37,32 +37,32 @@ $("#frm_orientacion_sexual").on("submit",function(event){
 		console.log(err);
 		
 	}).always(function(){
-		$("#ori_id").val(0);
-		document.getElementById("frm_orientacion_sexual").reset();	
-		consultaOrientacionSexual();
+		$("#sex_id").val(0);
+		document.getElementById("frm_sexo").reset();	
+		consultaSexo();
 	})
 
 	event.preventDefault()
 })
 
-function editOrientacionSexual(id = 0){
+function editSexo(id = 0){
 	
 	var tiempo = tiempo || 1000;
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=editOrientacionSexual",
+		url:"index.php?controller=Sexo&action=editSexo",
 		type:"POST",
 		dataType:"json",
-		data:{ori_id:id}
+		data:{sex_id:id}
 	}).done(function(datos){
 		
 		if(!jQuery.isEmptyObject(datos.data)){
 			
 			var array = datos.data[0];		
-			$("#ori_nombre").val(array.ori_nombre);			
-			$("#ori_id").val(array.ori_id);
-			$("html, body").animate({ scrollTop: $(ori_nombre).offset().top-120 }, tiempo);			
+			$("#sex_nombre").val(array.sex_nombre);			
+			$("#sex_id").val(array.sex_id);
+			$("html, body").animate({ scrollTop: $(sex_nombre).offset().top-120 }, tiempo);			
 		}
 		
 		
@@ -74,28 +74,28 @@ function editOrientacionSexual(id = 0){
 	}).always(function(){
 		
 		$("#divLoaderPage").removeClass("loader")
-		consultaOrientacionSexual();
+		consultaSexo();
 	})
 	
 	return false;
 	
 }
 
-function delOrientacionSexual(id){
+function delSexo(id){
 	
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=delOrientacionSexual",
+		url:"index.php?controller=Sexo&action=delSexo",
 		type:"POST",
 		dataType:"json",
-		data:{ori_id:id}
+		data:{sex_id:id}
 	}).done(function(datos){		
 		
 		if(datos.data > 0){
 			
 			swal({
-		  		  title: "Orientacion Sexual",
+		  		  title: "Sexo",
 		  		  text: "Registro Eliminado",
 		  		  icon: "success",
 		  		  button: "Aceptar",
@@ -112,23 +112,23 @@ function delOrientacionSexual(id){
 	}).always(function(){
 		
 		$("#divLoaderPage").removeClass("loader")
-		consultaOrientacionSexual();
+		consultaSexo();
 	})
 	
 	return false;
 }
 
-function consultaOrientacionSexual(_page = 1){
+function consultaSexo(_page = 1){
 	
 	var buscador = $("#buscador").val();
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=consultaOrientacionSexual",
+		url:"index.php?controller=Sexo&action=consultaSexo",
 		type:"POST",
 		data:{page:_page,search:buscador,peticion:'ajax'}
 	}).done(function(datos){		
 		
-		$("#orientacion_sexual_registrados").html(datos)		
+		$("#sexo_registrados").html(datos)		
 		
 	}).fail(function(xhr,status,error){
 		
