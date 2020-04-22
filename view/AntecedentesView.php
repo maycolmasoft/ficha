@@ -80,12 +80,8 @@
         
                   
   		<div class="box-body">
-
 			<form id="frm_antecedentes" action="<?php echo $helper->url("Antecedentes","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
-             
-							    
-							    
-		    	 <div class="row">
+           	 <div class="row">
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		    					  
@@ -94,13 +90,10 @@
                           <input type="hidden" name="ante_id" id="ante_id" value="0" />
                           <div id="mensaje_nombre_antecedentes" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
-                                              
                         </div>
             		  </div>
-            		  
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-            		    					  
                           <label for="sex_id" class="control-label">Sexo:</label>
                           <select  class="form-control" id="sex_id" name="sex_id" required>
                           	<option value="0">--Seleccione--</option>
@@ -108,21 +101,16 @@
                           <div id="mensaje_id_sexo" class="errores"></div>
                         </div>
             		  </div>
-         		    
           	   	</div>	
-							          		        
            		<div class="row">
     			    <div class="col-xs-12 col-md-4 col-lg-4 " style="text-align: center; ">
         	   		    <div class="form-group">
     	                  <button type="submit" id="Guardar" name="Guardar" class="btn btn-success">GUARDAR</button>
     	                  <a href="<?php echo $helper->url("Antecedentes","Index"); ?>" class="btn btn-danger">CANCELAR</a>
 	                    </div>
-	                    
         		    </div>        		    
     		    </div>
- 
            </form>
-                      
           </div>
     	</div>
     </section>
