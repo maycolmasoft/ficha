@@ -50,6 +50,7 @@ $controladores=$_SESSION['controladores'];
             <li style="<?php echo getcontrolador("Antecedentes",$controladores) ?>"><a href="index.php?controller=Antecedentes&action=index"><i class="fa fa-circle-o"></i> Antecedentes</a></li>
             <li style="<?php echo getcontrolador("AntecedentesFamiliares",$controladores) ?>"><a href="index.php?controller=AntecedentesFamiliares&action=index"><i class="fa fa-circle-o"></i> Antecedentes Familiares</a></li>
             <li style="<?php echo getcontrolador("HabitosToxicos",$controladores) ?>"><a href="index.php?controller=HabitosToxicos&action=index"><i class="fa fa-circle-o"></i> Habitos Toxicos</a></li>
+            <li style="<?php echo getcontrolador("Empleados",$controladores) ?>"><a href="index.php?controller=Empleados&action=index"><i class="fa fa-circle-o"></i> Empleados</a></li>
       
          </ul>
        </li>

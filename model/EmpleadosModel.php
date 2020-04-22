@@ -1,6 +1,5 @@
 <?php
 class EmpleadosModel extends ModeloBase{
-	
 	private $table;
 	private $where;
 	private $funcion;
@@ -34,27 +33,42 @@ class EmpleadosModel extends ModeloBase{
 		$this->parametros = $parametros;
 	}
 	
-	
-	
-	
+
+
 	public function __construct(){
-		$this->table="empleados";
-		
+		$this->table="ffsp_tbl_empleados";
+	
 		parent::__construct($this->table);
 	}
 	
-
-	public function Insert(){
-		
-		$query = "SELECT ".$this->funcion."(".$this->parametros.")";
-		
-		$resultado=$this->enviarFuncion($query);
-			
-			
-		return  $resultado;
-	}
-	
-	
-	
+    public function Insert(){
+    
+    	$query = "SELECT ".$this->funcion."(".$this->parametros.")";
+    
+    	$resultado=$this->enviarFuncion($query);
+    		
+    		
+    	return  $resultado;
+    }
+    
+    public function llamafuncion(){
+        
+        $query = "SELECT ".$this->funcion."(".$this->parametros.")";
+        $resultado = null;
+        
+        $resultado=$this->llamarconsulta($query);
+        
+        return  $resultado;
+    }
+    
+    public function llamafuncionPG(){
+        
+        $query = "SELECT ".$this->funcion."(".$this->parametros.")";
+        $resultado = null;
+        
+        $resultado=$this->llamarconsultaPG($query);
+        
+        return  $resultado;
+    }
 }
 ?>
