@@ -1,21 +1,31 @@
 $(document).ready(function(){
-	consultaOrientacionSexual();
+	consultaEmpresa();
 })
 
-$("#frm_orientacion_sexual").on("submit",function(event){
+$("#frm_empresa").on("submit",function(event){
 	
-	let _ori_nombre = document.getElementById('ori_nombre').value;
-	var _ori_id = document.getElementById('ori_id').value;
-	var parametros = {ori_nombre:_ori_nombre,ori_id:_ori_id}
+	let _emp_nombre = document.getElementById('emp_nombre').value;
+	let _emp_ruc = document.getElementById('emp_ruc').value;
+	let _emp_ciudad = document.getElementById('emp_ciudad').value;
+	var _emp_id = document.getElementById('emp_id').value;
+	var parametros = {emp_nombre:_emp_nombre,emp_ruc:_emp_ruc,emp_ciudad:_emp_ciudad,emp_id:_emp_id}
 	
-	if(_ori_nombre == ""){
-		$("#mensaje_nombre_orientacion_sexual").text("Ingrese un Nombre").fadeIn("Slow");
+	if(_emp_nombre == ""){
+		$("#mensaje_nombre_empresa").text("Ingrese un Nombre").fadeIn("Slow");
+		return false;
+	}
+	if(_emp_ruc == ""){
+		$("#mensaje_ruc_empresa").text("Ingrese un Ruc").fadeIn("Slow");
+		return false;
+	}
+	if(_emp_ciudad == ""){
+		$("#mensaje_ciudad_empresa").text("Ingrese una Ciudad").fadeIn("Slow");
 		return false;
 	}
 	
 	$.ajax({
 		beforeSend:function(){},
-		url:"index.php?controller=OrientacionSexual&action=InsertaOrientacionSexual",
+		url:"index.php?controller=Empresa&action=InsertaEmpresa",
 		type:"POST",
 		dataType:"json",
 		data:parametros
@@ -23,7 +33,7 @@ $("#frm_orientacion_sexual").on("submit",function(event){
 		
 		
 	swal({
-  		  title: "Orientacion Sexual",
+  		  title: "Empresa",
   		  text: datos.mensaje,
   		  icon: "success",
   		  button: "Aceptar",
@@ -37,32 +47,34 @@ $("#frm_orientacion_sexual").on("submit",function(event){
 		console.log(err);
 		
 	}).always(function(){
-		$("#ori_id").val(0);
-		document.getElementById("frm_orientacion_sexual").reset();	
-		consultaOrientacionSexual();
+		$("#emp_id").val(0);
+		document.getElementById("frm_empresa").reset();	
+		consultaEmpresa();
 	})
 
 	event.preventDefault()
 })
 
-function editOrientacionSexual(id = 0){
+function editEmpresa(id = 0){
 	
 	var tiempo = tiempo || 1000;
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=editOrientacionSexual",
+		url:"index.php?controller=Empresa&action=editEmpresa",
 		type:"POST",
 		dataType:"json",
-		data:{ori_id:id}
+		data:{emp_id:id}
 	}).done(function(datos){
 		
 		if(!jQuery.isEmptyObject(datos.data)){
 			
 			var array = datos.data[0];		
-			$("#ori_nombre").val(array.ori_nombre);			
-			$("#ori_id").val(array.ori_id);
-			$("html, body").animate({ scrollTop: $(ori_nombre).offset().top-120 }, tiempo);			
+			$("#emp_nombre").val(array.emp_nombre);			
+			$("#emp_ruc").val(array.emp_ruc);			
+			$("#emp_ciudad").val(array.emp_ciudad);			
+			$("#emp_id").val(array.emp_id);
+			$("html, body").animate({ scrollTop: $(emp_nombre).offset().top-120 }, tiempo);			
 		}
 		
 		
@@ -74,28 +86,28 @@ function editOrientacionSexual(id = 0){
 	}).always(function(){
 		
 		$("#divLoaderPage").removeClass("loader")
-		consultaOrientacionSexual();
+		consultaEmpresa();
 	})
 	
 	return false;
 	
 }
 
-function delOrientacionSexual(id){
+function delEmpresa(id){
 	
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=delOrientacionSexual",
+		url:"index.php?controller=Empresa&action=delEmpresa",
 		type:"POST",
 		dataType:"json",
-		data:{ori_id:id}
+		data:{emp_id:id}
 	}).done(function(datos){		
 		
 		if(datos.data > 0){
 			
 			swal({
-		  		  title: "Orientacion Sexual",
+		  		  title: "Empresa",
 		  		  text: "Registro Eliminado",
 		  		  icon: "success",
 		  		  button: "Aceptar",
@@ -112,23 +124,23 @@ function delOrientacionSexual(id){
 	}).always(function(){
 		
 		$("#divLoaderPage").removeClass("loader")
-		consultaOrientacionSexual();
+		consultaEmpresa();
 	})
 	
 	return false;
 }
 
-function consultaOrientacionSexual(_page = 1){
+function consultaEmpresa(_page = 1){
 	
 	var buscador = $("#buscador").val();
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-		url:"index.php?controller=OrientacionSexual&action=consultaOrientacionSexual",
+		url:"index.php?controller=Empresa&action=consultaEmpresa",
 		type:"POST",
 		data:{page:_page,search:buscador,peticion:'ajax'}
 	}).done(function(datos){		
 		
-		$("#orientacion_sexual_registrados").html(datos)		
+		$("#empresa_registrados").html(datos)		
 		
 	}).fail(function(xhr,status,error){
 		

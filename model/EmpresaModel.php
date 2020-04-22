@@ -1,5 +1,5 @@
 <?php
-class EmpleadosModel extends ModeloBase{
+class EmpresaModel extends ModeloBase{
 	private $table;
 	private $where;
 	private $funcion;
@@ -36,7 +36,7 @@ class EmpleadosModel extends ModeloBase{
 
 
 	public function __construct(){
-		$this->table="ffsp_tbl_empleados";
+		$this->table="ffsp_tbl_empresa";
 	
 		parent::__construct($this->table);
 	}
