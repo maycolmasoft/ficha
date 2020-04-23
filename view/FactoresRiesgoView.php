@@ -77,14 +77,14 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Examen Fisico Regional</li>
+        <li class="active">Factores Riesgo</li>
       </ol>
     </section>   
 
     <section class="content">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Examen Fisico Regional</h3>
+              <h3 class="box-title">Factores Riesgo</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -109,7 +109,7 @@
    		   <section class="content">
      <div class="box box-primary">
      <div class="box-header">
-          <h3 class="box-title">Registrar Examen</h3>
+          <h3 class="box-title">Registrar Factores Riesgo</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             
@@ -118,14 +118,14 @@
         
                   
   		<div class="box-body">
-			<form id="frm_examen_fisico_regional" action="<?php echo $helper->url("ExamenFisicoRegional","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
+			<form id="frm_factores_riesgo" action="<?php echo $helper->url("FactoresRiesgo","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
            	 <div class="row">
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-                          <label for="exa_nombre" class="control-label">Nombre Examen:</label>
-                          <input  type="text" class="form-control" id="exa_nombre" name="exa_nombre" value=""  placeholder="Nombre Examen" required/>
-                          <input type="hidden" name="exa_id" id="exa_id" value="0" />
-                          <div id="mensaje_nombre_examen" class="errores"></div>
+                          <label for="fac_nombre" class="control-label">Nombre Factores Riesgo:</label>
+                          <input  type="text" class="form-control" id="fac_nombre" name="fac_nombre" value=""  placeholder="Nombre Factores Riesgo" required/>
+                          <input type="hidden" name="fac_id" id="fac_id" value="0" />
+                          <div id="mensaje_nombre_factores_riesgo" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
             		  </div>
@@ -135,7 +135,7 @@
     			    <div class="col-xs-12 col-md-4 col-lg-4 " style="text-align: center; ">
         	   		    <div class="form-group">
     	                  <button type="submit" id="Guardar" name="Guardar" class="btn btn-success">GUARDAR</button>
-    	                  <a href="<?php echo $helper->url("ExamenFisicoRegional","Index"); ?>" class="btn btn-danger">CANCELAR</a>
+    	                  <a href="<?php echo $helper->url("FactoresRiesgo","Index"); ?>" class="btn btn-danger">CANCELAR</a>
 	                    </div>
 	              </div>        		    
     		    </div>
@@ -147,13 +147,13 @@
      <section class="content">
       	<div class="box box-primary">
       		<div class="box-header with-border">
-      			<h3 class="box-title">Listado de Examen</h3>      			
+      			<h3 class="box-title">Listado de Factores Riesgo</h3>      			
             </div> 
             <div class="box-body">
     			<div class="pull-right" style="margin-right:15px;">
-					<input type="text" value="" class="form-control" id="buscador" name="buscador" onkeyup="consultaExamenFisicoRegional(1)" placeholder="Buscar.."/>
+					<input type="text" value="" class="form-control" id="buscador" name="buscador" onkeyup="consultaFactoresRiesgo(1)" placeholder="Buscar.."/>
     			</div>            	
-            	<div id="examen_fisico_regional_registrados" ></div>
+            	<div id="factores_riesgo_registrados" ></div>
             </div> 	
       	</div>
       </section> 
@@ -163,7 +163,7 @@
 	 <section class="content">
      <div class="box box-primary">
      <div class="box-header">
-          <h3 class="box-title">Registrar Examen Detalle</h3>
+          <h3 class="box-title">Registrar Factores Riesgo Detalle</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             
@@ -172,25 +172,25 @@
         
                   
   		<div class="box-body">
-			<form id="frm_examen_fisico_regional_detalle" action="<?php echo $helper->url("ExamenFisicoRegionalDetalle","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
+			<form id="frm_factores_riesgo_detalle" action="<?php echo $helper->url("FactoresRiesgoDetalle","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
            	 <div class="row">
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-                          <label for="exam_nombre" class="control-label">Nombre Examen Detalle:</label>
-                          <input  type="text" class="form-control" id="exam_nombre" name="exam_nombre" value=""  placeholder="Nombre Examen Detalle" required/>
-                          <input type="hidden" name="exam_id" id="exam_id" value="0" />
-                          <div id="mensaje_nombre_examen_detalle" class="errores"></div>
+                          <label for="fact_nombre" class="control-label">Nombre Factores Riesgo Detalle:</label>
+                          <input  type="text" class="form-control" id="fact_nombre" name="fact_nombre" value=""  placeholder="Nombre Factores Riesgo Detalle" required/>
+                          <input type="hidden" name="fact_id" id="fact_id" value="0" />
+                          <div id="mensaje_nombre_factores_riesgos_detalle" class="errores"></div>
                           <div id="divLoaderPageDetalle" ></div>                     	
                         </div>
             		  </div>
               		
 					 <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-                          <label for="ddl_exa_id" class="control-label">Examen:</label>
-                          <select  class="form-control" id="ddl_exa_id" name="ddl_exa_id" required>
+                          <label for="ddl_fac_id" class="control-label">Factores Riesgo:</label>
+                          <select  class="form-control" id="ddl_fac_id" name="ddl_fac_id" required>
                           	<option value="0">--Seleccione--</option>
                           </select>                         
-                          <div id="mensaje_id_examen" class="errores"></div>
+                          <div id="mensaje_id_factores_riesgo" class="errores"></div>
                         </div>
             		  </div>	
             		  </div>		          		        
@@ -198,7 +198,7 @@
     			    <div class="col-xs-12 col-md-4 col-lg-4 " style="text-align: center; ">
         	   		    <div class="form-group">
     	                  <button type="submit" id="GuardarDetalle" name="GuardarDetalle" class="btn btn-success" >GUARDAR</button>
-    	                  <a href="<?php echo $helper->url("ExamenFisicoRegionalDetalle","Index"); ?>" class="btn btn-danger">CANCELAR</a>
+    	                  <a href="<?php echo $helper->url("FactoresRiesgoDetalle","Index"); ?>" class="btn btn-danger">CANCELAR</a>
 	                    </div>
 	              </div>        		    
     		    </div>
@@ -210,13 +210,13 @@
      <section class="content">
       	<div class="box box-primary">
       		<div class="box-header with-border">
-      			<h3 class="box-title">Listado de Examen Detalle</h3>      			
+      			<h3 class="box-title">Listado de Factores Riesgo Detalle</h3>      			
             </div> 
             <div class="box-body">
     			<div class="pull-right" style="margin-right:15px;">
-					<input type="text" value="" class="form-control" id="buscador_detalle" name="buscador_detalle" onkeyup="consultaExamenFisicoRegionalDetalle(1)" placeholder="Buscar.."/>
+					<input type="text" value="" class="form-control" id="buscador_detalle" name="buscador_detalle" onkeyup="consultaFactoresRiesgoDetalle(1)" placeholder="Buscar.."/>
     			</div>            	
-            	<div id="examen_fisico_regional_registrados_detalle" ></div>
+            	<div id="factores_riesgo_registrados_detalle" ></div>
             </div> 	
       	</div>
       </section> 
@@ -242,8 +242,8 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ExamenFisicoRegional.js?0.1"></script> 
-   <script src="view/js/ExamenFisicoRegionalDetalle.js?0.2"></script> 
+   <script src="view/js/FactoresRiesgo.js?0.1"></script> 
+   <script src="view/js/FactoresRiesgoDetalle.js?0.1"></script> 
        
        
 
