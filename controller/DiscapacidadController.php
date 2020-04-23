@@ -385,5 +385,32 @@ class DiscapacidadController extends ControladorBase{
     }
     
     
+    public function ReporteFicha(){
+        session_start();
+        //$entidades = new EntidadesModel();
+        //PARA OBTENER DATOS DE LA EMPRESA
+       // $datos_empresa = array();
+       // $rsdatosEmpresa = $entidades->getBy("id_entidades = 1");
+        
+    
+        
+        
+        
+        //$productos=new SaldoProductosModel();
+        //$datos_reporte = array();
+        
+       
+        
+       // $html.='</table>';
+        
+       // $datos_reporte['DETALLE_PRODUCTOS']= $html;
+        
+        $this->verReporte("ReporteFicha1");
+        
+        
+    }
+    
+    
+    
 }
 ?>
