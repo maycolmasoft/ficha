@@ -1,0 +1,51 @@
+
+
+table.1 {
+   width: 100%;
+   font-size:14px;
+   border-collapse: collapse;
+   caption-side: top;
+   text-align:center;
+   font-size: 12px;
+   
+}
+
+table.2 {
+   width: 60%;
+   font-size:14px;
+   border-collapse: collapse;
+   caption-side: top;
+   text-align:center;
+   font-size: 12px;
+   
+}
+table.3 {
+   width: 70%;
+   font-size:14px;
+   border-collapse: collapse;
+   caption-side: top;
+   text-align:center;
+   font-size: 12px;
+   
+}
+
+td.1{
+	   text-align:left;
+	   background-color: #8FFECE;
+	}
+	
+td.2{
+	   text-align:left;
+	   background-color: #A2B2D6;
+	}
+	
+td.3{
+	   text-align:left;
+	   
+	}
+	
+td.4{
+	   text-align:center;
+	   background-color: #8FFEF9;
+	   
+	}
