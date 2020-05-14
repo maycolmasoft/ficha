@@ -476,7 +476,7 @@ public function index(){
 					}
 			
 					
-					$this->view("Usuarios",array(
+					$this->view("ffspUsuarios",array(
 							"resultSet"=>$resultSet, "resultRol"=>$resultRol, "resultEdit" =>$resultEdit, "resultEst"=>$resultEst
 				
 					));
@@ -1037,7 +1037,7 @@ public function index(){
     				
     		}else{
     				
-    			$this->view("Bffspienvenida",array(
+    			$this->view("ffspBienvenida",array(
     					"allusers"=>$_usuario
     			));
     		

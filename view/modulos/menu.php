@@ -31,7 +31,7 @@ $controladores=$_SESSION['controladores'];
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU</li>
-        <li class="treeview"  style="<?php echo getcontrolador("MenuAdministracion",$controladores) ?>"  >
+        <li class="treeview"  style="<?php echo getcontrolador("ffspMenuAdministracion",$controladores) ?>"  >
           <a href="#">
             <i class="fa fa-folder"></i> <span>Administración</span>
             <span class="pull-right-container">
@@ -54,12 +54,12 @@ $controladores=$_SESSION['controladores'];
             <li style="<?php echo getcontrolador("ffspEmpleados",$controladores) ?>"><a href="index.php?controller=ffspEmpleados&action=index"><i class="fa fa-circle-o"></i> Empleados</a></li>
             <li style="<?php echo getcontrolador("ffspExamenFisicoRegional",$controladores) ?>"><a href="index.php?controller=ffspExamenFisicoRegional&action=index"><i class="fa fa-circle-o"></i> Examen Fisico Regional</a></li>
             <li style="<?php echo getcontrolador("ffspFactoresRiesgo",$controladores) ?>"><a href="index.php?controller=ffspFactoresRiesgo&action=index"><i class="fa fa-circle-o"></i> Factores Riesgo</a></li>
-      
+            <li style="<?php echo getcontrolador("ffspEmpleados",$controladores) ?>"><a href="index.php?controller=ffspEmpleados&action=index"><i class="fa fa-circle-o"></i> Empleados</a></li>
          </ul>
        </li>
         
         
-         <li class="treeview"  style="<?php echo getcontrolador("MenuMantenimiento",$controladores) ?>"  >
+         <li class="treeview"  style="<?php echo getcontrolador("ffspMenuMantenimiento",$controladores) ?>"  >
           <a href="#">
             <i class="fa fa-folder"></i> <span>Mantenimiento</span>
             <span class="pull-right-container">
@@ -67,17 +67,9 @@ $controladores=$_SESSION['controladores'];
             </span>
           </a>
           <ul class="treeview-menu">
-            <li style="<?php echo getcontrolador("Empleados",$controladores) ?>"><a href="index.php?controller=ffspEmpleados&action=index"><i class="fa fa-circle-o"></i> Empleados</a></li>
           </ul>
         </li>
-        
-       
-        
-       
-       
-       
-       
-       <li class="treeview"  style="<?php echo getcontrolador("MenuReportes",$controladores) ?>">
+       <li class="treeview"  style="<?php echo getcontrolador("ffspMenuReportes",$controladores) ?>">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Reportes</span>
             <span class="pull-right-container">
@@ -85,7 +77,7 @@ $controladores=$_SESSION['controladores'];
             </span>
           </a>
           <ul class="treeview-menu">
-            <li style="<?php echo getcontrolador("Sesiones",$controladores) ?>"><a href="index.php?controller=ffspSesiones&action=index">Sesiones</a></li>
+            <li style="<?php echo getcontrolador("ffspSesiones",$controladores) ?>"><a href="index.php?controller=ffspSesiones&action=index"><i class="fa fa-circle-o"></i> Sesiones</a></li>
            
           </ul>
         </li>

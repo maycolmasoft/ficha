@@ -29,7 +29,7 @@ $("#frm_factores_riesgo_detalle").on("submit",function(event){
 	
 	$.ajax({
 		beforeSend:function(){},
-		url:"index.php?controller=FactoresRiesgoDetalle&action=InsertaFactoresRiesgoDetalle",
+		url:"index.php?controller=ffspFactoresRiesgoDetalle&action=InsertaFactoresRiesgoDetalle",
 		type:"POST",
 		dataType:"json",
 		data:parametros
@@ -66,7 +66,7 @@ function editFactoresRiesgoDetalle(id = 0){
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPageDetalle").addClass("loader_detalle")},
-		url:"index.php?controller=FactoresRiesgoDetalle&action=editFactoresRiesgoDetalle",
+		url:"index.php?controller=ffspFactoresRiesgoDetalle&action=editFactoresRiesgoDetalle",
 		type:"POST",
 		dataType:"json",
 		data:{fact_id:id}
@@ -103,7 +103,7 @@ function delFactoresRiesgoDetalle(id){
 		
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPageDetalle").addClass("loader_detalle")},
-		url:"index.php?controller=FactoresRiesgoDetalle&action=delFactoresRiesgoDetalle",
+		url:"index.php?controller=ffspFactoresRiesgoDetalle&action=delFactoresRiesgoDetalle",
 		type:"POST",
 		dataType:"json",
 		data:{fact_id:id}
@@ -141,7 +141,7 @@ function consultaFactoresRiesgoDetalle(_page = 1){
 	var buscador = $("#buscador").val();
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPageDetalle").addClass("loader_detalle")},
-		url:"index.php?controller=FactoresRiesgoDetalle&action=consultaFactoresRiesgoDetalle",
+		url:"index.php?controller=ffspFactoresRiesgoDetalle&action=consultaFactoresRiesgoDetalle",
 		type:"POST",
 		data:{page:_page,search:buscador,peticion:'ajax'}
 	}).done(function(datos){		
@@ -174,7 +174,7 @@ function cargaFactoresRiesgo(){
 	
 	$.ajax({
 		beforeSend:function(){},
-		url:"index.php?controller=FactoresRiesgoDetalle&action=cargaFactoresRiesgo",
+		url:"index.php?controller=ffspFactoresRiesgoDetalle&action=cargaFactoresRiesgo",
 		type:"POST",
 		dataType:"json",
 		data:null

@@ -1,6 +1,6 @@
 <?php
 
-class EmpresaController extends ControladorBase{
+class ffspEmpresaController extends ControladorBase{
     
     public function __construct() {
         parent::__construct();

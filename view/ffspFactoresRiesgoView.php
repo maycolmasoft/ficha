@@ -76,7 +76,7 @@
         <small><?php echo $fecha; ?></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo $helper->url("ffspUsuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Factores Riesgo</li>
       </ol>
     </section>   
@@ -118,7 +118,7 @@
         
                   
   		<div class="box-body">
-			<form id="frm_factores_riesgo" action="<?php echo $helper->url("FactoresRiesgo","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
+			<form id="frm_factores_riesgo" action="<?php echo $helper->url("ffspFactoresRiesgo","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
            	 <div class="row">
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
@@ -172,7 +172,7 @@
         
                   
   		<div class="box-body">
-			<form id="frm_factores_riesgo_detalle" action="<?php echo $helper->url("FactoresRiesgoDetalle","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
+			<form id="frm_factores_riesgo_detalle" action="<?php echo $helper->url("ffspFactoresRiesgoDetalle","Index"); ?>" method="post" class="col-lg-12 col-md-12 col-xs-12">
            	 <div class="row">
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
@@ -242,8 +242,8 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/FactoresRiesgo.js?0.1"></script> 
-   <script src="view/js/FactoresRiesgoDetalle.js?0.1"></script> 
+   <script src="view/js/ffspFactoresRiesgo.js?0.2"></script> 
+   <script src="view/js/ffspFactoresRiesgoDetalle.js?0.2"></script> 
        
        
 

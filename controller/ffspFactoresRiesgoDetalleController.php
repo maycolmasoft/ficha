@@ -16,7 +16,7 @@ class ffspFactoresRiesgoDetalleController extends ControladorBase{
 		
 		if(empty( $_SESSION)){
 		    
-		    $this->redirect("Usuarios","sesion_caducada");
+		    $this->redirect("ffspUsuarios","sesion_caducada");
 		    return;
 		}
 		
