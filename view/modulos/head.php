@@ -46,10 +46,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="index.php?controller=Usuarios&action=Actualiza" class="btn btn-warning">Mi Perfil</a>
+                  <a href="index.php?controller=ffspUsuarios&action=Actualiza" class="btn btn-warning">Mi Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="index.php?controller=Usuarios&action=cerrar_sesion" class="btn btn-danger">Cerrar Sesión</a>
+                  <a href="index.php?controller=ffspUsuarios&action=cerrar_sesion" class="btn btn-danger">Cerrar Sesión</a>
                 </div>
               </li>
             </ul>
