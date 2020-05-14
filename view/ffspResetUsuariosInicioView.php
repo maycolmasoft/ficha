@@ -28,47 +28,35 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="view/images/logo.jpg" alt="IMG">
+					<img src="view/images/logo_milenio.png" alt="IMG">
 				</div>
 
 				
-				<form class="login100-form validate-form" action="<?php echo $helper->url("ffspUsuarios","Loguear"); ?>" method="post" >
+				<form class="login100-form validate-form" action="<?php echo $helper->url("ffspUsuarios","resetear_clave_inicio"); ?>" method="post" >
 					<span class="login100-form-title">
-						Iniciar Sesión
+						Recuperar Clave
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Cedula es requerida">
-						<input class="input100" type="text" id="usuario" name="usuario" placeholder="Cedula..">
+						<input class="input100" type="text" id="cedula_usuarios" name="cedula_usuarios" placeholder="Cedula..">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password es requerido">
-						<input class="input100" type="password" id="clave" name="clave" placeholder="Password..">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
+					
 					
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
-							Login
+							Recuperar
 						</button>
 					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Olvidó su
-						</span>
-						<a class="txt2" href="<?php echo $helper->url("ffspUsuarios","resetear_clave_inicio"); ?>">
-							Usuario / Clave
-						</a>
-					</div>
-
-					
+                    <div class="container-login100-form-btn">
+						<a href="index.php?controller=Usuarios&action=cerrar_sesion" class="btn btn-primary" style="  width: 270px;"><i class="glyphicon glyphicon-floppy-remove"> Cancelar</i></a>
+				  	</div>
+						
 						<br><br>
 							
 							  <?php if (isset($resultSet)) {?>
@@ -128,6 +116,9 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="view/bootstrap/otros/login/js/main.js"></script>
+    
+    
+  
     
    
   </body>
