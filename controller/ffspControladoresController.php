@@ -92,7 +92,7 @@ class ffspControladoresController extends ControladorBase{
 			
 		session_start();
 
-		$permisos_rol=new PermisosRolesModel();
+		$permisos_rol=new ffspPermisosRolesModel();
 		$controladores=new ffspControladoresModel();
 		$nombre_controladores = "ffspControladores";
 		$id_rol= $_SESSION['id_rol'];
@@ -158,7 +158,7 @@ class ffspControladoresController extends ControladorBase{
 
 		session_start();
 		
-		$permisos_rol=new PermisosRolesModel();
+		$permisos_rol=new ffspPermisosRolesModel();
 		$nombre_controladores = "ffspControladores";
 		$id_rol= $_SESSION['id_rol'];
 		$resultPer = $permisos_rol->getPermisosEditar("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );

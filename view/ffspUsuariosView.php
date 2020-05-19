@@ -1222,7 +1222,7 @@
         /* Llamo a esta función para que ejecute una acción pasado x tiempo
          después de haber dejado de mover el mouse (en este caso pasado 3 seg) */
         inactividad(function(){
-        	window.location.href = "index.php?controller=Usuarios&amp;action=cerrar_sesion";
+        	window.location.href = "index.php?controller=ffspUsuarios&amp;action=cerrar_sesion";
         }, 600);
       });
 
@@ -1232,7 +1232,7 @@
         /* Llamo a esta función para que ejecute una acción pasado x tiempo
          después de haber dejado de mover el mouse (en este caso pasado 3 seg) */
         inactividad(function(){
-        	window.location.href = "index.php?controller=Usuarios&amp;action=cerrar_sesion";
+        	window.location.href = "index.php?controller=ffspUsuarios&amp;action=cerrar_sesion";
         }, 600);
       });
 
@@ -1242,7 +1242,7 @@
           /* Llamo a esta función para que ejecute una acción pasado x tiempo
            después de haber dejado de mover el mouse (en este caso pasado 3 seg) */
           inactividad(function(){
-          	window.location.href = "index.php?controller=Usuarios&amp;action=cerrar_sesion";
+          	window.location.href = "index.php?controller=ffspUsuarios&amp;action=cerrar_sesion";
           }, 600);
         });
 

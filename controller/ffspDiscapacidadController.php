@@ -54,7 +54,7 @@ class ffspDiscapacidadController extends ControladorBase{
         
         $nombre_controladores = "ffspDiscapacidad";
         $id_rol= $_SESSION['id_rol'];
-        $resultPer = $discapacidad->getPermisosEditar("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
+        $resultPer = $discapacidad->getPermisosEditar("controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
         
         if (!empty($resultPer)){
             
@@ -124,7 +124,7 @@ class ffspDiscapacidadController extends ControladorBase{
         $discapacidad = new ffspDiscapacidadModel();
         $nombre_controladores = "ffspDiscapacidad";
         $id_rol= $_SESSION['id_rol'];
-        $resultPer = $discapacidad->getPermisosEditar("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
+        $resultPer = $discapacidad->getPermisosEditar("controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol'" );
         
         if (!empty($resultPer))
         {

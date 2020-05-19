@@ -175,7 +175,7 @@ function soloNumeros(e){
 </script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ffspDiscapacidad.js?1.5"></script> 
+   <script src="view/js/ffspDiscapacidad.js?1.6"></script> 
        
        
 

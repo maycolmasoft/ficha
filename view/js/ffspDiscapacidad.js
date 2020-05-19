@@ -75,7 +75,7 @@ function editDiscapacidad(id = 0){
 			$("#dis_descripcion").val(array.dis_descripcion);
 			$("#dis_tipo").val(array.dis_tipo);	
 			$("#dis_porcentaje").val(array.dis_porcentaje);	
-			$("#dis_id").val(array.ide_id);
+			$("#dis_id").val(array.dis_id);
 			$("html, body").animate({ scrollTop: $(dis_descripcion).offset().top-120 }, tiempo);			
 		}
 		

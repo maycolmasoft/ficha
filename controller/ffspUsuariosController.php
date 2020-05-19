@@ -134,8 +134,8 @@ class ffspUsuariosController extends ControladorBase{
     			
     			if($id_rol==1){
     			
-    				$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=Usuarios&action=index&id_usuarios='.$res->id_usuarios.'"  class="btn btn-warning" style="font-size:65%;" data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></span></td>';
-    				$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=Usuarios&action=borrarId&id_usuarios='.$res->id_usuarios.'" class="btn btn-danger" style="font-size:65%;" data-toggle="tooltip" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></a></span></td>';
+    				$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=ffspUsuarios&action=index&id_usuarios='.$res->id_usuarios.'"  class="btn btn-warning" style="font-size:65%;" data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></span></td>';
+    				$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=ffspUsuarios&action=borrarId&id_usuarios='.$res->id_usuarios.'" class="btn btn-danger" style="font-size:65%;" data-toggle="tooltip" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></a></span></td>';
     			
     			
     			}else{
@@ -308,7 +308,7 @@ class ffspUsuariosController extends ControladorBase{
     				 
     				if($id_rol==1){
     					 
-    					$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=Usuarios&action=index&id_usuarios='.$res->id_usuarios.'"  class="btn btn-warning" style="font-size:65%;" data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></span></td>';
+    					$html.='<td style="font-size: 18px;"><span class="pull-right"><a href="index.php?controller=ffspUsuarios&action=index&id_usuarios='.$res->id_usuarios.'"  class="btn btn-warning" style="font-size:65%;" data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></span></td>';
     					 
     					 
     				}else{
@@ -528,7 +528,7 @@ public function index(){
 		$resultSet=$usuarios->getCondiciones($columnas ,$tablas ,$where, $id);
 	
 	
-		$directorio = $_SERVER['DOCUMENT_ROOT'].'/webcapremci/fotografias_usuarios/';
+		$directorio = $_SERVER['DOCUMENT_ROOT'].'/ficha/fotografias_usuarios/';
 		 
 		$nombre = $_FILES['fotografia_usuarios']['name'];
 		$tipo = $_FILES['fotografia_usuarios']['type'];
@@ -564,7 +564,7 @@ public function index(){
 	 }
 	 
 	 
-	 $this->view("SubirFotosUsuarios",array(
+	 $this->view("ffspSubirFotosUsuarios",array(
 	 		"resultSet"=>""
 	 
 	 ));
@@ -633,7 +633,6 @@ public function index(){
 		{
 			$_cedula_usuarios    = $_POST["cedula_usuarios"];
 			$_nombre_usuarios     = $_POST["nombre_usuarios"];
-			//$_usuario_usuario     = $_POST["usuario_usuario"];
 			$_clave_usuarios      = $usuarios->encriptar($_POST["clave_usuarios"]);
 			$_pass_sistemas_usuarios      = $_POST["clave_usuarios"];
 			$_telefono_usuarios   = $_POST["telefono_usuarios"];
@@ -651,7 +650,7 @@ public function index(){
 		    	if ($_FILES['fotografia_usuarios']['tmp_name']!="")
 		    	{
 		    			
-		    		$directorio = $_SERVER['DOCUMENT_ROOT'].'/empleados/fotografias_usuarios/';
+		    		$directorio = $_SERVER['DOCUMENT_ROOT'].'/ficha/fotografias_usuarios/';
 		    			
 		    		$nombre = $_FILES['fotografia_usuarios']['name'];
 		    		$tipo = $_FILES['fotografia_usuarios']['type'];
@@ -1356,7 +1355,7 @@ public function index(){
 					
 					
 					
-					$this->redirect("Usuarios", "actualizo_perfil");
+					$this->redirect("ffspUsuarios", "actualizo_perfil");
 					 
 					 
 				}
@@ -1521,62 +1520,6 @@ public function index(){
 		$out.= "</ul>";
 		return $out;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 ?>
