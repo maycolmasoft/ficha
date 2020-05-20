@@ -83,7 +83,7 @@ class ffspRolesController extends ControladorBase{
 		}
 	else{
        	
-       	$this->redirect("Usuarios","sesion_caducada");
+       	$this->redirect("ffspUsuarios","sesion_caducada");
        	
        }
 	
