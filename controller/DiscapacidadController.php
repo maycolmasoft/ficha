@@ -387,28 +387,129 @@ class DiscapacidadController extends ControladorBase{
     
     public function ReporteFicha(){
         session_start();
-        //$entidades = new EntidadesModel();
-        //PARA OBTENER DATOS DE LA EMPRESA
-       // $datos_empresa = array();
-       // $rsdatosEmpresa = $entidades->getBy("id_entidades = 1");
-        
-    
-        
-        
-        
-        //$productos=new SaldoProductosModel();
-        //$datos_reporte = array();
-        
        
         
-       // $html.='</table>';
+        $ficha = new FichaModel();
+        $fic_id =  (isset($_REQUEST['fic_id'])&& $_REQUEST['fic_id'] !=NULL)?$_REQUEST['fic_id']:'';
         
-       // $datos_reporte['DETALLE_PRODUCTOS']= $html;
+        $datos_reporte = array();
         
-        $this->verReporte("ReporteFicha1");
+        $columnas = " ffsp_tbl_ficha.fic_id, 
+                      ffsp_tbl_empleados.empl_id, 
+                      ffsp_tbl_empleados.empl_primer_nombre, 
+                      ffsp_tbl_empleados.empl_segundo_nombre, 
+                      ffsp_tbl_empleados.empl_primer_apellido, 
+                      ffsp_tbl_empleados.empl_segundo_apellido, 
+                      ffsp_tbl_identidad_genero.ide_id, 
+                      ffsp_tbl_identidad_genero.ide_nombre, 
+                      ffsp_tbl_empleados.empl_dni, 
+                      ffsp_tbl_empleados.empl_edad, 
+                      ffsp_tbl_empleados.empl_grupo_sanguineo, 
+                      ffsp_tbl_empleados.empl_fecha_ingreso, 
+                      ffsp_tbl_empleados.empl_lugar_trabajo, 
+                      ffsp_tbl_empleados.empl_area_trabajo, 
+                      ffsp_tbl_empleados.empl_actividades_trabajo, 
+                      ffsp_tbl_discapacidad.dis_id, 
+                      ffsp_tbl_discapacidad.dis_descripcion, 
+                      ffsp_tbl_discapacidad.dis_tipo, 
+                      ffsp_tbl_discapacidad.dis_porcentaje, 
+                      ffsp_tbl_empresa.emp_id, 
+                      ffsp_tbl_empresa.emp_nombre, 
+                      ffsp_tbl_empresa.emp_ruc, 
+                      ffsp_tbl_empresa.emp_ciudad, 
+                      ffsp_tbl_orientacion_sexual.ori_id, 
+                      ffsp_tbl_orientacion_sexual.ori_nombre, 
+                      ffsp_tbl_religion.rel_id, 
+                      ffsp_tbl_religion.rel_nombre, 
+                      ffsp_tbl_sexo.sex_id, 
+                      ffsp_tbl_sexo.sex_nombre, 
+                      ffsp_tbl_tipo_ficha.tip_id, 
+                      ffsp_tbl_tipo_ficha.tip_nombre, 
+                      ffsp_tbl_ficha_antecedentes.fic_id, 
+                      ffsp_tbl_ficha_antecedentes.sex_id, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_menarquia, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_ciclos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_fecha_ultima_mestruacion, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_gestas, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_partos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_cesareas, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_abortos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_hijos_vivos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_hijos_muertos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_vida_sexual, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_metodo_planificacion_familiar, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_tipo_metodo_planificacion_familiar, 
+                      ffsp_tbl_ficha_antecedentes_detalle.fic_ant_det_id, 
+                      ffsp_tbl_ficha_antecedentes_detalle.fic_ant_det_realizado, 
+                      ffsp_tbl_ficha_antecedentes_detalle.fic_ant_det_tiempo, 
+                      ffsp_tbl_ficha_antecedentes_detalle.fic_ant_det_resultado";
+        
+        $tablas = "   public.ffsp_tbl_ficha, 
+                      public.ffsp_tbl_empleados, 
+                      public.ffsp_tbl_tipo_ficha, 
+                      public.usuarios, 
+                      public.ffsp_tbl_identidad_genero, 
+                      public.ffsp_tbl_discapacidad, 
+                      public.ffsp_tbl_empresa, 
+                      public.ffsp_tbl_orientacion_sexual, 
+                      public.ffsp_tbl_religion, 
+                      public.ffsp_tbl_sexo, 
+                      public.ffsp_tbl_ficha_antecedentes, 
+                      public.ffsp_tbl_ficha_antecedentes_detalle";
+        $where= "     ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      ffsp_tbl_tipo_ficha.tip_id = ffsp_tbl_ficha.tip_id AND
+                      usuarios.id_usuarios = ffsp_tbl_ficha.usu_id AND
+                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
+                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
+                      ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
+                      ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
+                      ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND
+                      ffsp_tbl_ficha_antecedentes.fic_id = ffsp_tbl_ficha.fic_id AND
+                      ffsp_tbl_ficha_antecedentes_detalle.ante_id = ffsp_tbl_ficha_antecedentes.fic_ant_id AND  ffsp_tbl_ficha.fic_id='$fic_id'";
+        $id="ffsp_tbl_ficha.fic_id";
+        
+        $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
+        
+        
+        $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
+        $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
+        $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
+        $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
+        $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
+        $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
+        $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
+        $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
+        $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
+        $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
+        $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
+        $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
+        $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
+        $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
+        $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_descripcion;
+        $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
+        $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
+        $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
+        $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        $datos_reporte['DIRECCION_PARTICIPE']=$rsdatos[0]->direccion_participes;
+        
+
+        
+        
+        
+        $this->verReporte("ReporteFicha1", array('datos_empresa'=>$datos_empresa, 'datos_cabecera'=>$datos_cabecera, 'datos_reporte'=>$datos_reporte ));
+        
         
         
     }
+    
+    
     public function ReporteReintegro(){
         session_start();
         //$entidades = new EntidadesModel();
