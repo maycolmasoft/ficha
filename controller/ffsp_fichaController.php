@@ -16,7 +16,7 @@ class ffsp_fichaController extends ControladorBase{
 		
 		if(empty( $_SESSION)){
 		    
-		    $this->redirect("Usuarios","sesion_caducada");
+		    $this->redirect("ffspUsuarios","sesion_caducada");
 		    return;
 		}
 		
@@ -40,7 +40,7 @@ class ffsp_fichaController extends ControladorBase{
 	public function cargarEmpleados(){
 	    
 	    session_start();
-	    $empleados = new EmpleadosModel();
+	    $empleados = new ffspEmpleadosModel();
 	    
 	        
 	        if(isset($_POST["fic_id"])){
