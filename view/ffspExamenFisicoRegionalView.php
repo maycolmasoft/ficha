@@ -243,7 +243,7 @@
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
    <script src="view/js/ffspExamenFisicoRegional.js?0.1"></script> 
-   <script src="view/js/ffspExamenFisicoRegionalDetalle.js?0.2"></script> 
+   <script src="view/js/ffspExamenFisicoRegionalDetalle.js?0.3"></script> 
        
        
 
