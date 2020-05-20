@@ -261,10 +261,6 @@ class ffspEmpleadosController extends ControladorBase{
                       ffsp_tbl_empleados.empl_lugar_trabajo, 
                       ffsp_tbl_empleados.empl_area_trabajo, 
                       ffsp_tbl_empleados.empl_actividades_trabajo, 
-                      ffsp_tbl_discapacidad.dis_id, 
-                      ffsp_tbl_discapacidad.dis_descripcion, 
-                      ffsp_tbl_discapacidad.dis_tipo, 
-                      ffsp_tbl_discapacidad.dis_porcentaje, 
                       ffsp_tbl_empresa.emp_id, 
                       ffsp_tbl_empresa.emp_nombre, 
                       ffsp_tbl_empresa.emp_ruc, 
@@ -278,14 +274,12 @@ class ffspEmpleadosController extends ControladorBase{
 	    
 	    $tablas    = "public.ffsp_tbl_empleados, 
                       public.ffsp_tbl_identidad_genero, 
-                      public.ffsp_tbl_discapacidad, 
                       public.ffsp_tbl_empresa, 
                       public.ffsp_tbl_orientacion_sexual, 
                       public.ffsp_tbl_religion, 
                       public.ffsp_tbl_sexo";
                     	    
 	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
-                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
@@ -354,7 +348,6 @@ class ffspEmpleadosController extends ControladorBase{
 	            $html.='<th style="text-align: left;  font-size: 15px;">Lugar de Trabajo</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Area de Trabajo</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Actividades Trabajo</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Discapacidad</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Empresa</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Orientacion Sexual</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Religion</th>';
@@ -390,7 +383,6 @@ class ffspEmpleadosController extends ControladorBase{
 	                $html.='<td style="font-size: 14px;">'.$res->empl_lugar_trabajo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->empl_area_trabajo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->empl_actividades_trabajo.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->dis_tipo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->emp_nombre.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->ori_nombre.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->rel_nombre.'</td>';
