@@ -163,7 +163,7 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ConsultaEmpleados.js?0.2"></script> 
+   <script src="view/js/ffspConsultaEmpleados.js?0.3"></script> 
        
    
   </body>

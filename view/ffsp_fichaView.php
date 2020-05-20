@@ -66,7 +66,7 @@
             	<small><?php echo $fecha; ?></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="<?php echo $helper->url("ffspUsuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li class="active">Ficha</li>
             </ol>
         </section>
@@ -906,8 +906,8 @@
     <script src="view/bootstrap/bower_components/jquery-ui-1.12.1/jquery-ui.js"></script> 
     <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
 	<script type="text/javascript" src="view/bootstrap/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-	<script type="text/javascript" src="view/js/Ficha.js?0.9"></script>
-	<script type="text/javascript" src="view/js/wizardFicha.js?0.12"></script>
+	<script type="text/javascript" src="view/js/ffspFicha.js?0.10"></script>
+	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.13"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   
