@@ -62,7 +62,7 @@
         <small><?php echo $fecha; ?></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo $helper->url("ffspUsuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Consulta Empleados</li>
       </ol>
     </section>   
