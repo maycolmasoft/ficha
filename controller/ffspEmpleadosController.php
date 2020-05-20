@@ -739,8 +739,8 @@ class ffspEmpleadosController extends ControladorBase{
                       ffsp_tbl_empleados.empl_area_trabajo,
                       ffsp_tbl_empleados.empl_actividades_trabajo,
                       ffsp_tbl_discapacidad.dis_id,
-                      ffsp_tbl_discapacidad.dis_descripcion,
-                      ffsp_tbl_discapacidad.dis_tipo,
+                      ffsp_tbl_discapacidad.dis_nombre,
+                      ffsp_tbl_discapacidad.dis_tiene,
                       ffsp_tbl_discapacidad.dis_porcentaje,
                       ffsp_tbl_empresa.emp_id,
                       ffsp_tbl_empresa.emp_nombre,
@@ -762,7 +762,7 @@ class ffspEmpleadosController extends ControladorBase{
                       public.ffsp_tbl_sexo";
 	    
 	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
-                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
+                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
