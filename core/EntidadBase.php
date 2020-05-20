@@ -657,7 +657,7 @@ class EntidadBase{
     public function MenuDinamico($_id_rol)
     {
     	$resultPermisos=array();
-    	$perimisos_rol = new PermisosRolesModel();
+    	$perimisos_rol = new ffspPermisosRolesModel();
     	 
     	$columnas="controladores.nombre_controladores,
 				  permisos_rol.id_rol,

@@ -32,7 +32,7 @@
 				</div>
 
 				
-				<form class="login100-form validate-form" action="<?php echo $helper->url("Usuarios","Loguear"); ?>" method="post" >
+				<form class="login100-form validate-form" action="<?php echo $helper->url("ffspUsuarios","Loguear"); ?>" method="post" >
 					<span class="login100-form-title">
 						Iniciar Sesión
 					</span>
@@ -63,7 +63,7 @@
 						<span class="txt1">
 							Olvidó su
 						</span>
-						<a class="txt2" href="<?php echo $helper->url("Usuarios","resetear_clave_inicio"); ?>">
+						<a class="txt2" href="<?php echo $helper->url("ffspUsuarios","resetear_clave_inicio"); ?>">
 							Usuario / Clave
 						</a>
 					</div>

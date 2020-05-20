@@ -103,7 +103,7 @@
           <section class="content-header">
          <small><?php echo $fecha; ?></small>
          <ol class=" pull-right breadcrumb">
-         <li><a href="<?php echo $helper->url("Usuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+         <li><a href="<?php echo $helper->url("ffspUsuarios","Bienvenida"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
          <li class="active">Alertas</li>
          </ol>
          </section>

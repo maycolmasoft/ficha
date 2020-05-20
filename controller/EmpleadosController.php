@@ -33,11 +33,11 @@ class EmpleadosController extends ControladorBase{
 		    exit();
 		}		    
 			
-		$rsEmpleados = $empleados->getBy(" 1 = 1 ");
+	//	$rsEmpleados = $empleados->getBy(" 1 = 1 ");
 		
 				
 		$this->view("Empleados",array(
-		    "resultSet"=>$rsEmpleados
+		    "resultSet"=>""
 	
 		));
 			
@@ -547,6 +547,22 @@ class EmpleadosController extends ControladorBase{
 	    }
 	}
 	
+	
+	public function cargaTipoFicha(){
+	    $empleados = null;
+	    $empleados = new EmpleadosModel();
+	    
+	    $query = " SELECT tip_id, tip_nombre FROM ffsp_tbl_tipo_ficha WHERE 1=1 ORDER BY tip_id";
+	    
+	    $resulset = $empleados->enviaquery($query);
+	    
+	    if(!empty($resulset) && count($resulset)>0){
+	        
+	        echo json_encode(array('data'=>$resulset));
+	        
+	    }
+	}
+	
 	public function cargaOrientacionSexual(){
 	    
 	    $empleados = null;
@@ -594,6 +610,299 @@ class EmpleadosController extends ControladorBase{
 	        
 	    }
 	}
+	
+	
+	
+	public function index2(){
+	    
+	    $empleados = new EmpleadosModel();
+	    
+	    session_start();
+	    
+	    if(empty( $_SESSION)){
+	        
+	        $this->redirect("Usuarios","sesion_caducada");
+	        return;
+	    }
+	    
+	    $nombre_controladores = "Empleados";
+	    $id_rol= $_SESSION['id_rol'];
+	    $resultPer = $empleados->getPermisosVer("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
+	    
+	    if (empty($resultPer)){
+	        
+	        $this->view("Error",array(
+	            "resultado"=>"No tiene Permisos de Acceso Empleados"
+	            
+	        ));
+	        exit();
+	    }
+	    
+	    //	$rsEmpleados = $empleados->getBy(" 1 = 1 ");
+	    
+	    
+	    $this->view("ffsp_consulta_empleados",array(
+	        "resultSet"=>""
+	        
+	    ));
+	    
+	    
+	}
+	
+	public function IniciarFicha(){
+	    
+	    
+	    session_start();
+	    
+	    $empleados = new EmpleadosModel();
+	    
+	     
+	     $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+	     $_emp_id = (isset($_POST["emp_id"])) ? $_POST["emp_id"] : 0 ;
+	     $_tip_id = (isset($_POST["tip_id"])) ? $_POST["tip_id"] : 0 ;
+	     
+	     date_default_timezone_set('America/Guayaquil');
+	     $fechaActual = date('d-m-Y H:i:s');
+	     
+	     
+	     if(!isset($_SESSION['id_usuarios'])){
+	         echo 'Sessión Caducada.';
+	         exit();
+	     }
+	     
+	     if($_empl_id==0){
+	         echo 'Seleccione Empleado';
+	         exit();
+	     }
+	     
+	     if($_emp_id==0){
+	         echo 'Seleccione Empresa';
+	         exit();
+	     }
+	     
+	     if($_tip_id==0){
+	         echo 'Seleccione Tipo Ficha';
+	         exit();
+	     }
+	     
+	     
+	     $query = " SELECT b.tip_nombre FROM ffsp_tbl_ficha a, ffsp_tbl_tipo_ficha b WHERE a.tip_id=b.tip_id and a.empl_id='$_empl_id' and a.tip_id='$_tip_id'";
+	     $resulset = $empleados->enviaquery($query);
+	     
+	     
+	     if(!empty($resulset)){
+	         
+	         $nombre=$resulset[0]->tip_nombre;
+	         $mensaje='Empleado ya tiene registrada una ficha de '.$nombre;
+	         echo json_encode(array('valor' => 0, 'mensaje'=>$mensaje));
+	         exit();
+	         
+	     }else{
+	      
+	         $_id_usuarios=$_SESSION['id_usuarios'];
+	         
+	         $funcion = "ins_ffsp_tbl_ficha";
+	         $mensaje = "Ficha Iniciada Correctamente.";
+	         
+	         $parametros =  "'$_empl_id',
+                                '$_tip_id',
+                                '$_emp_id',
+                                '$fechaActual',
+                                '$_id_usuarios'";
+	         $empleados->setFuncion($funcion);
+	         $empleados->setParametros($parametros);
+	         $resultado = $empleados->llamafuncionPG();
+	         
+	         if(is_int((int)$resultado[0])){
+	            
+	             echo json_encode(array('valor' => $resultado[0], 'mensaje'=>$mensaje));
+	             return;
+	             
+	             
+	         }else{
+	             
+	             echo "Error al Ingresar Ficha";
+	             exit();
+	         }
+	         
+	         
+	     }
+	        
+	       
+	     
+	}
+	
+	public function search(){
+	    
+	    session_start();
+	    $id_rol=$_SESSION["id_rol"];
+	    
+	    $empleados = new EmpleadosModel();
+	    
+	    $where_to="";
+	    $columnas  = "ffsp_tbl_empleados.empl_id,
+                      ffsp_tbl_empleados.empl_primer_nombre,
+                      ffsp_tbl_empleados.empl_segundo_nombre,
+                      ffsp_tbl_empleados.empl_primer_apellido,
+                      ffsp_tbl_empleados.empl_segundo_apellido,
+                      ffsp_tbl_identidad_genero.ide_id,
+                      ffsp_tbl_identidad_genero.ide_nombre,
+                      ffsp_tbl_empleados.empl_dni,
+                      ffsp_tbl_empleados.empl_edad,
+                      ffsp_tbl_empleados.empl_grupo_sanguineo,
+                      ffsp_tbl_empleados.empl_fecha_ingreso,
+                      ffsp_tbl_empleados.empl_lugar_trabajo,
+                      ffsp_tbl_empleados.empl_area_trabajo,
+                      ffsp_tbl_empleados.empl_actividades_trabajo,
+                      ffsp_tbl_discapacidad.dis_id,
+                      ffsp_tbl_discapacidad.dis_descripcion,
+                      ffsp_tbl_discapacidad.dis_tipo,
+                      ffsp_tbl_discapacidad.dis_porcentaje,
+                      ffsp_tbl_empresa.emp_id,
+                      ffsp_tbl_empresa.emp_nombre,
+                      ffsp_tbl_empresa.emp_ruc,
+                      ffsp_tbl_empresa.emp_ciudad,
+                      ffsp_tbl_orientacion_sexual.ori_id,
+                      ffsp_tbl_orientacion_sexual.ori_nombre,
+                      ffsp_tbl_religion.rel_id,
+                      ffsp_tbl_religion.rel_nombre,
+                      ffsp_tbl_sexo.sex_id,
+                      ffsp_tbl_sexo.sex_nombre";
+	    
+	    $tablas    = "public.ffsp_tbl_empleados,
+                      public.ffsp_tbl_identidad_genero,
+                      public.ffsp_tbl_discapacidad,
+                      public.ffsp_tbl_empresa,
+                      public.ffsp_tbl_orientacion_sexual,
+                      public.ffsp_tbl_religion,
+                      public.ffsp_tbl_sexo";
+	    
+	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
+                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
+                      ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
+                      ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
+                      ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id";
+	    
+	    $id        = "ffsp_tbl_empleados.empl_primer_apellido";
+	    
+	    
+	    $action = (isset($_REQUEST['peticion'])&& $_REQUEST['peticion'] !=NULL)?$_REQUEST['peticion']:'';
+	    $search =  (isset($_REQUEST['search'])&& $_REQUEST['search'] !=NULL)?$_REQUEST['search']:'';
+	    
+	    if($action == 'ajax')
+	    {
+	        
+	        
+	        if(!empty($search)){
+	            
+	            
+	            $where1=" AND empl_dni ILIKE '".$search."%'";
+	            
+	            $where_to=$where.$where1;
+	            
+	        }else{
+	            
+	            $where_to=$where;
+	            
+	        }
+	        
+	        $html="";
+	        $resultSet=$empleados->getCantidad("*", $tablas, $where_to);
+	        $cantidadResult=(int)$resultSet[0]->total;
+	        
+	        $page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
+	        
+	        $per_page = 10; //la cantidad de registros que desea mostrar
+	        $adjacents  = 9; //brecha entre páginas después de varios adyacentes
+	        $offset = ($page - 1) * $per_page;
+	        
+	        $limit = " LIMIT   '$per_page' OFFSET '$offset'";
+	        
+	        $resultSet=$empleados->getCondicionesPag($columnas, $tablas, $where_to, $id, $limit);
+	        $total_pages = ceil($cantidadResult/$per_page);
+	        
+	        if($cantidadResult > 0)
+	        {
+	            
+	            $html.='<div class="pull-left" style="margin-left:15px;">';
+	            $html.='<span class="form-control"><strong>Registros: </strong>'.$cantidadResult.'</span>';
+	            $html.='<input type="hidden" value="'.$cantidadResult.'" id="total_query" name="total_query"/>' ;
+	            $html.='</div>';
+	            $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
+	            $html.='<section style="height:400px; overflow-y:scroll;">';
+	            $html.= "<table id='tabla_empleados' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
+	            $html.= "<thead>";
+	            $html.= "<tr>";
+	            $html.='<th style="text-align: left;  font-size: 15px;">#</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Dni</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Empleado</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Empresa</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Fecha de Ingreso</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Lugar de Trabajo</th>';
+	            $html.='<th style="text-align: left;  font-size: 15px;">Area de Trabajo</th>';
+	            
+	            
+	            $html.='<th style="text-align: left;  font-size: 12px;"></th>';
+	            
+	            
+	            $html.='</tr>';
+	            $html.='</thead>';
+	            $html.='<tbody>';
+	            
+	            
+	            $i=0;
+	            
+	            foreach ($resultSet as $res)
+	            {
+	                $i++;
+	                $html.='<tr>';
+	                $html.='<td style="font-size: 14px;">'.$i.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->empl_dni.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->emp_nombre.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->empl_fecha_ingreso.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->empl_lugar_trabajo.'</td>';
+	                $html.='<td style="font-size: 14px;">'.$res->empl_area_trabajo.'</td>';
+	                
+	                /*comentario up */
+	                
+	                $html.='<td style="font-size: 15px;"><span class="pull-right"><button id="btn_abrir" class="btn btn-success" type="button" data-toggle="modal" data-target="#mod_ficha" data-id="'.$res->empl_id.'" data-cedu="'.$res->empl_dni.'" data-nombre="'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'"  title="Ingresar Ficha" style="font-size:65%;"><i class="glyphicon glyphicon-edit"></i></button></span></td>';
+	                
+	                
+	                $html.='</tr>';
+	            }
+	            
+	            
+	            
+	            $html.='</tbody>';
+	            $html.='</table>';
+	            $html.='</section></div>';
+	            $html.='<div class="table-pagination pull-right">';
+	            $html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents,"consultaEmpleados").'';
+	            $html.='</div>';
+	            
+	            
+	            
+	        }else{
+	            $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
+	            $html.='<div class="alert alert-warning alert-dismissable" style="margin-top:40px;">';
+	            $html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+	            $html.='<h4>Aviso!!!</h4> <b>Actualmente no hay registros...</b>';
+	            $html.='</div>';
+	            $html.='</div>';
+	        }
+	        
+	        
+	        echo $html;
+	        
+	    }
+	    
+	    
+	    
+	}
+	
+	
 	
 	
 }
