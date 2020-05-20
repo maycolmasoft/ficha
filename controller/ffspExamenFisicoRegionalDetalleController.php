@@ -45,9 +45,9 @@ class ffspExamenFisicoRegionalDetalleController extends ControladorBase{
 	}
 	
 
-	public function InsertaExamenFisicoRegionalDetalle(){
+ 	public function InsertaExamenFisicoRegionalDetalle(){
 			
-		session_start();
+ 		session_start();
 		
 		$examen_fisico_regional_detalle = new ffspExamenFisicoRegionalDetalleModel();
 		
