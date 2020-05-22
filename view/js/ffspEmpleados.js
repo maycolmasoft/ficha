@@ -503,9 +503,19 @@ $("#sex_id").on("focus",function(){
 	$("#mensaje_sexo").text("").fadeOut("");
 })
 
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
+function ToggleDiv(id) {
+            if (id == 'SI') {
+                document.getElementById('nombre_discapacidad').style.display = "block"
+                document.getElementById('porcentaje_discapacidad').style.display = "block"                    
+            }else if (id == 'NO'){
+            	document.getElementById('nombre_discapacidad').style.display = "none"
+            	document.getElementById('porcentaje_discapacidad').style.display = "none"                	
+            }else{
+                document.getElementById('nombre_discapacidad').style.display = "none"
+                document.getElementById('porcentaje_discapacidad').style.display = "none"
+            }
+ }
+
+  
