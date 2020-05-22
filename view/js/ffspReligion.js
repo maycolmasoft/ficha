@@ -8,6 +8,12 @@ $("#frm_religion").on("submit",function(event){
 	var _rel_id = document.getElementById('rel_id').value;
 	var parametros = {rel_nombre:_rel_nombre,rel_id:_rel_id}
 	
+	let $rel_nombre = $("#rel_nombre");    	
+	if( $rel_nombre.val().length == 0 || $rel_nombre.val() == '' ){
+		$rel_nombre.notify("Agregue Nombre",{ position:"buttom left", autoHideDelay: 2000});
+		return false;
+	}
+	
 	$.ajax({
 		beforeSend:function(){},
 		url:"index.php?controller=ffspReligion&action=InsertaReligion",

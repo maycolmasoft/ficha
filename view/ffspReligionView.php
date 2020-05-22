@@ -90,7 +90,7 @@
             		    <div class="form-group">
             		    					  
                           <label for="rel_nombre" class="control-label">Nombre Religion:</label>
-                          <input  type="text" class="form-control" id="rel_nombre" name="rel_nombre" value=""  placeholder="Nombre Religion" required/>
+                          <input  type="text" class="form-control" id="rel_nombre" name="rel_nombre" value=""  placeholder="Nombre Religion" />
                           <input type="hidden" name="rel_id" id="rel_id" value="0" />
                           <div id="divLoaderPage"></div>                     	
                                               
@@ -146,7 +146,7 @@
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
    <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
-   <script src="view/js/ffspReligion.js?0.5"></script> 
+   <script src="view/js/ffspReligion.js?0.6"></script> 
        
        
 

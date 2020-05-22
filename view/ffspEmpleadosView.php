@@ -212,8 +212,8 @@
             	
         		     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-            		     <label for="dis_id" class="control-label">Discapacidad:</label>
-                         <select class="form-control" onchange="ToggleDiv(this.value)">
+            		     <label for="dis_tiene" class="control-label">Discapacidad:</label>
+                         <select class="form-control" id="dis_tiene" onchange="ToggleDiv(this.value)">
         				 <option value="0">--Seleccione--</option>
         				 <option value="SI">SI</option>
         				 <option value="NO">NO</option>
@@ -225,7 +225,7 @@
             		<div class="col-xs-12 col-md-3 col-md-3 " id="nombre_discapacidad">
             		    <div class="form-group">
             		      <label for="dis_nombre" class="control-label">Nombre de Discapacidad:</label>
-                          <input  type="text" class="form-control" id="dis_nombre" name="dis_nombre" value=""  placeholder="Nombre de Discapacidad" required/>
+                          <input  type="text" class="form-control" id="dis_nombre" name="dis_nombre" value=""  placeholder="Nombre de Discapacidad" />
                           <div id="mensaje_dis_nombre" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -234,7 +234,7 @@
 				    <div class="col-xs-12 col-md-3 col-md-3 " id="porcentaje_discapacidad">
             		    <div class="form-group">
             		      <label for="dis_porcentaje" class="control-label">Porcentaje de Discapacidad:</label>
-                          <input  type="text" class="form-control" id="dis_porcentaje" name="dis_porcentaje" value=""  placeholder="Porcentaje de Discapacidad" required/>
+                          <input  type="text" class="form-control" id="dis_porcentaje" name="dis_porcentaje" value=""  placeholder="Porcentaje de Discapacidad" />
                           <div id="mensaje_dis_porcentaje" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -329,7 +329,7 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ffspEmpleados.js?0.2"></script> 
+   <script src="view/js/ffspEmpleados.js?0.8"></script> 
        
    
   </body>
