@@ -243,7 +243,7 @@
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
    <script src="view/js/ffspFactoresRiesgo.js?0.2"></script> 
-   <script src="view/js/ffspFactoresRiesgoDetalle.js?0.2"></script> 
+   <script src="view/js/ffspFactoresRiesgoDetalle.js?0.3"></script> 
        
        
 

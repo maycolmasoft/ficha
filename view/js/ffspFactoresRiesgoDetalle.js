@@ -199,9 +199,6 @@ $("#ddl_fac_id").on("focus",function(){
 	$("#mensaje_id_factores_riesgo").text("").fadeOut("");
 })
 
-$("#fact_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
+
 
 

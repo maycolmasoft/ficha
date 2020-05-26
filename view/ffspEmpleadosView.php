@@ -22,6 +22,15 @@
         }
  	  
  	</style>
+ 	
+ 	 <style type="text/css">
+        div#nombre_discapacidad, div#porcentaje_discapacidad{
+            display: none;
+        }
+    </style>
+ 	
+ 
+ 	
    <?php include("view/modulos/links_css.php"); ?>
   			        
     </head>
@@ -203,13 +212,36 @@
             	
         		     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-            		     <label for="dis_id" class="control-label">Discapacidad:</label>
-                          <select  class="form-control" id="dis_id" name="dis_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
+            		     <label for="dis_tiene" class="control-label">Discapacidad:</label>
+                         <select class="form-control" id="dis_tiene" onchange="ToggleDiv(this.value)">
+        				 <option value="0">--Seleccione--</option>
+        				 <option value="SI">SI</option>
+        				 <option value="NO">NO</option>
+    					 </select>                        
                           <div id="mensaje_discapacidad" class="errores"></div>
                         </div>
             		  </div>
+            	
+            		<div class="col-xs-12 col-md-3 col-md-3 " id="nombre_discapacidad">
+            		    <div class="form-group">
+            		      <label for="dis_nombre" class="control-label">Nombre de Discapacidad:</label>
+                          <input  type="text" class="form-control" id="dis_nombre" name="dis_nombre" value=""  placeholder="Nombre de Discapacidad" />
+                          <div id="mensaje_dis_nombre" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+
+				    <div class="col-xs-12 col-md-3 col-md-3 " id="porcentaje_discapacidad">
+            		    <div class="form-group">
+            		      <label for="dis_porcentaje" class="control-label">Porcentaje de Discapacidad:</label>
+                          <input  type="text" class="form-control" id="dis_porcentaje" name="dis_porcentaje" value=""  placeholder="Porcentaje de Discapacidad" />
+                          <div id="mensaje_dis_porcentaje" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+  
+            		  
+            		  
             		  
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
@@ -240,9 +272,7 @@
                           <div id="mensaje_religion" class="errores"></div>
                         </div>
             		  </div> 
-            	</div>	
             	
-            	 <div class="row">
         		     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="sex_id" class="control-label">Sexo:</label>
@@ -252,8 +282,8 @@
                           <div id="mensaje_sexo" class="errores"></div>
                         </div>
             		  </div>
-            	</div>	
-							          		        
+         			</div>	
+            			          		        
            		<div class="row">
     			    <div class="col-xs-12 col-md-4 col-lg-4 " style="text-align: center; ">
         	   		    <div class="form-group">
@@ -299,7 +329,7 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ffspEmpleados.js?0.1"></script> 
+   <script src="view/js/ffspEmpleados.js?0.8"></script> 
        
    
   </body>

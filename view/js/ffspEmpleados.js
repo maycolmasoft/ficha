@@ -2,7 +2,6 @@ $(document).ready(function(){
 	
 	consultaEmpleados();
 	cargaIdentidadGenero();
-	cargaDiscapacidad();
 	cargaEmpresa();
 	cargaOrientacionSexual();
 	cargaReligion();
@@ -25,7 +24,9 @@ $("#frm_empleados").on("submit",function(event){
 	let _empl_lugar_trabajo = document.getElementById('empl_lugar_trabajo').value;
 	let _empl_area_trabajo = document.getElementById('empl_area_trabajo').value;
 	let _empl_actividades_trabajo = document.getElementById('empl_actividades_trabajo').value;
-	let _dis_id = document.getElementById('dis_id').value;
+	let _dis_tiene = document.getElementById('dis_tiene').value;
+	let _dis_nombre = document.getElementById('dis_nombre').value;
+	let _dis_porcentaje = document.getElementById('dis_porcentaje').value;
 	let _emp_id = document.getElementById('emp_id').value;
 	let _ori_id = document.getElementById('ori_id').value;
 	let _rel_id = document.getElementById('rel_id').value;
@@ -44,7 +45,9 @@ $("#frm_empleados").on("submit",function(event){
 				empl_lugar_trabajo:_empl_lugar_trabajo,
 				empl_area_trabajo:_empl_area_trabajo,
 				empl_actividades_trabajo:_empl_actividades_trabajo,
-				dis_id:_dis_id,
+				dis_tiene:_dis_tiene,
+				dis_nombre:_dis_nombre,
+				dis_porcentaje:_dis_porcentaje,
 				emp_id:_emp_id,
 				ori_id:_ori_id,
 				rel_id:_rel_id,
@@ -110,10 +113,6 @@ $("#frm_empleados").on("submit",function(event){
 			return false;
 		}
 		
-		if(_dis_id == 0){
-			$("#mensaje_discapacidad").text("Seleccione").fadeIn("Slow");
-			return false;
-		}
 		
 		if(_emp_id == 0){
 			$("#mensaje_empresa").text("Seleccione").fadeIn("Slow");
@@ -195,7 +194,23 @@ function editEmpleados(id = 0){
 			$("#empl_lugar_trabajo").val(array.empl_lugar_trabajo);
 			$("#empl_area_trabajo").val(array.empl_area_trabajo);
 			$("#empl_actividades_trabajo").val(array.empl_actividades_trabajo);
-			$("#dis_id").val(array.dis_id);
+			
+			
+			var valor_dis_tiene = ( array.dis_tiene == 't' ) ? "SI" : "NO";
+			
+			 if (valor_dis_tiene == 'SI') {
+	                document.getElementById('nombre_discapacidad').style.display = "block"
+	                document.getElementById('porcentaje_discapacidad').style.display = "block"
+	                $("#dis_nombre").val(array.dis_nombre);	
+	                $("#dis_porcentaje").val(array.dis_porcentaje);	
+			 }else{
+                document.getElementById('nombre_discapacidad').style.display = "none"
+                document.getElementById('porcentaje_discapacidad').style.display = "none"
+            	$("#dis_nombre").val('');	
+                $("#dis_porcentaje").val('');	
+                
+            }
+			$("#dis_tiene").val(valor_dis_tiene);			
 			$("#emp_id").val(array.emp_id);
 			$("#ori_id").val(array.ori_id);
 			$("#rel_id").val(array.rel_id);
@@ -204,6 +219,7 @@ function editEmpleados(id = 0){
 			
 			$("html, body").animate({ scrollTop: $(empl_primer_nombre).offset().top-120 }, tiempo);			
 		}
+		
 		
 		
 		
@@ -322,41 +338,8 @@ $("#empl_primer_nombre").on("keyup",function(){
 })
 
 
-function cargaDiscapacidad(){
-	
-	let $ddlDiscapacidad= $("#dis_id");
-	
-	$.ajax({
-		beforeSend:function(){},
-		url:"index.php?controller=ffspEmpleados&action=cargaDiscapacidad",
-		type:"POST",
-		dataType:"json",
-		data:null
-	}).done(function(datos){		
-		
-		$ddlDiscapacidad.empty();
-		$ddlDiscapacidad.append("<option value='0' >--Seleccione--</option>");
-		
-		$.each(datos.data, function(index, value) {
-			$ddlDiscapacidad.append("<option value= " +value.dis_id +" >" + value.dis_tipo  + "</option>");	
-  		});
-		
-	}).fail(function(xhr,status,error){
-		var err = xhr.responseText
-		console.log(err)
-		$ddlDiscapacidad.empty();
-	})
-	
-}
 
-$("#dis_id").on("focus",function(){
-	$("#mensaje_discapacidad").text("").fadeOut("");
-})
 
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 
@@ -503,9 +486,19 @@ $("#sex_id").on("focus",function(){
 	$("#mensaje_sexo").text("").fadeOut("");
 })
 
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
+function ToggleDiv(id) {
+            if (id == 'SI') {
+                document.getElementById('nombre_discapacidad').style.display = "block"
+                document.getElementById('porcentaje_discapacidad').style.display = "block"                    
+            }else if (id == 'NO'){
+            	document.getElementById('nombre_discapacidad').style.display = "none"
+            	document.getElementById('porcentaje_discapacidad').style.display = "none"                	
+            }else{
+                document.getElementById('nombre_discapacidad').style.display = "none"
+                document.getElementById('porcentaje_discapacidad').style.display = "none"
+            }
+ }
+
+  

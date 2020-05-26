@@ -199,9 +199,6 @@ $("#ddl_exa_id").on("focus",function(){
 	$("#mensaje_id_examen").text("").fadeOut("");
 })
 
-$("#exam_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
+
 
 
