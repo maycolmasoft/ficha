@@ -4,7 +4,6 @@ $(document).ready(function(){
 	
 	
 	cargaIdentidadGenero();
-	cargaDiscapacidad();
 	cargaEmpresa();
 	cargaOrientacionSexual();
 	cargaReligion();
@@ -33,7 +32,7 @@ $(document).ready(function(){
   
 function cargarEmpleados(){
 	    
-    var fic_id=$('#fic_id').val();
+     fic_id=$('#fic_id').val();
 	var tiempo = tiempo || 1000;
 		
 	$.ajax({
@@ -65,7 +64,6 @@ function cargarEmpleados(){
 			$("#empl_lugar_trabajo").val(array.empl_lugar_trabajo);
 			$("#empl_area_trabajo").val(array.empl_area_trabajo);
 			$("#empl_actividades_trabajo").val(array.empl_actividades_trabajo);
-			$("#dis_id").val(array.dis_id);
 			
 			$("#ori_id").val(array.ori_id);
 			$("#rel_id").val(array.rel_id);
@@ -139,42 +137,6 @@ $("#empl_primer_nombre").on("keyup",function(){
 	$(this).val($(this).val().toUpperCase());
 })
 
-
-function cargaDiscapacidad(){
-	
-	let $ddlDiscapacidad= $("#dis_id");
-	
-	$.ajax({
-		beforeSend:function(){},
-		url:"index.php?controller=ffspEmpleados&action=cargaDiscapacidad",
-		type:"POST",
-		dataType:"json",
-		data:null
-	}).done(function(datos){		
-		
-		$ddlDiscapacidad.empty();
-		$ddlDiscapacidad.append("<option value='0' >--Seleccione--</option>");
-		
-		$.each(datos.data, function(index, value) {
-			$ddlDiscapacidad.append("<option value= " +value.dis_id +" >" + value.dis_tipo  + "</option>");	
-  		});
-		
-	}).fail(function(xhr,status,error){
-		var err = xhr.responseText
-		console.log(err)
-		$ddlDiscapacidad.empty();
-	})
-	
-}
-
-$("#dis_id").on("focus",function(){
-	$("#mensaje_discapacidad").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 

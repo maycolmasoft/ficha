@@ -10,7 +10,7 @@ class ffsp_fichaController extends ControladorBase{
 
 	public function index(){
 	
-	    $empleados = new EmpleadosModel();
+	    $empleados = new ffspEmpleadosModel();
 				
 		session_start();
 		
@@ -40,7 +40,7 @@ class ffsp_fichaController extends ControladorBase{
 	public function cargarEmpleados(){
 	    
 	    session_start();
-	    $empleados = new EmpleadosModel();
+	    $empleados = new ffspEmpleadosModel();
 	    
 	        
 	        if(isset($_POST["fic_id"])){

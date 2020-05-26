@@ -547,6 +547,23 @@ class ffspEmpleadosController extends ControladorBase{
 	    }
 	}
 	
+	
+	public function  cargaTipoFicha(){
+	    
+	    $empleados = null;
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    $query = " SELECT tip_id, tip_nombre FROM ffsp_tbl_tipo_ficha WHERE 1=1 ORDER BY tip_id";
+	    
+	    $resulset = $empleados->enviaquery($query);
+	    
+	    if(!empty($resulset) && count($resulset)>0){
+	        
+	        echo json_encode(array('data'=>$resulset));
+	        
+	    }
+	}
+	
 	public function cargaOrientacionSexual(){
 	    
 	    $empleados = null;

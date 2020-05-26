@@ -93,7 +93,6 @@ $(document).ready(function(){
 		let _empl_lugar_trabajo = document.getElementById('empl_lugar_trabajo').value;
 		let _empl_area_trabajo = document.getElementById('empl_area_trabajo').value;
 		let _empl_actividades_trabajo = document.getElementById('empl_actividades_trabajo').value;
-		let _dis_id = document.getElementById('dis_id').value;
 		let _emp_id = document.getElementById('emp_id').value;
 		let _ori_id = document.getElementById('ori_id').value;
 		let _rel_id = document.getElementById('rel_id').value;
@@ -176,10 +175,6 @@ $(document).ready(function(){
 			return false;
 	   } 
 	   
-	   if(_dis_id == 0 ){
-		   $("#mensaje_discapacidad").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	   }
 	   if(_emp_id == 0 ){
 		   $("#mensaje_empresa").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
