@@ -119,6 +119,27 @@ $("#frm_empleados").on("submit",function(event){
 			$dis_tiene.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
+		
+		let $dis_nombre= $("#dis_nombre");    	
+		let $dis_porcentaje= $("#dis_porcentaje");    	
+		
+		if( $dis_tiene.val() == 'SI' ){
+			
+			if( $dis_nombre.val() == "" ){
+				$dis_nombre.notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+			}
+			
+			if( $dis_porcentaje.val() == "" ){
+				$dis_porcentaje.notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+			}
+			
+		}
+		
+		
+		
+		
 		let $emp_id= $("#emp_id");    	
 		if( $emp_id.val() == 0 ){
 			$emp_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
@@ -498,9 +519,15 @@ function ToggleDiv(id) {
                 document.getElementById('nombre_discapacidad').style.display = "block"
                 document.getElementById('porcentaje_discapacidad').style.display = "block"                    
             }else if (id == 'NO'){
+            	
+            	$("#dis_nombre").val("");
+            	$("#dis_porcentaje").val("");
             	document.getElementById('nombre_discapacidad').style.display = "none"
             	document.getElementById('porcentaje_discapacidad').style.display = "none"                	
             }else{
+            	
+            	$("#dis_nombre").val("");
+            	$("#dis_porcentaje").val("");
                 document.getElementById('nombre_discapacidad').style.display = "none"
                 document.getElementById('porcentaje_discapacidad').style.display = "none"
             }

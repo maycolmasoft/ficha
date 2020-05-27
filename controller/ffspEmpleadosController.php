@@ -252,6 +252,7 @@ class ffspEmpleadosController extends ControladorBase{
 	public function delEmpleados(){
 	    
 	    session_start();
+	    $discapacidad = new ffspDiscapacidadModel();
 	    $empleados = new ffspEmpleadosModel();
 	    $nombre_controladores = "ffspEmpleados";
 	    $id_rol= $_SESSION['id_rol'];
@@ -263,6 +264,7 @@ class ffspEmpleadosController extends ControladorBase{
 	            
 	            $empl_id = (int)$_POST["empl_id"];
 	            
+	            $resultado1  = $discapacidad->eliminarBy("empl_id ",$empl_id);
 	            $resultado  = $empleados->eliminarBy("empl_id ",$empl_id);
 	           
 	            if( $resultado > 0 ){
