@@ -78,6 +78,7 @@ $(document).ready(function(){
 		}
 	});*/
 
+
     
    function validaPaso1(){
 	   
@@ -93,7 +94,13 @@ $(document).ready(function(){
 		let _empl_lugar_trabajo = document.getElementById('empl_lugar_trabajo').value;
 		let _empl_area_trabajo = document.getElementById('empl_area_trabajo').value;
 		let _empl_actividades_trabajo = document.getElementById('empl_actividades_trabajo').value;
-		let _dis_id = document.getElementById('dis_id').value;
+		
+		let _dis_tiene = document.getElementById('dis_tiene').value;
+		let _dis_nombre = document.getElementById('dis_nombre').value;
+		let _dis_porcentaje = document.getElementById('dis_porcentaje').value;
+		
+		
+		
 		let _emp_id = document.getElementById('emp_id').value;
 		let _ori_id = document.getElementById('ori_id').value;
 		let _rel_id = document.getElementById('rel_id').value;
@@ -171,15 +178,29 @@ $(document).ready(function(){
 			return false;
 	   }
 	   
-	   if(_empl_actividades_trabajo == "" || _empl_actividades_trabajo.length == 0 ){
-		   $("#mensaje_actividades_trabajo").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
+	   if(_dis_tiene == 0){
+		   $("#mensaje_discapacidad").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 	   } 
 	   
-	   if(_dis_id == 0 ){
-		   $("#mensaje_discapacidad").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	   }
+	   
+	   if(_dis_tiene == "SI"){
+		 
+		   if(_dis_nombre == "" || _dis_nombre.length == 0){
+			   $("#mensaje_dis_nombre").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		   } 
+		   
+		   if(_dis_porcentaje == "" || _dis_porcentaje.length == 0){
+			   $("#mensaje_dis_porcentaje").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		   } 
+	   } 
+	   
+	   
+	   
+	   
+	   
 	   if(_emp_id == 0 ){
 		   $("#mensaje_empresa").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
@@ -200,10 +221,58 @@ $(document).ready(function(){
 			return false;
 	   }
 	   
+	   
 	   $("#aplicar").attr({disabled:true});
-		
+	   var parametros = {empl_primer_nombre:_empl_primer_nombre,
+				empl_segundo_nombre:_empl_segundo_nombre,
+				empl_primer_apellido:_empl_primer_apellido,
+				empl_segundo_apellido:_empl_segundo_apellido,
+				ide_id:_ide_id,
+				empl_dni:_empl_dni,
+				empl_edad:_empl_edad,
+				empl_grupo_sanguineo:_empl_grupo_sanguineo,
+				empl_fecha_ingreso:_empl_fecha_ingreso,
+				empl_lugar_trabajo:_empl_lugar_trabajo,
+				empl_area_trabajo:_empl_area_trabajo,
+				empl_actividades_trabajo:_empl_actividades_trabajo,
+				dis_tiene:_dis_tiene,
+				dis_nombre:_dis_nombre,
+				dis_porcentaje:_dis_porcentaje,
+				emp_id:_emp_id,
+				ori_id:_ori_id,
+				rel_id:_rel_id,
+				sex_id:_sex_id,
+				empl_id:_empl_id}
 		   
-	   return true;
+	   $.ajax({
+			beforeSend:function(){},
+			url:"index.php?controller=ffspEmpleados&action=InsertaEmpleados",
+			type:"POST",
+			dataType:"json",
+			data:parametros
+		}).done(function(datos){
+			
+			 
+		swal({
+	  		  title: "Actualizando Empleados",
+	  		  text: datos.mensaje,
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		
+	  		});
+		
+		return true;
+		}).fail(function(xhr,status,error){
+			
+			var err = xhr.responseText
+			console.log(err);
+			
+		})
+	   
+	   
+	   
+	   
+	  
    }
    
    function validaPaso2(){
@@ -211,7 +280,17 @@ $(document).ready(function(){
 	   CKEDITOR.instances.fic_motivo_consulta.updateElement();
 		 
 	   let fic_motivo_consulta = $("#fic_motivo_consulta").val();
-		 	
+	   var _empl_id = document.getElementById('empl_id').value;
+	   var _fic_id = document.getElementById('fic_id').value;
+ 	
+	   if(_fic_id == '' || _fic_id == 0){
+		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
+		if(_empl_id == '' || _empl_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
 	
 	   if(fic_motivo_consulta == '' || fic_motivo_consulta.length == 0){
 		   $("#fic_motivo_consulta").notify("Ingrese Motivo de Consulta.",{ position:"buttom left", autoHideDelay: 2000});
@@ -221,7 +300,43 @@ $(document).ready(function(){
 		$("#aplicar").attr({disabled:true});
 		
 		   
-	   return true;
+		var parametros = {fic_motivo_consulta:fic_motivo_consulta,
+				          empl_id:_empl_id,
+				          fic_id:_fic_id
+				         }
+		   
+	   $.ajax({
+			beforeSend:function(){},
+			url:"index.php?controller=ffsp_ficha&action=InsertaMotivo_B",
+			type:"POST",
+			dataType:"json",
+			data:parametros
+		}).done(function(datos){
+			
+			if(datos.respuesta > 0){
+				
+				swal({
+			  		  title: "Actualizando Motivo Consulta",
+			  		  text: datos.mensaje,
+			  		  icon: "success",
+			  		  button: "Aceptar",
+			  		
+			  		});
+				
+				return true;	
+				
+			}
+			 
+		
+		
+		}).fail(function(xhr,status,error){
+			
+			var err = xhr.responseText
+			console.log(err);
+			
+		})
+	   
+	
    }
    
    
@@ -231,8 +346,18 @@ $(document).ready(function(){
 	   CKEDITOR.instances.fic_antecedentes_personales.updateElement();
 		 
 	   let fic_antecedentes_personales = $("#fic_antecedentes_personales").val();
-	
-	   
+	   var _empl_id = document.getElementById('empl_id').value;
+	   var _fic_id = document.getElementById('fic_id').value;
+ 	
+	   if(_fic_id == '' || _fic_id == 0){
+		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
+		if(_empl_id == '' || _empl_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
+		
 	   if(fic_antecedentes_personales == '' || fic_antecedentes_personales.length == 0){
 		   $("#fic_antecedentes_personales").notify("Ingrese Antecedentes Clínicos y Quirúrgicos",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
@@ -241,11 +366,53 @@ $(document).ready(function(){
 	   
 	 	$("#aplicar").attr({disabled:true});
 		
-	   
-	   
+	 	var parametros = {fic_antecedentes_personales:fic_antecedentes_personales,
+		          empl_id:_empl_id,
+		          fic_id:_fic_id
+		         }
+ 
+		$.ajax({
+			beforeSend:function(){},
+			url:"index.php?controller=ffsp_ficha&action=InsertaAntecedentes_C",
+			type:"POST",
+			dataType:"json",
+			data:parametros
+		}).done(function(datos){
+			
+			if(datos.respuesta > 0){
+				
+				swal({
+			  		  title: "Actualizando Antecedentes Personales",
+			  		  text: datos.mensaje,
+			  		  icon: "success",
+			  		  button: "Aceptar",
+			  		
+			  		});
+				
+				return true;	
+				
+			}
+			 
+		
+		
+		}).fail(function(xhr,status,error){
+			
+			var err = xhr.responseText
+			console.log(err);
+			
+		})
 	  
-	   return true;
    }
 	
+   
 })
+      
+   
+
+   
+   
+   
+   
+   
+   
 

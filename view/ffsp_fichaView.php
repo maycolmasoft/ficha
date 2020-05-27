@@ -524,22 +524,42 @@
             	
             	 <div class="row">
             	
-        		     <div class="col-xs-12 col-md-3 col-md-3 ">
+            	
+            	   <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group-sm">
-            		     <label for="dis_id" class="control-label">Discapacidad:</label>
-                          <select  class="form-control" id="dis_id" name="dis_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
+            		     <label for="dis_tiene" class="control-label">Discapacidad:</label>
+                         <select class="form-control" id="dis_tiene" onchange="ToggleDiv(this.value)">
+        				 <option value="0">--Seleccione--</option>
+        				 <option value="SI">SI</option>
+        				 <option value="NO">NO</option>
+    					 </select>                        
                           <div id="mensaje_discapacidad" class="errores"></div>
                         </div>
             		  </div>
-            		  
+            	
+            		<div class="col-xs-12 col-md-3 col-md-3 " id="nombre_discapacidad">
+            		    <div class="form-group-sm">
+            		      <label for="dis_nombre" class="control-label">Nombre de Discapacidad:</label>
+                          <input  type="text" class="form-control" id="dis_nombre" name="dis_nombre" value=""  placeholder="Nombre de Discapacidad" />
+                          <div id="mensaje_dis_nombre" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+
+				    <div class="col-xs-12 col-md-3 col-md-3 " id="porcentaje_discapacidad">
+            		    <div class="form-group-sm">
+            		      <label for="dis_porcentaje" class="control-label">Porcentaje de Discapacidad:</label>
+                          <input  type="number" class="form-control" id="dis_porcentaje" name="dis_porcentaje" value=""  placeholder="Porcentaje de Discapacidad" />
+                          <div id="mensaje_dis_porcentaje" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
             		   
             		  
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group-sm">
             		     <label for="ori_id" class="control-label">Orientacion Sexual:</label>
-                          <select  class="form-control" id="ori_id" name="ori_id" required>
+                          <select  class="form-control" id="ori_id" name="ori_id">
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_orientacion_sexual" class="errores"></div>
@@ -549,7 +569,7 @@
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group-sm">
             		     <label for="rel_id" class="control-label">Religion:</label>
-                          <select  class="form-control" id="rel_id" name="rel_id" required>
+                          <select  class="form-control" id="rel_id" name="rel_id">
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_religion" class="errores"></div>
@@ -559,7 +579,7 @@
             	     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group-sm">
             		     <label for="sex_id" class="control-label">Sexo:</label>
-                          <select  class="form-control" id="sex_id" name="sex_id" required>
+                          <select  class="form-control" id="sex_id" name="sex_id">
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_sexo" class="errores"></div>
@@ -631,8 +651,8 @@
                                                       <label for="fic_ant_menarquia" class="control-label">Menarquia:</label>
                                                       <select name="fic_ant_menarquia" id="fic_ant_menarquia"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_menarquia" class="errores"></div>
                                 </div>
@@ -660,8 +680,8 @@
                                                       <label for="fic_ant_gestas" class="control-label">Gestas:</label>
                                                       <select name="fic_ant_gestas" id="fic_ant_gestas"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_gestas" class="errores"></div>
                                 </div>
@@ -672,8 +692,8 @@
                                                       <label for="fic_ant_partos" class="control-label">Partos:</label>
                                                       <select name="fic_ant_partos" id="fic_ant_partos"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_partos" class="errores"></div>
                                 </div>
@@ -684,8 +704,8 @@
                                                       <label for="fic_ant_cesareas" class="control-label">Cesareas:</label>
                                                       <select name="fic_ant_cesareas" id="fic_ant_cesareas"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_cesareas" class="errores"></div>
                                 </div>
@@ -696,20 +716,38 @@
                                                       <label for="fic_ant_abortos" class="control-label">Abortos:</label>
                                                       <select name="fic_ant_abortos" id="fic_ant_abortos"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_abortos" class="errores"></div>
                                 </div>
                                 </div>
                                 
-                                <div class="col-lg-2 col-xs-12 col-md-2">
+                               
+            
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+               		
+               		
+               		 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Planificación Familiar</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	    <div class="col-lg-2 col-xs-12 col-md-2">
                     		    <div class="form-group-sm">
                                                       <label for="fic_ant_hijos_vivos" class="control-label">Hijos Vivos:</label>
                                                       <select name="fic_ant_hijos_vivos" id="fic_ant_hijos_vivos"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_hijos_vivos" class="errores"></div>
                                 </div>
@@ -720,8 +758,8 @@
                                                       <label for="fic_ant_hijos_muertos" class="control-label">Hijos Muertos:</label>
                                                       <select name="fic_ant_hijos_muertos" id="fic_ant_hijos_muertos"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_hijos_muertos" class="errores"></div>
                                 </div>
@@ -732,77 +770,127 @@
                                                       <label for="fic_ant_vida_sexual" class="control-label">Vida Sexual Activa:</label>
                                                       <select name="fic_ant_vida_sexual" id="fic_ant_vida_sexual"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_vida_sexual" class="errores"></div>
                                 </div>
                                 </div>
-                                
+                                  
+                                                      
                                 <div class="col-lg-2 col-xs-12 col-md-2">
                     		    <div class="form-group-sm">
                                                       <label for="fic_ant_metodo_planificacion_familiar" class="control-label">Método Pla. Familiar:</label>
                                                       <select name="fic_ant_metodo_planificacion_familiar" id="fic_ant_metodo_planificacion_familiar"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
                                                       <div id="mensaje_fic_ant_metodo_planificacion_familiar" class="errores"></div>
                                 </div>
                                 </div>
                                 
                                 
-                                  <div class="col-xs-12 col-md-2 col-md-2 ">
+                                  <div class="col-xs-12 col-md-4 col-md-4 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_ant_tipo_metodo_planificacion_familiar" class="control-label">Tipo Pla. Familiar:</label>
                                   <input  type="text" class="form-control" id="fic_ant_tipo_metodo_planificacion_familiar" name="fic_ant_tipo_metodo_planificacion_familiar" value=""  placeholder="#"/>
                                   <div id="mensaje_fic_ant_tipo_metodo_planificacion_familiar" class="errores"></div>
                                  </div>
                     		  </div>
+	         			     			
+               			
 	        
                			  </div>
                			  
                			  
                			  
-               			  <div class="row" style="margin-top:20px;">
+               			  <div class="row" style="margin-top:40px;">
                			  <div class="col-lg-6 col-md-6 col-xs-12">
-               			  <div class="col-lg-4 col-xs-12 col-md-4">
-                    		    <div class="form-group-sm">
-                                                      <label for="fic_ant_metodo_planificacion_familiar" class="control-label">Método Pla. Familiar:</label>
-                                                      <select name="fic_ant_metodo_planificacion_familiar" id="fic_ant_metodo_planificacion_familiar"  class="form-control" >
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Exámenes Realizados</div>
+                              <div class="panel-body">
+               			   
+               			   
+               			   
+               			   <div class="col-xs-12 col-md-6 col-md-6 ">
+            		    	<div class="form-group-sm">
+            		     	<label for="ante_id" class="control-label">Exámenes:</label>
+                          	<select  class="form-control" id="ante_id" name="ante_id">
+                          	<option value="0">--Seleccione--</option>
+                          	 <option value="TRUE">Si</option>
+                          	</select>                         
+                          	<div id="mensaje_ante_id" class="errores"></div>
+                        	</div>
+            		  	   </div>
+            		  
+            		        <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                                                      <label for="fic_ant_det_realizado" class="control-label">Se Realizo Exámen:</label>
+                                                      <select name="fic_ant_det_realizado" id="fic_ant_det_realizado"  class="form-control" >
                                                       <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
                         							  </select> 
-                                                      <div id="mensaje_fic_ant_metodo_planificacion_familiar" class="errores"></div>
-                                </div>
-                                </div>
-                                <div class="col-lg-4 col-xs-12 col-md-4">
+                                                      <div id="mensaje_fic_ant_det_realizado" class="errores"></div>
+                            </div>
+                            </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                                                      <label for="fic_ant_metodo_planificacion_familiar" class="control-label">Método Pla. Familiar:</label>
-                                                      <select name="fic_ant_metodo_planificacion_familiar" id="fic_ant_metodo_planificacion_familiar"  class="form-control" >
-                                                      <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
-                        							  </select> 
-                                                      <div id="mensaje_fic_ant_metodo_planificacion_familiar" class="errores"></div>
-                                </div>
-                                </div>
-                                <div class="col-lg-4 col-xs-12 col-md-4">
+                    		      <label for="fic_ant_det_tiempo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_ant_det_tiempo" name="fic_ant_det_tiempo" value=""  placeholder="# años"/>
+                                  <div id="mensaje_fic_ant_det_tiempo" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                                                      <label for="fic_ant_metodo_planificacion_familiar" class="control-label">Método Pla. Familiar:</label>
-                                                      <select name="fic_ant_metodo_planificacion_familiar" id="fic_ant_metodo_planificacion_familiar"  class="form-control" >
-                                                      <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="Si">Si</option>
-                        							  <option value="No">No</option>
-                        							  </select> 
-                                                      <div id="mensaje_fic_ant_metodo_planificacion_familiar" class="errores"></div>
+                    		      <label for="fic_ant_det_resultado" class="control-label">Resultado:</label>
+                                  <input  type="text" class="form-control" id="fic_ant_det_resultado" name="fic_ant_det_resultado" value=""  placeholder="resultado.."/>
+                                  <div id="mensaje_fic_ant_det_resultado" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		  
+                    		  
+                    		  
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                                      <button type="button" onclick="AgregarC()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                				
                                 </div>
-                                </div>
+                    		    </div>
+                    		    
+                    		    </div>
+                    		  
+                    		  <br>
+                    		  
+                    		  </div>
+                    		  </div>
+                    		  
                			  </div>
+               			  
                			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Exámenes Realizados</div>
+                              <div class="panel-body">
+               			      <div id="load_antecedentes_sexo_registrados" ></div>
+               			      <div id="antecedentes_sexo_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
                			  </div>
+               			  
+               			  
+               			  
                			  </div>
+               			  
+               			  
                			  
                			  
                			  
@@ -810,20 +898,9 @@
                			</div>
                		</div>
                		
-               		 <div id="hombre" class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Antecedentes Reproductivos Masculinos</h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	
-	        
-               			  </div>
-               			</div>
-               		</div>
+               		
+               		
+               		 
                		
                		
                 </div>
@@ -906,8 +983,8 @@
     <script src="view/bootstrap/bower_components/jquery-ui-1.12.1/jquery-ui.js"></script> 
     <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
 	<script type="text/javascript" src="view/bootstrap/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-	<script type="text/javascript" src="view/js/ffspFicha.js?0.10"></script>
-	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.13"></script>
+	<script type="text/javascript" src="view/js/ffspFicha.js?0.30"></script>
+	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   
