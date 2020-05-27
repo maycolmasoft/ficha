@@ -16,7 +16,6 @@ $("#frm_empleados").on("submit",function(event){
 	let _empl_segundo_nombre = document.getElementById('empl_segundo_nombre').value;
 	let _empl_primer_apellido = document.getElementById('empl_primer_apellido').value;
 	let _empl_segundo_apellido = document.getElementById('empl_segundo_apellido').value;
-	let _ide_id = document.getElementById('ide_id').value;
 	let _empl_dni = document.getElementById('empl_dni').value;
 	let _empl_edad = document.getElementById('empl_edad').value;
 	let _empl_grupo_sanguineo = document.getElementById('empl_grupo_sanguineo').value;
@@ -24,6 +23,7 @@ $("#frm_empleados").on("submit",function(event){
 	let _empl_lugar_trabajo = document.getElementById('empl_lugar_trabajo').value;
 	let _empl_area_trabajo = document.getElementById('empl_area_trabajo').value;
 	let _empl_actividades_trabajo = document.getElementById('empl_actividades_trabajo').value;
+	let _ide_id = document.getElementById('ide_id').value;
 	let _dis_tiene = document.getElementById('dis_tiene').value;
 	let _dis_nombre = document.getElementById('dis_nombre').value;
 	let _dis_porcentaje = document.getElementById('dis_porcentaje').value;
@@ -54,86 +54,91 @@ $("#frm_empleados").on("submit",function(event){
 				sex_id:_sex_id,
 				empl_id:_empl_id}
 
-		if(_empl_primer_nombre == ""){
-			$("#mensaje_primer_nombre").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_primer_nombre = $("#empl_primer_nombre");    	
+		if( $empl_primer_nombre.val().length == 0 || $empl_primer_nombre.val() == '' ){
+			$empl_primer_nombre.notify("Agregue Primer Nombre",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		if(_empl_segundo_nombre == ""){
-			$("#mensaje_segundo_nombre").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_segundo_nombre = $("#empl_segundo_nombre");    	
+		if( $empl_segundo_nombre.val().length == 0 || $empl_primer_nombre.val() == '' ){
+			$empl_segundo_nombre.notify("Agregue Segundo Nombre",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_primer_apellido == ""){
-			$("#mensaje_primer_apellido").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_primer_apellido = $("#empl_primer_apellido");    	
+		if( $empl_primer_apellido.val().length == 0 || $empl_primer_apellido.val() == '' ){
+			$empl_primer_apellido.notify("Agregue Primer Apellido",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_segundo_apellido == ""){
-			$("#mensaje_segundo_apellido").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_segundo_apellido = $("#empl_segundo_apellido");    	
+		if( $empl_segundo_apellido.val().length == 0 || $empl_segundo_apellido.val() == '' ){
+			$empl_segundo_apellido.notify("Agregue Segundo Apellido",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_ide_id == 0){
-			$("#mensaje_identidad_genero").text("Seleccione").fadeIn("Slow");
+		let $empl_dni = $("#empl_dni");    	
+		if( $empl_dni.val().length == 0 || $empl_dni.val() == '' ){
+			$empl_dni.notify("Agregue un DNI",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_dni == ""){
-			$("#mensaje_dni").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_edad = $("#empl_edad");    	
+		if( $empl_edad.val().length == 0 || $empl_edad.val() == '' ){
+			$empl_edad.notify("Agregue Edad",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_edad == ""){
-			$("#mensaje_edad").text("Ingrese un Nombre").fadeIn("Slow");
+		let $empl_grupo_sanguineo = $("#empl_grupo_sanguineo");    	
+		if( $empl_grupo_sanguineo.val().length == 0 || $empl_grupo_sanguineo.val() == '' ){
+			$empl_grupo_sanguineo.notify("Agregue Grupo Sanguineo",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_grupo_sanguineo == ""){
-			$("#mensaje_grupo_sanguineo").text("Seleccione").fadeIn("Slow");
+		let $empl_fecha_ingreso = $("#empl_fecha_ingreso");    	
+		if( $empl_fecha_ingreso.val().length == 0 || $empl_fecha_ingreso.val() == '' ){
+			$empl_fecha_ingreso.notify("Agregue Fecha Ingreso",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_fecha_ingreso == ""){
-			$("#mensaje_fecha_ingreso").text("Seleccione").fadeIn("Slow");
+		let $empl_lugar_trabajo = $("#empl_lugar_trabajo");    	
+		if( $empl_lugar_trabajo.val().length == 0 || $empl_lugar_trabajo.val() == '' ){
+			$empl_lugar_trabajo.notify("Agregue Lugar de Trabajo",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_lugar_trabajo == ""){
-			$("#mensaje_lugar_trabajo").text("Seleccione").fadeIn("Slow");
+		let $empl_area_trabajo = $("#empl_area_trabajo");    	
+		if( $empl_area_trabajo.val().length == 0 || $empl_area_trabajo.val() == '' ){
+			$empl_area_trabajo.notify("Agregue Area de Trabajo",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_area_trabajo == ""){
-			$("#mensaje_area_trabajo").text("Seleccione").fadeIn("Slow");
+		let $empl_actividades_trabajo = $("#empl_actividades_trabajo");    	
+		if( $empl_actividades_trabajo.val().length == 0 || $empl_actividades_trabajo.val() == '' ){
+			$empl_actividades_trabajo.notify("Agregue Actividades",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_empl_actividades_trabajo == ""){
-			$("#mensaje_actividades_trabajo").text("Seleccione").fadeIn("Slow");
+		let $ide_id= $("#ide_id");    	
+		if( $ide_id.val() == 0 ){
+			$ide_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		
-		if(_emp_id == 0){
-			$("#mensaje_empresa").text("Seleccione").fadeIn("Slow");
+		let $dis_tiene= $("#dis_tiene");    	
+		if( $dis_tiene.val() == 0 ){
+			$dis_tiene.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_ori_id == 0){
-			$("#mensaje_orientacion_sexual").text("Seleccione").fadeIn("Slow");
+		let $emp_id= $("#emp_id");    	
+		if( $emp_id.val() == 0 ){
+			$emp_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_rel_id == 0){
-			$("#mensaje_religion").text("Seleccione").fadeIn("Slow");
+		let $ori_id= $("#ori_id");    	
+		if( $ori_id.val() == 0 ){
+			$ori_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-		
-		if(_sex_id == 0){
-			$("#mensaje_sexo").text("Seleccione").fadeIn("Slow");
+		let $rel_id= $("#rel_id");    	
+		if( $rel_id.val() == 0 ){
+			$rel_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 		}
-	
+		let $sex_id= $("#sex_id");    	
+		if( $sex_id.val() == 0 ){
+			$sex_id.notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
 	$.ajax({
 		beforeSend:function(){},
 		url:"index.php?controller=ffspEmpleados&action=InsertaEmpleados",
