@@ -891,13 +891,113 @@
                			  </div>
                			  
                			  
+               			</div>
+               		</div>
+               		
+               		
+               
+               <!-- DESDE AQUI STEVEN -->		
+               		
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Hábitos Tóxicos</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Exámenes Realizados</div>
+                              <div class="panel-body">
+               			   
+               			   
+               			   
+               			   <div class="col-xs-12 col-md-6 col-md-6 ">
+            		    	<div class="form-group-sm">
+            		     	<label for="ante_id" class="control-label">Exámenes:</label>
+                          	<select  class="form-control" id="ante_id" name="ante_id">
+                          	<option value="0">--Seleccione--</option>
+                          	 <option value="TRUE">Si</option>
+                          	</select>                         
+                          	<div id="mensaje_ante_id" class="errores"></div>
+                        	</div>
+            		  	   </div>
+            		  
+            		        <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                                                      <label for="fic_ant_det_realizado" class="control-label">Se Realizo Exámen:</label>
+                                                      <select name="fic_ant_det_realizado" id="fic_ant_det_realizado"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_det_realizado" class="errores"></div>
+                            </div>
+                            </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_det_tiempo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_ant_det_tiempo" name="fic_ant_det_tiempo" value=""  placeholder="# años"/>
+                                  <div id="mensaje_fic_ant_det_tiempo" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_det_resultado" class="control-label">Resultado:</label>
+                                  <input  type="text" class="form-control" id="fic_ant_det_resultado" name="fic_ant_det_resultado" value=""  placeholder="resultado.."/>
+                                  <div id="mensaje_fic_ant_det_resultado" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		  
+                    		  
+                    		  
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                                      <button type="button" onclick="AgregarC()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                				
+                                </div>
+                    		    </div>
+                    		    
+                    		    </div>
+                    		  
+                    		  <br>
+                    		  
+                    		  </div>
+                    		  </div>
+                    		  
+               			  </div>
+               			  
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Exámenes Realizados</div>
+                              <div class="panel-body">
+               			      <div id="load_antecedentes_sexo_registrados" ></div>
+               			      <div id="antecedentes_sexo_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
                			  
                			  
+               			  
+               			  </div>
                			  
                			  
                			</div>
                		</div>
                		
+               		
+               		
+               		
+               		<!-- TERMINA AQUI STEVEN -->	
                		
                		
                		 

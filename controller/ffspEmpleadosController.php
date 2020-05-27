@@ -264,17 +264,30 @@ class ffspEmpleadosController extends ControladorBase{
 	            
 	            $empl_id = (int)$_POST["empl_id"];
 	            
-	            $resultado1  = $discapacidad->eliminarBy("empl_id ",$empl_id);
-	            $resultado  = $empleados->eliminarBy("empl_id ",$empl_id);
-	           
-	            if( $resultado > 0 ){
+	            try {
 	                
-	                echo json_encode(array('data'=>$resultado));
+    	            $empleados->beginTran();
+    	             
+    	            $resultado1  = $discapacidad->eliminarBy("empl_id ",$empl_id);
+    	            $resultado  = $empleados->eliminarBy("empl_id ",$empl_id);
+    	           
+    	            
+    	            $empleados->endTran('COMMIT');
+    	            
+    	            if( $resultado > 0 ){
+    	                
+    	                echo json_encode(array('data'=>$resultado));
+    	                
+    	            }
+	            
+	            } catch (Exception $e) {
 	                
-	            }else{
+	                $empleados->endTran();
+	                echo $e->getMessage();
+	                die();
 	                
-	                echo $resultado;
 	            }
+	            
 	            
 	            
 	            
