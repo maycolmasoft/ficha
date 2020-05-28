@@ -913,16 +913,15 @@
                               <div class="panel-heading">Registrar Exámenes Realizados</div>
                               <div class="panel-body">
                			   
-               			   
+               			 
                			   
                			   <div class="col-xs-12 col-md-6 col-md-6 ">
             		    	<div class="form-group-sm">
-            		     	<label for="ante_id" class="control-label">Exámenes:</label>
-                          	<select  class="form-control" id="ante_id" name="ante_id">
+            		     	<label for="hab_id" class="control-label">Habitos:</label>
+                          <select  class="form-control" id="hab_id" name="hab_id">
                           	<option value="0">--Seleccione--</option>
-                          	 <option value="TRUE">Si</option>
-                          	</select>                         
-                          	<div id="mensaje_ante_id" class="errores"></div>
+                          </select>                          
+                          	<div id="mensaje_hab_id" class="errores"></div>
                         	</div>
             		  	   </div>
             		  
