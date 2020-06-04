@@ -359,6 +359,9 @@
                 <li><a href="#step-2">B. Motivo Consulta<br /><small></small></a></li>
                 <li><a href="#step-3">C. Antecedentes Personales<br /><small></small></a></li>
                 <li><a href="#step-4">D. Antecedentes de Trabajo<br /><small></small></a></li> 
+                <li><a href="#step-5">E. Antecedentes Familiares<br /><small></small></a></li> 
+           
+           
             </ul>
          
             <div>
@@ -1188,6 +1191,94 @@
                			</div>
                		</div>
                  </div>
+           
+           
+           
+           
+           
+           
+               <div id="step-5" class="">
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Antecedentes Familiares</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Antecedentes Familiares</div>
+                              <div class="panel-body">
+               			   
+                      	      <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="ant_id" class="control-label">Antecedentes:</label>
+                                  <select  class="form-control" id="ant_id" name="ant_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_ant_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
+            		       
+            		  
+            		        <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_fam_descripcion" class="control-label">Descripción:</label>
+                                  <input  type="text" class="form-control" id="fic_ant_fam_descripcion" name="fic_ant_fam_descripcion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_ant_fam_descripcion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		 
+            		       
+                    		 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarAntecedentesFamiliares()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Antecedentes Familiares Registrados</div>
+                              <div class="panel-body">
+               			      <div id="loadfichaAntecedentesFamiliares" ></div>
+               			      <div id="ficha_antecedentes_familiares_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+                 </div>
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
            
                 
             </div>
