@@ -898,6 +898,7 @@
                
                <!-- DESDE AQUI STEVEN -->		
                		
+              <form id="frm_ficha_habitos_toxicos">
                 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Hábitos Tóxicos</h3>
@@ -910,80 +911,83 @@
                			   
                			   
                			   <div class="panel panel-info">
-                              <div class="panel-heading">Registrar Exámenes Realizados</div>
+                              <div class="panel-heading">Registrar Hábitos Tóxicos</div>
                               <div class="panel-body">
                			   
-               			 
-               			   
-               			   <div class="col-xs-12 col-md-6 col-md-6 ">
-            		    	<div class="form-group-sm">
-            		     	<label for="hab_id" class="control-label">Habitos:</label>
-                          <select  class="form-control" id="hab_id" name="hab_id">
-                          	<option value="0">--Seleccione--</option>
-                          </select>                          
-                          	<div id="mensaje_hab_id" class="errores"></div>
-                        	</div>
-            		  	   </div>
-            		  
+                      	      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="hab_id" class="control-label">Habitos Toxicos:</label>
+                                  <select  class="form-control" id="hab_id" name="hab_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_hab_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
             		        <div class="col-lg-6 col-xs-12 col-md-6">
                     		<div class="form-group-sm">
-                                                      <label for="fic_ant_det_realizado" class="control-label">Se Realizo Exámen:</label>
-                                                      <select name="fic_ant_det_realizado" id="fic_ant_det_realizado"  class="form-control" >
-                                                      <option value="0" selected="selected">--Seleccione--</option>
-                        							  <option value="TRUE">Si</option>
-                        							  <option value="FALSE">No</option>
-                        							  </select> 
-                                                      <div id="mensaje_fic_ant_det_realizado" class="errores"></div>
-                            </div>
+                              <label for="fic_hab_tox_consume" class="control-label">Consume Habitos Toxicos:</label>
+                              <select name="fic_hab_tox_consume" id="fic_hab_tox_consume"  class="form-control" >
+                              <option value="0" selected="selected">--Seleccione--</option>
+							  <option value="TRUE">Si</option>
+							  <option value="FALSE">No</option>
+							  </select> 
+                              <div id="mensaje_fic_hab_tox_consume" class="errores"></div>
+        					</div>
                             </div>
             		  
             		        <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                    		      <label for="fic_ant_det_tiempo" class="control-label">Tiempo:</label>
-                                  <input  type="number" class="form-control" id="fic_ant_det_tiempo" name="fic_ant_det_tiempo" value=""  placeholder="# años"/>
-                                  <div id="mensaje_fic_ant_det_tiempo" class="errores"></div>
+                    		      <label for="fic_hab_tox_tiempo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_hab_tox_tiempo" name="fic_hab_tox_tiempo" value=""  placeholder="# años"/>
+                                  <div id="mensaje_fic_hab_tox_tiempo" class="errores"></div>
                                  </div>
                     		  </div>
-            		  
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_hab_tox_cantidad" class="control-label">Cantidad:</label>
+                                  <input  type="number" class="form-control" id="fic_hab_tox_cantidad" name="fic_hab_tox_cantidad" value=""  placeholder="# cantidad"/>
+                                  <div id="mensaje_fic_hab_tox_cantidad" class="errores"></div>
+                                 </div>
+                    		  </div>
             		        <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                    		      <label for="fic_ant_det_resultado" class="control-label">Resultado:</label>
-                                  <input  type="text" class="form-control" id="fic_ant_det_resultado" name="fic_ant_det_resultado" value=""  placeholder="resultado.."/>
-                                  <div id="mensaje_fic_ant_det_resultado" class="errores"></div>
+                    		      <label for="fic_hab_tox_ex_consumidor" class="control-label">Ex Consumidor:</label>
+                                  <input  type="text" class="form-control" id="fic_hab_tox_ex_consumidor" name="fic_hab_tox_ex_consumidor" value=""  placeholder="......."/>
+                                  <div id="mensaje_fic_hab_tox_ex_consumidor" class="errores"></div>
                                  </div>
                     		  </div>
-                    		  
-                    		  
-                    		  
+                    		  <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_hab_tox_tiempo_abstinencia" class="control-label">Tiempo Abstinencia:</label>
+                                  <input  type="number" class="form-control" id="fic_hab_tox_tiempo_abstinencia" name="fic_hab_tox_tiempo_abstinencia" value=""  placeholder="# años"/>
+                                  <div id="mensaje_fic_hab_tox_tiempo_abstinencia" class="errores"></div>
+                                 </div>
+                    		  </div>
                     		   <div class="row">
                     		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
                     		    <div class="form-group-sm">
-                                                      <button type="button" onclick="AgregarC()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
-                                				
+                                  <button type="button" onclick="AgregarHabitosToxicos()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
                                 </div>
                     		    </div>
-                    		    
                     		    </div>
-                    		  
                     		  <br>
-                    		  
                     		  </div>
                     		  </div>
-                    		  
-               			  </div>
-               			  
+                    	  </div>
                			  <div class="col-lg-6 col-md-6 col-xs-12">
                			  
                			     <div class="panel panel-info">
-                              <div class="panel-heading">Exámenes Realizados</div>
+                              <div class="panel-heading">Hábitos Tóxicos Registrados</div>
                               <div class="panel-body">
-               			      <div id="load_antecedentes_sexo_registrados" ></div>
-               			      <div id="antecedentes_sexo_registrados" ></div>
+               			      <div id="consultafichaHabitosToxicos" ></div>
+               			      <div id="ficha_habitos_toxicos_registrados" ></div>
                			   
                			   
                			   </div>
                			   </div>
                			  </div>
+               			  
                			  
                			  
                			  
@@ -992,9 +996,95 @@
                			  
                			</div>
                		</div>
+               		</form>
                		
-               		
-               		
+               	   <form id="frm_ficha_estilo_vida">
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Estilo Vida</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Estilo de Vida</div>
+                              <div class="panel-body">
+               			   
+                      	      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="est_vid_id" class="control-label">Estilo Vida:</label>
+                                  <select  class="form-control" id="est_vid_id" name="est_vid_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_est_vid_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
+            		        <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                              <label for="fic_est_vid_practica" class="control-label">Vida Practica:</label>
+                              <select name="fic_est_vid_practica" id="fic_est_vid_practica"  class="form-control" >
+                              <option value="0" selected="selected">--Seleccione--</option>
+							  <option value="TRUE">Si</option>
+							  <option value="FALSE">No</option>
+							  </select> 
+                              <div id="mensaje_fic_est_vid_practica" class="errores"></div>
+        					</div>
+                            </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_est_vid_cual" class="control-label">Cual:</label>
+                                  <input  type="text" class="form-control" id="fic_est_vid_cual" name="fic_est_vid_cual" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_est_vid_cual" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_est_vid_tiempo_cantidad" class="control-label">Tiempo:</label>
+                                  <input  type="text" class="form-control" id="fic_est_vid_tiempo_cantidad" name="fic_est_vid_tiempo_cantidad" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_est_vid_tiempo_cantidad" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		       
+                    		 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarEstiloVida()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Estilo Vida Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaEstiloVida" ></div>
+               			      <div id="ficha_estilo_vida_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+               		</form>	
                		
                		<!-- TERMINA AQUI STEVEN -->	
                		
@@ -1006,52 +1096,93 @@
                 
                 
                 <div id="step-4" class="">
-                    <div class="box box-primary">
+                <div class="box box-primary">
                         <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
+                          <h3 class="box-title">Empleos Anteriores</h3>
                           <div class="box-tools pull-right"> </div>
                         </div>
                     
                     	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="aa" name="aa" rows="15" cols="80"></textarea>
-            	                    <div id="aa" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Empleos Anteriores</div>
+                              <div class="panel-body">
+               			   
+                      	      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="est_vid_id" class="control-label">Estilo Vida:</label>
+                                  <select  class="form-control" id="est_vid_id" name="est_vid_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_est_vid_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
+            		        <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                              <label for="fic_est_vid_practica" class="control-label">Vida Practica:</label>
+                              <select name="fic_est_vid_practica" id="fic_est_vid_practica"  class="form-control" >
+                              <option value="0" selected="selected">--Seleccione--</option>
+							  <option value="TRUE">Si</option>
+							  <option value="FALSE">No</option>
+							  </select> 
+                              <div id="mensaje_fic_est_vid_practica" class="errores"></div>
+        					</div>
+                            </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_est_vid_cual" class="control-label">Cual:</label>
+                                  <input  type="text" class="form-control" id="fic_est_vid_cual" name="fic_est_vid_cual" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_est_vid_cual" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_est_vid_tiempo_cantidad" class="control-label">Tiempo:</label>
+                                  <input  type="text" class="form-control" id="fic_est_vid_tiempo_cantidad" name="fic_est_vid_tiempo_cantidad" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_est_vid_tiempo_cantidad" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		       
+                    		 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarEstiloVida()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Estilo Vida Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaEstiloVida" ></div>
+               			      <div id="ficha_estilo_vida_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
                			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
                			</div>
                		</div>
-                </div>
-                
-                <!-- 
-                  <div id="step-4" class="">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="editor3" name="editor3" rows="15" cols="80"></textarea>
-            	                    <div id="mensaje_editor3" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
-               			  </div>
-               			</div>
-               		</div>
-                </div>
-                
-                 -->
-                
+                 </div>
+           
                 
             </div>
         </div>
@@ -1082,7 +1213,9 @@
     <script src="view/bootstrap/bower_components/jquery-ui-1.12.1/jquery-ui.js"></script> 
     <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
 	<script type="text/javascript" src="view/bootstrap/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-	<script type="text/javascript" src="view/js/ffspFicha.js?0.30"></script>
+	<script type="text/javascript" src="view/js/ffspFicha.js?0.31"></script>
+	<script type="text/javascript" src="view/js/ffspfichaHabitosToxicos.js?0.6"></script>
+	<script type="text/javascript" src="view/js/ffspfichaEstiloVida.js?0.1"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>

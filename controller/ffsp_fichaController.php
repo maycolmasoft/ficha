@@ -467,5 +467,21 @@ class ffsp_fichaController extends ControladorBase{
 	    return $out;
 	}
 	
+	public function cargaHabitosToxicos(){
+	    
+	    $empleados = null;
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    $query = " SELECT hab_id, hab_nombre FROM ffsp_tbl_habitos_toxicos WHERE 1=1 ORDER BY hab_nombre";
+	    
+	    $resulset = $empleados->enviaquery($query);
+	    
+	    if(!empty($resulset) && count($resulset)>0){
+	        
+	        echo json_encode(array('data'=>$resulset));
+	        
+	    }
+	}
+	
 }
 ?>
