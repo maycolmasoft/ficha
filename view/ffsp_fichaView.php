@@ -360,10 +360,17 @@
                 <li><a href="#step-3">C. Antecedentes Personales<br /><small></small></a></li>
                 <li><a href="#step-4">D. Antecedentes de Trabajo<br /><small></small></a></li> 
                 <li><a href="#step-5">E. Antecedentes Familiares<br /><small></small></a></li> 
-            <li><a href="#step-6">F. <br /><small></small></a></li>
-             <li><a href="#step-7">G. <br /><small></small></a></li> 
-              <li><a href="#step-8">H. <br /><small></small></a></li>  
-               <li><a href="#step-9">I. Revisión Organos<br /><small></small></a></li>  
+            	<li><a href="#step-6">F. Factores de Riesgo<br /><small></small></a></li>
+             	<li><a href="#step-7">G. Actividades Extra Laborales<br /><small></small></a></li> 
+              	<li><a href="#step-8">H. Enfermedad Actual<br /><small></small></a></li>  
+               	<li><a href="#step-9">I. Revisión Organos<br /><small></small></a></li>
+                <li><a href="#step-10">J. Constantes Vitales<br /><small></small></a></li>  
+                <li><a href="#step-11">K. Examen Fisico Regional<br /><small></small></a></li>  
+                <li><a href="#step-12">L. Resultado de Examenes<br /><small></small></a></li>
+                <li><a href="#step-13">M. Diagnostico<br /><small></small></a></li>  
+           		<li><a href="#step-14">N. Aptitud Médica<br /><small></small></a></li>  
+           		<li><a href="#step-15">O. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
+           		<li><a href="#step-16">P. Datos del Profesional<br /><small></small></a></li>  
            
            
             </ul>
@@ -1513,7 +1520,338 @@
                			</div>
                		</div>
                  </div>
-           
+                 
+                     <div id="step-10" class="">
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Constantes Vitales y Antropometría</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Constantes Vitales</div>
+                              <div class="panel-body">
+               			   
+               			      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_presion_arterial" class="control-label">Presión Arterial:</label>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_presion_arterial" name="fic_cons_vit_presion_arterial" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_presion_arterial" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_temperatura" class="control-label">Temperatura:</label>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_temperatura" name="fic_cons_vit_temperatura" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_temperatura" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_frecuencia_cardiaca" class="control-label">Frecuencia Cardiaca:</label>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_cardiaca" name="fic_cons_vit_frecuencia_cardiaca" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_frecuencia_cardiaca" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_saturacion_oxigeno" class="control-label">Saturación de Oxigeno:</label>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_saturacion_oxigeno" name="fic_cons_vit_saturacion_oxigeno" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_saturacion_oxigeno" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		            <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_frecuencia_respiratoria" class="control-label">Frecuencia Respiratoria:</label>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_respiratoria" name="fic_cons_vit_frecuencia_respiratoria" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_frecuencia_respiratoria" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_peso" class="control-label">Peso:</label>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_peso" name="fic_cons_vit_peso" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_peso" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_talla" class="control-label">Talla:</label>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_talla" name="fic_cons_vit_talla" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_talla" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_indice_masa_corporal" class="control-label">Indice de Masa Corporal:</label>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_indice_masa_corporal" name="fic_cons_vit_indice_masa_corporal" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_indice_masa_corporal" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_cons_vit_perimetro_abdominal" class="control-label">Perimetro Abdominal:</label>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_perimetro_abdominal" name="fic_cons_vit_perimetro_abdominal" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_cons_vit_perimetro_abdominal" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarConstanteVital()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Constantes Vitales Registrados</div>
+                              <div class="panel-body">
+               			      <div id="loadfichaConstanteVital" ></div>
+               			      <div id="ficha_constante_vital_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+                 </div> 
+           <div id="step-11" class="">
+           </div>
+           <div id="step-12" class="">
+                   <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Resultado de Examenes Generales y Especificos</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Resultado de Examenes</div>
+                              <div class="panel-body">
+               			   
+               			      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_res_exa_examen" class="control-label">Examen:</label>
+                                  <input  type="text" class="form-control" id="fic_res_exa_examen" name="fic_res_exa_examen" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_res_exa_examen" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_res_exa_fecha" class="control-label">Fecha:</label>
+                                  <input  type="date" class="form-control" id="fic_res_exa_fecha" name="fic_res_exa_fecha" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_res_exa_fecha" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_res_exa_resultados" class="control-label">Resultados:</label>
+                                  <input  type="text" class="form-control" id="fic_res_exa_resultados" name="fic_res_exa_resultados" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_res_exa_resultados" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    			   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarResultadoExamen()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Resultados Registrados</div>
+                              <div class="panel-body">
+               			      <div id="loadfichaResultadoExamen" ></div>
+               			      <div id="ficha_resultado_examen_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+           </div>
+           <div id="step-13" class="">
+             <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Diagnostico</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Diagnostico</div>
+                              <div class="panel-body">
+               			    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_diag_descripcion" class="control-label">Descripcion:</label>
+                                  <input  type="text" class="form-control" id="fic_diag_descripcion" name="fic_diag_descripcion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_diag_descripcion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_diag_cie" class="control-label">Cie:</label>
+                                  <input  type="text" class="form-control" id="fic_diag_cie" name="fic_diag_cie" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_diag_cie" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="tip_diag_id" class="control-label">Tipo de Diagnostico:</label>
+                                  <select  class="form-control" id="tip_diag_id" name="tip_diag_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_tip_diag_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            				   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarDiagnostico()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Diagnosticos Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaDiagnostico" ></div>
+               			      <div id="ficha_diagnostico_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+           </div>
+           <div id="step-14" class="">
+                        <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Aptitud Médica</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Aptitud</div>
+                              <div class="panel-body">
+                                 <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="apt_med_id" class="control-label">Aptitud:</label>
+                                  <select  class="form-control" id="apt_med_id" name="apt_med_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_apt_med_id" class="errores"></div>
+                                </div>
+                    		  </div>
+               			    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_apt_med_observacion" class="control-label">Observación:</label>
+                                  <input  type="text" class="form-control" id="fic_apt_med_observacion" name="fic_apt_med_observacion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_apt_med_observacion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_apt_med_limitacion" class="control-label">Limitación:</label>
+                                  <input  type="text" class="form-control" id="fic_apt_med_limitacion" name="fic_apt_med_limitacion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_apt_med_limitacion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		 
+            				   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarAptitud()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Aptitudes Registradas</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaAptitud" ></div>
+               			      <div id="ficha_aptitud_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+           </div>
+           <div id="step-15" class="">
+           </div>
+           <div id="step-16" class="">
+           </div>
            
            
            
@@ -1555,6 +1893,10 @@
 	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaAccidenteTrabajo.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaEnfermedadProfesional.js?0.4"></script>
+    <script type="text/javascript" src="view/js/ffspfichaConstanteVital.js?0.1"></script>
+    <script type="text/javascript" src="view/js/ffspfichaResultadoExamen.js?0.1"></script>
+    <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
+    <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
