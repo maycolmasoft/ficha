@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	search_ficha_antecedentes_familiares(1);
 	cargaAntecendentesFamiliares();
 	
@@ -109,7 +110,7 @@ $(document).ready(function(){
 	    		
 	    	$.ajax({
 	    		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
-	    		url:"index.php?controller=ffspfichaAntecedentesFamiliares&action=editfichaAntecedentesFamiliares,
+	    		url:"index.php?controller=ffspfichaAntecedentesFamiliares&action=editfichaAntecedentesFamiliares",
 	    		type:"POST",
 	    		dataType:"json",
 	    		data:{ant_id:ant_id, fic_id:fic_id}

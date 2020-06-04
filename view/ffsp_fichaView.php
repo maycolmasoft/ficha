@@ -1190,6 +1190,85 @@
                			  
                			</div>
                		</div>
+               		 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Accidentes de Trabajo</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Accidentes de Trabajo</div>
+                              <div class="panel-body">
+               			    <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                              <label for="fic_acc_tra_fue_calificado" class="control-label">Fue Calificado:</label>
+                              <select name="fic_acc_tra_fue_calificado" id="fic_acc_tra_fue_calificado"  class="form-control" >
+                              <option value="0" selected="selected">--Seleccione--</option>
+							  <option value="TRUE">Si</option>
+							  <option value="FALSE">No</option>
+							  </select> 
+                              <div id="mensaje_fic_acc_tra_fue_calificado" class="errores"></div>
+        					</div>
+                            </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_acc_tra_especificar" class="control-label">Especificar:</label>
+                                  <input  type="text" class="form-control" id="fic_acc_tra_especificar" name="fic_acc_tra_especificar" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_acc_tra_especificar" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_acc_tra_fecha" class="control-label">Fecha:</label>
+                                  <input  type="date" class="form-control" id="fic_acc_tra_fecha" name="fic_acc_tra_fecha" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_acc_tra_fecha" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_acc_tra_observaciones" class="control-label">Observaciones:</label>
+                                  <input  type="text" class="form-control" id="fic_acc_tra_observaciones" name="fic_acc_tra_observaciones" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_acc_tra_observaciones" class="errores"></div>
+                                 </div>
+                    		  </div>
+               			
+               				   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarAccidenteTrabajo()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Accidentes de Trabajo Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaAccidenteTrabajo" ></div>
+               			      <div id="ficha_accidente_trabajo_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
                  </div>
            
            
@@ -1314,6 +1393,8 @@
 	<script type="text/javascript" src="view/js/ffspfichaHabitosToxicos.js?0.6"></script>
 	<script type="text/javascript" src="view/js/ffspfichaEstiloVida.js?0.1"></script>
 	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
+    <script type="text/javascript" src="view/js/ffspfichaAccidenteTrabajo.js?0.1"></script>
+    <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>

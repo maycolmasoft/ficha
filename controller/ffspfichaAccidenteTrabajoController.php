@@ -1,40 +1,80 @@
 <?php
 
-class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
+class ffspfichaAccidenteTrabajoController extends ControladorBase{
     
     public function __construct() {
         parent::__construct();
     }
     
     
+    
+    public function index(){
         
-    public function InsertafichaAntecedentesFamiliares(){
+        $ficha_accidente_trabajo = new ffspfichaAccidenteTrabajoModel();
+        
+        session_start();
+        
+        if(empty( $_SESSION)){
+            
+            $this->redirect("ffspUsuarios","sesion_caducada");
+            return;
+        }
+        
+        $nombre_controladores = "ffspfichaAccidenteTrabajo";
+        $id_rol= $_SESSION['id_rol'];
+        $resultPer = $ficha_accidente_trabajo->getPermisosVer("   controladores.nombre_controladores = '$nombre_controladores' AND permisos_rol.id_rol = '$id_rol' " );
+        
+        if (empty($resultPer)){
+            
+            $this->view("Error",array(
+                "resultado"=>"No tiene Permisos de Acceso Empleo Anterior"
+                
+            ));
+            exit();
+        }
+        
+        $rsfichaAccidenteTrabajo= $ficha_accidente_trabajo->getBy(" 1 = 1 ");
+        
+        
+        $this->view("ffsp_ficha",array(
+            "resultSet"=>$rsfichaAccidenteTrabajo
+            
+        ));
+        
+        
+    }
+    
+
+    
+    public function InsertafichaAccidenteTrabajo(){
         
         session_start();
         
         
-        $ficha_antecedentes_familiares = new ffspFichaAntecedentesFamiliaresModel();
+        $ficha_accidente_trabajo = new ffspfichaAccidenteTrabajoModel();
         
             
             $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
-            $_ant_id = (isset($_POST["ant_id"])) ? $_POST["ant_id"] : 0 ;
-            $_fic_ant_fam_descripcion = (isset($_POST["fic_ant_fam_descripcion"])) ? $_POST["fic_ant_fam_descripcion"] : "" ;
-               
+            $_fic_acc_tra_fue_calificado = (isset($_POST["fic_acc_tra_fue_calificado"])) ? $_POST["fic_acc_tra_fue_calificado"] : 0 ;
+            $_fic_acc_tra_especificar = (isset($_POST["fic_acc_tra_especificar"])) ? $_POST["fic_acc_tra_especificar"] : "" ;
+            $_fic_acc_tra_fecha = (isset($_POST["fic_acc_tra_fecha"])) ? $_POST["fic_acc_tra_fecha"] : "" ;
+            $_fic_acc_tra_observaciones = (isset($_POST["fic_acc_tra_observaciones"])) ? $_POST["fic_acc_tra_observaciones"] : "" ;
             
-            $funcion = "ins_ffsp_tbl_ficha_antecedentes_familiares";
+            
+            $funcion = "ins_ffsp_tbl_ficha_accidentes_trabajo";
             $respuesta = 0 ;
             $mensaje = "";
             
-            if($_ant_id > 0 && $_fic_id > 0){
+            if($_fic_id > 0){
                 
-                $parametros = " '$_fic_id','$_ant_id','$_fic_ant_fam_descripcion'";
-                $ficha_antecedentes_familiares->setFuncion($funcion);
-                $ficha_antecedentes_familiares->setParametros($parametros);
-                $resultado = $ficha_antecedentes_familiares->llamafuncionPG();
+                $parametros = "'$_fic_id','$_fic_acc_tra_fue_calificado','$_fic_acc_tra_especificar','$_fic_acc_tra_fecha','$_fic_acc_tra_observaciones'";
+                $ficha_accidente_trabajo->setFuncion($funcion);
+                $ficha_accidente_trabajo->setParametros($parametros);
+                $resultado = $ficha_accidente_trabajo->llamafuncionPG();
                 
                 if(is_int((int)$resultado[0])){
                     $respuesta = $resultado[0];
-                    $mensaje = "Antecedentes Familiares Ingresado Correctamente";
+                    $mensaje = "Accidentes de Trabajo Ingresado Correctamente";
                 }
                 
                 
@@ -48,7 +88,7 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
                 exit();
             }
             
-            echo "Error al Ingresar Antecedentes Familiares";
+            echo "Error al Ingresar Accidentes de Trabajo";
             exit();
             
         
@@ -56,39 +96,40 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
     }
     
   
-    public function editfichaAntecedentesFamiliares(){
+    public function editfichaAccidenteTrabajo(){
         
         session_start();
-        $ficha_antecedentes_familiares = new ffspFichaAntecedentesFamiliaresModel();
-        
-        if(isset($_POST["fic_id"]) && isset($_POST["ant_id"])){
+        $ficha_accidente_trabajo = new ffspfichaAccidenteTrabajoModel();
+            
+        if(isset($_POST["fic_id"])){
                 
-            $ant_id = (int)$_POST["ant_id"];
-            $fic_id = (int)$_POST["fic_id"];
+             $fic_id = (int)$_POST["fic_id"];
                 
-                $query = "SELECT * FROM ffsp_tbl_ficha_antecedentes_familiares WHERE ant_id = '$ant_id' and fic_id='$fic_id'";
+                $query = "SELECT * FROM ffsp_tbl_ficha_accidentes_trabajo WHERE fic_id='$fic_id'";
                 
-                $resultado  = $ficha_antecedentes_familiares->enviaquery($query);
+                $resultado  = $ficha_accidente_trabajo->enviaquery($query);
                 
                 echo json_encode(array('data'=>$resultado));
                 
             }
             
+       
+        
     }
     
     
 
-    public function delfichaAntecedentesFamiliares(){
+    public function delfichaAccidenteTrabajo(){
         
         session_start();
-        $ficha_antecedentes_familiares = new ffspFichaAntecedentesFamiliaresModel();
-        
+        $ficha_accidente_trabajo = new ffspfichaAccidenteTrabajoModel();
+       
             
-            if(isset($_POST["fic_ant_fam_id"])){
+            if(isset($_POST["fic_acc_tra_id"])){
                 
-                $fic_ant_fam_id = (int)$_POST["fic_ant_fam_id"];
+                $fic_acc_tra_id = (int)$_POST["fic_acc_tra_id"];
                 
-                $resultado  = $ficha_antecedentes_familiares->eliminarBy("fic_ant_fam_id", $fic_ant_fam_id);
+                $resultado  = $ficha_accidente_trabajo->eliminarBy("fic_acc_tra_id", $fic_acc_tra_id);
                 
                 if( $resultado > 0 ){
                     
@@ -110,11 +151,10 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
     }
     
     
-    public function search_ficha_antecedentes_familiares(){
+    public function search_ficha_accidente_trabajo(){
         
         session_start();
-        $ficha_antecedentes_familiares = new ffspFichaAntecedentesFamiliaresModel();
-        
+        $ficha_accidente_trabajo = new ffspfichaAccidenteTrabajoModel();
         
         $where_to="";
      
@@ -126,17 +166,17 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
         {
         
         
-        $columnas  = "a.*, b.*";
-        $tablas    = "public.ffsp_tbl_ficha_antecedentes_familiares a, public.ffsp_tbl_antecedentes_familiares b";
-        $where     = "a.ant_id=b.ant_id and a.fic_id='$fic_id'";
-        $id        = "a.fic_ant_fam_id";
+        $columnas  = "a.*";
+        $tablas    = "public.ffsp_tbl_ficha_accidentes_trabajo a";
+        $where     = "a.fic_id='$fic_id'";
+        $id        = "a.fic_acc_tra_id";
         
             
             $where_to=$where;
            
             
             $html="";
-            $resultSet=$ficha_antecedentes_familiares->getCantidad("*", $tablas, $where_to);
+            $resultSet=$ficha_accidente_trabajo->getCantidad("*", $tablas, $where_to);
             $cantidadResult=(int)$resultSet[0]->total;
             
             $page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
@@ -147,7 +187,7 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
             
             $limit = " LIMIT   '$per_page' OFFSET '$offset'";
             
-            $resultSet=$ficha_antecedentes_familiares->getCondicionesPag($columnas, $tablas, $where_to, $id, $limit);
+            $resultSet=$ficha_accidente_trabajo->getCondicionesPag($columnas, $tablas, $where_to, $id, $limit);
             $total_pages = ceil($cantidadResult/$per_page);
             
             if($cantidadResult > 0)
@@ -155,11 +195,15 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
                 
                $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
                 $html.='<section style="height:110px; overflow-y:scroll;">';
-                $html.= "<table id='tabla_antecedentes_familiares' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
+                $html.= "<table id='tabla_empleo_anterior' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
                 $html.= "<thead>";
                 $html.= "<tr>";
-                $html.='<th style="text-align: left;  font-size: 12px;">Antecedente</th>';
-                $html.='<th style="text-align: left;  font-size: 12px;">Descripción</th>';
+                $html.='<th style="text-align: left;  font-size: 12px;">Calificado</th>';
+                $html.='<th style="text-align: left;  font-size: 12px;">Especificar</th>';
+                $html.='<th style="text-align: left;  font-size: 12px;">Fecha</th>';
+                $html.='<th style="text-align: left;  font-size: 12px;">Observaciones</th>';
+                
+                
                 $html.='<th style="text-align: left;  font-size: 12px;"></th>';
                 $html.='<th style="text-align: left;  font-size: 12px;"></th>';
                 
@@ -174,14 +218,23 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
                 foreach ($resultSet as $res)
                 {
                     
-                    $html.='<tr>';
-                    $html.='<td style="font-size: 11px;">'.$res->ant_nombre.'</td>';
-                    $html.='<td style="font-size: 11px;">'.$res->fic_ant_fam_descripcion.'</td>';
+                    if($res->fic_acc_tra_fue_calificado=='t'){
+                        
+                        $realizado="Si";
+                    }else{
+                        $realizado="No";
+                    }
                     
+                    $html.='<tr>';
+                    $html.='<td style="font-size: 11px;">'.$realizado.'</td>';
+                    $html.='<td style="font-size: 11px;">'.$res->fic_acc_tra_especificar.'</td>';
+                    $html.='<td style="font-size: 11px;">'.$res->fic_acc_tra_fecha.'</td>';
+                    $html.='<td style="font-size: 11px;">'.$res->fic_acc_tra_observaciones.'</td>';
                     $html.='<td style="font-size: 11px;">
-                            <a onclick="editfichaAntecedentesFamiliares('.$res->ant_id.', '.$res->fic_id.')" href="#" class="btn btn-warning" style="font-size:65%;"data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></td>';
+
+                            <a onclick="editfichaAccidenteTrabajo('.$res->fic_id.')" href="#" class="btn btn-warning" style="font-size:65%;"data-toggle="tooltip" title="Editar"><i class="glyphicon glyphicon-edit"></i></a></td>';
                     $html.='<td style="font-size: 11px;">
-                            <a onclick="delfichaAntecedentesFamiliares('.$res->fic_ant_fam_id.')"   href="#" class="btn btn-danger" style="font-size:65%;"data-toggle="tooltip" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></a></td>';
+                            <a onclick="delfichaAccidenteTrabajo('.$res->fic_acc_tra_id.')"   href="#" class="btn btn-danger" style="font-size:65%;"data-toggle="tooltip" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></a></td>';
                     
                     
                     $html.='</tr>';
@@ -193,7 +246,7 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
                 $html.='</table>';
                 $html.='</section></div>';
                 $html.='<div class="table-pagination pull-right">';
-                $html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents,"search_ficha_antecedentes_familiares").'';
+                $html.=''. $this->paginate("index.php", $page, $total_pages, $adjacents,"search_ficha_accidente_trabajo").'';
                 $html.='</div>';
                 
                 
@@ -277,22 +330,6 @@ class ffspfichaAntecedentesFamiliaresController extends ControladorBase{
         
         $out.= "</ul>";
         return $out;
-    }
-    
-    public function cargaAntecedentesFamiliares(){
-        
-        $empleados = null;
-        $empleados = new ffspEmpleadosModel();
-        
-        $query = " SELECT ant_id, ant_nombre FROM ffsp_tbl_antecedentes_familiares WHERE 1=1 ORDER BY ant_id";
-        
-        $resulset = $empleados->enviaquery($query);
-        
-        if(!empty($resulset) && count($resulset)>0){
-            
-            echo json_encode(array('data'=>$resulset));
-            
-        }
     }
     
 }
