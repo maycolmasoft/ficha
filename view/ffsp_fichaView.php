@@ -1440,6 +1440,75 @@
            
            
            <div id="step-6" class="">
+                      
+                 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Factores Riesgo</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Factores Riesgo</div>
+                              <div class="panel-body">
+               			    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_fact_ries_puesto_trabajo" class="control-label">Puesto:</label>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_puesto_trabajo" name="fic_fact_ries_puesto_trabajo" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_fact_ries_puesto_trabajo" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_fact_ries_actividades" class="control-label">Actividades:</label>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_actividades" name="fic_fact_ries_actividades" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_fact_ries_actividades" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_fact_ries_medidas_preventivas" class="control-label">Medidas Preventivas:</label>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_medidas_preventivas" name="fic_fact_ries_medidas_preventivas" value=""  placeholder=""/>
+                                  <div id="mensaje_fact_ries_medidas_preventivas" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarEmpleoAnterior()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Empleos Anteriores Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaEmpleoAnterior" ></div>
+               			      <div id="ficha_empleo_anterior_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+           
            </div>
            
            <div id="step-7" class="">
