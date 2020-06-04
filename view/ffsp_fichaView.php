@@ -1273,6 +1273,85 @@
                			  
                			</div>
                		</div>
+               		 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Enfermedades Profesionales</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Enfermedades Profesionales</div>
+                              <div class="panel-body">
+               			    <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                              <label for="fic_enf_pro_fue_calificado" class="control-label">Fue Calificado:</label>
+                              <select name="fic_enf_pro_fue_calificado" id="fic_enf_pro_fue_calificado"  class="form-control" >
+                              <option value="0" selected="selected">--Seleccione--</option>
+							  <option value="TRUE">Si</option>
+							  <option value="FALSE">No</option>
+							  </select> 
+                              <div id="mensaje_fic_enf_pro_fue_calificado" class="errores"></div>
+        					</div>
+                            </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_enf_pro_especificar" class="control-label">Especificar:</label>
+                                  <input  type="text" class="form-control" id="fic_enf_pro_especificar" name="fic_enf_pro_especificar" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_enf_pro_especificar" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_enf_pro_fecha" class="control-label">Fecha:</label>
+                                  <input  type="date" class="form-control" id="fic_enf_pro_fecha" name="fic_enf_pro_fecha" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_enf_pro_fecha" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_enf_pro_observaciones" class="control-label">Observaciones:</label>
+                                  <input  type="text" class="form-control" id="fic_enf_pro_observaciones" name="fic_enf_pro_observaciones" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_enf_pro_observaciones" class="errores"></div>
+                                 </div>
+                    		  </div>
+               			
+               				   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarEnfermedadProfesional()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Enfermedades Profesionales Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaEnfermedadProfesional" ></div>
+               			      <div id="ficha_enfermedad_profesional_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
                  </div>
            
            
@@ -1362,16 +1441,11 @@
            
            <div id="step-8" class="">
            </div>
-           
-           
-           
-           
-           
-           
+        
            <div id="step-9" class="">
                 <div class="box box-primary">
                         <div class="box-header with-border">
-                          <h3 class="box-title">Antecedentes Familiares</h3>
+                          <h3 class="box-title">Revisión Organos</h3>
                           <div class="box-tools pull-right"> </div>
                         </div>
                     
@@ -1480,6 +1554,7 @@
 	<script type="text/javascript" src="view/js/ffspfichaEstiloVida.js?0.1"></script>
 	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaAccidenteTrabajo.js?0.1"></script>
+    <script type="text/javascript" src="view/js/ffspfichaEnfermedadProfesional.js?0.4"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
