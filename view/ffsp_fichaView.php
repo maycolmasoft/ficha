@@ -1046,7 +1046,7 @@
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_est_vid_tiempo_cantidad" class="control-label">Tiempo:</label>
-                                  <input  type="text" class="form-control" id="fic_est_vid_tiempo_cantidad" name="fic_est_vid_tiempo_cantidad" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_est_vid_tiempo_cantidad" name="fic_est_vid_tiempo_cantidad" value=""  placeholder=""/>
                                   <div id="mensaje_fic_est_vid_tiempo_cantidad" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1110,49 +1110,55 @@
                			   <div class="panel panel-info">
                               <div class="panel-heading">Registrar Empleos Anteriores</div>
                               <div class="panel-body">
-               			   
-                      	      <div class="col-xs-12 col-md-6 col-md-6 ">
+               			    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                    		     <label for="est_vid_id" class="control-label">Estilo Vida:</label>
-                                  <select  class="form-control" id="est_vid_id" name="est_vid_id" >
-                                  	<option value="0">--Seleccione--</option>
-                                  </select>                         
-                                  <div id="mensaje_est_vid_id" class="errores"></div>
-                                </div>
-                    		  </div>
-            		
-            		        <div class="col-lg-6 col-xs-12 col-md-6">
-                    		<div class="form-group-sm">
-                              <label for="fic_est_vid_practica" class="control-label">Vida Practica:</label>
-                              <select name="fic_est_vid_practica" id="fic_est_vid_practica"  class="form-control" >
-                              <option value="0" selected="selected">--Seleccione--</option>
-							  <option value="TRUE">Si</option>
-							  <option value="FALSE">No</option>
-							  </select> 
-                              <div id="mensaje_fic_est_vid_practica" class="errores"></div>
-        					</div>
-                            </div>
-            		  
-            		        <div class="col-xs-12 col-md-6 col-md-6 ">
-                    		    <div class="form-group-sm">
-                    		      <label for="fic_est_vid_cual" class="control-label">Cual:</label>
-                                  <input  type="text" class="form-control" id="fic_est_vid_cual" name="fic_est_vid_cual" value=""  placeholder=""/>
-                                  <div id="mensaje_fic_est_vid_cual" class="errores"></div>
+                    		      <label for="fic_emp_ant_empresa" class="control-label">Empresa:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_empresa" name="fic_emp_ant_empresa" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_emp_ant_empresa" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                    		      <label for="fic_est_vid_tiempo_cantidad" class="control-label">Tiempo:</label>
-                                  <input  type="text" class="form-control" id="fic_est_vid_tiempo_cantidad" name="fic_est_vid_tiempo_cantidad" value=""  placeholder=""/>
-                                  <div id="mensaje_fic_est_vid_tiempo_cantidad" class="errores"></div>
+                    		      <label for="fic_emp_ant_puesto_trabajo" class="control-label">Puesto:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_puesto_trabajo" name="fic_emp_ant_puesto_trabajo" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_emp_ant_puesto_trabajo" class="errores"></div>
                                  </div>
                     		  </div>
-            		       
-                    		 
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_actividades_desempenia" class="control-label">Actividades:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_actividades_desempenia" name="fic_emp_ant_actividades_desempenia" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_emp_ant_actividades_desempenia" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_tiempo_trabajo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_emp_ant_tiempo_trabajo" name="fic_emp_ant_tiempo_trabajo" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_emp_ant_tiempo_trabajo" class="errores"></div>
+                                 </div>
+                    		  </div>
+               			      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="fac_id" class="control-label">Factores Riesgo:</label>
+                                  <select  class="form-control" id="fac_id" name="fac_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_fac_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            				<div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_observaciones" class="control-label">Observaciones:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_observaciones" name="fic_emp_ant_observaciones" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_emp_ant_observaciones" class="errores"></div>
+                                 </div>
+                    		  </div>
+            				 
                     		   <div class="row">
                     		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
                     		    <div class="form-group-sm">
-                                  <button type="button" onclick="AgregarEstiloVida()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                  <button type="button" onclick="AgregarEmpleoAnterior()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
                                 </div>
                     		    </div>
                     		    </div>
@@ -1163,10 +1169,10 @@
                			  <div class="col-lg-6 col-md-6 col-xs-12">
                			  
                			     <div class="panel panel-info">
-                              <div class="panel-heading">Estilo Vida Registrados</div>
+                              <div class="panel-heading">Empleos Anteriores Registrados</div>
                               <div class="panel-body">
-               			      <div id="consultafichaEstiloVida" ></div>
-               			      <div id="ficha_estilo_vida_registrados" ></div>
+               			      <div id="consultafichaEmpleoAnterior" ></div>
+               			      <div id="ficha_empleo_anterior_registrados" ></div>
                			   
                			   
                			   </div>
@@ -1216,6 +1222,7 @@
 	<script type="text/javascript" src="view/js/ffspFicha.js?0.31"></script>
 	<script type="text/javascript" src="view/js/ffspfichaHabitosToxicos.js?0.6"></script>
 	<script type="text/javascript" src="view/js/ffspfichaEstiloVida.js?0.1"></script>
+	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
