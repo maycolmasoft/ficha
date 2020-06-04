@@ -1633,8 +1633,84 @@
                			</div>
                		</div>
                  </div> 
-           <div id="step-11" class="">
-           </div>
+          
+          
+          
+			<div id="step-11" class="">
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Exámen Físico Regional</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Exámen Físico Regional</div>
+                              <div class="panel-body">
+               			   
+                      	      <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="exam_id" class="control-label">Región:</label>
+                                  <select  class="form-control" id="exam_id" name="exam_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_exam_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
+            		       
+            		  
+            		        <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_exa_fis_reg_observacion" class="control-label">Descripción:</label>
+                                  <input  type="text" class="form-control" id="fic_exa_fis_reg_observacion" name="fic_exa_fis_reg_observacion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_exa_fis_reg_observacion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		 
+            		       
+                    		 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarExamenRegional()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Exámen Físico Regional Registrados</div>
+                              <div class="panel-body">
+               			      <div id="loadfichaExamenFisicoRegional" ></div>
+               			      <div id="ficha_examen_fisico_regional_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+                 </div>
+          
+          
+          
+          
            <div id="step-12" class="">
                    <div class="box box-primary">
                         <div class="box-header with-border">
@@ -1899,6 +1975,7 @@
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
+        <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
