@@ -360,6 +360,10 @@
                 <li><a href="#step-3">C. Antecedentes Personales<br /><small></small></a></li>
                 <li><a href="#step-4">D. Antecedentes de Trabajo<br /><small></small></a></li> 
                 <li><a href="#step-5">E. Antecedentes Familiares<br /><small></small></a></li> 
+            <li><a href="#step-6">F. <br /><small></small></a></li>
+             <li><a href="#step-7">G. <br /><small></small></a></li> 
+              <li><a href="#step-8">H. <br /><small></small></a></li>  
+               <li><a href="#step-9">I. Revisión Organos<br /><small></small></a></li>  
            
            
             </ul>
@@ -1349,10 +1353,92 @@
                  </div>
            
            
+           <div id="step-6" class="">
+           </div>
+           
+           <div id="step-7" class="">
+           </div>
+           
+           
+           <div id="step-8" class="">
+           </div>
            
            
            
            
+           
+           
+           <div id="step-9" class="">
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Antecedentes Familiares</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Revisión Organos</div>
+                              <div class="panel-body">
+               			   
+                      	      <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="org_id" class="control-label">Organos:</label>
+                                  <select  class="form-control" id="org_id" name="org_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_org_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            		
+            		       
+            		  
+            		        <div class="col-xs-12 col-md-12 col-md-12 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_rev_org_descripcion" class="control-label">Descripción:</label>
+                                  <input  type="text" class="form-control" id="fic_rev_org_descripcion" name="fic_rev_org_descripcion" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_rev_org_descripcion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		 
+            		       
+                    		 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarRevisionOrganos()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Revisión Organos Registrados</div>
+                              <div class="panel-body">
+               			      <div id="loadfichaRevisionOrganos" ></div>
+               			      <div id="ficha_revision_organos_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+                 </div>
            
            
            
@@ -1395,6 +1481,7 @@
 	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaAccidenteTrabajo.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
+    <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
