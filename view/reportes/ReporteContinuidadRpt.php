@@ -9,6 +9,25 @@ $template = file_get_contents('view/reportes/template/ReporteContinuidad.html');
 
 
 
+if(!empty($datos_reporte))
+{
+    
+    foreach ($datos_reporte as $clave=>$valor) {
+        echo $clave; echo "\n";
+        $template = str_replace('{'.$clave.'}', $valor, $template);
+    }
+}
+
+if(!empty($datos_reporte_detalle))
+{
+    
+    foreach ($datos_reporte_detalle as $clave=>$valor) {
+        echo $clave; echo "\n";
+        $template = str_replace('{'.$clave.'}', $valor, $template);
+    }
+}
+
+
 
 //$footer = file_get_contents('view/reportes/template/pieret.html');
 
