@@ -22,6 +22,15 @@
         }
  	  
  	</style>
+ 	
+ 	 <style type="text/css">
+        div#nombre_discapacidad, div#porcentaje_discapacidad{
+            display: none;
+        }
+    </style>
+ 	
+ 
+ 	
    <?php include("view/modulos/links_css.php"); ?>
   			        
     </head>
@@ -87,7 +96,7 @@
         		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             	          <label for="empl_primer_nombre" class="control-label">Primer Nombre:</label>
-                          <input  type="text" class="form-control" id="empl_primer_nombre" name="empl_primer_nombre" value=""  placeholder="Primer Nombre" required/>
+                          <input  type="text" class="form-control" id="empl_primer_nombre" name="empl_primer_nombre" value=""  placeholder="Primer Nombre" />
                           <input type="hidden" name="empl_id" id="empl_id" value="0" />
                           <div id="mensaje_primer_nombre" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
@@ -97,7 +106,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             	          <label for="empl_segundo_nombre" class="control-label">Segundo Nombre:</label>
-                          <input  type="text" class="form-control" id="empl_segundo_nombre" name="empl_segundo_nombre" value=""  placeholder="Segundo Nombre" required/>
+                          <input  type="text" class="form-control" id="empl_segundo_nombre" name="empl_segundo_nombre" value=""  placeholder="Segundo Nombre" />
                           <div id="mensaje_segundo_nombre" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -106,7 +115,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             	          <label for="empl_primer_apellido" class="control-label">Primer Apellido:</label>
-                          <input  type="text" class="form-control" id="empl_primer_apellido" name="empl_primer_apellido" value=""  placeholder="Primer Apellido" required/>
+                          <input  type="text" class="form-control" id="empl_primer_apellido" name="empl_primer_apellido" value=""  placeholder="Primer Apellido" />
                            <div id="mensaje_primer_apellido" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -115,7 +124,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             	          <label for="empl_segundo_apellido" class="control-label">Segundo Apellido:</label>
-                          <input  type="text" class="form-control" id="empl_segundo_apellido" name="empl_segundo_apellido" value=""  placeholder="Segundo Apellido" required/>
+                          <input  type="text" class="form-control" id="empl_segundo_apellido" name="empl_segundo_apellido" value=""  placeholder="Segundo Apellido" />
                           <div id="mensaje_segundo_apellido" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -126,7 +135,7 @@
         		      <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="empl_dni" class="control-label">DNI:</label>
-                          <input  type="text" class="form-control" id="empl_dni" name="empl_dni" value=""  placeholder="DNI" required/>
+                          <input  type="text" class="form-control" id="empl_dni" name="empl_dni" value=""  placeholder="DNI" />
                           <div id="mensaje_dni" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -135,7 +144,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		      <label for="empl_edad" class="control-label">Edad:</label>
-                          <input  type="text" class="form-control" id="empl_edad" name="empl_edad" value=""  placeholder="Edad" required/>
+                          <input  type="text" class="form-control" id="empl_edad" name="empl_edad" value=""  placeholder="Edad" />
                            <div id="mensaje_edad" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -144,7 +153,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		      <label for="empl_grupo_sanguineo" class="control-label">Grupo Sanguineo:</label>
-                          <input  type="text" class="form-control" id="empl_grupo_sanguineo" name="empl_grupo_sanguineo" value=""  placeholder="Grupo Sanguineo" required/>
+                          <input  type="text" class="form-control" id="empl_grupo_sanguineo" name="empl_grupo_sanguineo" value=""  placeholder="Grupo Sanguineo" />
                           <div id="mensaje_grupo_sanguineo" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -153,7 +162,7 @@
             		   <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="empl_fecha_ingreso" class="control-label">Fecha Ingreso:</label>
-                          <input  type="date" class="form-control" id="empl_fecha_ingreso" name="empl_fecha_ingreso" value=""  placeholder="Fecha Ingreso" required/>
+                          <input  type="date" class="form-control" id="empl_fecha_ingreso" name="empl_fecha_ingreso" value=""  placeholder="Fecha Ingreso" />
                           <div id="mensaje_fecha_ingreso" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -164,7 +173,7 @@
         		      <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		      <label for="empl_lugar_trabajo" class="control-label">Lugar de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_lugar_trabajo" name="empl_lugar_trabajo" value=""  placeholder="Lugar de Trabajo" required/>
+                          <input  type="text" class="form-control" id="empl_lugar_trabajo" name="empl_lugar_trabajo" value=""  placeholder="Lugar de Trabajo" />
                            <div id="mensaje_lugar_trabajo" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -173,7 +182,7 @@
             		  <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		      <label for="empl_area_trabajo" class="control-label">Area de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_area_trabajo" name="empl_area_trabajo" value=""  placeholder="Area de Trabajo" required/>
+                          <input  type="text" class="form-control" id="empl_area_trabajo" name="empl_area_trabajo" value=""  placeholder="Area de Trabajo" />
                           <div id="mensaje_area_trabajo" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -182,7 +191,7 @@
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		      <label for="empl_actividades_trabajo" class="control-label">Actividades de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_actividades_trabajo" name="empl_actividades_trabajo" value=""  placeholder="Actividades de Trabajo" required/>
+                          <input  type="text" class="form-control" id="empl_actividades_trabajo" name="empl_actividades_trabajo" value=""  placeholder="Actividades de Trabajo" />
                           <div id="mensaje_actividades_trabajo" class="errores"></div>
                           <div id="divLoaderPage" ></div>                     	
                         </div>
@@ -191,7 +200,7 @@
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="ide_id" class="control-label">Identidad de Sexo:</label>
-                          <select  class="form-control" id="ide_id" name="ide_id" required>
+                          <select  class="form-control" id="ide_id" name="ide_id" >
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_identidad_genero" class="errores"></div>
@@ -203,18 +212,41 @@
             	
         		     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
-            		     <label for="dis_id" class="control-label">Discapacidad:</label>
-                          <select  class="form-control" id="dis_id" name="dis_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
+            		     <label for="dis_tiene" class="control-label">Discapacidad:</label>
+                         <select class="form-control" id="dis_tiene" onchange="ToggleDiv(this.value)">
+        				 <option value="0">--Seleccione--</option>
+        				 <option value="SI">SI</option>
+        				 <option value="NO">NO</option>
+    					 </select>                        
                           <div id="mensaje_discapacidad" class="errores"></div>
                         </div>
             		  </div>
+            	
+            		<div class="col-xs-12 col-md-3 col-md-3 " id="nombre_discapacidad">
+            		    <div class="form-group">
+            		      <label for="dis_nombre" class="control-label">Nombre de Discapacidad:</label>
+                          <input  type="text" class="form-control" id="dis_nombre" name="dis_nombre" value=""  placeholder="Nombre de Discapacidad" />
+                          <div id="mensaje_dis_nombre" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+
+				    <div class="col-xs-12 col-md-3 col-md-3 " id="porcentaje_discapacidad">
+            		    <div class="form-group">
+            		      <label for="dis_porcentaje" class="control-label">Porcentaje de Discapacidad:</label>
+                          <input  type="text" class="form-control" id="dis_porcentaje" name="dis_porcentaje" value=""  placeholder="Porcentaje de Discapacidad" />
+                          <div id="mensaje_dis_porcentaje" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+  
+            		  
+            		  
             		  
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="emp_id" class="control-label">Empresa:</label>
-                          <select  class="form-control" id="emp_id" name="emp_id" required>
+                          <select  class="form-control" id="emp_id" name="emp_id" >
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_empresa" class="errores"></div>
@@ -224,7 +256,7 @@
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="ori_id" class="control-label">Orientacion Sexual:</label>
-                          <select  class="form-control" id="ori_id" name="ori_id" required>
+                          <select  class="form-control" id="ori_id" name="ori_id" >
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_orientacion_sexual" class="errores"></div>
@@ -234,26 +266,24 @@
             		    <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="rel_id" class="control-label">Religion:</label>
-                          <select  class="form-control" id="rel_id" name="rel_id" required>
+                          <select  class="form-control" id="rel_id" name="rel_id" >
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_religion" class="errores"></div>
                         </div>
             		  </div> 
-            	</div>	
             	
-            	 <div class="row">
         		     <div class="col-xs-12 col-md-3 col-md-3 ">
             		    <div class="form-group">
             		     <label for="sex_id" class="control-label">Sexo:</label>
-                          <select  class="form-control" id="sex_id" name="sex_id" required>
+                          <select  class="form-control" id="sex_id" name="sex_id" >
                           	<option value="0">--Seleccione--</option>
                           </select>                         
                           <div id="mensaje_sexo" class="errores"></div>
                         </div>
             		  </div>
-            	</div>	
-							          		        
+         			</div>	
+            			          		        
            		<div class="row">
     			    <div class="col-xs-12 col-md-4 col-lg-4 " style="text-align: center; ">
         	   		    <div class="form-group">
@@ -299,7 +329,8 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ffspEmpleados.js?0.1"></script> 
+   <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
+   <script src="view/js/ffspEmpleados.js?0.15"></script> 
        
    
   </body>

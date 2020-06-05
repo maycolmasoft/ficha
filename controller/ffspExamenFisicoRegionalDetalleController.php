@@ -16,7 +16,7 @@ class ffspExamenFisicoRegionalDetalleController extends ControladorBase{
 		
 		if(empty( $_SESSION)){
 		    
-		    $this->redirect("Usuarios","sesion_caducada");
+		    $this->redirect("ffspUsuarios","sesion_caducada");
 		    return;
 		}
 		
@@ -45,9 +45,9 @@ class ffspExamenFisicoRegionalDetalleController extends ControladorBase{
 	}
 	
 
-	public function InsertaExamenFisicoRegionalDetalle(){
+ 	public function InsertaExamenFisicoRegionalDetalle(){
 			
-		session_start();
+ 		session_start();
 		
 		$examen_fisico_regional_detalle = new ffspExamenFisicoRegionalDetalleModel();
 		

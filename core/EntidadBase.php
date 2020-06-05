@@ -34,6 +34,27 @@ class EntidadBase{
         return $this->db;
     }
     
+    public function beginTran(){
+        
+        $pg_query = pg_query($this->con,"BEGIN");
+        
+        return $pg_query;
+        
+    }
+    
+    
+    
+    public function endTran($trans="ROLLBACK"){
+        
+        @$pg_query = pg_query($this->con,$trans);
+        
+        pg_close();
+        
+        return $pg_query;
+        
+    }
+    
+    
     public function getNuevo($secuencia){
     
     	$query=pg_query($this->con, "SELECT NEXTVAL('$secuencia')");

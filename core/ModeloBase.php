@@ -205,6 +205,10 @@ class ModeloBase extends EntidadBase{
         return $resultSet;
     }
     
+   
+    public function getconsultaPG($funcion,$parametros){
+        return "SELECT ". $funcion." ( ".$parametros." )";
+    }
     
 }
 ?>

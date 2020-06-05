@@ -16,7 +16,7 @@ class ffspEmpresaController extends ControladorBase{
         
         if(empty( $_SESSION)){
             
-            $this->redirect("Usuarios","sesion_caducada");
+            $this->redirect("ffspUsuarios","sesion_caducada");
             return;
         }
         
@@ -233,7 +233,7 @@ class ffspEmpresaController extends ControladorBase{
             $page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
             
             $per_page = 10; //la cantidad de registros que desea mostrar
-            $adjacents  = 9; //brecha entre páginas después de varios adyacentes
+            $adjacents  = 9; //brecha entre pï¿½ginas despuï¿½s de varios adyacentes
             $offset = ($page - 1) * $per_page;
             
             $limit = " LIMIT   '$per_page' OFFSET '$offset'";

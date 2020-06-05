@@ -69,12 +69,14 @@ class ffspEmpleadosController extends ControladorBase{
 		    $_empl_lugar_trabajo = (isset($_POST["empl_lugar_trabajo"])) ? $_POST["empl_lugar_trabajo"] : "";
 		    $_empl_area_trabajo = (isset($_POST["empl_area_trabajo"])) ? $_POST["empl_area_trabajo"] : "";
 		    $_empl_actividades_trabajo = (isset($_POST["empl_actividades_trabajo"])) ? $_POST["empl_actividades_trabajo"] : "";
-		    $_dis_id = (isset($_POST["dis_id"])) ? $_POST["dis_id"] : 0 ;
 		    $_emp_id = (isset($_POST["emp_id"])) ? $_POST["emp_id"] : 0 ;
 		    $_ori_id = (isset($_POST["ori_id"])) ? $_POST["ori_id"] : 0 ;
 		    $_rel_id = (isset($_POST["rel_id"])) ? $_POST["rel_id"] : 0 ;
 		    $_sex_id = (isset($_POST["sex_id"])) ? $_POST["sex_id"] : 0 ;
-		    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+		    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ; 
+		    $_dis_tiene = (isset($_POST["dis_tiene"])) ? $_POST["dis_tiene"] : "NO" ;
+		    $_dis_nombre = (isset($_POST["dis_nombre"])) ? $_POST["dis_nombre"] : "";
+		    $_dis_porcentaje = (isset($_POST["dis_porcentaje"])) ? $_POST["dis_porcentaje"] : "";
 		    
 		    $funcion = "ins_ffsp_tbl_empleados";
 			$respuesta = 0 ;
@@ -94,7 +96,6 @@ class ffspEmpleadosController extends ControladorBase{
                                 '$_empl_lugar_trabajo',
                                 '$_empl_area_trabajo',
                                 '$_empl_actividades_trabajo',
-                                '$_dis_id',
                                 '$_emp_id',
                                 '$_ori_id',
                                 '$_rel_id',
@@ -106,6 +107,20 @@ class ffspEmpleadosController extends ControladorBase{
 			    
 			    if(is_int((int)$resultado[0])){
 			        $respuesta = $resultado[0];
+			        $id_empleado = $resultado[0];
+			        if( $id_empleado > 0  )
+			        {
+			            //aqui mandara a llamar al otra funcion de la discapcidad
+			            $_dis_tiene  = ($_dis_tiene == "SI") ? 't' : 'f';
+			            $_dis_porcentaje = ( strlen($_dis_porcentaje) == 0 ) ? 0 : $_dis_porcentaje;
+			            $funcion = "ins_ffsp_tbl_discapacidad";
+			            $parametros = "'$_dis_nombre',
+                                        '$_dis_porcentaje',
+                                        '$_dis_tiene',
+                                        '$id_empleado'";
+			            $qryDis   = $empleados->getconsultaPG($funcion,$parametros);
+			            $resultado2  = $empleados->llamarconsultaPG($qryDis);
+			        }
 			        $mensaje = "Empleados Ingresado Correctamente";
 			    }	
 			    
@@ -124,7 +139,6 @@ class ffspEmpleadosController extends ControladorBase{
                                 '$_empl_lugar_trabajo',
                                 '$_empl_area_trabajo',
                                 '$_empl_actividades_trabajo',
-                                '$_dis_id',
                                 '$_emp_id',
                                 '$_ori_id',
                                 '$_rel_id',
@@ -137,6 +151,19 @@ class ffspEmpleadosController extends ControladorBase{
 			    if(is_int((int)$resultado[0])){
 			        $respuesta = $resultado[0];
 			        $mensaje = "Empleados Actualizado Correctamente";
+			        
+		            //aqui mandara a llamar al otra funcion de la discapcidad
+		            $_dis_tiene  = ($_dis_tiene == "SI") ? 't' : 'f';
+		            $_dis_porcentaje = ( strlen($_dis_porcentaje) == 0 ) ? 0 : $_dis_porcentaje;
+		            $funcion = "ins_ffsp_tbl_discapacidad";
+		            $parametros = "'$_dis_nombre',
+                                    '$_dis_porcentaje',
+                                    '$_dis_tiene',
+                                    '$_empl_id'";
+		            $qryDis   = $empleados->getconsultaPG($funcion,$parametros);
+		            $resultado2  = $empleados->llamarconsultaPG($qryDis);
+			        
+			        
 			    }	
 			    
 			    
@@ -181,7 +208,30 @@ class ffspEmpleadosController extends ControladorBase{
 	            
 	            $empl_id = (int)$_POST["empl_id"];
 	            
-	            $query = "SELECT * FROM ffsp_tbl_empleados WHERE empl_id = $empl_id";
+	            $query = "SELECT ffsp_tbl_discapacidad.dis_id, 
+                          ffsp_tbl_discapacidad.dis_nombre, 
+                          ffsp_tbl_discapacidad.dis_porcentaje, 
+                          ffsp_tbl_discapacidad.dis_tiene, 
+                          ffsp_tbl_empleados.empl_id, 
+                          ffsp_tbl_empleados.empl_primer_nombre, 
+                          ffsp_tbl_empleados.empl_segundo_nombre, 
+                          ffsp_tbl_empleados.empl_primer_apellido, 
+                          ffsp_tbl_empleados.empl_segundo_apellido, 
+                          ffsp_tbl_empleados.ide_id, 
+                          ffsp_tbl_empleados.empl_dni, 
+                          ffsp_tbl_empleados.empl_edad, 
+                          ffsp_tbl_empleados.empl_grupo_sanguineo, 
+                          ffsp_tbl_empleados.empl_fecha_ingreso, 
+                          ffsp_tbl_empleados.empl_lugar_trabajo, 
+                          ffsp_tbl_empleados.empl_area_trabajo, 
+                          ffsp_tbl_empleados.empl_actividades_trabajo, 
+                          ffsp_tbl_empleados.emp_id, 
+                          ffsp_tbl_empleados.ori_id, 
+                          ffsp_tbl_empleados.rel_id, 
+                          ffsp_tbl_empleados.sex_id 
+                          FROM  public.ffsp_tbl_discapacidad, 
+                          public.ffsp_tbl_empleados 
+                          WHERE ffsp_tbl_empleados.empl_id = ffsp_tbl_discapacidad.empl_id AND ffsp_tbl_empleados.empl_id = $empl_id";
 
 	            $resultado  = $empleados->enviaquery($query);	            
 	           
@@ -202,6 +252,7 @@ class ffspEmpleadosController extends ControladorBase{
 	public function delEmpleados(){
 	    
 	    session_start();
+	    $discapacidad = new ffspDiscapacidadModel();
 	    $empleados = new ffspEmpleadosModel();
 	    $nombre_controladores = "ffspEmpleados";
 	    $id_rol= $_SESSION['id_rol'];
@@ -213,16 +264,30 @@ class ffspEmpleadosController extends ControladorBase{
 	            
 	            $empl_id = (int)$_POST["empl_id"];
 	            
-	            $resultado  = $empleados->eliminarBy("empl_id ",$empl_id);
-	           
-	            if( $resultado > 0 ){
+	            try {
 	                
-	                echo json_encode(array('data'=>$resultado));
+    	            $empleados->beginTran();
+    	             
+    	            $resultado1  = $discapacidad->eliminarBy("empl_id ",$empl_id);
+    	            $resultado  = $empleados->eliminarBy("empl_id ",$empl_id);
+    	           
+    	            
+    	            $empleados->endTran('COMMIT');
+    	            
+    	            if( $resultado > 0 ){
+    	                
+    	                echo json_encode(array('data'=>$resultado));
+    	                
+    	            }
+	            
+	            } catch (Exception $e) {
 	                
-	            }else{
+	                $empleados->endTran();
+	                echo $e->getMessage();
+	                die();
 	                
-	                echo $resultado;
 	            }
+	            
 	            
 	            
 	            
@@ -261,10 +326,6 @@ class ffspEmpleadosController extends ControladorBase{
                       ffsp_tbl_empleados.empl_lugar_trabajo, 
                       ffsp_tbl_empleados.empl_area_trabajo, 
                       ffsp_tbl_empleados.empl_actividades_trabajo, 
-                      ffsp_tbl_discapacidad.dis_id, 
-                      ffsp_tbl_discapacidad.dis_descripcion, 
-                      ffsp_tbl_discapacidad.dis_tipo, 
-                      ffsp_tbl_discapacidad.dis_porcentaje, 
                       ffsp_tbl_empresa.emp_id, 
                       ffsp_tbl_empresa.emp_nombre, 
                       ffsp_tbl_empresa.emp_ruc, 
@@ -278,14 +339,12 @@ class ffspEmpleadosController extends ControladorBase{
 	    
 	    $tablas    = "public.ffsp_tbl_empleados, 
                       public.ffsp_tbl_identidad_genero, 
-                      public.ffsp_tbl_discapacidad, 
                       public.ffsp_tbl_empresa, 
                       public.ffsp_tbl_orientacion_sexual, 
                       public.ffsp_tbl_religion, 
                       public.ffsp_tbl_sexo";
                     	    
 	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
-                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
@@ -354,7 +413,6 @@ class ffspEmpleadosController extends ControladorBase{
 	            $html.='<th style="text-align: left;  font-size: 15px;">Lugar de Trabajo</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Area de Trabajo</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Actividades Trabajo</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Discapacidad</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Empresa</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Orientacion Sexual</th>';
 	            $html.='<th style="text-align: left;  font-size: 15px;">Religion</th>';
@@ -390,7 +448,6 @@ class ffspEmpleadosController extends ControladorBase{
 	                $html.='<td style="font-size: 14px;">'.$res->empl_lugar_trabajo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->empl_area_trabajo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->empl_actividades_trabajo.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->dis_tipo.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->emp_nombre.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->ori_nombre.'</td>';
 	                $html.='<td style="font-size: 14px;">'.$res->rel_nombre.'</td>';
@@ -515,12 +572,14 @@ class ffspEmpleadosController extends ControladorBase{
 	        
 	    }
 	}
-	public function cargaDiscapacidad(){
+
+	
+	public function cargaEmpresa(){
 	    
 	    $empleados = null;
 	    $empleados = new ffspEmpleadosModel();
 	    
-	    $query = " SELECT dis_id, dis_tipo FROM ffsp_tbl_discapacidad WHERE 1=1 ORDER BY dis_tipo";
+	    $query = " SELECT emp_id, emp_nombre FROM ffsp_tbl_empresa WHERE 1=1 ORDER BY emp_nombre";
 	    
 	    $resulset = $empleados->enviaquery($query);
 	    
@@ -531,12 +590,13 @@ class ffspEmpleadosController extends ControladorBase{
 	    }
 	}
 	
-	public function cargaEmpresa(){
+	
+	public function  cargaTipoFicha(){
 	    
 	    $empleados = null;
 	    $empleados = new ffspEmpleadosModel();
 	    
-	    $query = " SELECT emp_id, emp_nombre FROM ffsp_tbl_empresa WHERE 1=1 ORDER BY emp_nombre";
+	    $query = " SELECT tip_id, tip_nombre FROM ffsp_tbl_tipo_ficha WHERE 1=1 ORDER BY tip_id";
 	    
 	    $resulset = $empleados->enviaquery($query);
 	    
@@ -739,8 +799,8 @@ class ffspEmpleadosController extends ControladorBase{
                       ffsp_tbl_empleados.empl_area_trabajo,
                       ffsp_tbl_empleados.empl_actividades_trabajo,
                       ffsp_tbl_discapacidad.dis_id,
-                      ffsp_tbl_discapacidad.dis_descripcion,
-                      ffsp_tbl_discapacidad.dis_tipo,
+                      ffsp_tbl_discapacidad.dis_nombre,
+                      ffsp_tbl_discapacidad.dis_tiene,
                       ffsp_tbl_discapacidad.dis_porcentaje,
                       ffsp_tbl_empresa.emp_id,
                       ffsp_tbl_empresa.emp_nombre,
@@ -762,7 +822,7 @@ class ffspEmpleadosController extends ControladorBase{
                       public.ffsp_tbl_sexo";
 	    
 	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
-                      ffsp_tbl_discapacidad.dis_id = ffsp_tbl_empleados.dis_id AND
+                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
