@@ -163,7 +163,7 @@ $("#frm_ficha").on("submit",function(event){
 
 	var $div_respuesta = $("#msg_frm_ficha"); $div_respuesta.text("").removeClass();
 		
-		
+	//	
 	$.ajax({
 		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
 		url:"index.php?controller=ffspEmpleados&action=IniciarFicha",
