@@ -315,6 +315,33 @@
                		</div>
                 </div>
                 
+                
+                <!-- 
+                  <div id="step-4" class="">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title"></h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="editor3" name="editor3" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_editor3" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
+                </div>
+                
+                 -->
+                
+                
             </div>
         </div>
     		
