@@ -1440,9 +1440,13 @@
            
            
            <div id="step-6" class="">
-                      
+              <ul class="nav nav-tabs">
+              <li class="active"><a href="#cabeza" data-toggle="tab">Cabeza</a></li>
+              <li><a href="#detalle" data-toggle="tab">Detalle</a></li> 
+             </ul>    
+             	    <div class="tab-pane active" id="cabeza">
                  <div class="box box-primary">
-                        <div class="box-header with-border">
+             		    <div class="box-header with-border">
                           <h3 class="box-title">Factores Riesgo</h3>
                           <div class="box-tools pull-right"> </div>
                         </div>
@@ -1507,8 +1511,12 @@
                			  
                			  
                			</div>
+               		</div>     
                		</div>
-           
+               		<div class="tab-pane" id="detalle">
+               	
+               		</div>
+               		
            </div>
            
            <div id="step-7" class="">
