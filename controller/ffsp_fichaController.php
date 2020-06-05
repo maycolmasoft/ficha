@@ -131,6 +131,101 @@ class ffsp_fichaController extends ControladorBase{
 	
 	
 	
+	public function InsertaAntecedentes_Plani(){
+	    
+	    
+	    
+	    session_start();
+	    
+	    $ficha = new ffspFichaModel();
+	    
+	    
+	    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
+	    $_sex_id = (isset($_POST["sex_id"])) ? $_POST["sex_id"] : 0 ;
+	    $_fic_ant_menarquia = (isset($_POST["fic_ant_menarquia"])&& $_POST["fic_ant_menarquia"]!="") ? $_POST["fic_ant_menarquia"] : 'FALSE' ;
+	    $_fic_ant_ciclos = (isset($_POST["fic_ant_ciclos"])&& $_POST["fic_ant_ciclos"]!="") ? $_POST["fic_ant_ciclos"] : 'null' ;
+	    $_fic_ant_fecha_ultima_mestruacion = (isset($_POST["fic_ant_fecha_ultima_mestruacion"]) && $_POST["fic_ant_fecha_ultima_mestruacion"]!="") ? $_POST["fic_ant_fecha_ultima_mestruacion"] : 'null';
+	    
+	    $_fic_ant_gestas = (isset($_POST["fic_ant_gestas"])&& $_POST["fic_ant_gestas"]!="") ? $_POST["fic_ant_gestas"] : 'FALSE' ;
+	    $_fic_ant_partos = (isset($_POST["fic_ant_partos"])&& $_POST["fic_ant_partos"]!="") ? $_POST["fic_ant_partos"] : 'FALSE' ;
+	    $_fic_ant_cesareas = (isset($_POST["fic_ant_cesareas"])&& $_POST["fic_ant_cesareas"]!="") ? $_POST["fic_ant_cesareas"] : 'FALSE' ;
+	    $_fic_ant_abortos = (isset($_POST["fic_ant_abortos"])&& $_POST["fic_ant_abortos"]!="") ? $_POST["fic_ant_abortos"] : 'FALSE' ;
+	    
+	    $_fic_ant_hijos_vivos = (isset($_POST["fic_ant_hijos_vivos"])&& $_POST["fic_ant_hijos_vivos"]!="") ? $_POST["fic_ant_hijos_vivos"] : 'FALSE' ;
+	    $_fic_ant_hijos_muertos = (isset($_POST["fic_ant_hijos_muertos"])&& $_POST["fic_ant_hijos_muertos"]!="") ? $_POST["fic_ant_hijos_muertos"] : 'FALSE' ;
+	    $_fic_ant_vida_sexual = (isset($_POST["fic_ant_vida_sexual"])&& $_POST["fic_ant_vida_sexual"]!="") ? $_POST["fic_ant_vida_sexual"] : 'FALSE' ;
+	    $_fic_ant_metodo_planificacion_familiar = (isset($_POST["fic_ant_metodo_planificacion_familiar"])&& $_POST["fic_ant_metodo_planificacion_familiar"]!="") ? $_POST["fic_ant_metodo_planificacion_familiar"] : 'FALSE' ;
+	    $_fic_ant_tipo_metodo_planificacion_familiar = (isset($_POST["fic_ant_tipo_metodo_planificacion_familiar"])&& $_POST["fic_ant_tipo_metodo_planificacion_familiar"]!="") ? $_POST["fic_ant_tipo_metodo_planificacion_familiar"] : '' ;
+	    
+	    
+	    
+	    
+	    
+	    $funcion = "ins_ffsp_tbl_ficha_antecedentes_plani";
+	    $respuesta = 0 ;
+	    $mensaje = "";
+	    
+	    if($_empl_id > 0 && $_fic_id > 0 && $_sex_id > 0){
+	        
+	        $_fic_ant_fecha_ultima_mestruacion = ( $_fic_ant_fecha_ultima_mestruacion == 'null' ) ? $_fic_ant_fecha_ultima_mestruacion : "'".$_fic_ant_fecha_ultima_mestruacion."'";
+	        
+	        $parametros =  "'$_fic_id',
+                                '$_sex_id',
+                                '$_fic_ant_menarquia',
+                                 $_fic_ant_ciclos,
+                                $_fic_ant_fecha_ultima_mestruacion,
+                                '$_fic_ant_gestas',
+                                '$_fic_ant_partos',
+                                '$_fic_ant_cesareas',
+                                '$_fic_ant_abortos',
+                                '$_fic_ant_hijos_vivos',
+                                '$_fic_ant_hijos_muertos',
+                                '$_fic_ant_vida_sexual',
+                                '$_fic_ant_metodo_planificacion_familiar',
+                                '$_fic_ant_tipo_metodo_planificacion_familiar'";
+	        
+                               //  die($parametros);
+                                 
+                                 
+            //$sqFicha = $ficha->getconsultaPG($funcion,$parametros);
+            
+//echo $sqFicha; die();
+	        $ficha->setFuncion($funcion);
+	        $ficha->setParametros($parametros);
+	        $resultado = $ficha->llamafuncionPG();
+	        
+	        if(is_int((int)$resultado[0])){
+	            $respuesta = $resultado[0];
+	            
+	            $mensaje = "C. Actualizado Correctamente";
+	        }
+	        
+	    }
+	    
+	    
+	    
+	    if((int)$respuesta > 0 ){
+	        
+	        echo json_encode(array('respuesta'=>$respuesta,'mensaje'=>$mensaje));
+	        exit();
+	    }
+	    
+	    echo "Error al Actualizar Antecedentes Personales C.";
+	    exit();
+	    
+	    
+	    
+	    
+	    
+	}
+	
+	
+	
+	
+	
+	
+	
 	public function InsertaAntecedentes_C(){
 	    
 	    
