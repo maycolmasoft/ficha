@@ -139,6 +139,26 @@ class ffsp_fichaController extends ControladorBase{
 	    
 	}
 	
+	public function cargarDatosFichaAntecedentes(){
+	    
+	    session_start();
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    
+	    if(isset($_POST["fic_id"])){
+	        
+	        $fic_id = (int)$_POST["fic_id"];
+	        
+	        $query = "SELECT a.* FROM ffsp_tbl_ficha_antecedentes a WHERE a.fic_id = $fic_id";
+	        
+	        $resultado  = $empleados->enviaquery($query);
+	        
+	        echo json_encode(array('data'=>$resultado));
+	        
+	    }
+	    
+	}
+	
 	public function cargaExamenes(){
 	    
 	    $empleados = null;
