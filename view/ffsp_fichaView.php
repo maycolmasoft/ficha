@@ -1494,63 +1494,63 @@
                			      <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_presion_arterial" class="control-label">Presión Arterial:</label>
-                                  <input  type="text" class="form-control" id="fic_cons_vit_presion_arterial" name="fic_cons_vit_presion_arterial" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_presion_arterial" name="fic_cons_vit_presion_arterial" value=""  placeholder="Presión Arterial.."/>
                                   <div id="mensaje_fic_cons_vit_presion_arterial" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_temperatura" class="control-label">Temperatura:</label>
-                                  <input  type="number" class="form-control" id="fic_cons_vit_temperatura" name="fic_cons_vit_temperatura" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_temperatura" name="fic_cons_vit_temperatura" value=""  placeholder="Temperatura.."/>
                                   <div id="mensaje_fic_cons_vit_temperatura" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_frecuencia_cardiaca" class="control-label">Frecuencia Cardiaca:</label>
-                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_cardiaca" name="fic_cons_vit_frecuencia_cardiaca" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_cardiaca" name="fic_cons_vit_frecuencia_cardiaca" value=""  placeholder="Frecuencia Cardiaca.."/>
                                   <div id="mensaje_fic_cons_vit_frecuencia_cardiaca" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_saturacion_oxigeno" class="control-label">Saturación de Oxigeno:</label>
-                                  <input  type="number" class="form-control" id="fic_cons_vit_saturacion_oxigeno" name="fic_cons_vit_saturacion_oxigeno" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_saturacion_oxigeno" name="fic_cons_vit_saturacion_oxigeno" value=""  placeholder="Saturación de Oxigeno.."/>
                                   <div id="mensaje_fic_cons_vit_saturacion_oxigeno" class="errores"></div>
                                  </div>
                     		  </div>
             		            <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_frecuencia_respiratoria" class="control-label">Frecuencia Respiratoria:</label>
-                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_respiratoria" name="fic_cons_vit_frecuencia_respiratoria" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_frecuencia_respiratoria" name="fic_cons_vit_frecuencia_respiratoria" value=""  placeholder="Frecuencia Respiratoria.."/>
                                   <div id="mensaje_fic_cons_vit_frecuencia_respiratoria" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_peso" class="control-label">Peso:</label>
-                                  <input  type="number" class="form-control" id="fic_cons_vit_peso" name="fic_cons_vit_peso" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_peso" name="fic_cons_vit_peso" value=""  placeholder="Peso.."/>
                                   <div id="mensaje_fic_cons_vit_peso" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_talla" class="control-label">Talla:</label>
-                                  <input  type="number" class="form-control" id="fic_cons_vit_talla" name="fic_cons_vit_talla" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_talla" name="fic_cons_vit_talla" value=""  placeholder="Talla.."/>
                                   <div id="mensaje_fic_cons_vit_talla" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_indice_masa_corporal" class="control-label">Indice de Masa Corporal:</label>
-                                  <input  type="text" class="form-control" id="fic_cons_vit_indice_masa_corporal" name="fic_cons_vit_indice_masa_corporal" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_cons_vit_indice_masa_corporal" name="fic_cons_vit_indice_masa_corporal" value=""  placeholder="Indice de Masa Corporal.."/>
                                   <div id="mensaje_fic_cons_vit_indice_masa_corporal" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_cons_vit_perimetro_abdominal" class="control-label">Perimetro Abdominal:</label>
-                                  <input  type="number" class="form-control" id="fic_cons_vit_perimetro_abdominal" name="fic_cons_vit_perimetro_abdominal" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_cons_vit_perimetro_abdominal" name="fic_cons_vit_perimetro_abdominal" value=""  placeholder="Perimetro Abdominal.."/>
                                   <div id="mensaje_fic_cons_vit_perimetro_abdominal" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1621,7 +1621,7 @@
             		        <div class="col-xs-12 col-md-12 col-md-12 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_exa_fis_reg_observacion" class="control-label">Descripción:</label>
-                                  <input  type="text" class="form-control" id="fic_exa_fis_reg_observacion" name="fic_exa_fis_reg_observacion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_exa_fis_reg_observacion" name="fic_exa_fis_reg_observacion" value=""  placeholder="Descripción.."/>
                                   <div id="mensaje_fic_exa_fis_reg_observacion" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1684,21 +1684,21 @@
                			      <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_res_exa_examen" class="control-label">Examen:</label>
-                                  <input  type="text" class="form-control" id="fic_res_exa_examen" name="fic_res_exa_examen" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_res_exa_examen" name="fic_res_exa_examen" value=""  placeholder="Examen.."/>
                                   <div id="mensaje_fic_res_exa_examen" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_res_exa_fecha" class="control-label">Fecha:</label>
-                                  <input  type="date" class="form-control" id="fic_res_exa_fecha" name="fic_res_exa_fecha" value=""  placeholder=""/>
+                                  <input  type="date" class="form-control" id="fic_res_exa_fecha" name="fic_res_exa_fecha" value=""  placeholder="Fecha.."/>
                                   <div id="mensaje_fic_res_exa_fecha" class="errores"></div>
                                  </div>
                     		  </div>
                     		    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_res_exa_resultados" class="control-label">Resultados:</label>
-                                  <input  type="text" class="form-control" id="fic_res_exa_resultados" name="fic_res_exa_resultados" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_res_exa_resultados" name="fic_res_exa_resultados" value=""  placeholder="Resultados.."/>
                                   <div id="mensaje_fic_res_exa_resultados" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1753,14 +1753,14 @@
                			    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_diag_descripcion" class="control-label">Descripcion:</label>
-                                  <input  type="text" class="form-control" id="fic_diag_descripcion" name="fic_diag_descripcion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_diag_descripcion" name="fic_diag_descripcion" value=""  placeholder="Descripcion.."/>
                                   <div id="mensaje_fic_diag_descripcion" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_diag_cie" class="control-label">Cie:</label>
-                                  <input  type="text" class="form-control" id="fic_diag_cie" name="fic_diag_cie" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_diag_cie" name="fic_diag_cie" value=""  placeholder="Cie.."/>
                                   <div id="mensaje_fic_diag_cie" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1833,14 +1833,14 @@
                			    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_apt_med_observacion" class="control-label">Observación:</label>
-                                  <input  type="text" class="form-control" id="fic_apt_med_observacion" name="fic_apt_med_observacion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_apt_med_observacion" name="fic_apt_med_observacion" value=""  placeholder="Observación.."/>
                                   <div id="mensaje_fic_apt_med_observacion" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_apt_med_limitacion" class="control-label">Limitación:</label>
-                                  <input  type="text" class="form-control" id="fic_apt_med_limitacion" name="fic_apt_med_limitacion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_apt_med_limitacion" name="fic_apt_med_limitacion" value=""  placeholder="Limitación.."/>
                                   <div id="mensaje_fic_apt_med_limitacion" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1935,22 +1935,22 @@
     <script src="view/bootstrap/bower_components/jquery-ui-1.12.1/jquery-ui.js"></script> 
     <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
 	<script type="text/javascript" src="view/bootstrap/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-	<script type="text/javascript" src="view/js/ffspFicha.js?0.31"></script>
-	<script type="text/javascript" src="view/js/ffspfichaHabitosToxicos.js?0.6"></script>
-	<script type="text/javascript" src="view/js/ffspfichaEstiloVida.js?0.1"></script>
-	<script type="text/javascript" src="view/js/ffspfichaEmpleoAnterior.js?0.1"></script>
-    <script type="text/javascript" src="view/js/ffspfichaAccidenteTrabajo.js?0.1"></script>
-    <script type="text/javascript" src="view/js/ffspfichaEnfermedadProfesional.js?0.4"></script>
-    <script type="text/javascript" src="view/js/ffspfichaConstanteVital.js?0.1"></script>
-    <script type="text/javascript" src="view/js/ffspfichaResultadoExamen.js?0.1"></script>
-    <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
-    <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
-    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.4"></script>
-    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.9"></script>
-    <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
-    <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
-    <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
-	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspFicha.js?0.32"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaHabitosToxicos.js?0.7"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaEstiloVida.js?0.2"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaEmpleoAnterior.js?0.2"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAccidenteTrabajo.js?0.2"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaEnfermedadProfesional.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaConstanteVital.js?0.6"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaResultadoExamen.js?0.6"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaDiagnostico.js?0.3"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAptitud.js?0.4"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaFactorRiesgo.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaFactorRiesgoDetalle.js?0.10"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAntecedentesFamiliares.js?0.4"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaRevisionOrganos.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaExamenFisicoRegional.js?0.4"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspwizardFicha.js?0.31"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   

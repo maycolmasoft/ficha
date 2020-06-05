@@ -646,14 +646,11 @@ $("#empl_primer_nombre").on("keyup",function(){
 	    			
 	    			var array = datos.data[0];		
 	    			
-	    			$("#fic_motivo_consulta").val(array.fic_motivo_consulta);
-	    			$("#fic_antecedentes_personales").val(array.fic_antecedentes_personales);
-	    			$("#fic_actividades_extra_laborales").val(array.fic_actividades_extra_laborales);
-	    			$("#fic_enfermedad_actual").val(array.fic_enfermedad_actual);
-	    			$("#fic_recomendacion_tratamiento").val(array.fic_recomendacion_tratamiento);
-	    			
-	    			
-	    			
+	    			CKEDITOR.instances.fic_motivo_consulta.setData(array.fic_motivo_consulta);
+	    			CKEDITOR.instances.fic_antecedentes_personales.setData(array.fic_antecedentes_personales);
+	    			CKEDITOR.instances.fic_actividades_extra_laborales.setData(array.fic_actividades_extra_laborales);
+	    			CKEDITOR.instances.fic_enfermedad_actual.setData(array.fic_enfermedad_actual);
+	    			CKEDITOR.instances.fic_recomendacion_tratamiento.setData(array.fic_recomendacion_tratamiento);
 	    			
 	    			
 	    			

@@ -738,7 +738,7 @@ class ffsp_fichaController extends ControladorBase{
 	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
 	    $_fic_enfermedad_actual = (isset($_POST["fic_enfermedad_actual"])) ? $_POST["fic_enfermedad_actual"] : "";
 	    
-	    $funcion = "ins_ffsp_tbl_ficha_h";
+	    $funcion = "ins_ffsp_tbl_ficha_g";
 	    $respuesta = 0 ;
 	    $mensaje = "";
 	    

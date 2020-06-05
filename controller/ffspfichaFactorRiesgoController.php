@@ -122,12 +122,15 @@ class ffspfichaFactorRiesgoController extends ControladorBase{
         
         session_start();
         $ficha_factor_riesgo = new ffspfichaFactorRiesgoModel();
+        $ficha_factor_riesgo_detalle = new ffspfichaFactorRiesgoDetalleModel();
+        
         
             
             if(isset($_POST["fic_fact_ries_id"])){
                 
                 $fic_fact_ries_id = (int)$_POST["fic_fact_ries_id"];
                 
+                $resultado1  = $ficha_factor_riesgo_detalle->eliminarBy("fic_fact_ries_id", $fic_fact_ries_id);
                 $resultado  = $ficha_factor_riesgo->eliminarBy("fic_fact_ries_id", $fic_fact_ries_id);
                 
                 if( $resultado > 0 ){

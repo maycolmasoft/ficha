@@ -207,6 +207,8 @@ $(document).ready(function(){
   		var err = xhr.responseText
   		console.log(err)
   		$ddlEmpresa.empty();
+  		$ddlEmpresa.append("<option value='0' >--Seleccione--</option>");
+  		
   	})
   	
   }
