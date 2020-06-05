@@ -188,7 +188,7 @@ $("#frm_ficha").on("submit",function(event){
 	    			}
 	    			
 	    			if(respuesta.tipo==3){
-	    				window.location.href= "index.php?controller=ffsp_ficha&action=index&id="+loteUrl;
+	    				window.location.href= "index.php?controller=ffsp_ficha&action=index3&id="+loteUrl;
 	    			}
 	    			
 	    		});

@@ -37,7 +37,7 @@ class ffsp_fichaController extends ControladorBase{
 	}
 	
 	
-	public function inde2(){
+	public function index2(){
 	    
 	    $empleados = new ffspEmpleadosModel();
 	    
@@ -67,7 +67,7 @@ class ffsp_fichaController extends ControladorBase{
 	
 	
 	
-	public function inde3(){
+	public function index3(){
 	    
 	    $empleados = new ffspEmpleadosModel();
 	    
