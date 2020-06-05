@@ -5,6 +5,12 @@
   
   </head>
   <body>
+  
+    <table class="1" border="1">
+  	<tr>
+  	<td Class="2">A. DATOS DEL ESTABLECIMIENTO-EMPRESA Y USUARIO</td>
+    </tr>
+  	</table>
   	<table class="1" border="1">
   	<tr>
   	<td Class="1">INSTITUCION DEL SISTEMA O NOMBRE DE LA EMPRESA</td>
@@ -15,9 +21,9 @@
   	<td Class="1">NÚMERO DE ARCHIVO</td>
   	</tr>
   	<tr>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
+  	<td>{NOMBRE_EMPRESA}</td>
+  	<td>{RUC_EMPRESA}</td>
+  	<td>{CIUDAD_EMPRESA}</td>
   	<td>{}</td>
   	<td>{}</td>
   	<td>{}</td>
@@ -33,24 +39,24 @@
   	<td Class="1">PUESTO DE TRABAJO</td>
   	</tr>
   	<tr>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
+  	<td>{PRI_APE_EMPLEADO}</td>
+  	<td>{SEG_APE_EMPLEADO}</td>
+  	<td>{PRI_NOMBRE_EMPLEADO}</td>
+  	<td>{SEG_NOMBRE_EMPLEADO}</td>
+  	<td>{SEXO_EMPLEADO}</td>
+  	<td>{PUESTO_TRABAJO}</td>
 	</tr>
   	</table>	
   	
   	<table class="1" border="1">
   	<tr>
-  	<td Class="2">B.MOTIVO DE LA CONSULTA</td>
+  	<td Class="2">B.MOTIVO DE LA CONSULTA (ANOTAR LA CAUSA DEL PROBLEMA EN LA VERSIÓN DEL INFORMANTE)</td>
     </tr>
   	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">DESCRIPCIÓN:</td>
   	</tr>
   	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">{MOTIVO_CONSULTA}</td>
   	</tr>
   	</table>
   	
@@ -65,75 +71,26 @@
   	<td class="3">DESCRIPCIÓN:</td>
   	</tr>
   	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">{ANTECEDENTES_CLINICOS}</td>
   	</tr>
   	</table>
   	
   	
-  	<table class="1" border="1">
+ 	<table class="1" border="1">
   	<tr>
   	<td class="1" colspan="6">HÁBITOS TÓXICOS:</td>
+  	</table>
+  	{DETALLE_HABITOS_TOXICOS}
+  	
+  	
+  
+  	<table class="1" border="1">
+  	<tr>
   	<td class="1" colspan="4">ESTILO DE VIDA:</td>
   	</tr>
-  	<tr>
-  	<td class="4">CONSÚMOS NOCIVOS</td>
-  	<td class="4">SI/NO</td>
-  	<td class="4">TIEMPO DE CONSUMO</td>
-  	<td class="4">CANTIDAD</td>
-  	<td class="4">EX CONSUMIDOR</td>
-  	<td class="4">TIEMPO DE ABSTINENCIA</td>
-  	<td class="4">ESTILO</td>
-  	<td class="4">SI/NO</td>
-  	<td class="4">¿CUÁL?</td>
-  	<td class="4">TIEMPO/CANTIDAD</td>
-  	</tr>
-  	<tr>
-  	<td class="3">TABACO</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">ACTIVIDAD FÍSICA</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td class="3">ALCOHÓL</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3" rowspan="3">MEDICACIÓN HABITUAL</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td class="3">OTRAS DROGAS</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	<td class="3">{}</td>
-  	</tr>
   	</table>
+  	{DETALLE_ESTILO_DE_VIDA}
+  	
   	
   	<table class="1" border="1">
   	<tr>

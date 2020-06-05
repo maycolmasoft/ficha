@@ -7,6 +7,11 @@
   <body>
   	<table class="1" border="1">
   	<tr>
+  	<td Class="2">A. DATOS DEL ESTABLECIMIENTO-EMPRESA Y USUARIO</td>
+    </tr>
+  	</table>
+  	<table class="1" border="1">
+  	<tr>
   	<td Class="1">INSTITUCION DEL SISTEMA O NOMBRE DE LA EMPRESA</td>
   	<td Class="1">RUC</td>
   	<td Class="1">CIIU</td>
@@ -15,9 +20,9 @@
   	<td Class="1">NÚMERO DE ARCHIVO</td>
   	</tr>
   	<tr>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
+  	<td>{NOMBRE_EMPRESA}</td>
+  	<td>{RUC_EMPRESA}</td>
+  	<td>{CIUDAD_EMPRESA}</td>
   	<td>{}</td>
   	<td>{}</td>
   	<td>{}</td>
@@ -31,26 +36,44 @@
   	<td Class="1">SEGUNDO NOMBRE</td>
   	<td Class="1">SEXO</td>
   	<td Class="1">EDAD</td>
-  	<td Class="1">PUESTO DE TRABAJO(CUIO)</td>
-  	<td Class="1">FECHA DEL ÚLTIMO DÍA LABORAL</td>
-  	<td Class="1">fECHA DE REINGRESO</td>
-  	<td Class="1">TOTAL</td>
-  	<td Class="1">CAUSA DE SALIDA</td>
+  	<td Class="1">RELIGION</td>
+  	<td Class="1">GRUPO SANGÍNEO</td>
+  	<td Class="1">LATERALIDAD</td>
   	</tr>
   	<tr>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-    <td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
-  	<td>{}</td>
+  	<td>{PRI_APE_EMPLEADO}</td>
+  	<td>{SEG_APE_EMPLEADO}</td>
+  	<td>{PRI_NOMBRE_EMPLEADO}</td>
+  	<td>{SEG_NOMBRE_EMPLEADO}</td>
+  	<td>{SEXO_EMPLEADO}</td>
+  	<td>{EDAD_EMPLEADO}</td>
+    <td>{RELIGION_EMPLEADO}</td>
+  	<td>{GRUPO_SANGUINEO_EMPLEADO}</td>
   	<td>{}</td>
   	</tr>
   	</table>	
+  	
+  	<table class="1" border="1">
+  	<tr>
+  	<td Class="1">ORIENTACION SEXUAL</td>
+  	<td Class="1">IDENTIDAD DE GÉNERO</td>
+  	<td Class="1">DISCAPACIDAD</td>
+  	<td Class="1">FECHA DE INGRESO AL TRABAJO</td>
+  	<td Class="1">PUESTO DE TRABAJO(CIUO)</td>
+  	<td Class="1">ÁREA DE TRABAJO</td>
+  	<td Class="1">ACTIVIDADES RELEVANTES AL PUESTO DE TRABAJO A OCUPAR</td>
+  	</tr>
+  	<tr>
+  	<td>{ORIENTACION_SEXUAL}</td>
+  	<td>{IDENTIDAD_GENERO}</td>
+  	<td>{DISCAPACIDAD_EMPLEADO}</td>
+  	<td>{FECHA_INGRESO}</td>
+  	<td>{PUESTO_TRABAJO}</td>
+  	<td>{AREA_TRABAJO}</td>
+    <td>{ACTIVIDADES_TRABAJO}</td>
+  	</tr>
+  	</table>
+  	
   	
   	<table class="1" border="1">
   	<tr>
@@ -60,16 +83,16 @@
   	<td class="3">DESCRIPCIÓN:</td>
   	</tr>
   	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">{MOTIVO_CONSULTA}</td>
   	</tr>
   	<tr>
   	<td Class="2">C.ENFERMEDAD ACTUAL</td>
     </tr>
   	<tr>
-  	<td class="3">DESCRIPCIÓN:</td>
+  	<td class="3">Descripción:</td>
   	</tr>
   	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">{EMFERMEDAD_ACTUAL}</td>
   	</tr>
   	</table>
  
@@ -79,7 +102,7 @@
   	</tr>
   	</table>
   	
-  	<table class="1" border="1">
+    <table class="1" border="1">
   	<tr>
   	<td Class="1">PRESIÓN ARTERIAL(mmHg)</td>
   	<td Class="1">TEMPERATURA(°c)</td>
@@ -92,15 +115,15 @@
   	<td Class="1">PERÍMETRO ABDOMINAL(cm)</td>
   	</tr>
   	<tr>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
-	<td class="3">{}</td>
+	<td class="3">{PRSION_VITAL_CONSTANTE}</td>
+	<td class="3">{TEMPERATURA_CONSTANTE}</td>
+	<td class="3">{FRECUENCIA_CARDIACA}</td>
+	<td class="3">{SATURACION_OXIGENO}</td>
+	<td class="3">{FRECUENCIA_RESPIRATORIA}</td>
+	<td class="3">{PESO_CONSTANTE}</td>
+	<td class="3">{TALLA_CONSTANTE}</td>
+	<td class="3">{MASA_CORPORAL}</td>
+	<td class="3">{PERIMETRO_ABDOMINAL}</td>
     </tr>
   	</table>
   	
@@ -109,103 +132,46 @@
   	<td Class="2">E.EXÁMEN FÍSICO REGIONAL</td>
   	</tr>
   	<tr>
-  	<td Class="1">REGIONES</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">Observaciones:</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	</tr>
   	</table>
+
+{DETALLE_EXAMEN_FISICO_REGIONAL}
+
   	
   	<table class="1" border="1">
   	<tr>
   	<td Class="2" colspan="3">F.RESULTADOS DE EXÁMENES(IMAGEN, LABORATORIO Y OTROS)</td>
   	</tr>
-  	<tr>
-  	<td Class="1">EXÁMEN</td>
-  	<td Class="1">FECHA(aaaa/mm/dd)</td>
-  	<td Class="1">RESULTADOS</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="3" colspan="3">Observaciones:{}</td>
-  	</tr>
   	</table>
+  	
+  	{DETALLE_RESULTADO_EXAMEN}
   	
   	<table class="1" border="1">
   	<tr>
-  	<td Class="2" colspan="2">G.DIAGNÓSTICO</td>
+  	<td Class="2" colspan="2">G.DIAGNÓSTICO PRE=PRESUNTIVO DEF=DEFINITIVO (Observación)</td>
   	<td Class="2">CIE</td>
-  	<td Class="2">PRE</td>
-  	<td Class="2">DEF</td>
-  	</tr>
-  	<tr>
-  	<td Class="1" width="30px">1.</td>
-  	<td Class="3">Observaciones:{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="1" width="30px">2.</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="1" width="30px">3.</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	</table>
+  	<td Class="2">TIPO</td>
+	</tr>
+    </table>
+    
+    {DIAGNOSTICO}
     <table class="1" border="1">
   	<tr>
   	<td Class="2" colspan="2">H.APTITUD MÉDICA PARA EL TRABAJO</td>
   	</tr>
   	<tr>
-  	<td Class="1" colspan="2">{}</td>
+  	<td Class="1" colspan="2">APTITUD MÉDICA PARA EL TRABAJO</td>
+  	</tr>
+  	<tr>
+  	<td Class="4" width="150px">Aptitud:</td>
+  	<td Class="3">{NOMBRE_APTITUD}</td>
   	</tr>
   	<tr>
   	<td Class="4" width="150px">Observaciones:</td>
-  	<td Class="3">{}</td>
+  	<td Class="3">{OBSERVACION_APTITUD}</td>
   	</tr>
   	<tr>
   	<td Class="4" width="150px">Limitación:</td>
-  	<td Class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td Class="4" width="150px">Rehubicación:</td>
-  	<td Class="3">{}</td>
+  	<td Class="3">{LIMITACION_APTITUD}</td>
   	</tr>
   	</table>
   	
@@ -214,13 +180,10 @@
   	<td Class="2">I.RECOMENDACIONES Y/O TRATAMIENTO</td>
     </tr>
   	<tr>
-  	<td class="3">DESCRIPCIÓN:</td>
+  	<td class="3">Descripción:</td>
   	</tr>
   	<tr>
-  	<td class="3">{}</td>
-  	</tr>
-  	<tr>
-  	<td class="3">{}</td>
+  	<td class="3">{TRATAMIENTO}</td>
   	</tr>
   	</table>
   	
@@ -238,13 +201,13 @@
   	</tr>
   	<tr>
   	<td class="1">Fecha(aaaa/mm/dd)</td>
-  	<td class="3">{}</td>
+  	<td class="3">{FECHA_REGISTRO}</td>
   	<td class="1">HORA</td>
-  	<td class="3">{}</td>
+  	<td class="3">{HORA_REGISTRO}</td>
   	<td class="1">NOMBRES Y APELLIDOS</td>
-  	<td class="3">{}</td>
+  	<td class="3">{NOMBRE_USUARIO}</td>
   	<td class="1">CÓDIGO</td>
-  	<td class="3">{}</td>
+  	<td class="3">{CODIGO_REGISTRO}</td>
   	<td class="1">FIRMA Y SELLO</td>
   	<td class="3">{}</td>
   	<td class="3">{}</td>
