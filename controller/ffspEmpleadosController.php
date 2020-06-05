@@ -759,7 +759,7 @@ class ffspEmpleadosController extends ControladorBase{
 	        
 	        if(is_int((int)$resultado[0])){
 	            
-	            echo json_encode(array('valor' => $resultado[0], 'mensaje'=>$mensaje));
+	            echo json_encode(array('valor' => $resultado[0], 'mensaje'=>$mensaje, 'tipo'=>$_tip_id));
 	            return;
 	            
 	            

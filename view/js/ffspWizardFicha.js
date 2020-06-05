@@ -1117,6 +1117,41 @@ event.preventDefault()
 
 
  
+
+	$("#frm_ficha").on("click","#btn_cancelar",function(event){
+	
+		let botonMain = $(this);
+		
+		botonMain.attr('disabled',true);
+		
+	
+	swal("¿Esta seguro de Cancelar?", {
+		 title:"Petición",
+		 icon:"info", 
+		 dangerMode: true,
+		 text:"Se cancelará todo los datos ingresados",
+		  buttons: {
+		    cancelar: "Cancelar",
+		    aceptar: "Aceptar",
+		  },
+		})
+		.then((value) => {
+		  switch (value) {
+		 
+		    case "cancelar":
+		      return;
+		    case "aceptar":		      
+		    	
+		    	botonMain.attr('disabled',false);
+	    		swal({title:"Petición Cancelada",text:"",icon:"info", dangerMode:true})
+	    		.then((value) => {
+	    		  window.open("index.php?controller=ffspEmpleados&action=index2","_self")
+	    
+		  });
+		}
+		  
+		});
+})
  
 
    

@@ -179,7 +179,18 @@ $("#frm_ficha").on("submit",function(event){
 	    			
 	    			
 	    			let loteUrl = respuesta.valor;
-	    			window.location.href= "index.php?controller=ffsp_ficha&action=index&id="+loteUrl;
+	    			if(respuesta.tipo==1){
+	    				window.location.href= "index.php?controller=ffsp_ficha&action=index&id="+loteUrl;
+	    			}
+	    			
+	    			if(respuesta.tipo==2){
+	    				window.location.href= "index.php?controller=ffsp_ficha&action=index2&id="+loteUrl;
+	    			}
+	    			
+	    			if(respuesta.tipo==3){
+	    				window.location.href= "index.php?controller=ffsp_ficha&action=index&id="+loteUrl;
+	    			}
+	    			
 	    		});
 				
   		   
