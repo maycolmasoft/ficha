@@ -320,7 +320,7 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<tr >';
-        $html.='<td class="4">NÚMERO</td>';
+        $html.='<td class="6">NÚMERO</td>';
         $html.='<td class="4">NOMBRE</td>';
         $html.='<td class="4">DETALLE</td>';
         $html.='</td>';
@@ -331,7 +331,7 @@ class ReporteFichaController extends ControladorBase{
         {
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->ant_numero.'</td>';
+            $html.='<td class="5">'.$res->ant_numero.'</td>';
             $html.='<td class="3">'.$res->ant_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
             $html.='</td>';
@@ -534,7 +534,7 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<tr >';
-        $html.='<td class="4">Número</td>';
+        $html.='<td class="6">Número</td>';
         $html.='<td class="4">Nombre</td>';
         $html.='<td class="4">Descripción</td>';
         $html.='</td>';
@@ -546,7 +546,7 @@ class ReporteFichaController extends ControladorBase{
         {
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->org_numero.'</td>';
+            $html.='<td class="5">'.$res->org_numero.'</td>';
             $html.='<td class="3">'.$res->org_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_rev_org_descripcion.'</td>';
             $html.='</td>';
@@ -713,6 +713,13 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        $html.='<tr >';
+        $html.='<td class="4">Observación</td>';
+        $html.='<td class="4">CIE</td>';
+        $html.='<td class="4">Tipo</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_diagnostico as $res)
@@ -1372,7 +1379,7 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<tr >';
-        $html.='<td class="4">NÚMERO</td>';
+        $html.='<td class="6">NÚMERO</td>';
         $html.='<td class="4">NOMBRE</td>';
         $html.='<td class="4">DETALLE</td>';
         $html.='</td>';
@@ -1383,7 +1390,7 @@ class ReporteFichaController extends ControladorBase{
         {
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->ant_numero.'</td>';
+            $html.='<td class="5">'.$res->ant_numero.'</td>';
             $html.='<td class="3">'.$res->ant_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
             $html.='</td>';
@@ -1767,6 +1774,13 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        $html.='<tr >';
+        $html.='<td class="4">Observación</td>';
+        $html.='<td class="4">CIE</td>';
+        $html.='<td class="4">Tipo</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_diagnostico as $res)
@@ -2425,7 +2439,7 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<tr >';
-        $html.='<td class="4">NÚMERO</td>';
+        $html.='<td class="6">NÚMERO</td>';
         $html.='<td class="4">NOMBRE</td>';
         $html.='<td class="4">DETALLE</td>';
         $html.='</td>';
@@ -2436,7 +2450,7 @@ class ReporteFichaController extends ControladorBase{
         {
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->ant_numero.'</td>';
+            $html.='<td class="5">'.$res->ant_numero.'</td>';
             $html.='<td class="3">'.$res->ant_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
             $html.='</td>';
@@ -2639,7 +2653,7 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<tr >';
-        $html.='<td class="4">Número</td>';
+        $html.='<td class="6">Número</td>';
         $html.='<td class="4">Nombre</td>';
         $html.='<td class="4">Descripción</td>';
         $html.='</td>';
@@ -2651,7 +2665,7 @@ class ReporteFichaController extends ControladorBase{
         {
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->org_numero.'</td>';
+            $html.='<td class="5">'.$res->org_numero.'</td>';
             $html.='<td class="3">'.$res->org_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_rev_org_descripcion.'</td>';
             $html.='</td>';
@@ -2818,6 +2832,13 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        $html.='<tr >';
+        $html.='<td class="4">Observación</td>';
+        $html.='<td class="4">CIE</td>';
+        $html.='<td class="4">Tipo</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_diagnostico as $res)
