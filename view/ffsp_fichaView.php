@@ -1573,7 +1573,7 @@
                     		 
                     		     <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
-                    		      <label for="fic_fact_ries_det_otros" class="control-label">Medidas Preventivas:</label>
+                    		      <label for="fic_fact_ries_det_otros" class="control-label">Otros:</label>
                                   <input  type="text" class="form-control" id="fic_fact_ries_det_otros" name="fic_fact_ries_det_otros" value=""  placeholder=""/>
                                   <div id="mensaje_fic_fact_ries_det_otros" class="errores"></div>
                                  </div>
@@ -2215,7 +2215,7 @@
     <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.4"></script>
-    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.5"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.7"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
