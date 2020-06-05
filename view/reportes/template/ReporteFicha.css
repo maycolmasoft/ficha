@@ -37,6 +37,7 @@ td.1{
 td.2{
 	   text-align:left;
 	   background-color: #A2B2D6;
+	   height: 25px;
 	}
 	
 td.3{
@@ -47,5 +48,19 @@ td.3{
 td.4{
 	   text-align:center;
 	   background-color: #8FFEF9;
+	   
+	}
+	
+	
+	td.5{
+	   text-align:center;
+	   width: 100px;
+	   
+	}
+	
+td.6{
+	   text-align:center;
+	   background-color: #8FFEF9;
+	   width: 100px;
 	   
 	}
