@@ -80,7 +80,273 @@
   
         <?php if(!empty($resultEdit)){ foreach($resultEdit as $resEdit) {?>
         
-            
+        
+    
+    	<div id="smartwizard">
+            <ul>
+                <li><a href="#step-1">Datos Empleado<br /><small> </small></a></li>
+                <li><a href="#step-2">Revisión Providencia<br /><small></small></a></li>
+                <li><a href="#step-3">Revisión Oficio<br /><small></small></a></li>
+                <!-- <li><a href="#step-4">Revisión Segundo Oficio<br /><small></small></a></li> -->
+            </ul>
+         
+            <div>
+                <div id="step-1" class="">
+                
+                	<div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title"></h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    <div class="box-body">
+                    
+                   
+                    	
+                   <div class="row">
+        		    <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            	          <label for="empl_primer_nombre" class="control-label">Primer Nombre:</label>
+                          <input  type="text" class="form-control" id="empl_primer_nombre" name="empl_primer_nombre" value=""  placeholder="Primer Nombre" required/>
+                          <input type="hidden" name="empl_id" id="empl_id" value="0" />
+                          <div id="mensaje_primer_nombre" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            	          <label for="empl_segundo_nombre" class="control-label">Segundo Nombre:</label>
+                          <input  type="text" class="form-control" id="empl_segundo_nombre" name="empl_segundo_nombre" value=""  placeholder="Segundo Nombre" required/>
+                          <div id="mensaje_segundo_nombre" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            	          <label for="empl_primer_apellido" class="control-label">Primer Apellido:</label>
+                          <input  type="text" class="form-control" id="empl_primer_apellido" name="empl_primer_apellido" value=""  placeholder="Primer Apellido" required/>
+                           <div id="mensaje_primer_apellido" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            	
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            	          <label for="empl_segundo_apellido" class="control-label">Segundo Apellido:</label>
+                          <input  type="text" class="form-control" id="empl_segundo_apellido" name="empl_segundo_apellido" value=""  placeholder="Segundo Apellido" required/>
+                          <div id="mensaje_segundo_apellido" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            	</div>	
+            	
+            	 <div class="row">
+        		      <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="empl_dni" class="control-label">DNI:</label>
+                          <input  type="text" class="form-control" id="empl_dni" name="empl_dni" value=""  placeholder="DNI" required/>
+                          <div id="mensaje_dni" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		      <label for="empl_edad" class="control-label">Edad:</label>
+                          <input  type="text" class="form-control" id="empl_edad" name="empl_edad" value=""  placeholder="Edad" required/>
+                           <div id="mensaje_edad" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		      <label for="empl_grupo_sanguineo" class="control-label">Grupo Sanguineo:</label>
+                          <input  type="text" class="form-control" id="empl_grupo_sanguineo" name="empl_grupo_sanguineo" value=""  placeholder="Grupo Sanguineo" required/>
+                          <div id="mensaje_grupo_sanguineo" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		   <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="empl_fecha_ingreso" class="control-label">Fecha Ingreso:</label>
+                          <input  type="date" class="form-control" id="empl_fecha_ingreso" name="empl_fecha_ingreso" value=""  placeholder="Fecha Ingreso" required/>
+                          <div id="mensaje_fecha_ingreso" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            	</div>	
+            	
+            	 <div class="row">
+        		      <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		      <label for="empl_lugar_trabajo" class="control-label">Lugar de Trabajo:</label>
+                          <input  type="text" class="form-control" id="empl_lugar_trabajo" name="empl_lugar_trabajo" value=""  placeholder="Lugar de Trabajo" required/>
+                           <div id="mensaje_lugar_trabajo" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		  <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		      <label for="empl_area_trabajo" class="control-label">Area de Trabajo:</label>
+                          <input  type="text" class="form-control" id="empl_area_trabajo" name="empl_area_trabajo" value=""  placeholder="Area de Trabajo" required/>
+                          <div id="mensaje_area_trabajo" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		    <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		      <label for="empl_actividades_trabajo" class="control-label">Actividades de Trabajo:</label>
+                          <input  type="text" class="form-control" id="empl_actividades_trabajo" name="empl_actividades_trabajo" value=""  placeholder="Actividades de Trabajo" required/>
+                          <div id="mensaje_actividades_trabajo" class="errores"></div>
+                          <div id="divLoaderPage" ></div>                     	
+                        </div>
+            		  </div>
+            		  
+            		    <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="ide_id" class="control-label">Identidad de Sexo:</label>
+                          <select  class="form-control" id="ide_id" name="ide_id" required>
+                          	<option value="0">--Seleccione--</option>
+                          </select>                         
+                          <div id="mensaje_identidad_genero" class="errores"></div>
+                        </div>
+            		  </div>
+            	</div>	
+            	
+            	 <div class="row">
+            	
+        		     <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="dis_id" class="control-label">Discapacidad:</label>
+                          <select  class="form-control" id="dis_id" name="dis_id" required>
+                          	<option value="0">--Seleccione--</option>
+                          </select>                         
+                          <div id="mensaje_discapacidad" class="errores"></div>
+                        </div>
+            		  </div>
+            		  
+            		  
+            		  
+            		    <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="ori_id" class="control-label">Orientacion Sexual:</label>
+                          <select  class="form-control" id="ori_id" name="ori_id" required>
+                          	<option value="0">--Seleccione--</option>
+                          </select>                         
+                          <div id="mensaje_orientacion_sexual" class="errores"></div>
+                        </div>
+            		  </div>
+            		  
+            		    <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="rel_id" class="control-label">Religion:</label>
+                          <select  class="form-control" id="rel_id" name="rel_id" required>
+                          	<option value="0">--Seleccione--</option>
+                          </select>                         
+                          <div id="mensaje_religion" class="errores"></div>
+                        </div>
+            		  </div> 
+            	</div>	
+            	
+            	 <div class="row">
+        		     <div class="col-xs-12 col-md-3 col-md-3 ">
+            		    <div class="form-group">
+            		     <label for="sex_id" class="control-label">Sexo:</label>
+                          <select  class="form-control" id="sex_id" name="sex_id" required>
+                          	<option value="0">--Seleccione--</option>
+                          </select>                         
+                          <div id="mensaje_sexo" class="errores"></div>
+                        </div>
+            		  </div>
+            	</div>	
+                  
+            	</div>
+            </div>
+                	
+                	
+                </div>
+                <div id="step-2" class="">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title"></h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="editor1" name="editor1" rows="15" cols="80"><?php echo $resEdit->cuerpo_documentos_generados; ?></textarea>
+            	                    <div id="mensaje_editor1" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
+                </div>
+                
+                  <div id="step-3" class="">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title"></h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="editor2" name="editor2" rows="15" cols="80"><?php echo $resEdit->oficio_uno_documentos_generados; ?></textarea>
+            	                    <div id="mensaje_editor2" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
+                </div>
+                
+                
+                <!-- 
+                  <div id="step-4" class="">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title"></h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="editor3" name="editor3" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_editor3" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
+                </div>
+                
+                 -->
+                
+                
+            </div>
+        </div>
+    		
+       
+        
         
         
         <?php }}else{?>
@@ -1174,9 +1440,13 @@
            
            
            <div id="step-6" class="">
-                      
+              <ul class="nav nav-tabs">
+              <li class="active"><a href="#cabeza" data-toggle="tab">Cabeza</a></li>
+              <li><a href="#detalle" data-toggle="tab">Detalle</a></li> 
+             </ul>    
+             	    <div class="tab-pane active" id="cabeza">
                  <div class="box box-primary">
-                        <div class="box-header with-border">
+             		    <div class="box-header with-border">
                           <h3 class="box-title">Factores Riesgo</h3>
                           <div class="box-tools pull-right"> </div>
                         </div>
@@ -1207,13 +1477,13 @@
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_medidas_preventivas" class="control-label">Medidas Preventivas:</label>
                                   <input  type="text" class="form-control" id="fic_fact_ries_medidas_preventivas" name="fic_fact_ries_medidas_preventivas" value=""  placeholder=""/>
-                                  <div id="mensaje_fact_ries_medidas_preventivas" class="errores"></div>
+                                  <div id="mensaje_fic_fact_ries_medidas_preventivas" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="row">
                     		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
                     		    <div class="form-group-sm">
-                                  <button type="button" onclick="AgregarEmpleoAnterior()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                  <button type="button" onclick="AgregarFactorRiesgo()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
                                 </div>
                     		    </div>
                     		    </div>
@@ -1224,10 +1494,10 @@
                			  <div class="col-lg-6 col-md-6 col-xs-12">
                			  
                			     <div class="panel panel-info">
-                              <div class="panel-heading">Empleos Anteriores Registrados</div>
+                              <div class="panel-heading">Factor Riesgo Registrados</div>
                               <div class="panel-body">
-               			      <div id="consultafichaEmpleoAnterior" ></div>
-               			      <div id="ficha_empleo_anterior_registrados" ></div>
+               			      <div id="consultafichaFactorRiesgo" ></div>
+               			      <div id="ficha_factor_riesgo_registrados" ></div>
                			   
                			   
                			   </div>
@@ -1241,8 +1511,12 @@
                			  
                			  
                			</div>
+               		</div>     
                		</div>
-           
+               		<div class="tab-pane" id="detalle">
+               	
+               		</div>
+               		
            </div>
            
            <div id="step-7" class="">
@@ -1776,10 +2050,11 @@
     <script type="text/javascript" src="view/js/ffspfichaResultadoExamen.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
-	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.38"></script>
+	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   
