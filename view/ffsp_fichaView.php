@@ -315,33 +315,6 @@
                		</div>
                 </div>
                 
-                
-                <!-- 
-                  <div id="step-4" class="">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="editor3" name="editor3" rows="15" cols="80"></textarea>
-            	                    <div id="mensaje_editor3" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
-               			  </div>
-               			</div>
-               		</div>
-                </div>
-                
-                 -->
-                
-                
             </div>
         </div>
     		
@@ -1473,13 +1446,13 @@
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_medidas_preventivas" class="control-label">Medidas Preventivas:</label>
                                   <input  type="text" class="form-control" id="fic_fact_ries_medidas_preventivas" name="fic_fact_ries_medidas_preventivas" value=""  placeholder=""/>
-                                  <div id="mensaje_fact_ries_medidas_preventivas" class="errores"></div>
+                                  <div id="mensaje_fic_fact_ries_medidas_preventivas" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="row">
                     		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
                     		    <div class="form-group-sm">
-                                  <button type="button" onclick="AgregarEmpleoAnterior()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                  <button type="button" onclick="AgregarFactorRiesgo()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
                                 </div>
                     		    </div>
                     		    </div>
@@ -1490,10 +1463,10 @@
                			  <div class="col-lg-6 col-md-6 col-xs-12">
                			  
                			     <div class="panel panel-info">
-                              <div class="panel-heading">Empleos Anteriores Registrados</div>
+                              <div class="panel-heading">Factor Riesgo Registrados</div>
                               <div class="panel-body">
-               			      <div id="consultafichaEmpleoAnterior" ></div>
-               			      <div id="ficha_empleo_anterior_registrados" ></div>
+               			      <div id="consultafichaFactorRiesgo" ></div>
+               			      <div id="ficha_factor_riesgo_registrados" ></div>
                			   
                			   
                			   </div>
@@ -2042,9 +2015,10 @@
     <script type="text/javascript" src="view/js/ffspfichaResultadoExamen.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
-        <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
+    <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
 	<script type="text/javascript" src="view/js/ffspwizardFicha.js?0.30"></script>
     <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
