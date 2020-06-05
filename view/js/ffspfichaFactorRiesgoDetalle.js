@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	search_ficha_factor_riesgo_detalle();
+	search_ficha_factor_riesgo_detalle(1);
 	cargaFactorRiesgoFicha();
 	cargaFactorRiesgoCabeza();
 	
@@ -24,10 +24,6 @@ $(document).ready(function(){
 		   $("#mensaje_fact_id").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
 	   }
-	   if(_fic_fact_ries_det_otros=="" || _fic_fact_ries_det_otros.length == 0){
-			   $("#mensaje_fic_fact_ries_det_otros").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-	   }
 	
 	   $("#aplicar").attr({disabled:true});
 		
@@ -51,10 +47,14 @@ $(document).ready(function(){
 			if(datos.respuesta > 0){
 				
 				
+				$("#fac_id_detalle").val("0");
 				$("#fact_id").val("0");
 				$("#fic_fact_ries_det_otros").val("");
 				
+				
+				
 				search_ficha_factor_riesgo_detalle(1);
+			      
 				
 				swal({
 			  		  title: "Agregando Factor Riesgo Detalle",
@@ -80,6 +80,7 @@ $(document).ready(function(){
 
   function search_ficha_factor_riesgo_detalle(_page = 1){
   	
+  	 var _fic_id = document.getElementById('fic_id').value;
   	 var _fic_fact_ries_id = document.getElementById('fic_fact_ries_id').value;
   	  
   	
@@ -88,7 +89,7 @@ $(document).ready(function(){
 	    	    
   		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=search_ficha_factor_riesgo_detalle",
   		type:"POST",
-  		data:{page:_page,peticion:'ajax', fic_fact_ries_id:_fic_fact_ries_id}
+  		data:{page:_page,peticion:'ajax', fic_fact_ries_id:_fic_fact_ries_id, fic_id:_fic_id}
   	}).done(function(datos){		
   		
   		$("#ficha_factor_riesgo_detalle_registrados").html(datos);	
@@ -289,6 +290,26 @@ $(document).ready(function(){
         var target = $(e.target).attr("href");
         if ((target == '#detalle')) {
         	cargaFactorRiesgoFicha();
+        	
         } 
     });
+    
+    $("#fic_fact_ries_id").click(function() {
+      	
+        var fic_fact_ries_id = $(this).val();
+        
+        search_ficha_factor_riesgo_detalle(1);
+        
+        
+        
+        
+      });
+      
+      $("#fic_fact_ries_id").change(function() {
+    		    
+            var fic_fact_ries_id = $(this).val();
+
+            search_ficha_factor_riesgo_detalle(1);
+            
+    	    });
   

@@ -209,22 +209,23 @@ class ffspfichaFactorRiesgoDetalleController extends ControladorBase{
            
            $action = (isset($_REQUEST['peticion'])&& $_REQUEST['peticion'] !=NULL)?$_REQUEST['peticion']:'';
            $fic_fact_ries_id = (isset($_REQUEST['fic_fact_ries_id'])&& $_REQUEST['fic_fact_ries_id'] !=NULL)?$_REQUEST['fic_fact_ries_id']:'0';
+           $fic_id = (isset($_REQUEST['fic_id'])&& $_REQUEST['fic_id'] !=NULL)?$_REQUEST['fic_id']:'0';
            
+           $html="";
            
            if($action == 'ajax' && $fic_fact_ries_id>0)
            {
                
                
-               $columnas  = "a.*, b.*,c.*";
-               $tablas    = "public.ffsp_tbl_ficha_factores_riesgo_detalle a, public.ffsp_tbl_factores_riesgo_detalle b , public.ffsp_tbl_ficha_factores_riesgo c";
-               $where     = "a.fact_id=b.fact_id AND a.fic_fact_ries_id=c.fic_fact_ries_id AND a.fic_fact_ries_id='$fic_fact_ries_id'";
+               $columnas  = "a.*, b.*,c.*,d.*";
+               $tablas    = "public.ffsp_tbl_ficha_factores_riesgo_detalle a, public.ffsp_tbl_factores_riesgo_detalle b , public.ffsp_tbl_ficha_factores_riesgo c, ffsp_tbl_factores_riesgo_cabecera d";
+               $where     = "a.fact_id=b.fact_id AND a.fic_fact_ries_id=c.fic_fact_ries_id AND a.fic_fact_ries_id='$fic_fact_ries_id' AND c.fic_id = '$fic_id' AND b.fac_id = d.fac_id";
                $id        = "a.fic_fact_ries_det_id";
                
                
                $where_to=$where;
                
                
-               $html="";
                $resultSet=$ficha_factor_riesgo_detalle->getCantidad("*", $tablas, $where_to);
                $cantidadResult=(int)$resultSet[0]->total;
                
@@ -248,6 +249,7 @@ class ffspfichaFactorRiesgoDetalleController extends ControladorBase{
                    $html.= "<thead>";
                    $html.= "<tr>";
                    $html.='<th style="text-align: left;  font-size: 12px;">Puesto</th>';
+                   $html.='<th style="text-align: left;  font-size: 12px;">Riesgo</th>';
                    $html.='<th style="text-align: left;  font-size: 12px;">Factor Riesgo Detalle</th>';
                    $html.='<th style="text-align: left;  font-size: 12px;">Otros</th>';
                    
@@ -270,6 +272,7 @@ class ffspfichaFactorRiesgoDetalleController extends ControladorBase{
                        
                        $html.='<tr>';
                        $html.='<td style="font-size: 11px;">'.$res->fic_fact_ries_puesto_trabajo.'</td>';
+                       $html.='<td style="font-size: 11px;">'.$res->fac_nombre.'</td>';
                        $html.='<td style="font-size: 11px;">'.$res->fact_nombre.'</td>';
                        $html.='<td style="font-size: 11px;">'.$res->fic_fact_ries_det_otros.'</td>';
                        
@@ -305,6 +308,17 @@ class ffspfichaFactorRiesgoDetalleController extends ControladorBase{
                
                echo $html;
                
+           }
+           
+           else {
+               $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
+               $html.='<div class="alert alert-warning alert-dismissable" style="margin-top:40px;">';
+               $html.='<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+               $html.='<h4>Aviso!!!</h4> <b>Actualmente no hay registrados...</b>';
+               $html.='</div>';
+               $html.='</div>';
+               
+               echo $html;
            }
            
            

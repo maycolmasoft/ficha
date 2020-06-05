@@ -80,275 +80,7 @@
   
         <?php if(!empty($resultEdit)){ foreach($resultEdit as $resEdit) {?>
         
-        
-    
-    	<div id="smartwizard">
-            <ul>
-                <li><a href="#step-1">Datos Empleado<br /><small> </small></a></li>
-                <li><a href="#step-2">Revisión Providencia<br /><small></small></a></li>
-                <li><a href="#step-3">Revisión Oficio<br /><small></small></a></li>
-                <!-- <li><a href="#step-4">Revisión Segundo Oficio<br /><small></small></a></li> -->
-            </ul>
          
-            <div>
-                <div id="step-1" class="">
-                
-                	<div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    <div class="box-body">
-                    
-                   
-                    	
-                   <div class="row">
-        		    <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            	          <label for="empl_primer_nombre" class="control-label">Primer Nombre:</label>
-                          <input  type="text" class="form-control" id="empl_primer_nombre" name="empl_primer_nombre" value=""  placeholder="Primer Nombre" required/>
-                          <input type="hidden" name="empl_id" id="empl_id" value="0" />
-                          <div id="mensaje_primer_nombre" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            	          <label for="empl_segundo_nombre" class="control-label">Segundo Nombre:</label>
-                          <input  type="text" class="form-control" id="empl_segundo_nombre" name="empl_segundo_nombre" value=""  placeholder="Segundo Nombre" required/>
-                          <div id="mensaje_segundo_nombre" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            	          <label for="empl_primer_apellido" class="control-label">Primer Apellido:</label>
-                          <input  type="text" class="form-control" id="empl_primer_apellido" name="empl_primer_apellido" value=""  placeholder="Primer Apellido" required/>
-                           <div id="mensaje_primer_apellido" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            	
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            	          <label for="empl_segundo_apellido" class="control-label">Segundo Apellido:</label>
-                          <input  type="text" class="form-control" id="empl_segundo_apellido" name="empl_segundo_apellido" value=""  placeholder="Segundo Apellido" required/>
-                          <div id="mensaje_segundo_apellido" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            	</div>	
-            	
-            	 <div class="row">
-        		      <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="empl_dni" class="control-label">DNI:</label>
-                          <input  type="text" class="form-control" id="empl_dni" name="empl_dni" value=""  placeholder="DNI" required/>
-                          <div id="mensaje_dni" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		      <label for="empl_edad" class="control-label">Edad:</label>
-                          <input  type="text" class="form-control" id="empl_edad" name="empl_edad" value=""  placeholder="Edad" required/>
-                           <div id="mensaje_edad" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		      <label for="empl_grupo_sanguineo" class="control-label">Grupo Sanguineo:</label>
-                          <input  type="text" class="form-control" id="empl_grupo_sanguineo" name="empl_grupo_sanguineo" value=""  placeholder="Grupo Sanguineo" required/>
-                          <div id="mensaje_grupo_sanguineo" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		   <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="empl_fecha_ingreso" class="control-label">Fecha Ingreso:</label>
-                          <input  type="date" class="form-control" id="empl_fecha_ingreso" name="empl_fecha_ingreso" value=""  placeholder="Fecha Ingreso" required/>
-                          <div id="mensaje_fecha_ingreso" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            	</div>	
-            	
-            	 <div class="row">
-        		      <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		      <label for="empl_lugar_trabajo" class="control-label">Lugar de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_lugar_trabajo" name="empl_lugar_trabajo" value=""  placeholder="Lugar de Trabajo" required/>
-                           <div id="mensaje_lugar_trabajo" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		  <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		      <label for="empl_area_trabajo" class="control-label">Area de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_area_trabajo" name="empl_area_trabajo" value=""  placeholder="Area de Trabajo" required/>
-                          <div id="mensaje_area_trabajo" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		    <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		      <label for="empl_actividades_trabajo" class="control-label">Actividades de Trabajo:</label>
-                          <input  type="text" class="form-control" id="empl_actividades_trabajo" name="empl_actividades_trabajo" value=""  placeholder="Actividades de Trabajo" required/>
-                          <div id="mensaje_actividades_trabajo" class="errores"></div>
-                          <div id="divLoaderPage" ></div>                     	
-                        </div>
-            		  </div>
-            		  
-            		    <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="ide_id" class="control-label">Identidad de Sexo:</label>
-                          <select  class="form-control" id="ide_id" name="ide_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
-                          <div id="mensaje_identidad_genero" class="errores"></div>
-                        </div>
-            		  </div>
-            	</div>	
-            	
-            	 <div class="row">
-            	
-        		     <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="dis_id" class="control-label">Discapacidad:</label>
-                          <select  class="form-control" id="dis_id" name="dis_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
-                          <div id="mensaje_discapacidad" class="errores"></div>
-                        </div>
-            		  </div>
-            		  
-            		  
-            		  
-            		    <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="ori_id" class="control-label">Orientacion Sexual:</label>
-                          <select  class="form-control" id="ori_id" name="ori_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
-                          <div id="mensaje_orientacion_sexual" class="errores"></div>
-                        </div>
-            		  </div>
-            		  
-            		    <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="rel_id" class="control-label">Religion:</label>
-                          <select  class="form-control" id="rel_id" name="rel_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
-                          <div id="mensaje_religion" class="errores"></div>
-                        </div>
-            		  </div> 
-            	</div>	
-            	
-            	 <div class="row">
-        		     <div class="col-xs-12 col-md-3 col-md-3 ">
-            		    <div class="form-group">
-            		     <label for="sex_id" class="control-label">Sexo:</label>
-                          <select  class="form-control" id="sex_id" name="sex_id" required>
-                          	<option value="0">--Seleccione--</option>
-                          </select>                         
-                          <div id="mensaje_sexo" class="errores"></div>
-                        </div>
-            		  </div>
-            	</div>	
-                  
-            	</div>
-            </div>
-                	
-                	
-                </div>
-                <div id="step-2" class="">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="editor1" name="editor1" rows="15" cols="80"><?php echo $resEdit->cuerpo_documentos_generados; ?></textarea>
-            	                    <div id="mensaje_editor1" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
-               			  </div>
-               			</div>
-               		</div>
-                </div>
-                
-                  <div id="step-3" class="">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="editor2" name="editor2" rows="15" cols="80"><?php echo $resEdit->oficio_uno_documentos_generados; ?></textarea>
-            	                    <div id="mensaje_editor2" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
-               			  </div>
-               			</div>
-               		</div>
-                </div>
-                
-                
-                <!-- 
-                  <div id="step-4" class="">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"></h3>
-                          <div class="box-tools pull-right"> </div>
-                        </div>
-                    
-                    	<div class="box-body">
-                          <div class="row">
-            	
-            	        	<div class="col-lg-12 col-md-12 col-xs-12">
-            	            <div class="box-body pad">
-            	                    <textarea id="editor3" name="editor3" rows="15" cols="80"></textarea>
-            	                    <div id="mensaje_editor3" class="errores"></div>
-            	            </div>
-            	       		</div>
-	        
-               			  </div>
-               			</div>
-               		</div>
-                </div>
-                
-                 -->
-                
-                
-            </div>
-        </div>
-    		
-       
-        
-        
-        
         <?php }}else{?>
         
         
@@ -370,7 +102,7 @@
                 <li><a href="#step-13">M. Diagnostico<br /><small></small></a></li>  
            		<li><a href="#step-14">N. Aptitud Médica<br /><small></small></a></li>  
            		<li><a href="#step-15">O. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
-           		<li><a href="#step-16">P. Datos del Profesional<br /><small></small></a></li>  
+
            
            
             </ul>
@@ -1127,28 +859,28 @@
                			    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_emp_ant_empresa" class="control-label">Empresa:</label>
-                                  <input  type="text" class="form-control" id="fic_emp_ant_empresa" name="fic_emp_ant_empresa" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_empresa" name="fic_emp_ant_empresa" value=""  placeholder="empresa.."/>
                                   <div id="mensaje_fic_emp_ant_empresa" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_emp_ant_puesto_trabajo" class="control-label">Puesto:</label>
-                                  <input  type="text" class="form-control" id="fic_emp_ant_puesto_trabajo" name="fic_emp_ant_puesto_trabajo" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_puesto_trabajo" name="fic_emp_ant_puesto_trabajo" value=""  placeholder="puesto.."/>
                                   <div id="mensaje_fic_emp_ant_puesto_trabajo" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_emp_ant_actividades_desempenia" class="control-label">Actividades:</label>
-                                  <input  type="text" class="form-control" id="fic_emp_ant_actividades_desempenia" name="fic_emp_ant_actividades_desempenia" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_actividades_desempenia" name="fic_emp_ant_actividades_desempenia" value=""  placeholder="actividades.."/>
                                   <div id="mensaje_fic_emp_ant_actividades_desempenia" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_emp_ant_tiempo_trabajo" class="control-label">Tiempo:</label>
-                                  <input  type="number" class="form-control" id="fic_emp_ant_tiempo_trabajo" name="fic_emp_ant_tiempo_trabajo" value=""  placeholder=""/>
+                                  <input  type="number" class="form-control" id="fic_emp_ant_tiempo_trabajo" name="fic_emp_ant_tiempo_trabajo" value=""  placeholder="tiempo.."/>
                                   <div id="mensaje_fic_emp_ant_tiempo_trabajo" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1164,7 +896,7 @@
             				<div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_emp_ant_observaciones" class="control-label">Observaciones:</label>
-                                  <input  type="text" class="form-control" id="fic_emp_ant_observaciones" name="fic_emp_ant_observaciones" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_observaciones" name="fic_emp_ant_observaciones" value=""  placeholder="observaciones.."/>
                                   <div id="mensaje_fic_emp_ant_observaciones" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1229,21 +961,21 @@
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_acc_tra_especificar" class="control-label">Especificar:</label>
-                                  <input  type="text" class="form-control" id="fic_acc_tra_especificar" name="fic_acc_tra_especificar" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_acc_tra_especificar" name="fic_acc_tra_especificar" value=""  placeholder="especificar.."/>
                                   <div id="mensaje_fic_acc_tra_especificar" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_acc_tra_fecha" class="control-label">Fecha:</label>
-                                  <input  type="date" class="form-control" id="fic_acc_tra_fecha" name="fic_acc_tra_fecha" value=""  placeholder=""/>
+                                  <input  type="date" class="form-control" id="fic_acc_tra_fecha" name="fic_acc_tra_fecha" value=""  placeholder="fecha.."/>
                                   <div id="mensaje_fic_acc_tra_fecha" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_acc_tra_observaciones" class="control-label">Observaciones:</label>
-                                  <input  type="text" class="form-control" id="fic_acc_tra_observaciones" name="fic_acc_tra_observaciones" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_acc_tra_observaciones" name="fic_acc_tra_observaciones" value=""  placeholder="observaciones.."/>
                                   <div id="mensaje_fic_acc_tra_observaciones" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1308,21 +1040,21 @@
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_enf_pro_especificar" class="control-label">Especificar:</label>
-                                  <input  type="text" class="form-control" id="fic_enf_pro_especificar" name="fic_enf_pro_especificar" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_enf_pro_especificar" name="fic_enf_pro_especificar" value=""  placeholder="especificar.."/>
                                   <div id="mensaje_fic_enf_pro_especificar" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_enf_pro_fecha" class="control-label">Fecha:</label>
-                                  <input  type="date" class="form-control" id="fic_enf_pro_fecha" name="fic_enf_pro_fecha" value=""  placeholder=""/>
+                                  <input  type="date" class="form-control" id="fic_enf_pro_fecha" name="fic_enf_pro_fecha" value=""  placeholder="fecha.."/>
                                   <div id="mensaje_fic_enf_pro_fecha" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_enf_pro_observaciones" class="control-label">Observaciones:</label>
-                                  <input  type="text" class="form-control" id="fic_enf_pro_observaciones" name="fic_enf_pro_observaciones" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_enf_pro_observaciones" name="fic_enf_pro_observaciones" value=""  placeholder="observaciones.."/>
                                   <div id="mensaje_fic_enf_pro_observaciones" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1397,7 +1129,7 @@
             		        <div class="col-xs-12 col-md-12 col-md-12 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_ant_fam_descripcion" class="control-label">Descripción:</label>
-                                  <input  type="text" class="form-control" id="fic_ant_fam_descripcion" name="fic_ant_fam_descripcion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_ant_fam_descripcion" name="fic_ant_fam_descripcion" value=""  placeholder="descripción.."/>
                                   <div id="mensaje_fic_ant_fam_descripcion" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1448,8 +1180,8 @@
 
            <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#cabeza" data-toggle="tab">Cabeza</a></li>
-              <li><a href="#detalle" data-toggle="tab">Detalle</a></li> 
+              <li class="active"><a href="#cabeza" data-toggle="tab">Puestos de Trabajo</a></li>
+              <li><a href="#detalle" data-toggle="tab">Factores de Riesgo - Puestos de Trabajo</a></li> 
              
             </ul>
             
@@ -1473,21 +1205,21 @@
                			    <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_puesto_trabajo" class="control-label">Puesto:</label>
-                                  <input  type="text" class="form-control" id="fic_fact_ries_puesto_trabajo" name="fic_fact_ries_puesto_trabajo" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_puesto_trabajo" name="fic_fact_ries_puesto_trabajo" value=""  placeholder="puesto.."/>
                                   <div id="mensaje_fic_fact_ries_puesto_trabajo" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_actividades" class="control-label">Actividades:</label>
-                                  <input  type="text" class="form-control" id="fic_fact_ries_actividades" name="fic_fact_ries_actividades" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_actividades" name="fic_fact_ries_actividades" value=""  placeholder="actividades.."/>
                                   <div id="mensaje_fic_fact_ries_actividades" class="errores"></div>
                                  </div>
                     		  </div>
                     		   <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_medidas_preventivas" class="control-label">Medidas Preventivas:</label>
-                                  <input  type="text" class="form-control" id="fic_fact_ries_medidas_preventivas" name="fic_fact_ries_medidas_preventivas" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_medidas_preventivas" name="fic_fact_ries_medidas_preventivas" value=""  placeholder="medidas preventivas.."/>
                                   <div id="mensaje_fic_fact_ries_medidas_preventivas" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1574,7 +1306,7 @@
                     		     <div class="col-xs-12 col-md-6 col-md-6 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_fact_ries_det_otros" class="control-label">Otros:</label>
-                                  <input  type="text" class="form-control" id="fic_fact_ries_det_otros" name="fic_fact_ries_det_otros" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_det_otros" name="fic_fact_ries_det_otros" value=""  placeholder="otros.."/>
                                   <div id="mensaje_fic_fact_ries_det_otros" class="errores"></div>
                                  </div>
                     		  </div>
@@ -1702,7 +1434,7 @@
             		        <div class="col-xs-12 col-md-12 col-md-12 ">
                     		    <div class="form-group-sm">
                     		      <label for="fic_rev_org_descripcion" class="control-label">Descripción:</label>
-                                  <input  type="text" class="form-control" id="fic_rev_org_descripcion" name="fic_rev_org_descripcion" value=""  placeholder=""/>
+                                  <input  type="text" class="form-control" id="fic_rev_org_descripcion" name="fic_rev_org_descripcion" value=""  placeholder="descripción.."/>
                                   <div id="mensaje_fic_rev_org_descripcion" class="errores"></div>
                                  </div>
                     		  </div>
@@ -2167,8 +1899,7 @@
                			</div>
                		</div>
            </div>
-           <div id="step-16" class="">
-           </div>
+          
            
            
            
@@ -2215,7 +1946,7 @@
     <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.4"></script>
-    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.7"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.9"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>
