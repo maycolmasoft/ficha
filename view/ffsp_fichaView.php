@@ -75,7 +75,7 @@
         
         
         <section class="content">
-          <form id="frm_avoco" action="<?php echo $helper->url("Avoco","InsertAvoco"); ?>" method="post" enctype="multipart/form-data"  class="form form-horizontal">
+          <form id="frm_ficha" method="post" enctype="multipart/form-data"  class="form form-horizontal">
   
   
         <?php if(!empty($resultEdit)){ foreach($resultEdit as $resEdit) {?>
@@ -1440,13 +1440,24 @@
            
            
            <div id="step-6" class="">
-              <ul class="nav nav-tabs">
+    	   <div class="box box-primary">
+       
+    	<section class="content">
+            
+            <div class="box-body">
+
+           <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
               <li class="active"><a href="#cabeza" data-toggle="tab">Cabeza</a></li>
               <li><a href="#detalle" data-toggle="tab">Detalle</a></li> 
-             </ul>    
-             	    <div class="tab-pane active" id="cabeza">
-                 <div class="box box-primary">
-             		    <div class="box-header with-border">
+             
+            </ul>
+            
+            <div class="col-md-12 col-lg-12 col-xs-12">
+            <div class="tab-content">
+            <br>
+ 			 <div class="tab-pane active" id="cabeza">
+                        <div class="box-header with-border">
                           <h3 class="box-title">Factores Riesgo</h3>
                           <div class="box-tools pull-right"> </div>
                         </div>
@@ -1511,19 +1522,153 @@
                			  
                			  
                			</div>
-               		</div>     
-               		</div>
-               		<div class="tab-pane" id="detalle">
+                
+              </div>
+              
+              <div class="tab-pane" id="detalle">
+                
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Factores Riesgo Detalle</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Factores Riesgo Detalle</div>
+                              <div class="panel-body">
+                              
+                                <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for=fic_fact_ries_id class="control-label">Factores Riesgo Ficha:</label>
+                                  <select  class="form-control" id="fic_fact_ries_id" name="fic_fact_ries_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_fic_fact_ries_id" class="errores"></div>
+                                </div>
+                    		  </div>
+                    		  
+                    		    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="fac_id_detalle" class="control-label">Factores Riesgo Cabeza:</label>
+                                  <select  class="form-control" id="fac_id_detalle" name="fac_id_detalle" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_fac_id_detalle" class="errores"></div>
+                                </div>
+                    		  </div>
+                    		  
+               			 	   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="fact_id" class="control-label">Factores Riesgo Detalle:</label>
+                                  <select  class="form-control" id="fact_id" name="fact_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_fact_id" class="errores"></div>
+                                </div>
+                    		  </div>
+                    		 
+                    		     <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_fact_ries_det_otros" class="control-label">Medidas Preventivas:</label>
+                                  <input  type="text" class="form-control" id="fic_fact_ries_det_otros" name="fic_fact_ries_det_otros" value=""  placeholder=""/>
+                                  <div id="mensaje_fic_fact_ries_det_otros" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		  
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarFactorRiesgoDetalle()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Factor Riesgo Detalle Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaFactorRiesgoDetalle" ></div>
+               			      <div id="ficha_factor_riesgo_detalle_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
                	
-               		</div>
-               		
+              </div>
+					
+              </div>
+              
+      
+              
+             </div>
+            </div>
+           </div>
+         
+            </div>
+            </section>
+          </div>
+            
            </div>
            
            <div id="step-7" class="">
+             <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">DESCRIPCIÓN: Actividades Extra Laborales.</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="fic_actividades_extra_laborales" name="fic_actividades_extra_laborales" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_fic_actividades_extra_laborales" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
            </div>
            
            
            <div id="step-8" class="">
+                 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">DESCRIPCIÓN: Enfermedad Actual.</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="fic_enfermedad_actual" name="fic_enfermedad_actual" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_fic_enfermedad_actual" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
            </div>
         
            <div id="step-9" class="">
@@ -2002,6 +2147,25 @@
                		</div>
            </div>
            <div id="step-15" class="">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">DESCRIPCIÓN: Recomendaciones y/o Tratamiento.</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="fic_recomendacion_tratamiento" name="fic_recomendacion_tratamiento" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_fic_recomendacion_tratamiento" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
            </div>
            <div id="step-16" class="">
            </div>
@@ -2050,7 +2214,8 @@
     <script type="text/javascript" src="view/js/ffspfichaResultadoExamen.js?0.1"></script>
     <script type="text/javascript" src="view/js/ffspfichaDiagnostico.js?0.2"></script>
     <script type="text/javascript" src="view/js/ffspfichaAptitud.js?0.3"></script>
-    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.3"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgo.js?0.4"></script>
+    <script type="text/javascript" src="view/js/ffspfichaFactorRiesgoDetalle.js?0.5"></script>
     <script type="text/javascript" src="view/js/ffspfichaAntecedentesFamiliares.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaRevisionOrganos.js?0.3"></script>
     <script type="text/javascript" src="view/js/ffspfichaExamenFisicoRegional.js?0.3"></script>

@@ -15,7 +15,14 @@ $(document).ready(function(){
 	CKEDITOR.replace('fic_antecedentes_personales');
 	CKEDITOR.instances.fic_antecedentes_personales.setData(""); 
 	
+	CKEDITOR.replace('fic_actividades_extra_laborales');
+	CKEDITOR.instances.fic_actividades_extra_laborales.setData(""); 
 	
+	CKEDITOR.replace('fic_enfermedad_actual');
+	CKEDITOR.instances.fic_enfermedad_actual.setData(""); 
+	
+	CKEDITOR.replace('fic_recomendacion_tratamiento');
+	CKEDITOR.instances.fic_recomendacion_tratamiento.setData(""); 
 	
 	
     $('.textarea').wysihtml5()
@@ -32,7 +39,8 @@ $(document).ready(function(){
   
 function cargarEmpleados(){
 	    
-     fic_id=$('#fic_id').val();
+     fic_id=document.getElementById('fic_id').value;
+   //  var _fic_id = document.getElementById('fic_id').value;
 	var tiempo = tiempo || 1000;
 		
 	$.ajax({

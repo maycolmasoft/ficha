@@ -155,7 +155,7 @@ class ffspfichaRevisionOrganosController extends ControladorBase{
                 
                $html.='<div class="col-lg-12 col-md-12 col-xs-12">';
                 $html.='<section style="height:110px; overflow-y:scroll;">';
-                $html.= "<table id='tabla_antecedentes_familiares' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
+                $html.= "<table id='tabla_revision_organos_actual' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
                 $html.= "<thead>";
                 $html.= "<tr>";
                 $html.='<th style="text-align: left;  font-size: 12px;">Organo</th>';

@@ -7,6 +7,9 @@ class ReporteFichaController extends ControladorBase{
     }
     
   
+   
+    
+    
     public function ReporteFicha(){
         session_start();
        

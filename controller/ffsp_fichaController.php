@@ -578,5 +578,149 @@ class ffsp_fichaController extends ControladorBase{
 	    }
 	}
 	
+	
+	
+	
+	public function InsertaAntecedentesExtraLaborales() {
+	    
+	    
+	    session_start();
+	    
+	    $ficha = new ffspFichaModel();
+	    
+	    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
+	    $_fic_actividades_extra_laborales = (isset($_POST["fic_actividades_extra_laborales"])) ? $_POST["fic_actividades_extra_laborales"] : "";
+	    
+	    $funcion = "ins_ffsp_tbl_ficha_actividades_extra_laborales";
+	    $respuesta = 0 ;
+	    $mensaje = "";
+	    
+	    if($_empl_id > 0 && $_fic_id > 0){
+	        
+	        $parametros =  "'$_fic_id',
+                                '$_empl_id',
+                                '$_fic_actividades_extra_laborales'";
+	        $ficha->setFuncion($funcion);
+	        $ficha->setParametros($parametros);
+	        $resultado = $ficha->llamafuncionPG();
+	        
+	        if(is_int((int)$resultado[0])){
+	            $respuesta = $resultado[0];
+	            
+	            $mensaje = "G. Actualizado Correctamente";
+	        }
+	        
+	    }
+	    
+	    
+	    
+	    if((int)$respuesta > 0 ){
+	        
+	        echo json_encode(array('respuesta'=>$respuesta,'mensaje'=>$mensaje));
+	        exit();
+	    }
+	    
+	    echo "Error al Actualizar Actividades Extra Laborales.";
+	    exit();
+	    
+	}
+	
+	
+	
+	public function InsertaEnfermedadActual() {
+	    session_start();
+	    
+	    $ficha = new ffspFichaModel();
+	    
+	    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
+	    $_fic_enfermedad_actual = (isset($_POST["fic_enfermedad_actual"])) ? $_POST["fic_enfermedad_actual"] : "";
+	    
+	    $funcion = "ins_ffsp_tbl_ficha_h";
+	    $respuesta = 0 ;
+	    $mensaje = "";
+	    
+	    if($_empl_id > 0 && $_fic_id > 0){
+	        
+	        $parametros =  "'$_fic_id',
+                                '$_empl_id',
+                                '$_fic_enfermedad_actual'";
+	        $ficha->setFuncion($funcion);
+	        $ficha->setParametros($parametros);
+	        $resultado = $ficha->llamafuncionPG();
+	        
+	        if(is_int((int)$resultado[0])){
+	            $respuesta = $resultado[0];
+	            
+	            $mensaje = "H. Actualizado Correctamente";
+	        }
+	        
+	    }
+	    
+	    
+	    
+	    if((int)$respuesta > 0 ){
+	        
+	        echo json_encode(array('respuesta'=>$respuesta,'mensaje'=>$mensaje));
+	        exit();
+	    }
+	    
+	    echo "Error al Actualizar Enfermedad Actual.";
+	    exit();
+	    
+	}
+	
+	
+	
+	public function InsertaRecomendacionesTratamiento() {
+	    session_start();
+	    
+	    $ficha = new ffspFichaModel();
+	    
+	    $_empl_id = (isset($_POST["empl_id"])) ? $_POST["empl_id"] : 0 ;
+	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
+	    $_sex_id = (isset($_POST["sex_id"])) ? $_POST["sex_id"] : 0 ;
+	    $_fic_recomendacion_tratamiento = (isset($_POST["fic_recomendacion_tratamiento"])) ? $_POST["fic_recomendacion_tratamiento"] : "";
+	    
+	    $funcion = "ins_ffsp_tbl_ficha_final";
+	    $respuesta = 0 ;
+	    $mensaje = "";
+	    
+	    if($_empl_id > 0 && $_fic_id > 0 && $_sex_id > 0){
+	        
+	        $parametros =  "'$_fic_id',
+                                '$_empl_id',
+                                '$_fic_recomendacion_tratamiento'";
+	        $ficha->setFuncion($funcion);
+	        $ficha->setParametros($parametros);
+	        $resultado = $ficha->llamafuncionPG();
+	        
+	        if(is_int((int)$resultado[0])){
+	            $respuesta = $resultado[0];
+	            
+	            $mensaje = "Ficha Generada Correctamente";
+	        }
+	        
+	    }
+	    
+	    
+	    
+	    if((int)$respuesta > 0 ){
+	        
+	        echo json_encode(array('respuesta'=>$respuesta,'mensaje'=>$mensaje, 'sexo'=>$_sex_id));
+	        exit();
+	    }
+	    
+	    echo "Error al Actualizar Enfermedad Actual.";
+	    exit();
+	    
+	}
+	
+	
+	
+	
+	
+	
 }
 ?>
