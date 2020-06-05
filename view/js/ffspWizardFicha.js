@@ -21,7 +21,7 @@ $(document).ready(function(){
 		        $('<button></button>').text('Guardar')
 						      .addClass('btn btn-success')
 						      .attr({ 
-						    	  id:"aplicar",name:"aplicar",type:"submit", form:"frm_avoco",
+						    	  id:"aplicar",name:"aplicar",type:"submit", form:"frm_ficha",
 						    	  disabled:true
 						    	  })						    	  
 						      .append("<i class=\"fa \" aria-hidden=\"true\" ></i>"),
@@ -61,10 +61,9 @@ $(document).ready(function(){
       if(stepNumber==9){return validaPaso10();}
       if(stepNumber==10){return validaPaso11();}
       if(stepNumber==11){return validaPaso12();}
-      if(stepNumber==11){return validaPaso13();}
-      if(stepNumber==12){return validaPaso14();}
-      if(stepNumber==13){return validaPaso15();}
-      if(stepNumber==14){return validaPaso16();}
+      if(stepNumber==12){return validaPaso13();}
+      if(stepNumber==13){return validaPaso14();}
+      //if(stepNumber==14){return validaPaso15();}
       
     });
 	
@@ -561,7 +560,6 @@ $(document).ready(function(){
 					data:parametros1
 				}).done(function(datos1){
 					
-					
 					if(datos1.respuesta > 0){
 						
 						swal({
@@ -575,9 +573,6 @@ $(document).ready(function(){
 						return true;	
 						
 					}
-					 
-				
-				
 				}).fail(function(xhr,status,error){
 					
 					var err = xhr.responseText
@@ -585,26 +580,544 @@ $(document).ready(function(){
 					
 				})
 	 	
-	 	
-	  
    }
 	
    
    
    
+   function validaPaso4(){
+   
+	   var tiempo = tiempo || 1000;
+	   
+	   //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   if($("#tabla_empleo_anterior").length) {
+		}else{
+			 $("html, body").animate({ scrollTop: $("#fic_emp_ant_empresa").offset().top-120 }, tiempo);			
+			   $("#fic_emp_ant_empresa").notify("Ingrese Empleos Anteriores",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_accidentes_trabajo").length) {
+		}else{
+			   $("html, body").animate({ scrollTop: $("#fic_acc_tra_fue_calificado").offset().top-120 }, tiempo);			
+				  $("#fic_acc_tra_fue_calificado").notify("Ingrese Accidentes de Trabajo",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_enfermedad_profesional").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#fic_enf_pro_fue_calificado").offset().top-120 }, tiempo);			
+			   $("#fic_enf_pro_fue_calificado").notify("Ingrese Enfermedades Profesionales",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Antecedentes de Trabajo",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+   
+
+   function validaPaso5(){
+   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_antecedentes_familiares").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#ant_id").offset().top-120 }, tiempo);			
+			   $("#ant_id").notify("Ingrese Antecedentes Familiares",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Antecedentes Familiares",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+
+   function validaPaso6(){
+   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_factor_riesgo").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#fic_fact_ries_puesto_trabajo").offset().top-120 }, tiempo);			
+			   $("#fic_fact_ries_puesto_trabajo").notify("Ingrese Factores Riesgo",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Factores Riesgo",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+   
+   function validaPaso7(){
+	   
+	   var tiempo = tiempo || 1000;
+	   
+	   CKEDITOR.instances.fic_actividades_extra_laborales.updateElement();
+		 
+	   let fic_actividades_extra_laborales = $("#fic_actividades_extra_laborales").val();
+	   var _empl_id = document.getElementById('empl_id').value;
+	   var _fic_id = document.getElementById('fic_id').value;
+ 	
+	   if(_fic_id == '' || _fic_id == 0){
+		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
+		if(_empl_id == '' || _empl_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
+	
+	   if(fic_actividades_extra_laborales == '' || fic_actividades_extra_laborales.length == 0){
+		   $("#fic_actividades_extra_laborales").notify("Ingrese Actividades Extra Laborales.",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+	   }
+	  
+		$("#aplicar").attr({disabled:true});
+		
+		   
+		var parametros = {fic_actividades_extra_laborales:fic_actividades_extra_laborales,
+				          empl_id:_empl_id,
+				          fic_id:_fic_id
+				         }
+		   
+	   $.ajax({
+			beforeSend:function(){},
+			url:"index.php?controller=ffsp_ficha&action=InsertaAntecedentesExtraLaborales",
+			type:"POST",
+			dataType:"json",
+			data:parametros
+		}).done(function(datos){
+			
+			if(datos.respuesta > 0){
+				
+				swal({
+			  		  title: "Actualizando Antecedentes Extra Laborales",
+			  		  text: datos.mensaje,
+			  		  icon: "success",
+			  		  button: "Aceptar",
+			  		
+			  		});
+				
+				return true;	
+			}
+		
+		}).fail(function(xhr,status,error){
+			
+			var err = xhr.responseText
+			console.log(err);
+			
+		})
+	   
+   }
    
    
    
    
+
+   function validaPaso8(){
+	   
+	   var tiempo = tiempo || 1000;
+	   
+	   CKEDITOR.instances.fic_enfermedad_actual.updateElement();
+		 
+	   let fic_enfermedad_actual = $("#fic_enfermedad_actual").val();
+	   var _empl_id = document.getElementById('empl_id').value;
+	   var _fic_id = document.getElementById('fic_id').value;
+ 	
+	   if(_fic_id == '' || _fic_id == 0){
+		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
+		if(_empl_id == '' || _empl_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
+	
+	   if(fic_enfermedad_actual == '' || fic_enfermedad_actual.length == 0){
+		   $("#fic_enfermedad_actual").notify("Ingrese Enfermedad Actual.",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+	   }
+	  
+		$("#aplicar").attr({disabled:true});
+		
+		   
+		var parametros = {fic_enfermedad_actual:fic_enfermedad_actual,
+				          empl_id:_empl_id,
+				          fic_id:_fic_id
+				         }
+		   
+	   $.ajax({
+			beforeSend:function(){},
+			url:"index.php?controller=ffsp_ficha&action=InsertaEnfermedadActual",
+			type:"POST",
+			dataType:"json",
+			data:parametros
+		}).done(function(datos){
+			
+			if(datos.respuesta > 0){
+				
+				swal({
+			  		  title: "Actualizando Enfermedad Actual",
+			  		  text: datos.mensaje,
+			  		  icon: "success",
+			  		  button: "Aceptar",
+			  		
+			  		});
+				
+				return true;	
+			}
+		
+		}).fail(function(xhr,status,error){
+			
+			var err = xhr.responseText
+			console.log(err);
+			
+		})
+	   
+   }
    
    
    
+
+   function validaPaso9(){
    
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_revision_organos_actual").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#org_id").offset().top-120 }, tiempo);			
+			   $("#org_id").notify("Ingrese Revisión Organos",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Revisión Actual de Organos",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+   
+
+   function validaPaso10(){
+   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_constante_vital").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#fic_cons_vit_presion_arterial").offset().top-120 }, tiempo);			
+			   $("#fic_cons_vit_presion_arterial").notify("Ingrese Constantes Vitales",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Constantes Vitales y Antropometría",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+   function validaPaso11(){
+	   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_ficha_examen_fisico_regional").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#exam_id").offset().top-120 }, tiempo);			
+			   $("#exam_id").notify("Ingrese Exámen Físico Regional",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Exámen Físico Regional",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+   
+ function validaPaso12(){
+	   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_resultado_examen_generales").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#fic_res_exa_examen").offset().top-120 }, tiempo);			
+			   $("#fic_res_exa_examen").notify("Ingrese Resultado De Examenes Generales",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Resultado de Examenes Generales",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+
+ 
+ function validaPaso13(){
+	   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_diagnostico").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#fic_diag_descripcion").offset().top-120 }, tiempo);			
+			   $("#fic_diag_descripcion").notify("Ingrese Diagnóstico",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:true});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Diagnóstico",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+   
+   }
+   
+ 
+ function validaPaso14(){
+	   
+	   var tiempo = tiempo || 1000;
+
+	   
+	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
+	   
+	   if($("#tabla_aptitud_medica").length) {
+		   
+		}else{
+			$("html, body").animate({ scrollTop: $("#apt_med_id").offset().top-120 }, tiempo);			
+			   $("#apt_med_id").notify("Ingrese Aptitud Médica",{ position:"buttom left", autoHideDelay: 2000});
+				return false; 
+		}
+	   
+	 	$("#aplicar").attr({disabled:false});
+	 	
+	 	
+	 	swal({
+	  		  title: "Actualizando Aptitud Médica para el Trabajo",
+	  		  text: "Actualizado Correctamente",
+	  		  icon: "success",
+	  		  button: "Aceptar",
+	  		});
+	 	
+	 	
+	 	return true;	
+		
+ 
+ }
    
    
 })
       
    
+ 
+ 
+ $("#frm_ficha").on("submit",function(event){
+
+	  var tiempo = tiempo || 1000;
+	   
+	   CKEDITOR.instances.fic_recomendacion_tratamiento.updateElement();
+		 
+	   let fic_recomendacion_tratamiento = $("#fic_recomendacion_tratamiento").val();
+	   var _empl_id = document.getElementById('empl_id').value;
+	   var _fic_id = document.getElementById('fic_id').value;
+	   var _sex_id = document.getElementById('sex_id').value;
+	
+	   if(_fic_id == '' || _fic_id == 0){
+		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+		}
+		if(_empl_id == '' || _empl_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
+		if(_sex_id == '' || _sex_id == 0){
+			   $("#mensaje_primer_nombre").notify("Error no hay sexo",{ position:"buttom left", autoHideDelay: 2000});
+				return false;
+		}
+	
+	   if(fic_recomendacion_tratamiento == '' || fic_recomendacion_tratamiento.length == 0){
+		   $("#fic_recomendacion_tratamiento").notify("Ingrese Recomendaciones - Tratamiento.",{ position:"buttom left", autoHideDelay: 2000});
+			return false;
+	   }
+	  
+
+		var parametros = {fic_recomendacion_tratamiento:fic_recomendacion_tratamiento,
+		          empl_id:_empl_id,
+		          fic_id:_fic_id,
+		          sex_id:_sex_id
+		         }
+
+	$.ajax({
+		beforeSend:null,
+		url:"index.php?controller=ffsp_ficha&action=InsertaRecomendacionesTratamiento",
+		type:"POST",
+		dataType:"json",
+		data:parametros
+	}).done(function(datos){
+		
+		
+	if(datos.respuesta > 0){
+		
+		swal({title:"",text:datos.mensaje,icon:"success"})
+   		.then((value) => {
+   			
+   			let loteUrl = datos.respuesta;
+   			let lote_sex = datos.sexo;
+   			let urlReporte = "index.php?controller=ReporteFicha&action=ReporteFicha&fic_id="+loteUrl+"&sex_id="+lote_sex;
+   			window.open(urlReporte,"_blank");    			
+   			$('#smartwizard').smartWizard("reset");
+   			window.location.href= 'index.php?controller=ffspEmpleados&action=index2';
+   		});
+		
+			
+	}else{
+		
+		swal({text: "Error la Ingresar Ficha",
+	  		  icon: "error",
+	  		  button: "Aceptar",
+	  		  dangerMode: true
+	  		});
+		
+	}
+	
+	
+	
+	
+}).fail(function(xhr,status,error){
+	
+	let err = xhr.responseText
+	
+	console.log(err);
+})
+
+
+
+event.preventDefault()
+})
+
+
+ 
+ 
 
    
    
