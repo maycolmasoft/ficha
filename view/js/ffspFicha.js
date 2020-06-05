@@ -10,6 +10,7 @@ $(document).ready(function(){
 	cargaSexo();
 	cargarEmpleados();
 	search_antecedentes_detalle(1);
+	cargarficha_datos();
 	CKEDITOR.replace('fic_motivo_consulta');
 	CKEDITOR.instances.fic_motivo_consulta.setData(""); 
 	CKEDITOR.replace('fic_antecedentes_personales');
@@ -120,7 +121,7 @@ function cargarEmpleados(){
 		
 	})
 	
-	return false;
+
 	
 }
 
@@ -619,4 +620,70 @@ $("#empl_primer_nombre").on("keyup",function(){
 	    	
 	    	return false;
 	    }
+	    
+	    
+	    
+	    
+	    
+	    
+
+	    function cargarficha_datos(){
+	    	    
+	         fic_id=document.getElementById('fic_id').value;
+	       //  var _fic_id = document.getElementById('fic_id').value;
+	    	var tiempo = tiempo || 1000;
+	    		
+	    	$.ajax({
+	    		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
+	    		url:"index.php?controller=ffsp_ficha&action=cargarDatosFicha",
+	    		type:"POST",
+	    		dataType:"json",
+	    		data:{fic_id:fic_id}
+	    	}).done(function(datos){
+	    		
+	    		if(!jQuery.isEmptyObject(datos.data)){
+	    			
+	    			var array = datos.data[0];		
+	    			
+	    			$("#fic_motivo_consulta").val(array.fic_motivo_consulta);
+	    			$("#fic_antecedentes_personales").val(array.fic_antecedentes_personales);
+	    			$("#fic_actividades_extra_laborales").val(array.fic_actividades_extra_laborales);
+	    			$("#fic_enfermedad_actual").val(array.fic_enfermedad_actual);
+	    			$("#fic_recomendacion_tratamiento").val(array.fic_recomendacion_tratamiento);
+	    			
+	    			
+	    		}
+	    		
+	    		
+	    		
+	    	}).fail(function(xhr,status,error){
+	    		
+	    		var err = xhr.responseText
+	    		console.log(err);
+	    	}).always(function(){
+	    		
+	    		$("#divLoaderPage").removeClass("loader")
+	    		
+	    	})
+	    	
+
+	    	
+	    }
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	       
