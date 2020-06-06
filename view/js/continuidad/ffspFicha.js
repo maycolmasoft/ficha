@@ -9,17 +9,15 @@ $(document).ready(function(){
 	cargaReligion();
 	cargaSexo();
 	cargarEmpleados();
-	search_antecedentes_detalle(1);
+	//search_antecedentes_detalle(1);
 	cargarficha_datos();
 	cargarAntecedentesEdicionFinal();
 	CKEDITOR.replace('fic_motivo_consulta');
 	CKEDITOR.instances.fic_motivo_consulta.setData(""); 
 	CKEDITOR.replace('fic_antecedentes_personales');
 	CKEDITOR.instances.fic_antecedentes_personales.setData(""); 
-	
-	CKEDITOR.replace('fic_actividades_extra_laborales');
-	CKEDITOR.instances.fic_actividades_extra_laborales.setData(""); 
-	
+	/*CKEDITOR.replace('fic_actividades_extra_laborales');
+	CKEDITOR.instances.fic_actividades_extra_laborales.setData(""); */
 	CKEDITOR.replace('fic_enfermedad_actual');
 	CKEDITOR.instances.fic_enfermedad_actual.setData(""); 
 	
@@ -94,20 +92,20 @@ function cargarEmpleados(){
 			$("#rel_id").val(array.rel_id);
 			$("#sex_id").val(array.sex_id);
 			
-			if(array.sex_id==2){
+			/*if(array.sex_id==2){
 				
 				$("#hombre").hide();
 			}else{
 				
 				$("#mujer").hide();
-			}
+			}*/
 			
 			
 			$("#empl_id").val(array.empl_id);
 			
 			$("html, body").animate({ scrollTop: $(empl_primer_nombre).offset().top-120 }, tiempo);	
 			
-			cargaExamenes();
+			//cargaExamenes();
 		}
 		
 		
@@ -155,15 +153,6 @@ function cargaIdentidadGenero(){
 	
 }
 
-$("#ide_id").on("focus",function(){
-	$("#mensaje_identidad_genero").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
-
 
 
 
@@ -194,14 +183,7 @@ function cargaEmpresa(){
 	
 }
 
-$("#emp_id").on("focus",function(){
-	$("#mensaje_empresa").text("").fadeOut("");
-})
 
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 function cargaOrientacionSexual(){
@@ -231,14 +213,6 @@ function cargaOrientacionSexual(){
 	
 }
 
-$("#ori_id").on("focus",function(){
-	$("#mensaje_orientacion_sexual").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 function cargaReligion(){
@@ -268,14 +242,6 @@ function cargaReligion(){
 	
 }
 
-$("#rel_id").on("focus",function(){
-	$("#mensaje_religion").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 
@@ -306,16 +272,8 @@ function cargaSexo(){
 	
 }
 
-$("#sex_id").on("focus",function(){
-	$("#mensaje_sexo").text("").fadeOut("");
-})
 
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
-
-
+/*
 
       $("#sex_id").click(function() {
 			
@@ -360,7 +318,7 @@ $("#empl_primer_nombre").on("keyup",function(){
               
 		    });
 	 	
-	   
+	   */
 	    function ToggleDiv(id) {
             if (id == 'SI') {
                 document.getElementById('nombre_discapacidad').style.display = "block"
@@ -385,7 +343,7 @@ $("#empl_primer_nombre").on("keyup",function(){
             }
  }
 
-
+/*
 	    function cargaExamenes(){
 	    	
 	    	let $ddlExamen= $("#ante_id");
@@ -623,7 +581,7 @@ $("#empl_primer_nombre").on("keyup",function(){
 	    }
 	    
 	    
-	    
+	    */
 	    
 	    
 	    
@@ -648,7 +606,7 @@ $("#empl_primer_nombre").on("keyup",function(){
 	    			
 	    			CKEDITOR.instances.fic_motivo_consulta.setData(array.fic_motivo_consulta);
 	    			CKEDITOR.instances.fic_antecedentes_personales.setData(array.fic_antecedentes_personales);
-	    			CKEDITOR.instances.fic_actividades_extra_laborales.setData(array.fic_actividades_extra_laborales);
+	    			//CKEDITOR.instances.fic_actividades_extra_laborales.setData(array.fic_actividades_extra_laborales);
 	    			CKEDITOR.instances.fic_enfermedad_actual.setData(array.fic_enfermedad_actual);
 	    			CKEDITOR.instances.fic_recomendacion_tratamiento.setData(array.fic_recomendacion_tratamiento);
 	    			

@@ -93,16 +93,16 @@
                 <li><a href="#step-4">D. Antecedentes de Trabajo<br /><small></small></a></li> 
                 <li><a href="#step-5">E. Antecedentes Familiares<br /><small></small></a></li> 
             	<li><a href="#step-6">F. Factores de Riesgo<br /><small></small></a></li>
-             	<li><a href="#step-7">H. Enfermedad Actual<br /><small></small></a></li>  
-               	<li><a href="#step-8">I. Revisión Organos<br /><small></small></a></li>
-                <li><a href="#step-9">J. Constantes Vitales<br /><small></small></a></li>  
-                <li><a href="#step-10">K. Examen Fisico Regional<br /><small></small></a></li>  
-                <li><a href="#step-11">L. Resultado de Examenes<br /><small></small></a></li>
-                <li><a href="#step-12">M. Diagnostico<br /><small></small></a></li>  
-           		<li><a href="#step-13">N. Aptitud Médica<br /><small></small></a></li>  
-           		<li><a href="#step-14">O. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
+             	<li><a href="#step-7">G. Actividades Extra Laborales<br /><small></small></a></li> 
+              	<li><a href="#step-8">H. Enfermedad Actual<br /><small></small></a></li>  
+               	<li><a href="#step-9">I. Revisión Organos<br /><small></small></a></li>
+                <li><a href="#step-10">J. Constantes Vitales<br /><small></small></a></li>  
+                <li><a href="#step-11">K. Examen Fisico Regional<br /><small></small></a></li>  
+                <li><a href="#step-12">L. Resultado de Examenes<br /><small></small></a></li>
+                <li><a href="#step-13">M. Diagnostico<br /><small></small></a></li>  
+           		<li><a href="#step-14">N. Aptitud Médica<br /><small></small></a></li>  
+           		<li><a href="#step-15">O. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
 
-           
            
            
             </ul>
@@ -382,13 +382,270 @@
                			</div>
                		</div>
                		
-           
-               	
+               		
+               		 <div id="mujer" class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Antecedentes Gineco Obstétricios</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_menarquia" class="control-label">Menarquia:</label>
+                                                      <select name="fic_ant_menarquia" id="fic_ant_menarquia"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_menarquia" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                 <div class="col-xs-12 col-md-2 col-md-2 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_ciclos" class="control-label">Ciclos:</label>
+                                  <input  type="number" class="form-control" id="fic_ant_ciclos" name="fic_ant_ciclos" value=""  placeholder="#"/>
+                                  <div id="mensaje_fic_ant_ciclos" class="errores"></div>
+                                 </div>
+                    		  </div>
+                                
+                                <div class="col-xs-12 col-md-2 col-md-2 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_fecha_ultima_mestruacion" class="control-label">Fecha Ult. Mestruación:</label>
+                                  <input  type="date" class="form-control" id="fic_ant_fecha_ultima_mestruacion" name="fic_ant_fecha_ultima_mestruacion" value="" />
+                                  <div id="mensaje_fic_ant_fecha_ultima_mestruacion" class="errores"></div>
+                                 </div>
+                    		  </div>
+                                
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_gestas" class="control-label">Gestas:</label>
+                                                      <select name="fic_ant_gestas" id="fic_ant_gestas"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_gestas" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_partos" class="control-label">Partos:</label>
+                                                      <select name="fic_ant_partos" id="fic_ant_partos"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_partos" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_cesareas" class="control-label">Cesareas:</label>
+                                                      <select name="fic_ant_cesareas" id="fic_ant_cesareas"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_cesareas" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_abortos" class="control-label">Abortos:</label>
+                                                      <select name="fic_ant_abortos" id="fic_ant_abortos"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_abortos" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                               
+            
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+               		
+               		
+               		 <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Planificación Familiar</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	    <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_hijos_vivos" class="control-label">Hijos Vivos:</label>
+                                                      <select name="fic_ant_hijos_vivos" id="fic_ant_hijos_vivos"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_hijos_vivos" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_hijos_muertos" class="control-label">Hijos Muertos:</label>
+                                                      <select name="fic_ant_hijos_muertos" id="fic_ant_hijos_muertos"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_hijos_muertos" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_vida_sexual" class="control-label">Vida Sexual Activa:</label>
+                                                      <select name="fic_ant_vida_sexual" id="fic_ant_vida_sexual"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_vida_sexual" class="errores"></div>
+                                </div>
+                                </div>
+                                  
+                                                      
+                                <div class="col-lg-2 col-xs-12 col-md-2">
+                    		    <div class="form-group-sm">
+                                                      <label for="fic_ant_metodo_planificacion_familiar" class="control-label">Método Pla. Familiar:</label>
+                                                      <select name="fic_ant_metodo_planificacion_familiar" id="fic_ant_metodo_planificacion_familiar"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_metodo_planificacion_familiar" class="errores"></div>
+                                </div>
+                                </div>
+                                
+                                
+                                  <div class="col-xs-12 col-md-4 col-md-4 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_tipo_metodo_planificacion_familiar" class="control-label">Tipo Pla. Familiar:</label>
+                                  <input  type="text" class="form-control" id="fic_ant_tipo_metodo_planificacion_familiar" name="fic_ant_tipo_metodo_planificacion_familiar" value=""  placeholder="#"/>
+                                  <div id="mensaje_fic_ant_tipo_metodo_planificacion_familiar" class="errores"></div>
+                                 </div>
+                    		  </div>
+	         			     			
+               			
+	        
+               			  </div>
+               			  
+               			  
+               			  
+               			  <div class="row" style="margin-top:40px;">
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Exámenes Realizados</div>
+                              <div class="panel-body">
+               			   
+               			   
+               			   
+               			   <div class="col-xs-12 col-md-6 col-md-6 ">
+            		    	<div class="form-group-sm">
+            		     	<label for="ante_id" class="control-label">Exámenes:</label>
+                          	<select  class="form-control" id="ante_id" name="ante_id">
+                          	<option value="0">--Seleccione--</option>
+                          	 <option value="TRUE">Si</option>
+                          	</select>                         
+                          	<div id="mensaje_ante_id" class="errores"></div>
+                        	</div>
+            		  	   </div>
+            		  
+            		        <div class="col-lg-6 col-xs-12 col-md-6">
+                    		<div class="form-group-sm">
+                                                      <label for="fic_ant_det_realizado" class="control-label">Se Realizo Exámen:</label>
+                                                      <select name="fic_ant_det_realizado" id="fic_ant_det_realizado"  class="form-control" >
+                                                      <option value="0" selected="selected">--Seleccione--</option>
+                        							  <option value="TRUE">Si</option>
+                        							  <option value="FALSE">No</option>
+                        							  </select> 
+                                                      <div id="mensaje_fic_ant_det_realizado" class="errores"></div>
+                            </div>
+                            </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_det_tiempo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_ant_det_tiempo" name="fic_ant_det_tiempo" value=""  placeholder="# años"/>
+                                  <div id="mensaje_fic_ant_det_tiempo" class="errores"></div>
+                                 </div>
+                    		  </div>
+            		  
+            		        <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_ant_det_resultado" class="control-label">Resultado:</label>
+                                  <input  type="text" class="form-control" id="fic_ant_det_resultado" name="fic_ant_det_resultado" value=""  placeholder="resultado.."/>
+                                  <div id="mensaje_fic_ant_det_resultado" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		  
+                    		  
+                    		  
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                                      <button type="button" onclick="AgregarC()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                				
+                                </div>
+                    		    </div>
+                    		    
+                    		    </div>
+                    		  
+                    		  <br>
+                    		  
+                    		  </div>
+                    		  </div>
+                    		  
+               			  </div>
+               			  
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Exámenes Realizados</div>
+                              <div class="panel-body">
+               			      <div id="load_antecedentes_sexo_registrados" ></div>
+               			      <div id="antecedentes_sexo_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
+               		
                		
                
                <!-- DESDE AQUI STEVEN -->		
                		
-                 <div class="box box-primary">
+              <form id="frm_ficha_habitos_toxicos">
+                <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Hábitos Tóxicos</h3>
                           <div class="box-tools pull-right"> </div>
@@ -485,7 +742,10 @@
                			  
                			</div>
                		</div>
-                   <div class="box box-primary">
+               		</form>
+               		
+               	   <form id="frm_ficha_estilo_vida">
+                <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Estilo Vida</h3>
                           <div class="box-tools pull-right"> </div>
@@ -569,8 +829,8 @@
                			  
                			  
                			</div>
-               		</div>  		
-              
+               		</div>
+               		</form>	
                		
                		<!-- TERMINA AQUI STEVEN -->	
                		
@@ -582,7 +842,97 @@
                 
                 
                 <div id="step-4" class="">
-              
+                <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Empleos Anteriores</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row" >
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			   
+               			   
+               			   <div class="panel panel-info">
+                              <div class="panel-heading">Registrar Empleos Anteriores</div>
+                              <div class="panel-body">
+               			    <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_empresa" class="control-label">Empresa:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_empresa" name="fic_emp_ant_empresa" value=""  placeholder="empresa.."/>
+                                  <div id="mensaje_fic_emp_ant_empresa" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_puesto_trabajo" class="control-label">Puesto:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_puesto_trabajo" name="fic_emp_ant_puesto_trabajo" value=""  placeholder="puesto.."/>
+                                  <div id="mensaje_fic_emp_ant_puesto_trabajo" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_actividades_desempenia" class="control-label">Actividades:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_actividades_desempenia" name="fic_emp_ant_actividades_desempenia" value=""  placeholder="actividades.."/>
+                                  <div id="mensaje_fic_emp_ant_actividades_desempenia" class="errores"></div>
+                                 </div>
+                    		  </div>
+                    		   <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_tiempo_trabajo" class="control-label">Tiempo:</label>
+                                  <input  type="number" class="form-control" id="fic_emp_ant_tiempo_trabajo" name="fic_emp_ant_tiempo_trabajo" value=""  placeholder="tiempo.."/>
+                                  <div id="mensaje_fic_emp_ant_tiempo_trabajo" class="errores"></div>
+                                 </div>
+                    		  </div>
+               			      <div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		     <label for="fac_id" class="control-label">Factores Riesgo:</label>
+                                  <select  class="form-control" id="fac_id" name="fac_id" >
+                                  	<option value="0">--Seleccione--</option>
+                                  </select>                         
+                                  <div id="mensaje_fac_id" class="errores"></div>
+                                </div>
+                    		  </div>
+            				<div class="col-xs-12 col-md-6 col-md-6 ">
+                    		    <div class="form-group-sm">
+                    		      <label for="fic_emp_ant_observaciones" class="control-label">Observaciones:</label>
+                                  <input  type="text" class="form-control" id="fic_emp_ant_observaciones" name="fic_emp_ant_observaciones" value=""  placeholder="observaciones.."/>
+                                  <div id="mensaje_fic_emp_ant_observaciones" class="errores"></div>
+                                 </div>
+                    		  </div>
+            				 
+                    		   <div class="row">
+                    		    <div class="col-xs-12 col-md-12 col-lg-12" style="text-align: center; margin-top:30px">
+                    		    <div class="form-group-sm">
+                                  <button type="button" onclick="AgregarEmpleoAnterior()" class="btn btn-warning"><i class="glyphicon glyphicon-plus"> Agregar</i></button>
+                                </div>
+                    		    </div>
+                    		    </div>
+                    		  <br>
+                    		  </div>
+                    		  </div>
+                    	  </div>
+               			  <div class="col-lg-6 col-md-6 col-xs-12">
+               			  
+               			     <div class="panel panel-info">
+                              <div class="panel-heading">Empleos Anteriores Registrados</div>
+                              <div class="panel-body">
+               			      <div id="consultafichaEmpleoAnterior" ></div>
+               			      <div id="ficha_empleo_anterior_registrados" ></div>
+               			   
+               			   
+               			   </div>
+               			   </div>
+               			  </div>
+               			  
+               			  
+               			  
+               			  
+               			  </div>
+               			  
+               			  
+               			</div>
+               		</div>
                		 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Accidentes de Trabajo</h3>
@@ -1008,10 +1358,30 @@
             
            </div>
            
-         
-           
-           
            <div id="step-7" class="">
+             <div class="box box-primary">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">DESCRIPCIÓN: Actividades Extra Laborales.</h3>
+                          <div class="box-tools pull-right"> </div>
+                        </div>
+                    
+                    	<div class="box-body">
+                          <div class="row">
+            	
+            	        	<div class="col-lg-12 col-md-12 col-xs-12">
+            	            <div class="box-body pad">
+            	                    <textarea id="fic_actividades_extra_laborales" name="fic_actividades_extra_laborales" rows="15" cols="80"></textarea>
+            	                    <div id="mensaje_fic_actividades_extra_laborales" class="errores"></div>
+            	            </div>
+            	       		</div>
+	        
+               			  </div>
+               			</div>
+               		</div>
+           </div>
+           
+           
+           <div id="step-8" class="">
                  <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">DESCRIPCIÓN: Enfermedad Actual.</h3>
@@ -1033,7 +1403,7 @@
                		</div>
            </div>
         
-           <div id="step-8" class="">
+           <div id="step-9" class="">
                 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Revisión Organos</h3>
@@ -1105,7 +1475,7 @@
                		</div>
                  </div>
                  
-                     <div id="step-9" class="">
+                     <div id="step-10" class="">
                 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Constantes Vitales y Antropometría</h3>
@@ -1220,7 +1590,7 @@
           
           
           
-			<div id="step-10" class="">
+			<div id="step-11" class="">
                 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Exámen Físico Regional</h3>
@@ -1295,7 +1665,7 @@
           
           
           
-           <div id="step-11" class="">
+           <div id="step-12" class="">
                    <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Resultado de Examenes Generales y Especificos</h3>
@@ -1365,7 +1735,7 @@
                			</div>
                		</div>
            </div>
-           <div id="step-12" class="">
+           <div id="step-13" class="">
              <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Diagnostico</h3>
@@ -1436,7 +1806,7 @@
                			</div>
                		</div>
            </div>
-           <div id="step-13" class="">
+           <div id="step-14" class="">
                         <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Aptitud Médica</h3>
@@ -1508,7 +1878,7 @@
                			</div>
                		</div>
            </div>
-           <div id="step-14" class="">
+           <div id="step-15" class="">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">DESCRIPCIÓN: Recomendaciones y/o Tratamiento.</h3>
@@ -1565,22 +1935,23 @@
     <script src="view/bootstrap/bower_components/jquery-ui-1.12.1/jquery-ui.js"></script> 
     <script src="view/bootstrap/otros/notificaciones/notify.js"></script>
 	<script type="text/javascript" src="view/bootstrap/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-	<script type="text/javascript" src="view/js/continuidad/ffspFicha.js?0.1"></script>
-	<script type="text/javascript" src="view/js/continuidad/ffspfichaHabitosToxicos.js?0.7"></script>
-	<script type="text/javascript" src="view/js/continuidad/ffspfichaAccidenteTrabajo.js?0.2"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaEnfermedadProfesional.js?0.5"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaAntecedentesFamiliares.js?0.4"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaFactorRiesgo.js?0.5"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaFactorRiesgoDetalle.js?0.10"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaEstiloVida.js?0.2"></script>
-	<script type="text/javascript" src="view/js/continuidad/ffspfichaRevisionOrganos.js?0.5"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaConstanteVital.js?0.6"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaExamenFisicoRegional.js?0.4"></script>
-	<script type="text/javascript" src="view/js/continuidad/ffspfichaResultadoExamen.js?0.6"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaDiagnostico.js?0.3"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspfichaAptitud.js?0.4"></script>
-    <script type="text/javascript" src="view/js/continuidad/ffspwizardFicha.js?0.35"></script>
-    <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.3"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspFicha.js?0.32"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaHabitosToxicos.js?0.7"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaEstiloVida.js?0.2"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspfichaEmpleoAnterior.js?0.2"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAccidenteTrabajo.js?0.2"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaEnfermedadProfesional.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaConstanteVital.js?0.6"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaResultadoExamen.js?0.6"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaDiagnostico.js?0.3"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAptitud.js?0.4"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaFactorRiesgo.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaFactorRiesgoDetalle.js?0.10"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaAntecedentesFamiliares.js?0.4"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaRevisionOrganos.js?0.5"></script>
+    <script type="text/javascript" src="view/js/inicio/ffspfichaExamenFisicoRegional.js?0.4"></script>
+	<script type="text/javascript" src="view/js/inicio/ffspwizardFicha.js?0.31"></script>
+    <script src="view/bootstrap/bower_components/ckeditor/ckeditor.js?0.2"></script>
     <script src="view/bootstrap/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
   
   

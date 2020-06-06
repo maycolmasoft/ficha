@@ -48,7 +48,7 @@ $(document).ready(function(){
 	
 	formulario.on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
 		
-		//console.log(stepDirection);
+		
 	  if(stepNumber==0){return validaPaso1();}
 	  if(stepNumber==1){return validaPaso2();}
       if(stepNumber==2){return validaPaso3();}
@@ -62,7 +62,7 @@ $(document).ready(function(){
       if(stepNumber==10){return validaPaso11();}
       if(stepNumber==11){return validaPaso12();}
       if(stepNumber==12){return validaPaso13();}
-      if(stepNumber==13){return validaPaso14();}
+      //if(stepNumber==13){return validaPaso14();}
       //if(stepNumber==14){return validaPaso15();}
       
     });
@@ -339,7 +339,7 @@ $(document).ready(function(){
 	   var _fic_id = document.getElementById('fic_id').value;
 	   
 	   //validar por sexo (hombre o mujer)
-	   var _sex_id = document.getElementById('sex_id').value;
+	   /*var _sex_id = document.getElementById('sex_id').value;
 	   var _fic_ant_menarquia = document.getElementById('fic_ant_menarquia').value;
 	   var _fic_ant_ciclos = document.getElementById('fic_ant_ciclos').value;
 	   var _fic_ant_fecha_ultima_mestruacion = document.getElementById('fic_ant_fecha_ultima_mestruacion').value;
@@ -355,7 +355,7 @@ $(document).ready(function(){
 	   var _fic_ant_metodo_planificacion_familiar = document.getElementById('fic_ant_metodo_planificacion_familiar').value;
 	   var _fic_ant_tipo_metodo_planificacion_familiar = document.getElementById('fic_ant_tipo_metodo_planificacion_familiar').value;
 	   
-	    
+	    */
 	   var tiempo = tiempo || 1000;
 	   
 	   if(_fic_id == '' || _fic_id == 0){
@@ -374,7 +374,7 @@ $(document).ready(function(){
 			return false;
 	   }
 	   
-	   
+	   /*
 	   //valido solo si son mujeres
 	   if(_sex_id==2){
 		   
@@ -466,7 +466,7 @@ $(document).ready(function(){
 			   $("#ante_id").notify("Ingrese Exámenes Realizados",{ position:"buttom left", autoHideDelay: 2000});
 				return false; 
 		}
-	   
+	   */
 	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
 	   
 	   if($("#tabla_habitos_toxicos").length) {
@@ -507,7 +507,7 @@ $(document).ready(function(){
 		}).done(function(datos){
 			
 			if(datos.respuesta > 0){
-				/*
+				
 				swal({
 			  		  title: "Actualizando Antecedentes Personales",
 			  		  text: datos.mensaje,
@@ -517,7 +517,7 @@ $(document).ready(function(){
 			  		});
 				
 				return true;	
-				*/
+				
 			}
 			 
 		
@@ -528,7 +528,7 @@ $(document).ready(function(){
 			console.log(err);
 			
 		})
-	 	
+	 	/*
 	 	
 	 	//inserto antecedentes planificacion familiar
 	 	var parametros1 = {
@@ -579,7 +579,7 @@ $(document).ready(function(){
 					console.log(err);
 					
 				})
-	 	
+	 	*/
    }
 	
    
@@ -590,12 +590,12 @@ $(document).ready(function(){
 	   var tiempo = tiempo || 1000;
 	   
 	   //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   if($("#tabla_empleo_anterior").length) {
+	  /* if($("#tabla_empleo_anterior").length) {
 		}else{
 			 $("html, body").animate({ scrollTop: $("#fic_emp_ant_empresa").offset().top-120 }, tiempo);			
 			   $("#fic_emp_ant_empresa").notify("Ingrese Empleos Anteriores",{ position:"buttom left", autoHideDelay: 2000});
 				return false; 
-		}
+		}*/
 	   
 	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
 	   
@@ -701,73 +701,13 @@ $(document).ready(function(){
    
    
    
-   function validaPaso7(){
-	   
-	   var tiempo = tiempo || 1000;
-	   
-	   CKEDITOR.instances.fic_actividades_extra_laborales.updateElement();
-		 
-	   let fic_actividades_extra_laborales = $("#fic_actividades_extra_laborales").val();
-	   var _empl_id = document.getElementById('empl_id').value;
-	   var _fic_id = document.getElementById('fic_id').value;
- 	
-	   if(_fic_id == '' || _fic_id == 0){
-		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-		}
-		if(_empl_id == '' || _empl_id == 0){
-			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		}
-	
-	   if(fic_actividades_extra_laborales == '' || fic_actividades_extra_laborales.length == 0){
-		   $("#fic_actividades_extra_laborales").notify("Ingrese Actividades Extra Laborales.",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	   }
-	  
-		$("#aplicar").attr({disabled:true});
-		
-		   
-		var parametros = {fic_actividades_extra_laborales:fic_actividades_extra_laborales,
-				          empl_id:_empl_id,
-				          fic_id:_fic_id
-				         }
-		   
-	   $.ajax({
-			beforeSend:function(){},
-			url:"index.php?controller=ffsp_ficha&action=InsertaAntecedentesExtraLaborales",
-			type:"POST",
-			dataType:"json",
-			data:parametros
-		}).done(function(datos){
-			
-			if(datos.respuesta > 0){
-				
-				swal({
-			  		  title: "Actualizando Antecedentes Extra Laborales",
-			  		  text: datos.mensaje,
-			  		  icon: "success",
-			  		  button: "Aceptar",
-			  		
-			  		});
-				
-				return true;	
-			}
-		
-		}).fail(function(xhr,status,error){
-			
-			var err = xhr.responseText
-			console.log(err);
-			
-		})
-	   
-   }
+   
    
    
    
    
 
-   function validaPaso8(){
+   function validaPaso7(){
 	   
 	   var tiempo = tiempo || 1000;
 	   
@@ -832,7 +772,7 @@ $(document).ready(function(){
    
    
 
-   function validaPaso9(){
+   function validaPaso8(){
    
 	   var tiempo = tiempo || 1000;
 
@@ -866,7 +806,7 @@ $(document).ready(function(){
    
    
 
-   function validaPaso10(){
+   function validaPaso9(){
    
 	   var tiempo = tiempo || 1000;
 
@@ -898,7 +838,7 @@ $(document).ready(function(){
    }
    
    
-   function validaPaso11(){
+   function validaPaso10(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -930,7 +870,7 @@ $(document).ready(function(){
    }
    
    
- function validaPaso12(){
+ function validaPaso11(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -962,7 +902,7 @@ $(document).ready(function(){
    }
 
  
- function validaPaso13(){
+ function validaPaso12(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -994,7 +934,7 @@ $(document).ready(function(){
    }
    
  
- function validaPaso14(){
+ function validaPaso13(){
 	   
 	   var tiempo = tiempo || 1000;
 

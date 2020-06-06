@@ -354,14 +354,6 @@ function cargaIdentidadGenero(){
 	
 }
 
-$("#ide_id").on("focus",function(){
-	$("#mensaje_identidad_genero").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 
@@ -396,14 +388,6 @@ function cargaEmpresa(){
 	
 }
 
-$("#emp_id").on("focus",function(){
-	$("#mensaje_empresa").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 function cargaOrientacionSexual(){
@@ -433,14 +417,6 @@ function cargaOrientacionSexual(){
 	
 }
 
-$("#ori_id").on("focus",function(){
-	$("#mensaje_orientacion_sexual").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 function cargaReligion(){
@@ -470,14 +446,6 @@ function cargaReligion(){
 	
 }
 
-$("#rel_id").on("focus",function(){
-	$("#mensaje_religion").text("").fadeOut("");
-})
-
-$("#empl_primer_nombre").on("keyup",function(){
-	
-	$(this).val($(this).val().toUpperCase());
-})
 
 
 
@@ -508,9 +476,6 @@ function cargaSexo(){
 	
 }
 
-$("#sex_id").on("focus",function(){
-	$("#mensaje_sexo").text("").fadeOut("");
-})
 
 
 
