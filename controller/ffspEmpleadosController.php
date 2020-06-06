@@ -784,36 +784,25 @@ class ffspEmpleadosController extends ControladorBase{
 	    $empleados = new ffspEmpleadosModel();
 	    
 	    $where_to="";
-	    $columnas  = "ffsp_tbl_empleados.empl_id,
-                      ffsp_tbl_empleados.empl_primer_nombre,
-                      ffsp_tbl_empleados.empl_segundo_nombre,
-                      ffsp_tbl_empleados.empl_primer_apellido,
-                      ffsp_tbl_empleados.empl_segundo_apellido,
-                      ffsp_tbl_identidad_genero.ide_id,
-                      ffsp_tbl_identidad_genero.ide_nombre,
-                      ffsp_tbl_empleados.empl_dni,
-                      ffsp_tbl_empleados.empl_edad,
-                      ffsp_tbl_empleados.empl_grupo_sanguineo,
-                      ffsp_tbl_empleados.empl_fecha_ingreso,
-                      ffsp_tbl_empleados.empl_lugar_trabajo,
-                      ffsp_tbl_empleados.empl_area_trabajo,
-                      ffsp_tbl_empleados.empl_actividades_trabajo,
-                      ffsp_tbl_discapacidad.dis_id,
-                      ffsp_tbl_discapacidad.dis_nombre,
-                      ffsp_tbl_discapacidad.dis_tiene,
-                      ffsp_tbl_discapacidad.dis_porcentaje,
-                      ffsp_tbl_empresa.emp_id,
-                      ffsp_tbl_empresa.emp_nombre,
-                      ffsp_tbl_empresa.emp_ruc,
-                      ffsp_tbl_empresa.emp_ciudad,
-                      ffsp_tbl_orientacion_sexual.ori_id,
-                      ffsp_tbl_orientacion_sexual.ori_nombre,
-                      ffsp_tbl_religion.rel_id,
-                      ffsp_tbl_religion.rel_nombre,
-                      ffsp_tbl_sexo.sex_id,
-                      ffsp_tbl_sexo.sex_nombre";
+	    $columnas  = "c.*, ffsp_tbl_empresa.*,
+                    (select a.fic_id 
+                    from ffsp_tbl_ficha a
+                    inner join ffsp_tbl_tipo_ficha b on a.tip_id=b.tip_id
+                    where b.tip_id=1 and c.empl_id=a.empl_id
+                     ) as inicio,
+                     (select a.fic_id 
+                    from ffsp_tbl_ficha a
+                    inner join ffsp_tbl_tipo_ficha b on a.tip_id=b.tip_id
+                    where b.tip_id=2 and c.empl_id=a.empl_id
+                     ) as continuidad,
+                     (select a.fic_id 
+                    from ffsp_tbl_ficha a
+                    inner join ffsp_tbl_tipo_ficha b on a.tip_id=b.tip_id
+                    where b.tip_id=3 and c.empl_id=a.empl_id
+                     ) as reingreso
+                    ";
 	    
-	    $tablas    = "public.ffsp_tbl_empleados,
+	    $tablas    = "public.ffsp_tbl_empleados c,
                       public.ffsp_tbl_identidad_genero,
                       public.ffsp_tbl_discapacidad,
                       public.ffsp_tbl_empresa,
@@ -821,14 +810,14 @@ class ffspEmpleadosController extends ControladorBase{
                       public.ffsp_tbl_religion,
                       public.ffsp_tbl_sexo";
 	    
-	    $where     = "ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
-                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
-                      ffsp_tbl_empresa.emp_id = ffsp_tbl_empleados.emp_id AND
-                      ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
-                      ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
-                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id";
+	    $where     = "ffsp_tbl_identidad_genero.ide_id = c.ide_id AND
+                      ffsp_tbl_discapacidad.empl_id = c.empl_id AND
+                      ffsp_tbl_empresa.emp_id = c.emp_id AND
+                      ffsp_tbl_orientacion_sexual.ori_id = c.ori_id AND
+                      ffsp_tbl_religion.rel_id = c.rel_id AND
+                      ffsp_tbl_sexo.sex_id = c.sex_id";
 	    
-	    $id        = "ffsp_tbl_empleados.empl_primer_apellido";
+	    $id        = "c.empl_primer_apellido";
 	    
 	    
 	    $action = (isset($_REQUEST['peticion'])&& $_REQUEST['peticion'] !=NULL)?$_REQUEST['peticion']:'';
@@ -878,22 +867,18 @@ class ffspEmpleadosController extends ControladorBase{
 	            $html.= "<table id='tabla_empleados' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
 	            $html.= "<thead>";
 	            $html.= "<tr>";
-	            $html.='<th style="text-align: left;  font-size: 12px;">#</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;"></th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Dni</th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Empleado</th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Empresa</th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Fecha de Ingreso</th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Lugar de Trabajo</th>';
 	            $html.='<th style="text-align: left;  font-size: 12px;">Area de Trabajo</th>';
-	            
-	            
-	            $html.='<th style="text-align: left;  font-size: 12px;"></th>';
-	            
+	            $html.='<th style="text-align: left;  font-size: 12px;">Acciones</th>';
 	            
 	            $html.='</tr>';
 	            $html.='</thead>';
 	            $html.='<tbody>';
-	            
 	            
 	            $i=0;
 	            
@@ -901,7 +886,8 @@ class ffspEmpleadosController extends ControladorBase{
 	            {
 	                $i++;
 	                $html.='<tr>';
-	                $html.='<td style="font-size: 11px;">'.$i.'</td>';
+	                $html.='<td style="font-size: 14px;"><button id="btn_abrir" class="btn btn-warning" type="button" data-toggle="modal" data-target="#mod_ficha" data-id="'.$res->empl_id.'" data-cedu="'.$res->empl_dni.'" data-nombre="'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'"  title="Ingresar Ficha" style="font-size:55%;"><i class="glyphicon glyphicon-plus"></i></button></td>';
+	                
 	                $html.='<td style="font-size: 11px;">'.$res->empl_dni.'</td>';
 	                $html.='<td style="font-size: 11px;">'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'</td>';
 	                $html.='<td style="font-size: 11px;">'.$res->emp_nombre.'</td>';
@@ -909,10 +895,74 @@ class ffspEmpleadosController extends ControladorBase{
 	                $html.='<td style="font-size: 11px;">'.$res->empl_lugar_trabajo.'</td>';
 	                $html.='<td style="font-size: 11px;">'.$res->empl_area_trabajo.'</td>';
 	                
-	                /*comentario up */
+	                $html.='<td style="font-size: 14px;">';
+	                $html.='<div class="btn-group">';
 	                
-	                $html.='<td style="font-size: 15px;"><span class="pull-right"><button id="btn_abrir" class="btn btn-success" type="button" data-toggle="modal" data-target="#mod_ficha" data-id="'.$res->empl_id.'" data-cedu="'.$res->empl_dni.'" data-nombre="'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'"  title="Ingresar Ficha" style="font-size:65%;"><i class="glyphicon glyphicon-edit"></i></button></span></td>';
+	                if((int)$res->inicio > 0 ){
+	                    
+	                    $html.='<a href="index.php?controller=ffsp_ficha&action=index&id='.$res->inicio.'" class="btn btn-primary" title="Ficha Inicio" style="font-size:65%;"><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                }else{
+	                    $html.='<a href="javascript:void(0);" class="btn btn-primary" style="font-size:65%;" title="Ficha Inicio" disabled><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                    
+	                }
 	                
+	                
+	                if((int)$res->continuidad > 0 ){
+	                    
+	                    $html.='<a href="index.php?controller=ffsp_ficha&action=index2&id='.$res->continuidad.'" class="btn btn-info" title="Ficha Continuidad" style="font-size:65%;"><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                }else{
+	                    $html.='<a href="javascript:void(0);" class="btn btn-info" style="font-size:65%;" title="Ficha Continuidad" disabled><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                    
+	                }
+	               
+	                if((int)$res->reingreso > 0 ){
+	                    
+	                    $html.='<a href="index.php?controller=ffsp_ficha&action=index3&id='.$res->reingreso.'" class="btn btn-success" title="Ficha Reingreso" style="font-size:65%;"><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                }else{
+	                    $html.='<a href="javascript:void(0);" class="btn btn-success" style="font-size:65%;" title="Ficha Reingreso" disabled><i class="glyphicon glyphicon-list-alt"></i></a>';
+	                    
+	                }
+	                $html.='</div>';
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                $html.='<br><div class="btn-group">';
+	                
+	                if((int)$res->inicio > 0 ){
+	                   
+	                    $html.='<a target="_blank" href="index.php?controller=ReporteFicha&action=ReporteFicha&fic_id='.$res->inicio.'&sex_id='.$res->sex_id.'" title="Ficha Inicio"><img src="view/images/logo_pdf.png" width="31" height="25"></a>';
+	                }else{
+	                    $html.='<a href="javascript:void(0);" title="Ficha Inicio" disabled></a>';
+	                    
+	                }
+	                
+	                
+	                if((int)$res->continuidad > 0 ){
+	                    
+	                    $html.='<a target="_blank" href="index.php?controller=ReporteFicha&action=ReporteContinuidad&fic_id='.$res->continuidad.'&sex_id='.$res->sex_id.'" title="Ficha Continuidad"><img src="view/images/logo_pdf.png" width="31" height="25"></a>';
+	                    
+	                 }else{
+	                     $html.='<a href="javascript:void(0);" title="Ficha Continuidad" disabled></a>';
+	                     
+	                }
+	                
+	                if((int)$res->reingreso > 0 ){
+	                    $html.='<a target="_blank" href="index.php?controller=ReporteFicha&action=ReporteReintegro&fic_id='.$res->reingreso.'&sex_id='.$res->sex_id.'" title="Ficha Reingreso"><img src="view/images/logo_pdf.png" width="31" height="25"></a>';
+	                    
+	                }else{
+	                    $html.='<a href="javascript:void(0);" title="Ficha Reingreso" disabled></a>';
+	                    
+	                }
+	                $html.='</div>';
+	                
+	                
+	                
+	                $html.='</td>';
 	                
 	                $html.='</tr>';
 	            }
