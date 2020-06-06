@@ -20,58 +20,69 @@ class ReporteFichaController extends ControladorBase{
         
         $datos_reporte = array();
         
-        $columnas = "   ffsp_tbl_ficha.empl_id, 
-                        ffsp_tbl_empleados.empl_primer_nombre, 
-                        ffsp_tbl_empleados.empl_segundo_nombre, 
-                        ffsp_tbl_empleados.empl_primer_apellido, 
-                        ffsp_tbl_empleados.empl_segundo_apellido, 
-                        ffsp_tbl_identidad_genero.ide_id, 
-                        ffsp_tbl_identidad_genero.ide_nombre, 
-                        ffsp_tbl_empleados.empl_dni, 
-                        ffsp_tbl_empleados.empl_edad, 
-                        ffsp_tbl_empleados.empl_grupo_sanguineo, 
-                        ffsp_tbl_empleados.empl_fecha_ingreso, 
-                        ffsp_tbl_empleados.empl_lugar_trabajo, 
-                        ffsp_tbl_empleados.empl_area_trabajo, 
-                        ffsp_tbl_empleados.empl_actividades_trabajo, 
-                        ffsp_tbl_orientacion_sexual.ori_id, 
-                        ffsp_tbl_orientacion_sexual.ori_nombre, 
-                        ffsp_tbl_religion.rel_id, 
-                        ffsp_tbl_religion.rel_nombre, 
-                        ffsp_tbl_sexo.sex_id, 
-                        ffsp_tbl_sexo.sex_nombre, 
-                        ffsp_tbl_tipo_ficha.tip_id, 
-                        ffsp_tbl_tipo_ficha.tip_nombre, 
-                        ffsp_tbl_empresa.emp_id, 
-                        ffsp_tbl_empresa.emp_nombre, 
-                        ffsp_tbl_empresa.emp_ruc, 
-                        ffsp_tbl_empresa.emp_ciudad, 
-                        ffsp_tbl_ficha.fic_fecha_registro, 
-                        ffsp_tbl_ficha.fic_motivo_consulta, 
-                        ffsp_tbl_ficha.fic_antecedentes_personales, 
-                        ffsp_tbl_ficha.fic_id,
-                        ffsp_tbl_ficha.fic_actividades_extra_laborales, 
-                        ffsp_tbl_ficha.fic_enfermedad_actual,
-                        ffsp_tbl_ficha.fic_motivo_consulta";
+        $columnas = " ffsp_tbl_ficha.fic_id, 
+                      ffsp_tbl_empleados.empl_id, 
+                      ffsp_tbl_empleados.empl_primer_nombre, 
+                      ffsp_tbl_empleados.empl_segundo_nombre, 
+                      ffsp_tbl_empleados.empl_primer_apellido, 
+                      ffsp_tbl_empleados.empl_segundo_apellido, 
+                      ffsp_tbl_discapacidad.dis_id, 
+                      ffsp_tbl_discapacidad.dis_nombre, 
+                      ffsp_tbl_discapacidad.dis_porcentaje, 
+                      ffsp_tbl_discapacidad.dis_tiene, 
+                      ffsp_tbl_discapacidad.empl_id, 
+                      ffsp_tbl_identidad_genero.ide_id, 
+                      ffsp_tbl_identidad_genero.ide_nombre, 
+                      ffsp_tbl_empleados.empl_dni, 
+                      ffsp_tbl_empleados.empl_edad, 
+                      ffsp_tbl_empleados.empl_grupo_sanguineo, 
+                      ffsp_tbl_empleados.empl_fecha_ingreso, 
+                      ffsp_tbl_empleados.empl_lugar_trabajo, 
+                      ffsp_tbl_empleados.empl_area_trabajo, 
+                      ffsp_tbl_empleados.empl_actividades_trabajo, 
+                      ffsp_tbl_orientacion_sexual.ori_id, 
+                      ffsp_tbl_orientacion_sexual.ori_nombre, 
+                      ffsp_tbl_religion.rel_id, 
+                      ffsp_tbl_religion.rel_nombre, 
+                      ffsp_tbl_sexo.sex_id, 
+                      ffsp_tbl_sexo.sex_nombre, 
+                      ffsp_tbl_tipo_ficha.tip_id, 
+                      ffsp_tbl_tipo_ficha.tip_nombre, 
+                      ffsp_tbl_empresa.emp_id, 
+                      ffsp_tbl_empresa.emp_nombre, 
+                      ffsp_tbl_empresa.emp_ruc, 
+                      ffsp_tbl_empresa.emp_ciudad, 
+                      ffsp_tbl_ficha.fic_fecha_registro, 
+                      ffsp_tbl_ficha.fic_motivo_consulta, 
+                      ffsp_tbl_ficha.fic_antecedentes_personales, 
+                      ffsp_tbl_ficha.fic_actividades_extra_laborales, 
+                      ffsp_tbl_ficha.fic_enfermedad_actual, 
+                      ffsp_tbl_ficha.fic_recomendacion_tratamiento";
         
         $tablas = "   public.ffsp_tbl_ficha, 
                       public.ffsp_tbl_empleados, 
+                      public.ffsp_tbl_discapacidad, 
                       public.ffsp_tbl_empresa, 
-                      public.ffsp_tbl_tipo_ficha, 
-                      public.ffsp_tbl_identidad_genero, 
                       public.ffsp_tbl_orientacion_sexual, 
                       public.ffsp_tbl_religion, 
-                      public.ffsp_tbl_sexo";
-        $where= "     ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      public.ffsp_tbl_identidad_genero, 
+                      public.ffsp_tbl_sexo, 
+                      public.ffsp_tbl_tipo_ficha";
+        $where= "     ffsp_tbl_ficha.tip_id = ffsp_tbl_tipo_ficha.tip_id AND
+                      ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_ficha.emp_id AND
-                      ffsp_tbl_tipo_ficha.tip_id = ffsp_tbl_ficha.tip_id AND
-                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
-                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND  ffsp_tbl_ficha.fic_id='$fic_id'";
+                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND 
+                      ffsp_tbl_ficha.fic_id='$fic_id'";
        $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
+        
+        
+       
         
         
         $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
@@ -96,6 +107,10 @@ class ReporteFichaController extends ControladorBase{
         $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
         $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
         $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta; 
+        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
+        
         
        
         
@@ -1160,58 +1175,82 @@ class ReporteFichaController extends ControladorBase{
         
         $datos_reporte = array();
         
-        $columnas = "   ffsp_tbl_ficha.empl_id,
-                        ffsp_tbl_empleados.empl_primer_nombre,
-                        ffsp_tbl_empleados.empl_segundo_nombre,
-                        ffsp_tbl_empleados.empl_primer_apellido,
-                        ffsp_tbl_empleados.empl_segundo_apellido,
-                        ffsp_tbl_identidad_genero.ide_id,
-                        ffsp_tbl_identidad_genero.ide_nombre,
-                        ffsp_tbl_empleados.empl_dni,
-                        ffsp_tbl_empleados.empl_edad,
-                        ffsp_tbl_empleados.empl_grupo_sanguineo,
-                        ffsp_tbl_empleados.empl_fecha_ingreso,
-                        ffsp_tbl_empleados.empl_lugar_trabajo,
-                        ffsp_tbl_empleados.empl_area_trabajo,
-                        ffsp_tbl_empleados.empl_actividades_trabajo,
-                        ffsp_tbl_orientacion_sexual.ori_id,
-                        ffsp_tbl_orientacion_sexual.ori_nombre,
-                        ffsp_tbl_religion.rel_id,
-                        ffsp_tbl_religion.rel_nombre,
-                        ffsp_tbl_sexo.sex_id,
-                        ffsp_tbl_sexo.sex_nombre,
-                        ffsp_tbl_tipo_ficha.tip_id,
-                        ffsp_tbl_tipo_ficha.tip_nombre,
-                        ffsp_tbl_empresa.emp_id,
-                        ffsp_tbl_empresa.emp_nombre,
-                        ffsp_tbl_empresa.emp_ruc,
-                        ffsp_tbl_empresa.emp_ciudad,
-                        ffsp_tbl_ficha.fic_fecha_registro,
-                        ffsp_tbl_ficha.fic_motivo_consulta,
-                        ffsp_tbl_ficha.fic_antecedentes_personales,
-                        ffsp_tbl_ficha.fic_id,
-                        ffsp_tbl_ficha.fic_actividades_extra_laborales,
-                        ffsp_tbl_ficha.fic_enfermedad_actual,
-                        ffsp_tbl_ficha.fic_motivo_consulta";
+        $columnas = " ffsp_tbl_ficha.fic_id,
+                      ffsp_tbl_empleados.empl_id,
+                      ffsp_tbl_empleados.empl_primer_nombre,
+                      ffsp_tbl_empleados.empl_segundo_nombre,
+                      ffsp_tbl_empleados.empl_primer_apellido,
+                      ffsp_tbl_empleados.empl_segundo_apellido,
+                      ffsp_tbl_discapacidad.dis_id,
+                      ffsp_tbl_discapacidad.dis_nombre,
+                      ffsp_tbl_discapacidad.dis_porcentaje,
+                      ffsp_tbl_discapacidad.dis_tiene,
+                      ffsp_tbl_discapacidad.empl_id,
+                      ffsp_tbl_identidad_genero.ide_id,
+                      ffsp_tbl_identidad_genero.ide_nombre,
+                      ffsp_tbl_empleados.empl_dni,
+                      ffsp_tbl_empleados.empl_edad,
+                      ffsp_tbl_empleados.empl_grupo_sanguineo,
+                      ffsp_tbl_empleados.empl_fecha_ingreso,
+                      ffsp_tbl_empleados.empl_lugar_trabajo,
+                      ffsp_tbl_empleados.empl_area_trabajo,
+                      ffsp_tbl_empleados.empl_actividades_trabajo,
+                      ffsp_tbl_orientacion_sexual.ori_id,
+                      ffsp_tbl_orientacion_sexual.ori_nombre,
+                      ffsp_tbl_religion.rel_id,
+                      ffsp_tbl_religion.rel_nombre,
+                      ffsp_tbl_sexo.sex_id,
+                      ffsp_tbl_sexo.sex_nombre,
+                      ffsp_tbl_tipo_ficha.tip_id,
+                      ffsp_tbl_tipo_ficha.tip_nombre,
+                      ffsp_tbl_empresa.emp_id,
+                      ffsp_tbl_empresa.emp_nombre,
+                      ffsp_tbl_empresa.emp_ruc,
+                      ffsp_tbl_empresa.emp_ciudad,
+                      ffsp_tbl_ficha.fic_fecha_registro,
+                      ffsp_tbl_ficha.fic_motivo_consulta,
+                      ffsp_tbl_ficha.fic_antecedentes_personales,
+                      ffsp_tbl_ficha.fic_actividades_extra_laborales,
+                      ffsp_tbl_ficha.fic_enfermedad_actual,
+                      ffsp_tbl_ficha.fic_recomendacion_tratamiento";
         
         $tablas = "   public.ffsp_tbl_ficha,
                       public.ffsp_tbl_empleados,
+                      public.ffsp_tbl_discapacidad,
                       public.ffsp_tbl_empresa,
-                      public.ffsp_tbl_tipo_ficha,
-                      public.ffsp_tbl_identidad_genero,
                       public.ffsp_tbl_orientacion_sexual,
                       public.ffsp_tbl_religion,
-                      public.ffsp_tbl_sexo";
-        $where= "     ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      public.ffsp_tbl_identidad_genero,
+                      public.ffsp_tbl_sexo,
+                      public.ffsp_tbl_tipo_ficha";
+        $where= "     ffsp_tbl_ficha.tip_id = ffsp_tbl_tipo_ficha.tip_id AND
+                      ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_ficha.emp_id AND
-                      ffsp_tbl_tipo_ficha.tip_id = ffsp_tbl_ficha.tip_id AND
-                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
-                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND  ffsp_tbl_ficha.fic_id='$fic_id'";
+                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND
+                      ffsp_tbl_ficha.fic_id='$fic_id'";
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
+        
+       
+        if($rsdatos[0]->dis_tiene=="t"){
+            
+            $rsdatos[0]->dis_tiene=="SI";
+        }
+        
+        else
+        
+        {
+            
+            $rsdatos[0]->dis_tiene=="NO";
+            
+        }
+        
+        
         
         
         $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
@@ -1236,6 +1275,9 @@ class ReporteFichaController extends ControladorBase{
         $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
         $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
         $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
+        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
         
         
         
@@ -2299,59 +2341,80 @@ class ReporteFichaController extends ControladorBase{
         
         $datos_reporte = array();
         
-        $columnas = "   ffsp_tbl_ficha.empl_id,
-                        ffsp_tbl_empleados.empl_primer_nombre,
-                        ffsp_tbl_empleados.empl_segundo_nombre,
-                        ffsp_tbl_empleados.empl_primer_apellido,
-                        ffsp_tbl_empleados.empl_segundo_apellido,
-                        ffsp_tbl_identidad_genero.ide_id,
-                        ffsp_tbl_identidad_genero.ide_nombre,
-                        ffsp_tbl_empleados.empl_dni,
-                        ffsp_tbl_empleados.empl_edad,
-                        ffsp_tbl_empleados.empl_grupo_sanguineo,
-                        ffsp_tbl_empleados.empl_fecha_ingreso,
-                        ffsp_tbl_empleados.empl_lugar_trabajo,
-                        ffsp_tbl_empleados.empl_area_trabajo,
-                        ffsp_tbl_empleados.empl_actividades_trabajo,
-                        ffsp_tbl_orientacion_sexual.ori_id,
-                        ffsp_tbl_orientacion_sexual.ori_nombre,
-                        ffsp_tbl_religion.rel_id,
-                        ffsp_tbl_religion.rel_nombre,
-                        ffsp_tbl_sexo.sex_id,
-                        ffsp_tbl_sexo.sex_nombre,
-                        ffsp_tbl_tipo_ficha.tip_id,
-                        ffsp_tbl_tipo_ficha.tip_nombre,
-                        ffsp_tbl_empresa.emp_id,
-                        ffsp_tbl_empresa.emp_nombre,
-                        ffsp_tbl_empresa.emp_ruc,
-                        ffsp_tbl_empresa.emp_ciudad,
-                        ffsp_tbl_ficha.fic_fecha_registro,
-                        ffsp_tbl_ficha.fic_motivo_consulta,
-                        ffsp_tbl_ficha.fic_antecedentes_personales,
-                        ffsp_tbl_ficha.fic_id,
-                        ffsp_tbl_ficha.fic_actividades_extra_laborales,
-                        ffsp_tbl_ficha.fic_enfermedad_actual,
-                        ffsp_tbl_ficha.fic_motivo_consulta";
+        $columnas = " ffsp_tbl_ficha.fic_id,
+                      ffsp_tbl_empleados.empl_id,
+                      ffsp_tbl_empleados.empl_primer_nombre,
+                      ffsp_tbl_empleados.empl_segundo_nombre,
+                      ffsp_tbl_empleados.empl_primer_apellido,
+                      ffsp_tbl_empleados.empl_segundo_apellido,
+                      ffsp_tbl_discapacidad.dis_id,
+                      ffsp_tbl_discapacidad.dis_nombre,
+                      ffsp_tbl_discapacidad.dis_porcentaje,
+                      ffsp_tbl_discapacidad.dis_tiene,
+                      ffsp_tbl_discapacidad.empl_id,
+                      ffsp_tbl_identidad_genero.ide_id,
+                      ffsp_tbl_identidad_genero.ide_nombre,
+                      ffsp_tbl_empleados.empl_dni,
+                      ffsp_tbl_empleados.empl_edad,
+                      ffsp_tbl_empleados.empl_grupo_sanguineo,
+                      ffsp_tbl_empleados.empl_fecha_ingreso,
+                      ffsp_tbl_empleados.empl_lugar_trabajo,
+                      ffsp_tbl_empleados.empl_area_trabajo,
+                      ffsp_tbl_empleados.empl_actividades_trabajo,
+                      ffsp_tbl_orientacion_sexual.ori_id,
+                      ffsp_tbl_orientacion_sexual.ori_nombre,
+                      ffsp_tbl_religion.rel_id,
+                      ffsp_tbl_religion.rel_nombre,
+                      ffsp_tbl_sexo.sex_id,
+                      ffsp_tbl_sexo.sex_nombre,
+                      ffsp_tbl_tipo_ficha.tip_id,
+                      ffsp_tbl_tipo_ficha.tip_nombre,
+                      ffsp_tbl_empresa.emp_id,
+                      ffsp_tbl_empresa.emp_nombre,
+                      ffsp_tbl_empresa.emp_ruc,
+                      ffsp_tbl_empresa.emp_ciudad,
+                      ffsp_tbl_ficha.fic_fecha_registro,
+                      ffsp_tbl_ficha.fic_motivo_consulta,
+                      ffsp_tbl_ficha.fic_antecedentes_personales,
+                      ffsp_tbl_ficha.fic_actividades_extra_laborales,
+                      ffsp_tbl_ficha.fic_enfermedad_actual,
+                      ffsp_tbl_ficha.fic_recomendacion_tratamiento";
         
         $tablas = "   public.ffsp_tbl_ficha,
                       public.ffsp_tbl_empleados,
+                      public.ffsp_tbl_discapacidad,
                       public.ffsp_tbl_empresa,
-                      public.ffsp_tbl_tipo_ficha,
-                      public.ffsp_tbl_identidad_genero,
                       public.ffsp_tbl_orientacion_sexual,
                       public.ffsp_tbl_religion,
-                      public.ffsp_tbl_sexo";
-        $where= "     ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      public.ffsp_tbl_identidad_genero,
+                      public.ffsp_tbl_sexo,
+                      public.ffsp_tbl_tipo_ficha";
+        $where= "     ffsp_tbl_ficha.tip_id = ffsp_tbl_tipo_ficha.tip_id AND
+                      ffsp_tbl_empleados.empl_id = ffsp_tbl_ficha.empl_id AND
+                      ffsp_tbl_discapacidad.empl_id = ffsp_tbl_empleados.empl_id AND
                       ffsp_tbl_empresa.emp_id = ffsp_tbl_ficha.emp_id AND
-                      ffsp_tbl_tipo_ficha.tip_id = ffsp_tbl_ficha.tip_id AND
-                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
                       ffsp_tbl_orientacion_sexual.ori_id = ffsp_tbl_empleados.ori_id AND
                       ffsp_tbl_religion.rel_id = ffsp_tbl_empleados.rel_id AND
-                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND  ffsp_tbl_ficha.fic_id='$fic_id'";
+                      ffsp_tbl_identidad_genero.ide_id = ffsp_tbl_empleados.ide_id AND
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_empleados.sex_id AND
+                      ffsp_tbl_ficha.fic_id='$fic_id'";
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+    
+        if($rsdatos[0]->dis_tiene=="t"){
+            
+           $rsdatos[0]->dis_tiene=="SI";
+        }
+        
+        else
+        
+        {
+            
+            $rsdatos[0]->dis_tiene=="NO";
+            
+        }
         
         $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
         $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
@@ -2367,7 +2430,6 @@ class ReporteFichaController extends ControladorBase{
         $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
         $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
         $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
-        $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
         $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
         $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
         $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
@@ -2375,8 +2437,11 @@ class ReporteFichaController extends ControladorBase{
         $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
         $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
         $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
+        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
         
-        
+
         
         
         /*

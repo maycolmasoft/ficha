@@ -56,23 +56,31 @@
   	
   	<table class="1" border="1">
   	<tr>
-  	<td Class="1">ORIENTACION SEXUAL</td>
-  	<td Class="1">IDENTIDAD DE GÉNERO</td>
-  	<td Class="1">DISCAPACIDAD</td>
-  	<td Class="1">FECHA DE INGRESO AL TRABAJO</td>
-  	<td Class="1">PUESTO DE TRABAJO(CIUO)</td>
-  	<td Class="1">ÁREA DE TRABAJO</td>
-  	<td Class="1">ACTIVIDADES RELEVANTES AL PUESTO DE TRABAJO A OCUPAR</td>
+  	<td Class="1" rowspan="2">ORIENTACION SEXUAL</td>
+  	<td Class="1" rowspan="2">IDENTIDAD DE GÉNERO</td>
+  	<td Class="1"  colspan="3">DISCAPACIDAD</td>
+  	<td Class="1" rowspan="2">FECHA DE INGRESO AL TRABAJO</td>
+  	<td Class="1" rowspan="2">PUESTO DE TRABAJO(CIUO)</td>
+  	<td Class="1" rowspan="2">ÁREA DE TRABAJO</td>
+  	<td Class="1" rowspan="2">ACTIVIDADES RELEVANTES AL PUESTO DE TRABAJO A OCUPAR</td>
   	</tr>
+  	<tr>
+  	<td Class="1">SI/NO</td>
+  	<td Class="1">NOMBRE</td>
+  	<td Class="1">PORCENTAJE</td>
+  	</tr>
+  	
   	<tr>
   	<td>{ORIENTACION_SEXUAL}</td>
   	<td>{IDENTIDAD_GENERO}</td>
-  	<td>{DISCAPACIDAD_EMPLEADO}</td>
+  	<td>{TIENE_DISCAPACIDAD}</td>
+  	<td>{NOMBRE_DISCAPACIDAD}</td>
+  	<td>{PORCENTAJE_DISCAPACIDAD}</td>
   	<td>{FECHA_INGRESO}</td>
   	<td>{PUESTO_TRABAJO}</td>
   	<td>{AREA_TRABAJO}</td>
     <td>{ACTIVIDADES_TRABAJO}</td>
-  	</tr>
+    </tr>
   	</table>
   	
   	<table class="1" border="1">
