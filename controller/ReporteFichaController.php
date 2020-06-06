@@ -244,7 +244,7 @@ class ReporteFichaController extends ControladorBase{
                       public.ffsp_tbl_ficha, 
                       public.ffsp_tbl_sexo";
         $where= "     ffsp_tbl_ficha.fic_id = ffsp_tbl_ficha_antecedentes.fic_id AND
-                      ffsp_tbl_sexo.sex_id = ffsp_tbl_ficha_antecedentes.sex_id;                                                    
+                      ffsp_tbl_sexo.sex_id = ffsp_tbl_ficha_antecedentes.sex_id                                                    
                       AND  ffsp_tbl_ficha.fic_id='$fic_id'";
         $id="ffsp_tbl_ficha.fic_id";
         
@@ -322,7 +322,7 @@ class ReporteFichaController extends ControladorBase{
         $html.='<tr >';
         $html.='<td class="6">NÚMERO</td>';
         $html.='<td class="4">NOMBRE</td>';
-        $html.='<td class="4">DETALLE</td>';
+        $html.='<td class="4">DESCRIPCIÓN</td>';
         $html.='</td>';
         $html.='</tr>';
         
@@ -332,7 +332,7 @@ class ReporteFichaController extends ControladorBase{
             
             $html.='<tr >';
             $html.='<td class="5">'.$res->ant_numero.'</td>';
-            $html.='<td class="3">'.$res->ant_nombre.'</td>';
+            $html.='<td class="3" width="150px">'.$res->ant_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
             $html.='</td>';
             $html.='</tr>';
@@ -547,7 +547,7 @@ class ReporteFichaController extends ControladorBase{
             
             $html.='<tr >';
             $html.='<td class="5">'.$res->org_numero.'</td>';
-            $html.='<td class="3">'.$res->org_nombre.'</td>';
+            $html.='<td class="3" width="150px">'.$res->org_nombre.'</td>';
             $html.='<td class="3">'.$res->fic_rev_org_descripcion.'</td>';
             $html.='</td>';
             $html.='</tr>';
@@ -755,11 +755,11 @@ class ReporteFichaController extends ControladorBase{
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
-        /*
+        
         $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-       */
+        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+       
         
         
         $columnas = " ffsp_tbl_ficha.fic_id,
@@ -821,6 +821,16 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        
+        $html.='<tr >';
+        $html.='<td class="1">PUESTO DE TRABAJO/ÁREA</td>';
+        $html.='<td class="1">ACTIVIDADES</td>';
+        $html.='<td class="1">FACTOR</td>';
+        $html.='<td class="1">OTRO</td>';
+        $html.='<td class="1">MEDIDAS PREVENTIVAS</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_factores_riesgo as $res)
@@ -956,17 +966,17 @@ class ReporteFichaController extends ControladorBase{
         ///METODO FAMILIAR
         
         
-        $columnas = "   ffsp_tbl_ficha.fic_id, 
-  ffsp_tbl_ficha_antecedentes.fic_ant_hijos_vivos, 
-  ffsp_tbl_ficha_antecedentes.fic_ant_hijos_muertos, 
-  ffsp_tbl_ficha_antecedentes.fic_ant_vida_sexual, 
-  ffsp_tbl_ficha_antecedentes.fic_ant_metodo_planificacion_familiar, 
-  ffsp_tbl_ficha_antecedentes.fic_ant_tipo_metodo_planificacion_familiar";
+        $columnas = "ffsp_tbl_ficha.fic_id, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_hijos_vivos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_hijos_muertos, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_vida_sexual, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_metodo_planificacion_familiar, 
+                      ffsp_tbl_ficha_antecedentes.fic_ant_tipo_metodo_planificacion_familiar";
         
-        $tablas = "    public.ffsp_tbl_ficha_antecedentes, 
-  public.ffsp_tbl_ficha";
-        $where= "      ffsp_tbl_ficha.fic_id = ffsp_tbl_ficha_antecedentes.fic_id
-                      AND  ffsp_tbl_ficha.fic_id='$fic_id'";
+        $tablas = "public.ffsp_tbl_ficha_antecedentes, 
+                   public.ffsp_tbl_ficha";
+        $where= " ffsp_tbl_ficha.fic_id = ffsp_tbl_ficha_antecedentes.fic_id
+                  AND  ffsp_tbl_ficha.fic_id='$fic_id'";
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos_metodo_familiar = $ficha->getCondiciones($columnas, $tablas, $where, $id);
@@ -979,7 +989,7 @@ class ReporteFichaController extends ControladorBase{
         $html.='<tr >';
         $html.='<td class="4" colspan="2">METODO DE PLANIFICACION FAMILIAR</td>';
         $html.='<td class="4" colspan="2">HIJOS</td>';
-        $html.='</td>';
+       
         $html.='</tr>';
         
         $html.='<tr >';
@@ -987,24 +997,35 @@ class ReporteFichaController extends ControladorBase{
         $html.='<td class="4">TIPO</td>';
         $html.='<td class="4">VIVOS</td>';
         $html.='<td class="4">MUERTOS</td>';
-        $html.='</td>';
+        
         $html.='</tr>';
         
         
         foreach ($rsdatos_metodo_familiar as $res)
         {
+            if($res->fic_ant_metodo_planificacion_familiar=="t"){
+                
+                $res->fic_ant_metodo_planificacion_familiar="SI";
+            }
+            
+            else{
+                
+                $res->fic_ant_metodo_planificacion_familiar="NO";
+            }
+            
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->fic_res_exa_examen.'</td>';
-            $html.='<td class="3">'.$res->fic_res_exa_fecha.'</td>';
-            $html.='<td class="3">'.$res->fic_res_exa_resultados.'</td>';
-            $html.='</td>';
+            $html.='<td class="3" align="center">'.$res->fic_ant_metodo_planificacion_familiar.'</td>';
+            $html.='<td class="3" align="center">'.$res->fic_ant_tipo_metodo_planificacion_familiar.'</td>';
+            $html.='<td class="3" align="center">'.$res->fic_ant_hijos_vivos.'</td>';
+            $html.='<td class="3" align="center">'.$res->fic_ant_hijos_muertos.'</td>';
+           
             $html.='</tr>';
         }
         
         $html.='</table>';
         
-        $datos_reporte['DETALLE_PLANIFICACION_FAMILIAR']= $html;
+        $datos_reporte['DETALLE_PLANIFICACION_FAMILIAR1']= $html;
         
         
         
@@ -1882,6 +1903,18 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        
+        
+        
+        $html.='<tr >';
+        $html.='<td class="1">PUESTO DE TRABAJO/ÁREA</td>';
+        $html.='<td class="1">ACTIVIDADES</td>';
+        $html.='<td class="1">FACTOR</td>';
+        $html.='<td class="1">OTRO</td>';
+        $html.='<td class="1">MEDIDAS PREVENTIVAS</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_factores_riesgo as $res)
@@ -2940,6 +2973,16 @@ class ReporteFichaController extends ControladorBase{
         
         
         $html.='<table class="1" border=1>';
+        
+        
+        $html.='<tr >';
+        $html.='<td class="1">PUESTO DE TRABAJO/ÁREA</td>';
+        $html.='<td class="1">ACTIVIDADES</td>';
+        $html.='<td class="1">FACTOR</td>';
+        $html.='<td class="1">OTRO</td>';
+        $html.='<td class="1">MEDIDAS PREVENTIVAS</td>';
+        $html.='</td>';
+        $html.='</tr>';
         
         
         foreach ($rsdatos_factores_riesgo as $res)
