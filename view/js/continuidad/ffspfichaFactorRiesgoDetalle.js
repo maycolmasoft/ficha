@@ -1,113 +1,12 @@
 $(document).ready(function(){
-	search_ficha_factor_riesgo_detalle();
+	search_ficha_factor_riesgo_detalle(1);
 	cargaFactorRiesgoFicha();
 	cargaFactorRiesgoCabeza();
+	
 	
 })
 
 	
-function cargaFactorRiesgoFicha(){
-	
-	let $ddlEmpresa= $("#fic_fact_ries_id");
-	var fic_id = document.getElementById('fic_id').value;
-		
-	$.ajax({
-		beforeSend:function(){},
-		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoFicha",
-		type:"POST",
-		dataType:"json",
-		data:{fic_id:fic_id}
-	}).done(function(datos){		
-		
-		$ddlEmpresa.empty();
-		$ddlEmpresa.append("<option value='0' >--Seleccione--</option>");
-		
-		$.each(datos.data, function(index, value) {
-			$ddlEmpresa.append("<option value= " +value.fic_fact_ries_id +" >" + value.fic_fact_ries_puesto_trabajo  + "</option>");	
-  		});
-		
-	}).fail(function(xhr,status,error){
-		var err = xhr.responseText
-		console.log(err)
-		$ddlEmpresa.empty();
-	})
-	
-}
-function cargaFactorRiesgoCabeza(){
-	
-	let $ddlEmpresa1= $("#fac_id_detalle");
-	
-	$.ajax({
-		beforeSend:function(){},
-		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoCabeza",
-		type:"POST",
-		dataType:"json",
-		data:null
-	}).done(function(datos){		
-		
-		$ddlEmpresa1.empty();
-		$ddlEmpresa1.append("<option value='0' >--Seleccione--</option>");
-		
-		$.each(datos.data, function(index, value) {
-			$ddlEmpresa1.append("<option value= " +value.fac_id+" >" + value.fac_nombre  + "</option>");	
-  		});
-		
-	}).fail(function(xhr,status,error){
-		var err = xhr.responseText
-		console.log(err)
-		$ddlEmpresa1.empty();
-	})
-	
-}
-function cargaFactorRiesgoDetalle(fac_id){
-	
-	let $ddlEmpresa2= $("#fact_id");
-	  
-	
-	$.ajax({
-		beforeSend:function(){},
-		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoDetalle",
-		type:"POST",
-		dataType:"json",
-		data:{fac_id:fac_id}
-	}).done(function(datos){		
-		
-		$ddlEmpresa2.empty();
-		$ddlEmpresa2.append("<option value='0' >--Seleccione--</option>");
-		
-		$.each(datos.data, function(index, value) {
-			$ddlEmpresa2.append("<option value= " +value.fact_id +" >" + value.fact_nombre  + "</option>");	
-  		});
-		
-	}).fail(function(xhr,status,error){
-		var err = xhr.responseText
-		console.log(err)
-		$ddlEmpresa2.empty();
-		$ddlEmpresa2.append("<option value='0' >--Seleccione--</option>");
-		
-	})
-	
-}
-
-
-$("#fac_id_detalle").click(function() {
-	
-    var fac_id_detalle = $(this).val();
-    
-	cargaFactorRiesgoDetalle(fac_id_detalle);
-    
-    
-    
-    
-  });
-  
-  $("#fac_id_detalle").change(function() {
-		    
-        var fac_id_detalle = $(this).val();
-
-    	cargaFactorRiesgoDetalle(fac_id_detalle);
-        
-	    });
 	
   function AgregarFactorRiesgoDetalle(){
 	   
@@ -124,10 +23,6 @@ $("#fac_id_detalle").click(function() {
 	   if(_fact_id == 0){
 		   $("#mensaje_fact_id").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
 			return false;
-	   }
-	   if(_fic_fact_ries_det_otros=="" || _fic_fact_ries_det_otros.length == 0){
-			   $("#mensaje_fic_fact_ries_det_otros").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
 	   }
 	
 	   $("#aplicar").attr({disabled:true});
@@ -152,10 +47,14 @@ $("#fac_id_detalle").click(function() {
 			if(datos.respuesta > 0){
 				
 				
+				$("#fac_id_detalle").val("0");
 				$("#fact_id").val("0");
 				$("#fic_fact_ries_det_otros").val("");
 				
+				
+				
 				search_ficha_factor_riesgo_detalle(1);
+			      
 				
 				swal({
 			  		  title: "Agregando Factor Riesgo Detalle",
@@ -181,6 +80,7 @@ $("#fac_id_detalle").click(function() {
 
   function search_ficha_factor_riesgo_detalle(_page = 1){
   	
+  	 var _fic_id = document.getElementById('fic_id').value;
   	 var _fic_fact_ries_id = document.getElementById('fic_fact_ries_id').value;
   	  
   	
@@ -189,7 +89,7 @@ $("#fac_id_detalle").click(function() {
 	    	    
   		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=search_ficha_factor_riesgo_detalle",
   		type:"POST",
-  		data:{page:_page,peticion:'ajax', fic_fact_ries_id:_fic_fact_ries_id}
+  		data:{page:_page,peticion:'ajax', fic_fact_ries_id:_fic_fact_ries_id, fic_id:_fic_id}
   	}).done(function(datos){		
   		
   		$("#ficha_factor_riesgo_detalle_registrados").html(datos);	
@@ -281,3 +181,137 @@ $("#fac_id_detalle").click(function() {
   	
   	return false;
   }
+
+
+  function cargaFactorRiesgoFicha(){
+  	
+  	let $ddlEmpresa= $("#fic_fact_ries_id");
+  	var fic_id = document.getElementById('fic_id').value;
+  		
+  	$.ajax({
+  		beforeSend:function(){},
+  		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoFicha",
+  		type:"POST",
+  		dataType:"json",
+  		data:{fic_id:fic_id}
+  	}).done(function(datos){		
+  		
+  		$ddlEmpresa.empty();
+  		$ddlEmpresa.append("<option value='0' >--Seleccione--</option>");
+  		
+  		$.each(datos.data, function(index, value) {
+  			$ddlEmpresa.append("<option value= " +value.fic_fact_ries_id +" >" + value.fic_fact_ries_puesto_trabajo  + "</option>");	
+    		});
+  		
+  	}).fail(function(xhr,status,error){
+  		var err = xhr.responseText
+  		console.log(err)
+  		$ddlEmpresa.empty();
+  		$ddlEmpresa.append("<option value='0' >--Seleccione--</option>");
+  		
+  	})
+  	
+  }
+  function cargaFactorRiesgoCabeza(){
+  	
+  	let $ddlEmpresa1= $("#fac_id_detalle");
+  	
+  	$.ajax({
+  		beforeSend:function(){},
+  		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoCabeza",
+  		type:"POST",
+  		dataType:"json",
+  		data:null
+  	}).done(function(datos){		
+  		
+  		$ddlEmpresa1.empty();
+  		$ddlEmpresa1.append("<option value='0' >--Seleccione--</option>");
+  		
+  		$.each(datos.data, function(index, value) {
+  			$ddlEmpresa1.append("<option value= " +value.fac_id+" >" + value.fac_nombre  + "</option>");	
+    		});
+  		
+  	}).fail(function(xhr,status,error){
+  		var err = xhr.responseText
+  		console.log(err)
+  		$ddlEmpresa1.empty();
+  	})
+  	
+  }
+  function cargaFactorRiesgoDetalle(fac_id){
+  	
+  	let $ddlEmpresa2= $("#fact_id");
+  	  
+  	
+  	$.ajax({
+  		beforeSend:function(){},
+  		url:"index.php?controller=ffspfichaFactorRiesgoDetalle&action=cargaFactorRiesgoDetalle",
+  		type:"POST",
+  		dataType:"json",
+  		data:{fac_id:fac_id}
+  	}).done(function(datos){		
+  		
+  		$ddlEmpresa2.empty();
+  		$ddlEmpresa2.append("<option value='0' >--Seleccione--</option>");
+  		
+  		$.each(datos.data, function(index, value) {
+  			$ddlEmpresa2.append("<option value= " +value.fact_id +" >" + value.fact_nombre  + "</option>");	
+    		});
+  		
+  	}).fail(function(xhr,status,error){
+  		var err = xhr.responseText
+  		console.log(err)
+  		$ddlEmpresa2.empty();
+  		$ddlEmpresa2.append("<option value='0' >--Seleccione--</option>");
+  		
+  	})
+  	
+  }
+
+
+  $("#fac_id_detalle").click(function() {
+  	
+      var fac_id_detalle = $(this).val();
+      
+  	cargaFactorRiesgoDetalle(fac_id_detalle);
+      
+      
+      
+      
+    });
+    
+    $("#fac_id_detalle").change(function() {
+  		    
+          var fac_id_detalle = $(this).val();
+
+      	cargaFactorRiesgoDetalle(fac_id_detalle);
+          
+  	    });
+    
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href");
+        if ((target == '#detalle')) {
+        	cargaFactorRiesgoFicha();
+        	
+        } 
+    });
+    
+    $("#fic_fact_ries_id").click(function() {
+      	
+        var fic_fact_ries_id = $(this).val();
+        
+        search_ficha_factor_riesgo_detalle(1);
+        
+        
+        
+        
+      });
+      
+      $("#fic_fact_ries_id").change(function() {
+    		    
+            var fic_fact_ries_id = $(this).val();
+
+            search_ficha_factor_riesgo_detalle(1);
+            
+    	    });
+  

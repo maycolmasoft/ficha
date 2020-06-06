@@ -10,6 +10,8 @@ $(document).ready(function(){
 	cargaSexo();
 	cargarEmpleados();
 	search_antecedentes_detalle(1);
+	cargarficha_datos();
+	cargarAntecedentesEdicionFinal();
 	CKEDITOR.replace('fic_motivo_consulta');
 	CKEDITOR.instances.fic_motivo_consulta.setData(""); 
 	CKEDITOR.replace('fic_antecedentes_personales');
@@ -120,7 +122,7 @@ function cargarEmpleados(){
 		
 	})
 	
-	return false;
+
 	
 }
 
@@ -619,4 +621,145 @@ $("#empl_primer_nombre").on("keyup",function(){
 	    	
 	    	return false;
 	    }
+	    
+	    
+	    
+	    
+	    
+	    
+
+	    function cargarficha_datos(){
+	    	    
+	         fic_id=document.getElementById('fic_id').value;
+	       //  var _fic_id = document.getElementById('fic_id').value;
+	    	var tiempo = tiempo || 1000;
+	    		
+	    	$.ajax({
+	    		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
+	    		url:"index.php?controller=ffsp_ficha&action=cargarDatosFicha",
+	    		type:"POST",
+	    		dataType:"json",
+	    		data:{fic_id:fic_id}
+	    	}).done(function(datos){
+	    		
+	    		if(!jQuery.isEmptyObject(datos.data)){
+	    			
+	    			var array = datos.data[0];		
+	    			
+	    			CKEDITOR.instances.fic_motivo_consulta.setData(array.fic_motivo_consulta);
+	    			CKEDITOR.instances.fic_antecedentes_personales.setData(array.fic_antecedentes_personales);
+	    			CKEDITOR.instances.fic_actividades_extra_laborales.setData(array.fic_actividades_extra_laborales);
+	    			CKEDITOR.instances.fic_enfermedad_actual.setData(array.fic_enfermedad_actual);
+	    			CKEDITOR.instances.fic_recomendacion_tratamiento.setData(array.fic_recomendacion_tratamiento);
+	    			
+	    			
+	    			
+	    		}
+	    		
+	    		
+	    		
+	    	}).fail(function(xhr,status,error){
+	    		
+	    		var err = xhr.responseText
+	    		console.log(err);
+	    	}).always(function(){
+	    		
+	    		$("#divLoaderPage").removeClass("loader")
+	    		
+	    	})
+	    	
+
+	    	
+	    }
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+
+	    function cargarAntecedentesEdicionFinal(){
+	    	    
+	         fic_id=document.getElementById('fic_id').value;
+	    	 var tiempo = tiempo || 1000;
+	    		
+	    	$.ajax({
+	    		beforeSend:function(){$("#divLoaderPage").addClass("loader")},
+	    		url:"index.php?controller=ffsp_ficha&action=cargarDatosFichaAntecedentes",
+	    		type:"POST",
+	    		dataType:"json",
+	    		data:{fic_id:fic_id}
+	    	}).done(function(datos){
+	    		
+	    		if(!jQuery.isEmptyObject(datos.data)){
+	    			
+	    			var array = datos.data[0];		
+	    			
+	    			var fic_ant_menarquia = ( array.fic_ant_menarquia == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_menarquia").val(fic_ant_menarquia);			
+	    			
+	    			$("#fic_ant_ciclos").val(array.fic_ant_ciclos);
+	    			$("#fic_ant_fecha_ultima_mestruacion").val(array.fic_ant_fecha_ultima_mestruacion);
+	    			
+	    			var fic_ant_gestas = ( array.fic_ant_gestas == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_gestas").val(fic_ant_gestas);			
+	    			
+	    			var fic_ant_partos = ( array.fic_ant_partos == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_partos").val(fic_ant_partos);			
+	    			
+	    			var fic_ant_cesareas = ( array.fic_ant_cesareas == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_cesareas").val(fic_ant_cesareas);			
+	    			
+	    			var fic_ant_abortos = ( array.fic_ant_abortos == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_abortos").val(fic_ant_abortos);			
+	    		
+	    			var fic_ant_hijos_vivos = ( array.fic_ant_hijos_vivos == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_hijos_vivos").val(fic_ant_hijos_vivos);			
+	    			
+	    			var fic_ant_hijos_muertos = ( array.fic_ant_hijos_muertos == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_hijos_muertos").val(fic_ant_hijos_muertos);			
+	    			
+	    			var fic_ant_vida_sexual = ( array.fic_ant_vida_sexual == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_vida_sexual").val(fic_ant_vida_sexual);			
+	    			
+	    			  
+	    			
+	    			var fic_ant_metodo_planificacion_familiar = ( array.fic_ant_metodo_planificacion_familiar == 't' ) ? "TRUE" : "FALSE";
+	    			$("#fic_ant_metodo_planificacion_familiar").val(fic_ant_metodo_planificacion_familiar);			
+	    			
+	    			$("#fic_ant_tipo_metodo_planificacion_familiar").val(array.fic_ant_tipo_metodo_planificacion_familiar);
+	    			
+	    			
+	    		}
+	    		
+	    		
+	    		
+	    	}).fail(function(xhr,status,error){
+	    		
+	    		var err = xhr.responseText
+	    		console.log(err);
+	    	}).always(function(){
+	    		
+	    		$("#divLoaderPage").removeClass("loader")
+	    		
+	    	})
+	    	
+
+	    	
+	    }
+
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	       

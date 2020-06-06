@@ -759,7 +759,7 @@ class ffspEmpleadosController extends ControladorBase{
 	        
 	        if(is_int((int)$resultado[0])){
 	            
-	            echo json_encode(array('valor' => $resultado[0], 'mensaje'=>$mensaje));
+	            echo json_encode(array('valor' => $resultado[0], 'mensaje'=>$mensaje, 'tipo'=>$_tip_id));
 	            return;
 	            
 	            
@@ -878,13 +878,13 @@ class ffspEmpleadosController extends ControladorBase{
 	            $html.= "<table id='tabla_empleados' class='tablesorter table table-striped table-bordered dt-responsive nowrap dataTables-example'>";
 	            $html.= "<thead>";
 	            $html.= "<tr>";
-	            $html.='<th style="text-align: left;  font-size: 15px;">#</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Dni</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Empleado</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Empresa</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Fecha de Ingreso</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Lugar de Trabajo</th>';
-	            $html.='<th style="text-align: left;  font-size: 15px;">Area de Trabajo</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">#</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Dni</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Empleado</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Empresa</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Fecha de Ingreso</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Lugar de Trabajo</th>';
+	            $html.='<th style="text-align: left;  font-size: 12px;">Area de Trabajo</th>';
 	            
 	            
 	            $html.='<th style="text-align: left;  font-size: 12px;"></th>';
@@ -901,13 +901,13 @@ class ffspEmpleadosController extends ControladorBase{
 	            {
 	                $i++;
 	                $html.='<tr>';
-	                $html.='<td style="font-size: 14px;">'.$i.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->empl_dni.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->emp_nombre.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->empl_fecha_ingreso.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->empl_lugar_trabajo.'</td>';
-	                $html.='<td style="font-size: 14px;">'.$res->empl_area_trabajo.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$i.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->empl_dni.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->empl_primer_apellido.' '.$res->empl_segundo_apellido.' '.$res->empl_primer_nombre.' '.$res->empl_segundo_nombre.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->emp_nombre.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->empl_fecha_ingreso.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->empl_lugar_trabajo.'</td>';
+	                $html.='<td style="font-size: 11px;">'.$res->empl_area_trabajo.'</td>';
 	                
 	                /*comentario up */
 	                

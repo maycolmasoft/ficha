@@ -37,6 +37,67 @@ class ffsp_fichaController extends ControladorBase{
 	}
 	
 	
+	public function index2(){
+	    
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    session_start();
+	    
+	    if(empty( $_SESSION)){
+	        
+	        $this->redirect("ffspUsuarios","sesion_caducada");
+	        return;
+	    }
+	    
+	    if(isset($_GET["id"])){
+	        
+	        $_fic_id=$_GET["id"];
+	        $resultEdit="";
+	        
+	        
+	        
+	        $this->view("ffsp_ficha_continuidad",array(
+	            "fic_id"=>$_fic_id, "resultEdit"=>$resultEdit
+	            
+	        ));
+	    }
+	    
+	    
+	}
+	
+	
+	
+	public function index3(){
+	    
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    session_start();
+	    
+	    if(empty( $_SESSION)){
+	        
+	        $this->redirect("ffspUsuarios","sesion_caducada");
+	        return;
+	    }
+	    
+	    if(isset($_GET["id"])){
+	        
+	        $_fic_id=$_GET["id"];
+	        $resultEdit="";
+	        
+	        
+	        
+	        $this->view("ffsp_ficha_reingreso",array(
+	            "fic_id"=>$_fic_id, "resultEdit"=>$resultEdit
+	            
+	        ));
+	    }
+	    
+	    
+	}
+	
+	
+	
+	
 	public function cargarEmpleados(){
 	    
 	    session_start();
@@ -57,6 +118,46 @@ class ffsp_fichaController extends ControladorBase{
 	       
 	}
 	
+	
+	public function cargarDatosFicha(){
+	    
+	    session_start();
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    
+	    if(isset($_POST["fic_id"])){
+	        
+	        $fic_id = (int)$_POST["fic_id"];
+	        
+	        $query = "SELECT a.* FROM ffsp_tbl_ficha a WHERE a.fic_id = $fic_id";
+	        
+	        $resultado  = $empleados->enviaquery($query);
+	        
+	        echo json_encode(array('data'=>$resultado));
+	        
+	    }
+	    
+	}
+	
+	public function cargarDatosFichaAntecedentes(){
+	    
+	    session_start();
+	    $empleados = new ffspEmpleadosModel();
+	    
+	    
+	    if(isset($_POST["fic_id"])){
+	        
+	        $fic_id = (int)$_POST["fic_id"];
+	        
+	        $query = "SELECT a.* FROM ffsp_tbl_ficha_antecedentes a WHERE a.fic_id = $fic_id";
+	        
+	        $resultado  = $empleados->enviaquery($query);
+	        
+	        echo json_encode(array('data'=>$resultado));
+	        
+	    }
+	    
+	}
 	
 	public function cargaExamenes(){
 	    
@@ -637,7 +738,7 @@ class ffsp_fichaController extends ControladorBase{
 	    $_fic_id = (isset($_POST["fic_id"])) ? $_POST["fic_id"] : 0 ;
 	    $_fic_enfermedad_actual = (isset($_POST["fic_enfermedad_actual"])) ? $_POST["fic_enfermedad_actual"] : "";
 	    
-	    $funcion = "ins_ffsp_tbl_ficha_h";
+	    $funcion = "ins_ffsp_tbl_ficha_g";
 	    $respuesta = 0 ;
 	    $mensaje = "";
 	    
