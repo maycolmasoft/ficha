@@ -78,6 +78,7 @@
 					<input type="text" value="" class="form-control" id="buscador" name="buscador" onkeyup="search(1)" placeholder="Buscar.."/>
     			</div>            	
             	<div id="empleados_registrados" ></div>
+            	<div id="load" ></div>
             </div> 	
       	</div>
       </section> 
@@ -163,7 +164,7 @@
 
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.js"></script>
    <script src="view/bootstrap/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-   <script src="view/js/ffspConsultaEmpleados.js?0.3"></script> 
+   <script src="view/js/ffspConsultaEmpleados.js?0.4"></script> 
        
    
   </body>
