@@ -1837,12 +1837,10 @@ class ReporteFichaController extends ControladorBase{
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
-        /*
-         $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         */
         
+        $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
+        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
         
         $columnas = " ffsp_tbl_ficha.fic_id,
                       ffsp_tbl_ficha.fic_antecedentes_personales,
@@ -2907,12 +2905,10 @@ class ReporteFichaController extends ControladorBase{
         $id="ffsp_tbl_ficha.fic_id";
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
-        /*
-         $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-         */
         
+        $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
+        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
         
         $columnas = " ffsp_tbl_ficha.fic_id,
                       ffsp_tbl_ficha.fic_antecedentes_personales,
