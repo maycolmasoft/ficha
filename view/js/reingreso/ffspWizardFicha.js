@@ -59,9 +59,9 @@ $(document).ready(function(){
       if(stepNumber==7){return validaPaso8();}
       if(stepNumber==8){return validaPaso9();}
       if(stepNumber==9){return validaPaso10();}
-      if(stepNumber==10){return validaPaso11();}
-      if(stepNumber==11){return validaPaso12();}
-      if(stepNumber==12){return validaPaso13();}
+      //if(stepNumber==10){return validaPaso11();}
+      //if(stepNumber==11){return validaPaso12();}
+      //if(stepNumber==12){return validaPaso13();}
       //if(stepNumber==13){return validaPaso14();}
       //if(stepNumber==14){return validaPaso15();}
       
@@ -327,387 +327,8 @@ $(document).ready(function(){
 	   
 	
    }
-   
-   
+
    function validaPaso3(){
-	   
-	   
-	   CKEDITOR.instances.fic_antecedentes_personales.updateElement();
-		 
-	   let fic_antecedentes_personales = $("#fic_antecedentes_personales").val();
-	   var _empl_id = document.getElementById('empl_id').value;
-	   var _fic_id = document.getElementById('fic_id').value;
-	   
-	   //validar por sexo (hombre o mujer)
-	   /*var _sex_id = document.getElementById('sex_id').value;
-	   var _fic_ant_menarquia = document.getElementById('fic_ant_menarquia').value;
-	   var _fic_ant_ciclos = document.getElementById('fic_ant_ciclos').value;
-	   var _fic_ant_fecha_ultima_mestruacion = document.getElementById('fic_ant_fecha_ultima_mestruacion').value;
-	   var _fic_ant_gestas = document.getElementById('fic_ant_gestas').value;
-	   var _fic_ant_partos = document.getElementById('fic_ant_partos').value;
-	   var _fic_ant_cesareas = document.getElementById('fic_ant_cesareas').value;
-	   var _fic_ant_abortos = document.getElementById('fic_ant_abortos').value;
-	   
-	   //planificacion familiar
-	   var _fic_ant_hijos_vivos = document.getElementById('fic_ant_hijos_vivos').value;
-	   var _fic_ant_hijos_muertos = document.getElementById('fic_ant_hijos_muertos').value;
-	   var _fic_ant_vida_sexual = document.getElementById('fic_ant_vida_sexual').value;
-	   var _fic_ant_metodo_planificacion_familiar = document.getElementById('fic_ant_metodo_planificacion_familiar').value;
-	   var _fic_ant_tipo_metodo_planificacion_familiar = document.getElementById('fic_ant_tipo_metodo_planificacion_familiar').value;
-	   
-	    */
-	   var tiempo = tiempo || 1000;
-	   
-	   if(_fic_id == '' || _fic_id == 0){
-		   $("#mensaje_primer_nombre").notify("Error no hay ficha",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-		}
-		if(_empl_id == '' || _empl_id == 0){
-			   $("#mensaje_primer_nombre").notify("Error no hay empleado",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		}
-		
-	   if(fic_antecedentes_personales == '' || fic_antecedentes_personales.length == 0){
-		
-		   $("html, body").animate({ scrollTop: $("#fic_antecedentes_personales").offset().top-120 }, tiempo);			
-		   $("#fic_antecedentes_personales").notify("Ingrese Antecedentes Clínicos y Quirúrgicos",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	   }
-	   
-	   /*
-	   //valido solo si son mujeres
-	   if(_sex_id==2){
-		   
-		   if(_fic_ant_menarquia == '' || _fic_ant_menarquia == 0){
-			   $("html, body").animate({ scrollTop: $("#fic_ant_menarquia").offset().top-120 }, tiempo);			
-			   $("#mensaje_fic_ant_menarquia").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		    }   
-		   
-		   
-		   if(_fic_ant_ciclos == '' || _fic_ant_ciclos.length == 0){
-				
-			   $("html, body").animate({ scrollTop: $("#fic_ant_ciclos").offset().top-120 }, tiempo);			
-			   $("#fic_ant_ciclos").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		   }
-		   
-		   if(_fic_ant_fecha_ultima_mestruacion == ''){
-				
-			   $("html, body").animate({ scrollTop: $("#fic_ant_fecha_ultima_mestruacion").offset().top-120 }, tiempo);			
-			   $("#fic_ant_fecha_ultima_mestruacion").notify("seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		   }
-		   
-		   if(_fic_ant_gestas == '' || _fic_ant_gestas == 0){
-			   $("html, body").animate({ scrollTop: $("#fic_ant_gestas").offset().top-120 }, tiempo);			
-			   $("#mensaje_fic_ant_gestas").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		    }   
-		   
-		   if(_fic_ant_partos == '' || _fic_ant_partos == 0){
-			   $("html, body").animate({ scrollTop: $("#fic_ant_partos").offset().top-120 }, tiempo);			
-			   $("#mensaje_fic_ant_partos").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		    } 
-		   
-		   if(_fic_ant_cesareas == '' || _fic_ant_cesareas == 0){
-			   $("html, body").animate({ scrollTop: $("#fic_ant_cesareas").offset().top-120 }, tiempo);			
-			   $("#mensaje_fic_ant_cesareas").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		    } 
-		   
-		   if(_fic_ant_abortos == '' || _fic_ant_abortos == 0){
-			   $("html, body").animate({ scrollTop: $("#fic_ant_abortos").offset().top-120 }, tiempo);			
-			   $("#mensaje_fic_ant_abortos").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-				return false;
-		    } 
-		   
-	   }
-	   
-	   
-	   
-	   //valido planificacion familiar
-	   if(_fic_ant_hijos_vivos == '' || _fic_ant_hijos_vivos == 0){
-		   $("html, body").animate({ scrollTop: $("#fic_ant_hijos_vivos").offset().top-120 }, tiempo);			
-		   $("#mensaje_fic_ant_hijos_vivos").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	    }
-	   
-	   if(_fic_ant_hijos_muertos == '' || _fic_ant_hijos_muertos == 0){
-		   $("html, body").animate({ scrollTop: $("#fic_ant_hijos_muertos").offset().top-120 }, tiempo);			
-		   $("#mensaje_fic_ant_hijos_muertos").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	    }
-	   
-	   if(_fic_ant_vida_sexual == '' || _fic_ant_vida_sexual == 0){
-		   $("html, body").animate({ scrollTop: $("#fic_ant_vida_sexual").offset().top-120 }, tiempo);			
-		   $("#mensaje_fic_ant_vida_sexual").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	    }
-	   
-	   if(_fic_ant_metodo_planificacion_familiar == '' || _fic_ant_metodo_planificacion_familiar == 0){
-		   $("html, body").animate({ scrollTop: $("#fic_ant_metodo_planificacion_familiar").offset().top-120 }, tiempo);			
-		   $("#mensaje_fic_ant_metodo_planificacion_familiar").notify("Seleccione",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	    }
-	   
-	   if(_fic_ant_tipo_metodo_planificacion_familiar == '' || _fic_ant_tipo_metodo_planificacion_familiar.length == 0){
-		   $("html, body").animate({ scrollTop: $("#fic_ant_tipo_metodo_planificacion_familiar").offset().top-120 }, tiempo);			
-		   $("#mensaje_fic_ant_tipo_metodo_planificacion_familiar").notify("Ingrese",{ position:"buttom left", autoHideDelay: 2000});
-			return false;
-	    }
-	   
-	   
-	   //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   if($("#tabla_antecedentes_detalle").length) {
-		}else{
-			 $("html, body").animate({ scrollTop: $("#ante_id").offset().top-120 }, tiempo);			
-			   $("#ante_id").notify("Ingrese Exámenes Realizados",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   */
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_habitos_toxicos").length) {
-		}else{
-			   $("html, body").animate({ scrollTop: $("#hab_id").offset().top-120 }, tiempo);			
-				  $("#hab_id").notify("Ingrese Hábitos Tóxicos",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_estilo_vida").length) {
-		   
-		}else{
-			$("html, body").animate({ scrollTop: $("#est_vid_id").offset().top-120 }, tiempo);			
-			   $("#est_vid_id").notify("Ingrese Estilo de Vida",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	   
-	   
-	   
-	 	$("#aplicar").attr({disabled:true});
-		
-	 	
-	 	//actualizo antecedentes
-	 	var parametros = {fic_antecedentes_personales:fic_antecedentes_personales,
-		          empl_id:_empl_id,
-		          fic_id:_fic_id
-		         }
- 
-		$.ajax({
-			beforeSend:function(){},
-			url:"index.php?controller=ffsp_ficha&action=InsertaAntecedentes_C",
-			type:"POST",
-			dataType:"json",
-			data:parametros
-		}).done(function(datos){
-			
-			if(datos.respuesta > 0){
-				
-				swal({
-			  		  title: "Actualizando Antecedentes Personales",
-			  		  text: datos.mensaje,
-			  		  icon: "success",
-			  		  button: "Aceptar",
-			  		
-			  		});
-				
-				return true;	
-				
-			}
-			 
-		
-		
-		}).fail(function(xhr,status,error){
-			
-			var err = xhr.responseText
-			console.log(err);
-			
-		})
-	 	/*
-	 	
-	 	//inserto antecedentes planificacion familiar
-	 	var parametros1 = {
-		          empl_id:_empl_id,
-		          fic_id:_fic_id,
-		          sex_id:_sex_id,
-		          fic_ant_menarquia:_fic_ant_menarquia,
-		          fic_ant_ciclos:_fic_ant_ciclos,
-		          fic_ant_fecha_ultima_mestruacion:_fic_ant_fecha_ultima_mestruacion,
-		          fic_ant_gestas:_fic_ant_gestas,
-		          fic_ant_partos:_fic_ant_partos,
-		          fic_ant_cesareas:_fic_ant_cesareas,
-		          fic_ant_abortos:_fic_ant_abortos,
-		          fic_ant_hijos_vivos:_fic_ant_hijos_vivos,
-		          fic_ant_hijos_muertos:_fic_ant_hijos_muertos,
-		          fic_ant_vida_sexual:_fic_ant_vida_sexual,
-		          fic_ant_metodo_planificacion_familiar:_fic_ant_metodo_planificacion_familiar,
-		          fic_ant_tipo_metodo_planificacion_familiar:_fic_ant_tipo_metodo_planificacion_familiar
-		          
-		         }
-	 	
-	 	//console.log( parametros1 ); return false;
-	 	
-			 	$.ajax({
-					beforeSend:function(){},
-					url:"index.php?controller=ffsp_ficha&action=InsertaAntecedentes_Plani",
-					type:"POST",
-					dataType:"json",
-					data:parametros1
-				}).done(function(datos1){
-					
-					if(datos1.respuesta > 0){
-						
-						swal({
-					  		  title: "Actualizando Antecedentes Personales",
-					  		  text: datos1.mensaje,
-					  		  icon: "success",
-					  		  button: "Aceptar",
-					  		
-					  		});
-						
-						return true;	
-						
-					}
-				}).fail(function(xhr,status,error){
-					
-					var err = xhr.responseText
-					console.log(err);
-					
-				})
-	 	*/
-   }
-	
-   
-   
-   
-   function validaPaso4(){
-   
-	   var tiempo = tiempo || 1000;
-	   
-	   //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	  /* if($("#tabla_empleo_anterior").length) {
-		}else{
-			 $("html, body").animate({ scrollTop: $("#fic_emp_ant_empresa").offset().top-120 }, tiempo);			
-			   $("#fic_emp_ant_empresa").notify("Ingrese Empleos Anteriores",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}*/
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_accidentes_trabajo").length) {
-		}else{
-			   $("html, body").animate({ scrollTop: $("#fic_acc_tra_fue_calificado").offset().top-120 }, tiempo);			
-				  $("#fic_acc_tra_fue_calificado").notify("Ingrese Accidentes de Trabajo",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_enfermedad_profesional").length) {
-		   
-		}else{
-			$("html, body").animate({ scrollTop: $("#fic_enf_pro_fue_calificado").offset().top-120 }, tiempo);			
-			   $("#fic_enf_pro_fue_calificado").notify("Ingrese Enfermedades Profesionales",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 	$("#aplicar").attr({disabled:true});
-	 	
-	 	
-	 	swal({
-	  		  title: "Actualizando Antecedentes de Trabajo",
-	  		  text: "Actualizado Correctamente",
-	  		  icon: "success",
-	  		  button: "Aceptar",
-	  		});
-	 	
-	 	
-	 	return true;	
-		
-   
-   }
-   
-   
-   
-
-   function validaPaso5(){
-   
-	   var tiempo = tiempo || 1000;
-
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_antecedentes_familiares").length) {
-		   
-		}else{
-			$("html, body").animate({ scrollTop: $("#ant_id").offset().top-120 }, tiempo);			
-			   $("#ant_id").notify("Ingrese Antecedentes Familiares",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 	$("#aplicar").attr({disabled:true});
-	 	
-	 	
-	 	swal({
-	  		  title: "Actualizando Antecedentes Familiares",
-	  		  text: "Actualizado Correctamente",
-	  		  icon: "success",
-	  		  button: "Aceptar",
-	  		});
-	 	
-	 	
-	 	return true;	
-		
-   
-   }
-   
-   
-
-   function validaPaso6(){
-   
-	   var tiempo = tiempo || 1000;
-
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_factor_riesgo").length) {
-		   
-		}else{
-			$("html, body").animate({ scrollTop: $("#fic_fact_ries_puesto_trabajo").offset().top-120 }, tiempo);			
-			   $("#fic_fact_ries_puesto_trabajo").notify("Ingrese Factores Riesgo",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 	$("#aplicar").attr({disabled:true});
-	 	
-	 	
-	 	swal({
-	  		  title: "Actualizando Factores Riesgo",
-	  		  text: "Actualizado Correctamente",
-	  		  icon: "success",
-	  		  button: "Aceptar",
-	  		});
-	 	
-	 	
-	 	return true;	
-		
-   
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-
-   function validaPaso7(){
 	   
 	   var tiempo = tiempo || 1000;
 	   
@@ -769,44 +390,8 @@ $(document).ready(function(){
 	   
    }
    
-   
-   
 
-   function validaPaso8(){
-   
-	   var tiempo = tiempo || 1000;
-
-	   
-	 //VALIDO QUE HAYA UN REGISTRO EN ANTECEDENTES DETALLE
-	   
-	   if($("#tabla_revision_organos_actual").length) {
-		   
-		}else{
-			$("html, body").animate({ scrollTop: $("#org_id").offset().top-120 }, tiempo);			
-			   $("#org_id").notify("Ingrese Revisión Organos",{ position:"buttom left", autoHideDelay: 2000});
-				return false; 
-		}
-	   
-	 	$("#aplicar").attr({disabled:true});
-	 	
-	 	
-	 	swal({
-	  		  title: "Actualizando Revisión Actual de Organos",
-	  		  text: "Actualizado Correctamente",
-	  		  icon: "success",
-	  		  button: "Aceptar",
-	  		});
-	 	
-	 	
-	 	return true;	
-		
-   
-   }
-   
-   
-   
-
-   function validaPaso9(){
+   function validaPaso4(){
    
 	   var tiempo = tiempo || 1000;
 
@@ -838,7 +423,7 @@ $(document).ready(function(){
    }
    
    
-   function validaPaso10(){
+   function validaPaso5(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -870,7 +455,7 @@ $(document).ready(function(){
    }
    
    
- function validaPaso11(){
+ function validaPaso6(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -902,7 +487,7 @@ $(document).ready(function(){
    }
 
  
- function validaPaso12(){
+ function validaPaso7(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -934,7 +519,7 @@ $(document).ready(function(){
    }
    
  
- function validaPaso13(){
+ function validaPaso8(){
 	   
 	   var tiempo = tiempo || 1000;
 
@@ -1023,7 +608,7 @@ $(document).ready(function(){
    			
    			let loteUrl = datos.respuesta;
    			let lote_sex = datos.sexo;
-   			let urlReporte = "index.php?controller=ReporteFicha&action=ReporteContinuidad&fic_id="+loteUrl+"&sex_id="+lote_sex;
+   			let urlReporte = "index.php?controller=ReporteFicha&action=ReporteReintegro&fic_id="+loteUrl+"&sex_id="+lote_sex;
    			window.open(urlReporte,"_blank");    			
    			$('#smartwizard').smartWizard("reset");
    			window.location.href= 'index.php?controller=ffspEmpleados&action=index2';
