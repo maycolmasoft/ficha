@@ -93,14 +93,14 @@
                 <li><a href="#step-4">D. Antecedentes de Trabajo<br /><small></small></a></li> 
                 <li><a href="#step-5">E. Antecedentes Familiares<br /><small></small></a></li> 
             	<li><a href="#step-6">F. Factores de Riesgo<br /><small></small></a></li>
-             	<li><a href="#step-7">H. Enfermedad Actual<br /><small></small></a></li>  
-               	<li><a href="#step-8">I. Revisión Organos<br /><small></small></a></li>
-                <li><a href="#step-9">J. Constantes Vitales<br /><small></small></a></li>  
-                <li><a href="#step-10">K. Examen Fisico Regional<br /><small></small></a></li>  
-                <li><a href="#step-11">L. Resultado de Examenes<br /><small></small></a></li>
-                <li><a href="#step-12">M. Diagnostico<br /><small></small></a></li>  
-           		<li><a href="#step-13">N. Aptitud Médica<br /><small></small></a></li>  
-           		<li><a href="#step-14">O. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
+             	<li><a href="#step-7">G. Enfermedad Actual<br /><small></small></a></li>  
+               	<li><a href="#step-8">H. Revisión Organos<br /><small></small></a></li>
+                <li><a href="#step-9">I. Constantes Vitales<br /><small></small></a></li>  
+                <li><a href="#step-10">J. Examen Fisico Regional<br /><small></small></a></li>  
+                <li><a href="#step-11">K. Resultado de Examenes<br /><small></small></a></li>
+                <li><a href="#step-12">L. Diagnostico<br /><small></small></a></li>  
+           		<li><a href="#step-13">M. Aptitud Médica<br /><small></small></a></li>  
+           		<li><a href="#step-14">N. Recomendaciones y/o Tratamiento<br /><small></small></a></li>  
 
            
            

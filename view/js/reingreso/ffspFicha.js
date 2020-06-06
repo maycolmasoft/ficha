@@ -14,13 +14,8 @@ $(document).ready(function(){
 	cargarAntecedentesEdicionFinal();
 	CKEDITOR.replace('fic_motivo_consulta');
 	CKEDITOR.instances.fic_motivo_consulta.setData(""); 
-	CKEDITOR.replace('fic_antecedentes_personales');
-	CKEDITOR.instances.fic_antecedentes_personales.setData(""); 
-	/*CKEDITOR.replace('fic_actividades_extra_laborales');
-	CKEDITOR.instances.fic_actividades_extra_laborales.setData(""); */
 	CKEDITOR.replace('fic_enfermedad_actual');
 	CKEDITOR.instances.fic_enfermedad_actual.setData(""); 
-	
 	CKEDITOR.replace('fic_recomendacion_tratamiento');
 	CKEDITOR.instances.fic_recomendacion_tratamiento.setData(""); 
 	
@@ -605,8 +600,6 @@ function cargaSexo(){
 	    			var array = datos.data[0];		
 	    			
 	    			CKEDITOR.instances.fic_motivo_consulta.setData(array.fic_motivo_consulta);
-	    			CKEDITOR.instances.fic_antecedentes_personales.setData(array.fic_antecedentes_personales);
-	    			//CKEDITOR.instances.fic_actividades_extra_laborales.setData(array.fic_actividades_extra_laborales);
 	    			CKEDITOR.instances.fic_enfermedad_actual.setData(array.fic_enfermedad_actual);
 	    			CKEDITOR.instances.fic_recomendacion_tratamiento.setData(array.fic_recomendacion_tratamiento);
 	    			
