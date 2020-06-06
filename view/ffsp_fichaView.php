@@ -744,8 +744,7 @@
                		</div>
                		</form>
                		
-               	   <form id="frm_ficha_estilo_vida">
-                <div class="box box-primary">
+                 <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Estilo Vida</h3>
                           <div class="box-tools pull-right"> </div>
@@ -830,8 +829,7 @@
                			  
                			</div>
                		</div>
-               		</form>	
-               		
+                		
                		<!-- TERMINA AQUI STEVEN -->	
                		
                		
