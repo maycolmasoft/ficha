@@ -81,35 +81,84 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+        $tiendis=$rsdatos[0]->dis_tiene;
         
+        if($tiendis=="t")
        
+        {
+            $tiendis="SI";
+            
+        }
+        else{
+            
+            $tiendis="NO";
+            
+        }
+            
+        
+        if(!empty($rsdatos)){
+      
+            $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
+            $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
+            $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
+            $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
+            $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
+            $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
+            $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
+            $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
+            $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
+            $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
+            $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
+            $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
+            $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
+            $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
+            $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
+            $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
+            $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
+            $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+            $datos_reporte['TIENE_DISCAPACIDAD']=$tiendis;
+            
+            
+        }else{
+            
+            
+            
+            $datos_reporte['FECHA_ACTUAL']="";
+            $datos_reporte['NOMBRE_EMPRESA']="";
+            $datos_reporte['RUC_EMPRESA']="";
+            $datos_reporte['CIUDAD_EMPRESA']="";
+            $datos_reporte['PRI_APE_EMPLEADO']="";
+            $datos_reporte['SEG_APE_EMPLEADO']="";
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEXO_EMPLEADO']="";
+            $datos_reporte['EDAD_EMPLEADO']="";
+            $datos_reporte['RELIGION_EMPLEADO']="";
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']="";
+            $datos_reporte['ORIENTACION_SEXUAL']="";
+            $datos_reporte['IDENTIDAD_GENERO']="";
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']="";
+            $datos_reporte['FECHA_INGRESO']="";
+            $datos_reporte['PUESTO_TRABAJO']="";
+            $datos_reporte['AREA_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_EXTRA']="";
+            $datos_reporte['EMFERMEDAD_ACTUAL']="";
+            $datos_reporte['MOTIVO_CONSULTA']="";
+            $datos_reporte['NOMBRE_DISCAPACIDAD']="";
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']="";
+            $datos_reporte['TIENE_DISCAPACIDAD']="";
+            
+            
+        }
         
         
-        $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
-        $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
-        $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
-        $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
-        $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
-        $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
-        $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
-        $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
-        $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
-        $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
-        $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
-        $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
-        $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
-        $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
-        $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
-        $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
-        $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
-        $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
-        $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
-        $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
-        $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
-        $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta; 
-        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
-        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
-        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
         
         
        
@@ -234,13 +283,24 @@ class ReporteFichaController extends ControladorBase{
                 $html.='<td class="3">'.$res->fic_emp_ant_empresa.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_puesto_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_actividades_desempenia.'</td>';
-                $html.='<td class="3">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
+                $html.='<td class="7">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fac_nombre.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_observaciones.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
        
@@ -297,13 +357,55 @@ class ReporteFichaController extends ControladorBase{
             {
                 
                 $html.='<tr >';
-                $html.='<td class="3">'.$res->fic_ant_menarquia.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_ciclos.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_gestas.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_partos.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_cesareas.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_abortos.'</td>';
+                
+                if($res->fic_ant_menarquia==t){
+                    
+                    $html.='<td class="7">Si</td>';
+                    
+                }else{
+                    $html.='<td class="7">No</td>';
+                }
+                
+                if($res->fic_ant_gestas==t){
+                    
+                    $res->fic_ant_gestas="Si";
+                    
+                }else{
+                    $res->fic_ant_gestas="No";
+                }
+                
+                if($res->fic_ant_partos==t){
+                    
+                    $res->fic_ant_partos="Si";
+                    
+                }else{
+                    $res->fic_ant_partos="No";
+                }
+                
+                if($res->fic_ant_cesareas==t){
+                    
+                    $res->fic_ant_cesareas="Si";
+                    
+                }else{
+                    $res->fic_ant_cesareas="No";
+                }
+                
+                if($res->fic_ant_abortos==t){
+                    
+                    $res->fic_ant_abortos="Si";
+                    
+                }else{
+                    $res->fic_ant_abortos="No";
+                }
+                
+               
+               
+                $html.='<td class="7">'.$res->fic_ant_ciclos.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_gestas.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_partos.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_cesareas.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_abortos.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
@@ -314,6 +416,9 @@ class ReporteFichaController extends ControladorBase{
             
             $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html;
             
+        }else{
+            $html1="";
+            $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html1;
         }
         
         
@@ -355,17 +460,25 @@ class ReporteFichaController extends ControladorBase{
         if(!empty($rsdatos_antecedentes_familiares)){
             
             
-        foreach ($rsdatos_antecedentes_familiares as $res)
-        {
+            foreach ($rsdatos_antecedentes_familiares as $res)
+            {
+                
+                $html.='<tr >';
+                $html.='<td class="5">'.$res->ant_numero.'</td>';
+                $html.='<td class="3" width="150px">'.$res->ant_nombre.'</td>';
+                $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
+                $html.='</td>';
+                $html.='</tr>';
+            }
+        
+        }else{
             
             $html.='<tr >';
-            $html.='<td class="5">'.$res->ant_numero.'</td>';
-            $html.='<td class="3" width="150px">'.$res->ant_nombre.'</td>';
-            $html.='<td class="3">'.$res->fic_ant_fam_descripcion.'</td>';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
             $html.='</td>';
             $html.='</tr>';
-        }
-        
         }
         
         $html.='</table>';
@@ -413,18 +526,37 @@ class ReporteFichaController extends ControladorBase{
         
         if(!empty($rsdatos_estilo_vida)){
         
-        foreach ($rsdatos_estilo_vida as $res)
-        {
+            foreach ($rsdatos_estilo_vida as $res)
+            {
+                if($res->fic_est_vid_practica=="t"){
+                    
+                    $res->fic_est_vid_practica="Si";
+                }else{
+                    
+                    
+                    $res->fic_est_vid_practica="No";
+                }
+                
+                
+                $html.='<tr >';
+                $html.='<td class="3">'.$res->est_vid_nombre.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_practica.'</td>';
+                $html.='<td class="3">'.$res->fic_est_vid_cual.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
+                $html.='</td>';
+                $html.='</tr>';
+            }
+        
+        }else{
+            
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->est_vid_nombre.'</td>';
-            $html.='<td class="3">'.$res->fic_est_vid_practica.'</td>';
-            $html.='<td class="3">'.$res->fic_est_vid_cual.'</td>';
-            $html.='<td class="3">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
             $html.='</td>';
             $html.='</tr>';
-        }
-        
         }
         
         $html.='</table>';
@@ -467,19 +599,38 @@ class ReporteFichaController extends ControladorBase{
         
         if(!empty($rsdatos_emfermedades_profesionales)){
         
-        foreach ($rsdatos_emfermedades_profesionales as $res)
-        {
+            foreach ($rsdatos_emfermedades_profesionales as $res)
+            {
+                
+                
+                if($res->fic_enf_pro_fue_calificado=="t"){
+                    
+                    $res->fic_enf_pro_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_enf_pro_fue_calificado="No";
+                    
+                }
+                
+                $html.='<tr >';
+                $html.='<td class="7">'.$res->fic_enf_pro_fue_calificado.'</td>';
+                $html.='<td class="3">'.$res->fic_enf_pro_especificar.'</td>';
+                $html.='<td class="3">'.$res->fic_enf_pro_fecha.'</td>';
+                $html.='<td class="3">'.$res->fic_enf_pro_observaciones.'</td>';
+                $html.='</td>';
+                $html.='</tr>';
+            }
+            
+        }else{
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->fic_enf_pro_fue_calificado.'</td>';
-            $html.='<td class="3">'.$res->fic_enf_pro_especificar.'</td>';
-            $html.='<td class="3">'.$res->fic_enf_pro_fecha.'</td>';
-            $html.='<td class="3">'.$res->fic_enf_pro_observaciones.'</td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
             $html.='</td>';
             $html.='</tr>';
-        }
-        
-        
         }
         
         $html.='</table>';
@@ -525,19 +676,40 @@ class ReporteFichaController extends ControladorBase{
         
         if(!empty($rsdatos_accidentes_trabajo)){
         
-        foreach ($rsdatos_accidentes_trabajo as $res)
-        {
+            foreach ($rsdatos_accidentes_trabajo as $res)
+            {
+                
+                if($res->fic_acc_tra_fue_calificado=="t"){
+                    
+                    $res->fic_acc_tra_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_acc_tra_fue_calificado="No";
+                    
+                }
+                
+                
+                $html.='<tr >';
+                $html.='<td class="7">'.$res->fic_acc_tra_fue_calificado.'</td>';
+                $html.='<td class="3">'.$res->fic_acc_tra_especificar.'</td>';
+                $html.='<td class="3">'.$res->fic_acc_tra_fecha.'</td>';
+                $html.='<td class="3">'.$res->fic_acc_tra_observaciones.'</td>';
+                $html.='</td>';
+                $html.='</tr>';
+            }
+            
+        }else{
             
             $html.='<tr >';
-            $html.='<td class="3">'.$res->fic_acc_tra_fue_calificado.'</td>';
-            $html.='<td class="3">'.$res->fic_acc_tra_especificar.'</td>';
-            $html.='<td class="3">'.$res->fic_acc_tra_fecha.'</td>';
-            $html.='<td class="3">'.$res->fic_acc_tra_observaciones.'</td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
             $html.='</td>';
             $html.='</tr>';
         }
         
-        }
         
         $html.='</table>';
         
@@ -587,17 +759,25 @@ class ReporteFichaController extends ControladorBase{
         if(!empty($rsdatos_revision_organos)){
         
         
-        foreach ($rsdatos_revision_organos as $res)
-        {
+            foreach ($rsdatos_revision_organos as $res)
+            {
+                
+                $html.='<tr >';
+                $html.='<td class="5">'.$res->org_numero.'</td>';
+                $html.='<td class="3" width="150px">'.$res->org_nombre.'</td>';
+                $html.='<td class="3">'.$res->fic_rev_org_descripcion.'</td>';
+                $html.='</td>';
+                $html.='</tr>';
+            }
+        
+        }else{
             
             $html.='<tr >';
-            $html.='<td class="5">'.$res->org_numero.'</td>';
-            $html.='<td class="3" width="150px">'.$res->org_nombre.'</td>';
-            $html.='<td class="3">'.$res->fic_rev_org_descripcion.'</td>';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
             $html.='</td>';
             $html.='</tr>';
-        }
-        
         }
         
         $html.='</table>';
@@ -625,6 +805,8 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_constantes = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+        if(!empty($rsdatos_constantes)){
+        
         $datos_reporte['PRSION_VITAL_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_presion_arterial;
         $datos_reporte['TEMPERATURA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_temperatura;
         $datos_reporte['FRECUENCIA_CARDIACA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_cardiaca;
@@ -634,7 +816,21 @@ class ReporteFichaController extends ControladorBase{
         $datos_reporte['TALLA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_talla;
         $datos_reporte['MASA_CORPORAL']=$rsdatos_constantes[0]->fic_cons_vit_indice_masa_corporal;
         $datos_reporte['PERIMETRO_ABDOMINAL']=$rsdatos_constantes[0]->fic_cons_vit_perimetro_abdominal;
-       
+        }
+        else{
+            
+            $datos_reporte['PRSION_VITAL_CONSTANTE']="";
+            $datos_reporte['TEMPERATURA_CONSTANTE']="";
+            $datos_reporte['FRECUENCIA_CARDIACA']="";
+            $datos_reporte['SATURACION_OXIGENO']="";
+            $datos_reporte['FRECUENCIA_RESPIRATORIA']="";
+            $datos_reporte['PESO_CONSTANTE']="";
+            $datos_reporte['TALLA_CONSTANTE']="";
+            $datos_reporte['MASA_CORPORAL']="";
+            $datos_reporte['PERIMETRO_ABDOMINAL']="";
+            
+            
+        }
         
         
         ///EXAMEN_FISICO_REGIONAL
@@ -688,7 +884,16 @@ class ReporteFichaController extends ControladorBase{
         }
         
         }
-        
+        else{
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -737,6 +942,15 @@ class ReporteFichaController extends ControladorBase{
             $html.='</tr>';
         }
         
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
         }
         
         $html.='</table>';
@@ -789,6 +1003,19 @@ class ReporteFichaController extends ControladorBase{
         }
         }
         
+       
+            
+            
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DIAGNOSTICO']= $html;
@@ -812,11 +1039,23 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-        $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
-        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
-       
         
+        if(!empty($rsdatos_aptitud_medica)){
+            $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
+            $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+            $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+            
+            
+        }else{
+            
+            $datos_reporte['NOMBRE_APTITUD']="";
+            $datos_reporte['OBSERVACION_APTITUD']="";
+            $datos_reporte['LIMITACION_APTITUD']="";
+            
+            
+        }
+        
+       
         
         $columnas = " ffsp_tbl_ficha.fic_id,
                       ffsp_tbl_ficha.fic_antecedentes_personales,
@@ -834,20 +1073,28 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_usuarios = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+        if(!empty($rsdatos_usuarios)) {
+            $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
+            $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
+            
+            
+        }else{
+            
+            $hora = "";
+            $datos_reporte['NOMBRE_USUARIO']="";
+            $datos_reporte['FECHA_REGISTRO']="";
+            $datos_reporte['CODIGO_REGISTRO']="";
+            $datos_reporte['HORA_REGISTRO']="";
+            $datos_reporte['TRATAMIENTO']="";
+            $datos_reporte['ANTECEDENTES_CLINICOS']="";
+            
+        }
         
-        
-        $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
-      
-       
-        
-        
-       
-        $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-        $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-        $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
-        $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
       
         ///FACTORES DE RIESGO
         
@@ -904,6 +1151,19 @@ class ReporteFichaController extends ControladorBase{
         }
         }
         
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['FACTORES_DE_RIESGO']= $html;
@@ -956,15 +1216,29 @@ class ReporteFichaController extends ControladorBase{
             
             $html.='<tr >';
             $html.='<td class="3">'.$res->hab_nombre.'</td>';
-            $html.='<td class="3">'.$res->fic_hab_tox_consume.'</td>';
-            $html.='<td class="3">'.$res->fic_hab_tox_tiempo.'</td>';
-            $html.='<td class="3">'.$res->fic_hab_tox_cantidad.'</td>';
+            $html.='<td class="7">'.$res->fic_hab_tox_consume.'</td>';
+            $html.='<td class="7">'.$res->fic_hab_tox_tiempo.'</td>';
+            $html.='<td class="7">'.$res->fic_hab_tox_cantidad.'</td>';
             $html.='<td class="3">'.$res->fic_hab_tox_ex_consumidor.'</td>';
-            $html.='<td class="3">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
+            $html.='<td class="7">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
             $html.='</tr>';
         }
         
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
+            
+        }
+        
         
         $html.='</table>';
         
@@ -1023,6 +1297,19 @@ class ReporteFichaController extends ControladorBase{
         
         
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -1072,12 +1359,33 @@ class ReporteFichaController extends ControladorBase{
         {
             if($res->fic_ant_metodo_planificacion_familiar=="t"){
                 
-                $res->fic_ant_metodo_planificacion_familiar="SI";
+                $res->fic_ant_metodo_planificacion_familiar="Si";
             }
             
             else{
                 
-                $res->fic_ant_metodo_planificacion_familiar="NO";
+                $res->fic_ant_metodo_planificacion_familiar="No";
+            }
+            
+            
+            if($res->fic_ant_hijos_vivos=="t"){
+                
+                $res->fic_ant_hijos_vivos="Si";
+            }
+            
+            else{
+                
+                $res->fic_ant_hijos_vivos="No";
+            }
+            
+            if($res->fic_ant_hijos_muertos=="t"){
+                
+                $res->fic_ant_hijos_muertos="Si";
+            }
+            
+            else{
+                
+                $res->fic_ant_hijos_muertos="No";
             }
             
             
@@ -1090,6 +1398,19 @@ class ReporteFichaController extends ControladorBase{
             $html.='</tr>';
         }
         
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            
+            $html.='</tr>';
+            
+            
         }
         
         $html.='</table>';
@@ -1141,12 +1462,23 @@ class ReporteFichaController extends ControladorBase{
             
             $html.='<tr >';
             $html.='<td class="3">'.$res->ante_nombre.'</td>';
-            $html.='<td class="3">'.$res->fic_ant_det_realizado.'</td>';
-            $html.='<td class="3">'.$res->fic_ant_det_tiempo.'</td>';
+            $html.='<td class="7">'.$res->fic_ant_det_realizado.'</td>';
+            $html.='<td class="7">'.$res->fic_ant_det_tiempo.'</td>';
             $html.='<td class="3">'.$res->fic_ant_det_resultado.'</td>';
             $html.='</tr>';
         }
         
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
+            
         }
         
         $html.='</table>';
@@ -1236,48 +1568,85 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-       
-        if($rsdatos[0]->dis_tiene=="t"){
-            
-            $rsdatos[0]->dis_tiene=="SI";
-        }
+        $tiendis=$rsdatos[0]->dis_tiene;
         
-        else
+        if($tiendis=="t")
         
         {
+            $tiendis="SI";
             
-            $rsdatos[0]->dis_tiene=="NO";
+        }
+        else{
+            
+            $tiendis="NO";
+            
+        }
+        
+        
+        if(!empty($rsdatos)){
+            
+            $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
+            $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
+            $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
+            $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
+            $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
+            $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
+            $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
+            $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
+            $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
+            $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
+            $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
+            $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
+            $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
+            $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
+            $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
+            $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
+            $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
+            $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+            $datos_reporte['TIENE_DISCAPACIDAD']=$tiendis;
+            
+            
+        }else{
+            
+            
+            
+            $datos_reporte['FECHA_ACTUAL']="";
+            $datos_reporte['NOMBRE_EMPRESA']="";
+            $datos_reporte['RUC_EMPRESA']="";
+            $datos_reporte['CIUDAD_EMPRESA']="";
+            $datos_reporte['PRI_APE_EMPLEADO']="";
+            $datos_reporte['SEG_APE_EMPLEADO']="";
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEXO_EMPLEADO']="";
+            $datos_reporte['EDAD_EMPLEADO']="";
+            $datos_reporte['RELIGION_EMPLEADO']="";
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']="";
+            $datos_reporte['ORIENTACION_SEXUAL']="";
+            $datos_reporte['IDENTIDAD_GENERO']="";
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']="";
+            $datos_reporte['FECHA_INGRESO']="";
+            $datos_reporte['PUESTO_TRABAJO']="";
+            $datos_reporte['AREA_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_EXTRA']="";
+            $datos_reporte['EMFERMEDAD_ACTUAL']="";
+            $datos_reporte['MOTIVO_CONSULTA']="";
+            $datos_reporte['NOMBRE_DISCAPACIDAD']="";
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']="";
+            $datos_reporte['TIENE_DISCAPACIDAD']="";
+            
             
         }
         
         
         
-        
-        $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
-        $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
-        $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
-        $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
-        $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
-        $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
-        $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
-        $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
-        $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
-        $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
-        $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
-        $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
-        $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
-        $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
-        $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
-        $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
-        $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
-        $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
-        $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
-        $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
-        $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
-        $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
-        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
-        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
-        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
         
         
         
@@ -1401,13 +1770,24 @@ class ReporteFichaController extends ControladorBase{
                 $html.='<td class="3">'.$res->fic_emp_ant_empresa.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_puesto_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_actividades_desempenia.'</td>';
-                $html.='<td class="3">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
+                $html.='<td class="7">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fac_nombre.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_observaciones.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         
@@ -1464,13 +1844,55 @@ class ReporteFichaController extends ControladorBase{
                 {
                     
                     $html.='<tr >';
-                    $html.='<td class="3">'.$res->fic_ant_menarquia.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_ciclos.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_gestas.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_partos.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_cesareas.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_abortos.'</td>';
+                    
+                    if($res->fic_ant_menarquia==t){
+                        
+                        $html.='<td class="7">Si</td>';
+                        
+                    }else{
+                        $html.='<td class="7">No</td>';
+                    }
+                    
+                    if($res->fic_ant_gestas==t){
+                        
+                        $res->fic_ant_gestas="Si";
+                        
+                    }else{
+                        $res->fic_ant_gestas="No";
+                    }
+                    
+                    if($res->fic_ant_partos==t){
+                        
+                        $res->fic_ant_partos="Si";
+                        
+                    }else{
+                        $res->fic_ant_partos="No";
+                    }
+                    
+                    if($res->fic_ant_cesareas==t){
+                        
+                        $res->fic_ant_cesareas="Si";
+                        
+                    }else{
+                        $res->fic_ant_cesareas="No";
+                    }
+                    
+                    if($res->fic_ant_abortos==t){
+                        
+                        $res->fic_ant_abortos="Si";
+                        
+                    }else{
+                        $res->fic_ant_abortos="No";
+                    }
+                    
+                    
+                    
+                    $html.='<td class="7">'.$res->fic_ant_ciclos.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_gestas.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_partos.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_cesareas.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_abortos.'</td>';
                     $html.='</td>';
                     $html.='</tr>';
                 }
@@ -1481,6 +1903,9 @@ class ReporteFichaController extends ControladorBase{
             
             $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html;
             
+        }else{
+            $html1="";
+            $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html1;
         }
         
         
@@ -1533,6 +1958,14 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -1582,16 +2015,35 @@ class ReporteFichaController extends ControladorBase{
             
             foreach ($rsdatos_estilo_vida as $res)
             {
+                if($res->fic_est_vid_practica=="t"){
+                    
+                    $res->fic_est_vid_practica="Si";
+                }else{
+                    
+                    
+                    $res->fic_est_vid_practica="No";
+                }
+                
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->est_vid_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_est_vid_practica.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_practica.'</td>';
                 $html.='<td class="3">'.$res->fic_est_vid_cual.'</td>';
-                $html.='<td class="3">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
             
+        }else{
+            
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -1637,8 +2089,19 @@ class ReporteFichaController extends ControladorBase{
             foreach ($rsdatos_emfermedades_profesionales as $res)
             {
                 
+                
+                if($res->fic_enf_pro_fue_calificado=="t"){
+                    
+                    $res->fic_enf_pro_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_enf_pro_fue_calificado="No";
+                    
+                }
+                
                 $html.='<tr >';
-                $html.='<td class="3">'.$res->fic_enf_pro_fue_calificado.'</td>';
+                $html.='<td class="7">'.$res->fic_enf_pro_fue_calificado.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_especificar.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_fecha.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_observaciones.'</td>';
@@ -1646,7 +2109,15 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
             
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -1695,8 +2166,19 @@ class ReporteFichaController extends ControladorBase{
             foreach ($rsdatos_accidentes_trabajo as $res)
             {
                 
+                if($res->fic_acc_tra_fue_calificado=="t"){
+                    
+                    $res->fic_acc_tra_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_acc_tra_fue_calificado="No";
+                    
+                }
+                
+                
                 $html.='<tr >';
-                $html.='<td class="3">'.$res->fic_acc_tra_fue_calificado.'</td>';
+                $html.='<td class="7">'.$res->fic_acc_tra_fue_calificado.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_especificar.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_fecha.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_observaciones.'</td>';
@@ -1704,7 +2186,17 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
+        
         
         $html.='</table>';
         
@@ -1765,6 +2257,14 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -1792,16 +2292,32 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_constantes = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-        $datos_reporte['PRSION_VITAL_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_presion_arterial;
-        $datos_reporte['TEMPERATURA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_temperatura;
-        $datos_reporte['FRECUENCIA_CARDIACA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_cardiaca;
-        $datos_reporte['SATURACION_OXIGENO']=$rsdatos_constantes[0]->fic_cons_vit_saturacion_oxigeno;
-        $datos_reporte['FRECUENCIA_RESPIRATORIA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_respiratoria;
-        $datos_reporte['PESO_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_peso;
-        $datos_reporte['TALLA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_talla;
-        $datos_reporte['MASA_CORPORAL']=$rsdatos_constantes[0]->fic_cons_vit_indice_masa_corporal;
-        $datos_reporte['PERIMETRO_ABDOMINAL']=$rsdatos_constantes[0]->fic_cons_vit_perimetro_abdominal;
-        
+        if(!empty($rsdatos_constantes)){
+            
+            $datos_reporte['PRSION_VITAL_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_presion_arterial;
+            $datos_reporte['TEMPERATURA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_temperatura;
+            $datos_reporte['FRECUENCIA_CARDIACA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_cardiaca;
+            $datos_reporte['SATURACION_OXIGENO']=$rsdatos_constantes[0]->fic_cons_vit_saturacion_oxigeno;
+            $datos_reporte['FRECUENCIA_RESPIRATORIA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_respiratoria;
+            $datos_reporte['PESO_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_peso;
+            $datos_reporte['TALLA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_talla;
+            $datos_reporte['MASA_CORPORAL']=$rsdatos_constantes[0]->fic_cons_vit_indice_masa_corporal;
+            $datos_reporte['PERIMETRO_ABDOMINAL']=$rsdatos_constantes[0]->fic_cons_vit_perimetro_abdominal;
+        }
+        else{
+            
+            $datos_reporte['PRSION_VITAL_CONSTANTE']="";
+            $datos_reporte['TEMPERATURA_CONSTANTE']="";
+            $datos_reporte['FRECUENCIA_CARDIACA']="";
+            $datos_reporte['SATURACION_OXIGENO']="";
+            $datos_reporte['FRECUENCIA_RESPIRATORIA']="";
+            $datos_reporte['PESO_CONSTANTE']="";
+            $datos_reporte['TALLA_CONSTANTE']="";
+            $datos_reporte['MASA_CORPORAL']="";
+            $datos_reporte['PERIMETRO_ABDOMINAL']="";
+            
+            
+        }
         
         
         ///EXAMEN_FISICO_REGIONAL
@@ -1855,7 +2371,16 @@ class ReporteFichaController extends ControladorBase{
             }
             
         }
-        
+        else{
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -1903,6 +2428,15 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</td>';
                 $html.='</tr>';
             }
+            
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
             
         }
         
@@ -1956,6 +2490,19 @@ class ReporteFichaController extends ControladorBase{
             }
         }
         
+        
+        
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DIAGNOSTICO']= $html;
@@ -1979,9 +2526,21 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-        $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
-        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+        
+        if(!empty($rsdatos_aptitud_medica)){
+            $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
+            $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+            $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+            
+            
+        }else{
+            
+            $datos_reporte['NOMBRE_APTITUD']="";
+            $datos_reporte['OBSERVACION_APTITUD']="";
+            $datos_reporte['LIMITACION_APTITUD']="";
+            
+            
+        }
         
         
         
@@ -2001,20 +2560,28 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_usuarios = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+        if(!empty($rsdatos_usuarios)) {
+            $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
+            $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
+            
+            
+        }else{
+            
+            $hora = "";
+            $datos_reporte['NOMBRE_USUARIO']="";
+            $datos_reporte['FECHA_REGISTRO']="";
+            $datos_reporte['CODIGO_REGISTRO']="";
+            $datos_reporte['HORA_REGISTRO']="";
+            $datos_reporte['TRATAMIENTO']="";
+            $datos_reporte['ANTECEDENTES_CLINICOS']="";
+            
+        }
         
-        
-        $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
-        
-        
-        
-        
-        
-        $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-        $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-        $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
-        $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
         
         ///FACTORES DE RIESGO
         
@@ -2071,6 +2638,19 @@ class ReporteFichaController extends ControladorBase{
             }
         }
         
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['FACTORES_DE_RIESGO']= $html;
@@ -2123,15 +2703,29 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->hab_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_consume.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_tiempo.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_cantidad.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_consume.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_tiempo.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_cantidad.'</td>';
                 $html.='<td class="3">'.$res->fic_hab_tox_ex_consumidor.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
                 $html.='</tr>';
             }
             
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
+            
+        }
+        
         
         $html.='</table>';
         
@@ -2190,6 +2784,19 @@ class ReporteFichaController extends ControladorBase{
             
             
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -2239,12 +2846,33 @@ class ReporteFichaController extends ControladorBase{
             {
                 if($res->fic_ant_metodo_planificacion_familiar=="t"){
                     
-                    $res->fic_ant_metodo_planificacion_familiar="SI";
+                    $res->fic_ant_metodo_planificacion_familiar="Si";
                 }
                 
                 else{
                     
-                    $res->fic_ant_metodo_planificacion_familiar="NO";
+                    $res->fic_ant_metodo_planificacion_familiar="No";
+                }
+                
+                
+                if($res->fic_ant_hijos_vivos=="t"){
+                    
+                    $res->fic_ant_hijos_vivos="Si";
+                }
+                
+                else{
+                    
+                    $res->fic_ant_hijos_vivos="No";
+                }
+                
+                if($res->fic_ant_hijos_muertos=="t"){
+                    
+                    $res->fic_ant_hijos_muertos="Si";
+                }
+                
+                else{
+                    
+                    $res->fic_ant_hijos_muertos="No";
                 }
                 
                 
@@ -2256,6 +2884,19 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='</tr>';
             }
+            
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            
+            $html.='</tr>';
+            
             
         }
         
@@ -2308,11 +2949,22 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->ante_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_det_realizado.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_det_tiempo.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_det_realizado.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_det_tiempo.'</td>';
                 $html.='<td class="3">'.$res->fic_ant_det_resultado.'</td>';
                 $html.='</tr>';
             }
+            
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
             
         }
         
@@ -2402,46 +3054,87 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-    
-        if($rsdatos[0]->dis_tiene=="t"){
-            
-           $rsdatos[0]->dis_tiene=="SI";
-        }
+        $tiendis=$rsdatos[0]->dis_tiene;
         
-        else
+        if($tiendis=="t")
         
         {
+            $tiendis="SI";
             
-            $rsdatos[0]->dis_tiene=="NO";
+        }
+        else{
+            
+            $tiendis="NO";
             
         }
         
-        $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
-        $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
-        $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
-        $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
-        $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
-        $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
-        $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
-        $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
-        $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
-        $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
-        $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
-        $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
-        $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
-        $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
-        $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
-        $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
-        $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
-        $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
-        $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
-        $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
-        $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
-        $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
-        $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
-        $datos_reporte['TIENE_DISCAPACIDAD']=$rsdatos[0]->dis_tiene;
         
-
+        if(!empty($rsdatos)){
+            
+            $datos_reporte['FECHA_ACTUAL']=date('d-m-Y');
+            $datos_reporte['NOMBRE_EMPRESA']=$rsdatos[0]->emp_nombre;
+            $datos_reporte['RUC_EMPRESA']=$rsdatos[0]->emp_ruc;
+            $datos_reporte['CIUDAD_EMPRESA']=$rsdatos[0]->emp_ciudad;
+            $datos_reporte['PRI_APE_EMPLEADO']=$rsdatos[0]->empl_primer_apellido;
+            $datos_reporte['SEG_APE_EMPLEADO']=$rsdatos[0]->empl_segundo_apellido;
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_primer_nombre;
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']=$rsdatos[0]->empl_segundo_nombre;
+            $datos_reporte['SEXO_EMPLEADO']=$rsdatos[0]->sex_nombre;
+            $datos_reporte['EDAD_EMPLEADO']=$rsdatos[0]->empl_edad;
+            $datos_reporte['RELIGION_EMPLEADO']=$rsdatos[0]->rel_nombre;
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']=$rsdatos[0]->empl_grupo_sanguineo;
+            $datos_reporte['ORIENTACION_SEXUAL']=$rsdatos[0]->ori_nombre;
+            $datos_reporte['IDENTIDAD_GENERO']=$rsdatos[0]->ide_nombre;
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['FECHA_INGRESO']=$rsdatos[0]->empl_fecha_ingreso;
+            $datos_reporte['PUESTO_TRABAJO']=$rsdatos[0]->empl_lugar_trabajo;
+            $datos_reporte['AREA_TRABAJO']=$rsdatos[0]->empl_area_trabajo;
+            $datos_reporte['ACTIVIDADES_TRABAJO']=$rsdatos[0]->empl_actividades_trabajo;
+            $datos_reporte['ACTIVIDADES_EXTRA']=$rsdatos[0]->fic_actividades_extra_laborales;
+            $datos_reporte['EMFERMEDAD_ACTUAL']=$rsdatos[0]->fic_enfermedad_actual;
+            $datos_reporte['MOTIVO_CONSULTA']=$rsdatos[0]->fic_motivo_consulta;
+            $datos_reporte['NOMBRE_DISCAPACIDAD']=$rsdatos[0]->dis_nombre;
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']=$rsdatos[0]->dis_porcentaje;
+            $datos_reporte['TIENE_DISCAPACIDAD']=$tiendis;
+            
+            
+        }else{
+            
+            
+            
+            $datos_reporte['FECHA_ACTUAL']="";
+            $datos_reporte['NOMBRE_EMPRESA']="";
+            $datos_reporte['RUC_EMPRESA']="";
+            $datos_reporte['CIUDAD_EMPRESA']="";
+            $datos_reporte['PRI_APE_EMPLEADO']="";
+            $datos_reporte['SEG_APE_EMPLEADO']="";
+            $datos_reporte['PRI_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEG_NOMBRE_EMPLEADO']="";
+            $datos_reporte['SEXO_EMPLEADO']="";
+            $datos_reporte['EDAD_EMPLEADO']="";
+            $datos_reporte['RELIGION_EMPLEADO']="";
+            $datos_reporte['GRUPO_SANGUINEO_EMPLEADO']="";
+            $datos_reporte['ORIENTACION_SEXUAL']="";
+            $datos_reporte['IDENTIDAD_GENERO']="";
+            $datos_reporte['DISCAPACIDAD_EMPLEADO']="";
+            $datos_reporte['FECHA_INGRESO']="";
+            $datos_reporte['PUESTO_TRABAJO']="";
+            $datos_reporte['AREA_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_TRABAJO']="";
+            $datos_reporte['ACTIVIDADES_EXTRA']="";
+            $datos_reporte['EMFERMEDAD_ACTUAL']="";
+            $datos_reporte['MOTIVO_CONSULTA']="";
+            $datos_reporte['NOMBRE_DISCAPACIDAD']="";
+            $datos_reporte['PORCENTAJE_DISCAPACIDAD']="";
+            $datos_reporte['TIENE_DISCAPACIDAD']="";
+            
+            
+        }
+        
+        
+        
+        
+        
         
         
         /*
@@ -2563,13 +3256,24 @@ class ReporteFichaController extends ControladorBase{
                 $html.='<td class="3">'.$res->fic_emp_ant_empresa.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_puesto_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_actividades_desempenia.'</td>';
-                $html.='<td class="3">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
+                $html.='<td class="7">'.$res->fic_emp_ant_tiempo_trabajo.'</td>';
                 $html.='<td class="3">'.$res->fac_nombre.'</td>';
                 $html.='<td class="3">'.$res->fic_emp_ant_observaciones.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         
@@ -2626,13 +3330,55 @@ class ReporteFichaController extends ControladorBase{
                 {
                     
                     $html.='<tr >';
-                    $html.='<td class="3">'.$res->fic_ant_menarquia.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_ciclos.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_gestas.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_partos.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_cesareas.'</td>';
-                    $html.='<td class="3">'.$res->fic_ant_abortos.'</td>';
+                    
+                    if($res->fic_ant_menarquia==t){
+                        
+                        $html.='<td class="7">Si</td>';
+                        
+                    }else{
+                        $html.='<td class="7">No</td>';
+                    }
+                    
+                    if($res->fic_ant_gestas==t){
+                        
+                        $res->fic_ant_gestas="Si";
+                        
+                    }else{
+                        $res->fic_ant_gestas="No";
+                    }
+                    
+                    if($res->fic_ant_partos==t){
+                        
+                        $res->fic_ant_partos="Si";
+                        
+                    }else{
+                        $res->fic_ant_partos="No";
+                    }
+                    
+                    if($res->fic_ant_cesareas==t){
+                        
+                        $res->fic_ant_cesareas="Si";
+                        
+                    }else{
+                        $res->fic_ant_cesareas="No";
+                    }
+                    
+                    if($res->fic_ant_abortos==t){
+                        
+                        $res->fic_ant_abortos="Si";
+                        
+                    }else{
+                        $res->fic_ant_abortos="No";
+                    }
+                    
+                    
+                    
+                    $html.='<td class="7">'.$res->fic_ant_ciclos.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_fecha_ultima_mestruacion.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_gestas.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_partos.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_cesareas.'</td>';
+                    $html.='<td class="7">'.$res->fic_ant_abortos.'</td>';
                     $html.='</td>';
                     $html.='</tr>';
                 }
@@ -2643,6 +3389,9 @@ class ReporteFichaController extends ControladorBase{
             
             $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html;
             
+        }else{
+            $html1="";
+            $datos_reporte['DETALLE_ANTECEDENTES_GINECO']= $html1;
         }
         
         
@@ -2695,6 +3444,14 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -2744,16 +3501,35 @@ class ReporteFichaController extends ControladorBase{
             
             foreach ($rsdatos_estilo_vida as $res)
             {
+                if($res->fic_est_vid_practica=="t"){
+                    
+                    $res->fic_est_vid_practica="Si";
+                }else{
+                    
+                    
+                    $res->fic_est_vid_practica="No";
+                }
+                
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->est_vid_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_est_vid_practica.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_practica.'</td>';
                 $html.='<td class="3">'.$res->fic_est_vid_cual.'</td>';
-                $html.='<td class="3">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
+                $html.='<td class="7">'.$res->fic_est_vid_tiempo_cantidad.'</td>';
                 $html.='</td>';
                 $html.='</tr>';
             }
             
+        }else{
+            
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -2799,8 +3575,19 @@ class ReporteFichaController extends ControladorBase{
             foreach ($rsdatos_emfermedades_profesionales as $res)
             {
                 
+                
+                if($res->fic_enf_pro_fue_calificado=="t"){
+                    
+                    $res->fic_enf_pro_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_enf_pro_fue_calificado="No";
+                    
+                }
+                
                 $html.='<tr >';
-                $html.='<td class="3">'.$res->fic_enf_pro_fue_calificado.'</td>';
+                $html.='<td class="7">'.$res->fic_enf_pro_fue_calificado.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_especificar.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_fecha.'</td>';
                 $html.='<td class="3">'.$res->fic_enf_pro_observaciones.'</td>';
@@ -2808,7 +3595,15 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
             
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -2857,8 +3652,19 @@ class ReporteFichaController extends ControladorBase{
             foreach ($rsdatos_accidentes_trabajo as $res)
             {
                 
+                if($res->fic_acc_tra_fue_calificado=="t"){
+                    
+                    $res->fic_acc_tra_fue_calificado="Si";
+                    
+                }else{
+                    
+                    $res->fic_acc_tra_fue_calificado="No";
+                    
+                }
+                
+                
                 $html.='<tr >';
-                $html.='<td class="3">'.$res->fic_acc_tra_fue_calificado.'</td>';
+                $html.='<td class="7">'.$res->fic_acc_tra_fue_calificado.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_especificar.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_fecha.'</td>';
                 $html.='<td class="3">'.$res->fic_acc_tra_observaciones.'</td>';
@@ -2866,7 +3672,17 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
+        
         
         $html.='</table>';
         
@@ -2927,6 +3743,14 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</tr>';
             }
             
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="5"></td>';
+            $html.='<td class="3" width="150px"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
         }
         
         $html.='</table>';
@@ -2954,16 +3778,32 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_constantes = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-        $datos_reporte['PRSION_VITAL_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_presion_arterial;
-        $datos_reporte['TEMPERATURA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_temperatura;
-        $datos_reporte['FRECUENCIA_CARDIACA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_cardiaca;
-        $datos_reporte['SATURACION_OXIGENO']=$rsdatos_constantes[0]->fic_cons_vit_saturacion_oxigeno;
-        $datos_reporte['FRECUENCIA_RESPIRATORIA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_respiratoria;
-        $datos_reporte['PESO_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_peso;
-        $datos_reporte['TALLA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_talla;
-        $datos_reporte['MASA_CORPORAL']=$rsdatos_constantes[0]->fic_cons_vit_indice_masa_corporal;
-        $datos_reporte['PERIMETRO_ABDOMINAL']=$rsdatos_constantes[0]->fic_cons_vit_perimetro_abdominal;
-        
+        if(!empty($rsdatos_constantes)){
+            
+            $datos_reporte['PRSION_VITAL_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_presion_arterial;
+            $datos_reporte['TEMPERATURA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_temperatura;
+            $datos_reporte['FRECUENCIA_CARDIACA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_cardiaca;
+            $datos_reporte['SATURACION_OXIGENO']=$rsdatos_constantes[0]->fic_cons_vit_saturacion_oxigeno;
+            $datos_reporte['FRECUENCIA_RESPIRATORIA']=$rsdatos_constantes[0]->fic_cons_vit_frecuencia_respiratoria;
+            $datos_reporte['PESO_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_peso;
+            $datos_reporte['TALLA_CONSTANTE']=$rsdatos_constantes[0]->fic_cons_vit_talla;
+            $datos_reporte['MASA_CORPORAL']=$rsdatos_constantes[0]->fic_cons_vit_indice_masa_corporal;
+            $datos_reporte['PERIMETRO_ABDOMINAL']=$rsdatos_constantes[0]->fic_cons_vit_perimetro_abdominal;
+        }
+        else{
+            
+            $datos_reporte['PRSION_VITAL_CONSTANTE']="";
+            $datos_reporte['TEMPERATURA_CONSTANTE']="";
+            $datos_reporte['FRECUENCIA_CARDIACA']="";
+            $datos_reporte['SATURACION_OXIGENO']="";
+            $datos_reporte['FRECUENCIA_RESPIRATORIA']="";
+            $datos_reporte['PESO_CONSTANTE']="";
+            $datos_reporte['TALLA_CONSTANTE']="";
+            $datos_reporte['MASA_CORPORAL']="";
+            $datos_reporte['PERIMETRO_ABDOMINAL']="";
+            
+            
+        }
         
         
         ///EXAMEN_FISICO_REGIONAL
@@ -3017,7 +3857,16 @@ class ReporteFichaController extends ControladorBase{
             }
             
         }
-        
+        else{
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -3065,6 +3914,15 @@ class ReporteFichaController extends ControladorBase{
                 $html.='</td>';
                 $html.='</tr>';
             }
+            
+        }else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
             
         }
         
@@ -3118,6 +3976,19 @@ class ReporteFichaController extends ControladorBase{
             }
         }
         
+        
+        
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DIAGNOSTICO']= $html;
@@ -3141,9 +4012,21 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_aptitud_medica = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
-        $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
-        $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
-        $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+        
+        if(!empty($rsdatos_aptitud_medica)){
+            $datos_reporte['NOMBRE_APTITUD']=$rsdatos_aptitud_medica[0]->apt_med_nombre;
+            $datos_reporte['OBSERVACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_observacion;
+            $datos_reporte['LIMITACION_APTITUD']=$rsdatos_aptitud_medica[0]->fic_apt_med_limitacion;
+            
+            
+        }else{
+            
+            $datos_reporte['NOMBRE_APTITUD']="";
+            $datos_reporte['OBSERVACION_APTITUD']="";
+            $datos_reporte['LIMITACION_APTITUD']="";
+            
+            
+        }
         
         
         
@@ -3163,20 +4046,28 @@ class ReporteFichaController extends ControladorBase{
         
         $rsdatos_usuarios = $ficha->getCondiciones($columnas, $tablas, $where, $id);
         
+        if(!empty($rsdatos_usuarios)) {
+            $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
+            $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
+            
+            
+        }else{
+            
+            $hora = "";
+            $datos_reporte['NOMBRE_USUARIO']="";
+            $datos_reporte['FECHA_REGISTRO']="";
+            $datos_reporte['CODIGO_REGISTRO']="";
+            $datos_reporte['HORA_REGISTRO']="";
+            $datos_reporte['TRATAMIENTO']="";
+            $datos_reporte['ANTECEDENTES_CLINICOS']="";
+            
+        }
         
-        
-        $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
-        
-        
-        
-        
-        
-        $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-        $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-        $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
-        $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
-        $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
         
         ///FACTORES DE RIESGO
         
@@ -3233,6 +4124,19 @@ class ReporteFichaController extends ControladorBase{
             }
         }
         
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['FACTORES_DE_RIESGO']= $html;
@@ -3285,15 +4189,29 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->hab_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_consume.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_tiempo.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_cantidad.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_consume.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_tiempo.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_cantidad.'</td>';
                 $html.='<td class="3">'.$res->fic_hab_tox_ex_consumidor.'</td>';
-                $html.='<td class="3">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
+                $html.='<td class="7">'.$res->fic_hab_tox_tiempo_abstinencia.'</td>';
                 $html.='</tr>';
             }
             
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
+            
+        }
+        
         
         $html.='</table>';
         
@@ -3352,6 +4270,19 @@ class ReporteFichaController extends ControladorBase{
             
             
         }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</td>';
+            $html.='</tr>';
+            
+            
+        }
+        
         $html.='</table>';
         
         $datos_reporte['DETALLE_EXAMEN_FISICO_REGIONAL']= $html;
@@ -3401,12 +4332,33 @@ class ReporteFichaController extends ControladorBase{
             {
                 if($res->fic_ant_metodo_planificacion_familiar=="t"){
                     
-                    $res->fic_ant_metodo_planificacion_familiar="SI";
+                    $res->fic_ant_metodo_planificacion_familiar="Si";
                 }
                 
                 else{
                     
-                    $res->fic_ant_metodo_planificacion_familiar="NO";
+                    $res->fic_ant_metodo_planificacion_familiar="No";
+                }
+                
+                
+                if($res->fic_ant_hijos_vivos=="t"){
+                    
+                    $res->fic_ant_hijos_vivos="Si";
+                }
+                
+                else{
+                    
+                    $res->fic_ant_hijos_vivos="No";
+                }
+                
+                if($res->fic_ant_hijos_muertos=="t"){
+                    
+                    $res->fic_ant_hijos_muertos="Si";
+                }
+                
+                else{
+                    
+                    $res->fic_ant_hijos_muertos="No";
                 }
                 
                 
@@ -3418,6 +4370,19 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='</tr>';
             }
+            
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            $html.='<td class="3" align="center"></td>';
+            
+            $html.='</tr>';
+            
             
         }
         
@@ -3470,11 +4435,22 @@ class ReporteFichaController extends ControladorBase{
                 
                 $html.='<tr >';
                 $html.='<td class="3">'.$res->ante_nombre.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_det_realizado.'</td>';
-                $html.='<td class="3">'.$res->fic_ant_det_tiempo.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_det_realizado.'</td>';
+                $html.='<td class="7">'.$res->fic_ant_det_tiempo.'</td>';
                 $html.='<td class="3">'.$res->fic_ant_det_resultado.'</td>';
                 $html.='</tr>';
             }
+            
+        }
+        
+        else{
+            
+            $html.='<tr >';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='<td class="3"></td>';
+            $html.='</tr>';
             
         }
         
