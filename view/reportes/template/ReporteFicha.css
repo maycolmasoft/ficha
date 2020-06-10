@@ -32,6 +32,7 @@ table.3 {
 td.1{
 	   text-align:left;
 	   background-color: #5FEB8D;
+
 	}
 	
 td.2{
@@ -62,5 +63,11 @@ td.6{
 	   text-align:center;
 	   background-color: #8FFEF9;
 	   width: 75px;
+	   
+	}
+	
+	td.7{
+	   text-align:center;
+	  
 	   
 	}
