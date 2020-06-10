@@ -89,6 +89,8 @@ $controladores=$_SESSION['controladores'];
           </a>
           <ul class="treeview-menu">
             <li style="<?php echo getcontrolador("ffspSesiones",$controladores) ?>"><a href="index.php?controller=ffspSesiones&action=index"><i class="fa fa-circle-o"></i> Sesiones</a></li>
+            <li style="<?php echo getcontrolador("ffspReporteEmpleados",$controladores) ?>"><a href="index.php?controller=ffspReporteEmpleados&action=index2"><i class="fa fa-circle-o"></i> Empleados</a></li>
+    
           </ul>
         </li>
       </ul>
