@@ -1063,8 +1063,8 @@ class ReporteFichaController extends ControladorBase{
                       usuarios.id_usuarios, 
                       usuarios.nombre_usuarios, 
                       usuarios.cedula_usuarios, 
-                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE)";
-        
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE) as fecha,
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as Time) as hora";
         $tablas = "  public.ffsp_tbl_ficha, 
                      public.usuarios";
         $where= "    ffsp_tbl_ficha.usu_id = usuarios.id_usuarios
@@ -1076,9 +1076,9 @@ class ReporteFichaController extends ControladorBase{
         if(!empty($rsdatos_usuarios)) {
             $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
             $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fecha;
             $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->hora;
             $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
             $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
             
@@ -2550,8 +2550,9 @@ class ReporteFichaController extends ControladorBase{
                       usuarios.id_usuarios,
                       usuarios.nombre_usuarios,
                       usuarios.cedula_usuarios,
-                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE)";
-        
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE) as fecha,
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as Time) as hora";
+         
         $tablas = "  public.ffsp_tbl_ficha,
                      public.usuarios";
         $where= "    ffsp_tbl_ficha.usu_id = usuarios.id_usuarios
@@ -2563,9 +2564,9 @@ class ReporteFichaController extends ControladorBase{
         if(!empty($rsdatos_usuarios)) {
             $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
             $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fecha;
             $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->hora;
             $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
             $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
             
@@ -4036,7 +4037,8 @@ class ReporteFichaController extends ControladorBase{
                       usuarios.id_usuarios,
                       usuarios.nombre_usuarios,
                       usuarios.cedula_usuarios,
-                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE)";
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as DATE) as fecha,
+                      CAST(ffsp_tbl_ficha.fic_fecha_registro as Time) as hora";
         
         $tablas = "  public.ffsp_tbl_ficha,
                      public.usuarios";
@@ -4049,9 +4051,9 @@ class ReporteFichaController extends ControladorBase{
         if(!empty($rsdatos_usuarios)) {
             $hora = $rsdatos_usuarios[0]->fic_fecha_registro;
             $datos_reporte['NOMBRE_USUARIO']=$rsdatos_usuarios[0]->nombre_usuarios;
-            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['FECHA_REGISTRO']=$rsdatos_usuarios[0]->fecha;
             $datos_reporte['CODIGO_REGISTRO']=$rsdatos_usuarios[0]->fic_id;
-            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->fic_fecha_registro;
+            $datos_reporte['HORA_REGISTRO']=$rsdatos_usuarios[0]->hora;
             $datos_reporte['TRATAMIENTO']=$rsdatos_usuarios[0]->fic_recomendacion_tratamiento;
             $datos_reporte['ANTECEDENTES_CLINICOS']=$rsdatos_usuarios[0]->fic_antecedentes_personales;
             
